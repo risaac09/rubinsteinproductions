@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Say Why — Brand & Pitch Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --marrow: #1a1412;
+      --blood: #8b2e1c;
+      --amber: #c8923a;
+      --bone: #f2ece4;
+      --ash: #a89e93;
+      --white: #faf8f5;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-weight: 300;
+      color: var(--marrow);
+      background: var(--marrow);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .serif { font-family: 'EB Garamond', Georgia, serif; font-weight: 400; }
+
+    .small-caps {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    /* ——— SLIDE SYSTEM ——— */
+    .slide {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-inner {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .slide-number {
+      position: absolute;
+      bottom: 2rem;
+      right: 3rem;
+      font-family: 'EB Garamond', serif;
+      font-size: 0.85rem;
+      color: var(--ash);
+      opacity: 0.5;
+    }
+
+    /* ——— SLIDE THEMES ——— */
+    .slide--dark {
+      background: var(--marrow);
+      color: var(--bone);
+    }
+
+    .slide--light {
+      background: var(--white);
+      color: var(--marrow);
+    }
+
+    .slide--bone {
+      background: var(--bone);
+      color: var(--marrow);
+    }
+
+    .slide--blood {
+      background: var(--blood);
+      color: var(--bone);
+    }
+
+    .slide--amber {
+      background: linear-gradient(135deg, var(--marrow) 0%, #2a1e18 100%);
+      color: var(--bone);
+    }
+
+    /* ——— SLIDE 1: TITLE ——— */
+    .title-slide .tagline {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      line-height: 0.95;
+      color: var(--bone);
+      margin-bottom: 2.5rem;
+    }
+
+    .title-slide .tagline em {
+      color: var(--amber);
+      font-style: italic;
+    }
+
+    .title-slide .subtitle {
+      font-size: 1rem;
+      color: var(--ash);
+      max-width: 440px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    .title-slide .brand-mark {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ash);
+      opacity: 0.7;
+    }
+
+    /* ——— SLIDE 2: PROBLEM ——— */
+    .problem-slide h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 2.5rem;
+    }
+
+    .problem-slide .highlight { color: var(--amber); }
+
+    .problem-slide p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ash);
+      max-width: 620px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ——— SLIDE 3: EVOLUTION ——— */
+    .evolution-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .evolution-card {
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .evolution-card .phrase {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.4rem;
+      font-style: italic;
+      margin-bottom: 1.2rem;
+    }
+
+    .evolution-card .desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--ash);
+    }
+
+    .evolution-arrow {
+      font-family: 'EB Garamond', serif;
+      font-size: 2rem;
+      color: var(--amber);
+    }
+
+    .evolution-card--old { opacity: 0.5; }
+    .evolution-card--old .phrase { text-decoration: line-through; text-decoration-color: var(--ash); }
+    .evolution-card--new .phrase { color: var(--amber); }
+
+    /* ——— SLIDE 4: BRAND IDENTITY ——— */
+    .brand-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(168,158,147,0.2);
+      margin-top: 2.5rem;
+    }
+
+    .brand-cell {
+      padding: 2.5rem 2rem;
+      background: var(--white);
+    }
+
+    .brand-cell .label {
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-bottom: 1rem;
+    }
+
+    .brand-cell .value {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.3rem;
+      line-height: 1.5;
+    }
+
+    .brand-cell .note {
+      font-size: 0.8rem;
+      color: var(--ash);
+      margin-top: 0.6rem;
+      line-height: 1.6;
+    }
+
+    /* ——— SLIDE 5: COLOR PALETTE ——— */
+    .palette-row {
+      display: flex;
+      gap: 1px;
+      margin-top: 3rem;
+    }
+
+    .palette-swatch {
+      flex: 1;
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 1.5rem 1rem;
+    }
+
+    .palette-swatch .name {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .palette-swatch .hex {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      opacity: 0.6;
+    }
+
+    /* ——— SLIDE 6: TYPOGRAPHY ——— */
+    .type-specimen {
+      margin-top: 3rem;
+    }
+
+    .type-row {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(168,158,147,0.2);
+    }
+
+    .type-row .sample {
+      margin-bottom: 0.8rem;
+    }
+
+    .type-row .meta {
+      font-size: 0.7rem;
+      color: var(--ash);
+      letter-spacing: 0.05em;
+    }
+
+    .type-row--serif .sample {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.8rem;
+      line-height: 1.1;
+    }
+
+    .type-row--sans .sample {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .type-row--body .sample {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    /* ——— SLIDE 7: VOICE PRINCIPLES ——— */
+    .voice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .voice-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      color: var(--bone);
+    }
+
+    .voice-card p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--ash);
+    }
+
+    .voice-card .do-dont {
+      margin-top: 1.2rem;
+      font-size: 0.75rem;
+      line-height: 1.8;
+    }
+
+    .voice-card .do { color: var(--amber); }
+    .voice-card .dont { color: var(--ash); text-decoration: line-through; text-decoration-color: rgba(168,158,147,0.4); }
+
+    /* ——— SLIDE 8: THE BET ——— */
+    .bet-slide blockquote {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      line-height: 1.3;
+      color: var(--bone);
+      max-width: 700px;
+      margin-bottom: 2rem;
+    }
+
+    .bet-slide .attribution {
+      font-size: 0.85rem;
+      color: var(--ash);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ——— SLIDE 9: METHODOLOGY ——— */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(168,158,147,0.15);
+      margin-top: 3rem;
+    }
+
+    .method-card {
+      background: var(--white);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .method-card .num {
+      font-family: 'EB Garamond', serif;
+      font-size: 2.4rem;
+      color: var(--blood);
+      margin-bottom: 0.5rem;
+    }
+
+    .method-card .name {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--marrow);
+      margin-bottom: 1rem;
+    }
+
+    .method-card p {
+      font-size: 0.82rem;
+      color: var(--ash);
+      line-height: 1.6;
+    }
+
+    /* ——— SLIDE 10: TIERS ——— */
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(168,158,147,0.15);
+      margin-top: 3rem;
+    }
+
+    .tier-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+    }
+
+    .tier-card .tier-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--marrow);
+      margin-bottom: 0.3rem;
+    }
+
+    .tier-card .tier-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.2rem;
+    }
+
+    .tier-card .tier-desc {
+      font-size: 0.85rem;
+      color: var(--ash);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .tier-card ul {
+      list-style: none;
+    }
+
+    .tier-card ul li {
+      font-size: 0.8rem;
+      color: var(--marrow);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .tier-card ul li::before {
+      content: "—";
+      color: var(--blood);
+      margin-right: 0.5rem;
+    }
+
+    /* ——— SLIDE 11: BILINGUAL DASHBOARD ——— */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(168,158,147,0.2);
+      margin-top: 3rem;
+    }
+
+    .dashboard-col {
+      padding: 3rem 2.5rem;
+    }
+
+    .dashboard-col h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .dashboard-col--royal {
+      background: var(--white);
+    }
+
+    .dashboard-col--royal h3 { color: var(--marrow); }
+
+    .dashboard-col--nomadic {
+      background: var(--marrow);
+      color: var(--bone);
+    }
+
+    .dashboard-col--nomadic h3 { color: var(--amber); }
+
+    .metric-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(168,158,147,0.15);
+      font-size: 0.85rem;
+    }
+
+    .dashboard-col--royal .metric-item { color: var(--ash); }
+    .dashboard-col--nomadic .metric-item { color: var(--ash); }
+
+    /* ——— SLIDE 12: WHO ——— */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .persona-card {
+      padding: 2rem 1.5rem;
+      background: rgba(255,255,255,0.06);
+      border-top: 2px solid var(--blood);
+    }
+
+    .persona-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      color: var(--bone);
+    }
+
+    .persona-card p {
+      font-size: 0.82rem;
+      color: var(--ash);
+      line-height: 1.6;
+    }
+
+    /* ——— SLIDE 13: GRANT VISION ——— */
+    .grant-items {
+      margin-top: 3rem;
+    }
+
+    .grant-item {
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(168,158,147,0.15);
+    }
+
+    .grant-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: var(--bone);
+    }
+
+    .grant-item p {
+      font-size: 0.88rem;
+      color: var(--ash);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* ——— SLIDE 14: CLOSE ——— */
+    .close-slide .tagline {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      line-height: 0.95;
+      color: var(--bone);
+      margin-bottom: 2rem;
+    }
+
+    .close-slide .tagline em {
+      color: var(--amber);
+      font-style: italic;
+    }
+
+    .close-slide .contact-info {
+      font-size: 0.85rem;
+      color: var(--ash);
+      line-height: 2;
+    }
+
+    .close-slide .contact-info a {
+      color: var(--amber);
+      text-decoration: none;
+    }
+
+    /* ——— DIVIDER ——— */
+    .slide-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--ash);
+      margin: 2rem 0;
+    }
+
+    /* ——— RESPONSIVE ——— */
+    @media (max-width: 768px) {
+      .evolution-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .brand-grid { grid-template-columns: 1fr; }
+      .voice-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .method-grid { grid-template-columns: 1fr 1fr; }
+      .tier-grid { grid-template-columns: 1fr; }
+      .dashboard-grid { grid-template-columns: 1fr; }
+      .persona-grid { grid-template-columns: 1fr; }
+      .palette-row { flex-wrap: wrap; }
+      .palette-swatch { min-width: 120px; }
+      .slide { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ——— 01: TITLE ——— -->
+  <div class="slide slide--dark title-slide">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: var(--ash); margin-bottom: 3rem;">Rubinstein Productions</p>
+      <h1 class="tagline">Say <em>why.</em></h1>
+      <p class="subtitle">
+        Brand identity and offering overview for a practice-research initiative that funds the conditions under which metabolized experience can happen, be documented, and be shared.
+      </p>
+      <p class="brand-mark">A Rubinstein Productions Sub-Brand &middot; April 2026</p>
+    </div>
+    <span class="slide-number">01</span>
+  </div>
+
+  <!-- ——— 02: THE PROBLEM ——— -->
+  <div class="slide slide--light problem-slide">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: var(--ash); margin-bottom: 1.5rem;">The Problem</p>
+      <h2>We built an information environment with <span class="highlight">no liver.</span></h2>
+      <div class="slide-divider"></div>
+      <p>
+        The body has an organ that decides what to absorb and what to release. Not a filter — a metabolizer. Our digital lives have capture, storage, retrieval, transmission — but no metabolism.
+      </p>
+      <p>
+        In the first full year of widespread generative AI adoption, the cost of producing articulate content dropped to zero. Articulation no longer signals anything. Polish doesn't mean care. Fluency doesn't mean experience.
+      </p>
+      <p style="color: var(--marrow); font-family: 'EB Garamond', serif; font-size: 1.15rem; font-style: italic; margin-top: 2rem;">
+        The metabolic cost of expression — the effort, the fear, the vulnerability — was quietly removed. And that cost was the signal.
+      </p>
+    </div>
+    <span class="slide-number">02</span>
+  </div>
+
+  <!-- ——— 03: THE EVOLUTION ——— -->
+  <div class="slide slide--bone">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: var(--ash); margin-bottom: 1.5rem;">The Evolution</p>
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1rem;">From declaration to recursion.</h2>
+      <p style="font-size: 0.9rem; color: var(--ash); max-width: 520px; line-height: 1.7;">
+        "Say the thing" named what was missing. "Say why" is the next move — lighter, recursive, generative.
+      </p>
+
+      <div class="evolution-grid">
+        <div class="evolution-card evolution-card--old">
+          <p class="phrase">"Say the thing."</p>
+          <p class="desc">Declarative. It landed and it was done. An imperative — say it once, and you're free.</p>
+        </div>
+        <div class="evolution-arrow">&rarr;</div>
+        <div class="evolution-card evolution-card--new">
+          <p class="phrase">"Say why."</p>
+          <p class="desc">Recursive. Every answer opens another layer. It doesn't resolve — it generates. An invitation, not an imperative.</p>
+        </div>
+      </div>
+
+      <p style="font-family: 'EB Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--blood); margin-top: 3rem; text-align: center;">
+        "Why" is the only question that doesn't finish.
+      </p>
+    </div>
+    <span class="slide-number">03</span>
+  </div>
+
+  <!-- ——— 04: BRAND IDENTITY ——— -->
+  <div class="slide slide--light">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: var(--ash); margin-bottom: 1.5rem;">Brand Identity</p>
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem);">The system.</h2>
+
+      <div class="brand-grid">
+        <div class="brand-cell">
+          <p class="label">Name</p>
+          <p class="value">Say Why</p>
+          <p class="note">A Rubinstein Productions initiative. Lowercase "why" in running text; capitalized in headers.</p>
+        </div>
+        <div class="brand-cell">
+          <p class="label">Tagline</p>
+          <p class="value" style="font-style: italic;">Stay in the asking.</p>
+          <p class="note">The practice isn't to arrive at the answer. The practice is to stay in the asking.</p>
+        </div>
+        <div class="brand-cell">
+          <p class="label">Parent Brand</p>
+          <p class="value">Rubinstein Productions</p>
+          <p class="note">Voice Liberation consultancy. Facilitation and film for mission-driven professionals.</p>
+        </div>
+        <div class="brand-cell">
+          <p class="label">Category</p>
+          <p class="value">Practice-Research Initiative</p>
+          <p class="note">Bridges Digital Liver theory and RP facilitation methodology into funded engagements.</p>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">04</span>
+  </div>
+
+  <!-- ——— 05: COLOR PALETTE ——— -->
+  <div class="slide slide--dark">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: var(--ash); margin-bottom: 1.5rem;">Color Palette</p>
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--bone);">The Digital Liver palette.</h2>
+      <p style="font-size: 0.88rem; color: var(--ash); margin-top: 0.8rem; line-height: 1.7;">
+        Metabolized warmth. Each color names a stage of the organ's work — from what arrives dark and raw to what emerges filtered and clean.
+      </p>
+
+      <div class="palette-row">
+        <div class="palette-swatch" style="background: var(--marrow);">
+          <span class="name" style="color: var(--ash);">Marrow</span>
+          <span class="hex" style="color: var(--ash);">#1a1412</span>
+        </div>
+        <div class="palette-swatch" style="background: var(--blood);">
+          <span class="name" style="color: var(--bone);">Blood</span>
+          <span class="hex" style="color: var(--bone);">#8b2e1c</span>
+        </div>
+        <div class="palette-swatch" style="background: var(--amber);">
+          <span class="name" style="color: var(--marrow);">Amber</span>
+          <span class="hex" style="color: var(--marrow);">#c8923a</span>
+        </div>
+        <div class="palette-swatch" style="background: var(--bone);">
+          <span class="name" style="color: var(--marrow);">Bone</span>
+          <span class="hex" style="color: var(--marrow);">#f2ece4</span>
+        </div>
+        <div class="palette-swatch" style="background: var(--ash);">
+          <span class="name" style="color: var(--marrow);">Ash</span>
+          <span class="hex" style="color: var(--marrow);">#a89e93</span>
+        </div>
+        <div class="palette-swatch" style="background: var(--white); border: 1px solid rgba(168,158,147,0.3);">
+          <span class="name" style="color: var(--marrow);">White</span>
+          <span class="hex" style="color: var(--ash);">#faf8f5</span>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">05</span>
+  </div>
+
+  <!-- ——— 06: TYPOGRAPHY ——— -->
+  <div class="slide slide--light">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: var(--ash); margin-bottom: 1.5rem;">Typography</p>
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem);">Two voices. One register.</h2>
+
+      <div class="type-specimen">
+        <div class="type-row type-row--serif">
+          <p class="sample">Say <em style="color: var(--blood);">why.</em></p>
+          <p class="meta">EB Garamond — Headlines, taglines, pull quotes. The voice that asks the question.</p>
+        </div>
+        <div class="type-row type-row--sans">
+          <p class="sample">Rubinstein Productions &middot; Say Why</p>
+          <p class="meta">Inter 500 — Navigation, labels, structural elements. The scaffolding that holds space.</p>
+        </div>
+        <div class="type-row type-row--body">
+          <p class="sample">Clarity is relational. It happens between people, not inside them. Someone listens. Something loosens. What's true gets simpler.</p>
+          <p class="meta">Inter 300 — Body text, descriptions. Light enough to breathe.</p>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">06</span>
+  </div>
+
+  <!-- ——— 07: VOICE PRINCIPLES ——— -->
+  <div class="slide slide--dark">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: var(--ash); margin-bottom: 1.5rem;">Brand Voice</p>
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--bone);">How Say Why speaks.</h2>
+
+      <div class="voice-grid">
+        <div class="voice-card">
+          <h3>Recursive</h3>
+          <p>Every statement invites a deeper question. Nothing is declared as final. The voice keeps asking.</p>
+          <div class="do-dont">
+            <p class="do">"Why that? And then: why that?"</p>
+            <p class="dont">"Here's the answer."</p>
+          </div>
+        </div>
+        <div class="voice-card">
+          <h3>Embodied</h3>
+          <p>Language lives in the body, not the brand guide. Cost is visible. Friction is a feature.</p>
+          <div class="do-dont">
+            <p class="do">"From their body, in their voice."</p>
+            <p class="dont">"Authentic storytelling solutions."</p>
+          </div>
+        </div>
+        <div class="voice-card">
+          <h3>Relational</h3>
+          <p>Clarity isn't internal. It happens between. The voice is never solo — always in dialogue.</p>
+          <div class="do-dont">
+            <p class="do">"Someone listens. Something loosens."</p>
+            <p class="dont">"Unlock your potential."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">07</span>
+  </div>
+
+  <!-- ——— 08: THE BET ——— -->
+  <div class="slide slide--blood bet-slide">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: rgba(242,236,228,0.5); margin-bottom: 2rem;">The Bet</p>
+      <blockquote>
+        The scarce resource is not information. It is <em style="color: var(--amber);">metabolized experience.</em>
+      </blockquote>
+      <div class="slide-divider" style="background: rgba(242,236,228,0.3);"></div>
+      <p class="attribution">
+        People who can say why they do what they do — from their body, in their voice, with the cost visible — hold disproportionate trust, influence, and meaning. Not because authenticity is a brand strategy. Because it's the only thing left that can't be faked at scale.
+      </p>
+    </div>
+    <span class="slide-number" style="color: rgba(242,236,228,0.3);">08</span>
+  </div>
+
+  <!-- ——— 09: METHODOLOGY ——— -->
+  <div class="slide slide--light">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: var(--ash); margin-bottom: 1.5rem;">The Method</p>
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem);">Four phases. One metabolic arc.</h2>
+      <p style="font-size: 0.88rem; color: var(--ash); line-height: 1.7; margin-top: 0.8rem;">
+        The same process the liver runs — encounter, sit with, release — expressed as facilitation and film.
+      </p>
+
+      <div class="method-grid">
+        <div class="method-card">
+          <p class="num">I</p>
+          <p class="name">Container</p>
+          <p>A camera arrives. The technology becomes co-regulatory witness. The nervous system begins to habituate.</p>
+        </div>
+        <div class="method-card">
+          <p class="num">II</p>
+          <p class="name">Excavation</p>
+          <p>Facilitated conversations. The recursive "why" gets asked until the inside version surfaces.</p>
+        </div>
+        <div class="method-card">
+          <p class="num">III</p>
+          <p class="name">Performance</p>
+          <p>You film yourself. Your hands, your space, your terms. Performance drops away. What remains is the real thing.</p>
+        </div>
+        <div class="method-card">
+          <p class="num">IV</p>
+          <p class="name">Translation</p>
+          <p>A professional artifact that can travel without you in the room. Metabolized expression, documented.</p>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">09</span>
+  </div>
+
+  <!-- ——— 10: SERVICE TIERS ——— -->
+  <div class="slide slide--bone">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: var(--ash); margin-bottom: 1.5rem;">Offerings</p>
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem);">Three ways in.</h2>
+
+      <div class="tier-grid">
+        <div class="tier-card">
+          <p class="tier-name">The Mirror</p>
+          <p class="tier-label">Single Session</p>
+          <p class="tier-desc">One facilitated conversation. Enough to hear yourself clearly and know what to do next.</p>
+          <ul>
+            <li>90-minute facilitated session</li>
+            <li>Narrative synthesis document</li>
+            <li>Recording of the conversation</li>
+          </ul>
+        </div>
+        <div class="tier-card">
+          <p class="tier-name">The Map</p>
+          <p class="tier-label">Say Why Package</p>
+          <p class="tier-desc">The full offering. Facilitation, camera, film, and a message you can finally stand behind.</p>
+          <ul>
+            <li>2-3 facilitated sessions</li>
+            <li>Camera and lens shipped to you</li>
+            <li>3-minute produced brand video</li>
+            <li>All raw footage returned</li>
+            <li>Performance data and messaging doc</li>
+          </ul>
+        </div>
+        <div class="tier-card">
+          <p class="tier-name">The Territory</p>
+          <p class="tier-label">Ongoing Partnership</p>
+          <p class="tier-desc">Monthly facilitation and production. For when the work is ongoing and the clarity needs to keep pace.</p>
+          <ul>
+            <li>Monthly facilitation sessions</li>
+            <li>2-4 produced videos per month</li>
+            <li>Strategic narrative guidance</li>
+            <li>Ongoing creative partnership</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">10</span>
+  </div>
+
+  <!-- ——— 11: BILINGUAL DASHBOARD ——— -->
+  <div class="slide slide--light">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: var(--ash); margin-bottom: 1.5rem;">Measurement</p>
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem);">The Bilingual Dashboard.</h2>
+      <p style="font-size: 0.88rem; color: var(--ash); line-height: 1.7; margin-top: 0.8rem;">
+        Every engagement is measured in two registers simultaneously. What the CFO needs. What the soul needs. Neither is optional.
+      </p>
+
+      <div class="dashboard-grid">
+        <div class="dashboard-col dashboard-col--royal">
+          <h3>Royal Register</h3>
+          <div class="metric-item">Video asset adoption rate</div>
+          <div class="metric-item">Messaging consistency score</div>
+          <div class="metric-item">Decision latency reduction</div>
+          <div class="metric-item">Content engagement metrics</div>
+          <div class="metric-item">Client acquisition cost impact</div>
+        </div>
+        <div class="dashboard-col dashboard-col--nomadic">
+          <h3>Nomadic Register</h3>
+          <div class="metric-item">Narrative resonance ("I felt seen")</div>
+          <div class="metric-item">Authority inhabitation shift</div>
+          <div class="metric-item">Inside/outside version alignment</div>
+          <div class="metric-item">Assemblage density and flow</div>
+          <div class="metric-item">Sustainable expression capacity</div>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">11</span>
+  </div>
+
+  <!-- ——— 12: WHO IT'S FOR ——— -->
+  <div class="slide slide--dark">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: var(--ash); margin-bottom: 1.5rem;">Audience</p>
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--bone);">
+        People whose systems trained them to optimize instead of speak.
+      </h2>
+
+      <div class="persona-grid">
+        <div class="persona-card">
+          <h3>The Mission-Driven Analyst</h3>
+          <p>Mid-career nonprofit or social enterprise professional. Deeply cares about impact but operates inside systems that reward jargon over clarity.</p>
+        </div>
+        <div class="persona-card">
+          <h3>The Newly Independent Consultant</h3>
+          <p>Rich experience, no through-line. The systems that built their expertise also trained them to hide it behind precision and caveats.</p>
+        </div>
+        <div class="persona-card">
+          <h3>The Academic-Turned-Practitioner</h3>
+          <p>Academia optimized them for hedging. Outside it, those habits produce silence. They have something real to say.</p>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">12</span>
+  </div>
+
+  <!-- ——— 13: GRANT VISION ——— -->
+  <div class="slide slide--amber">
+    <div class="slide-inner">
+      <p class="small-caps" style="color: var(--amber); margin-bottom: 1.5rem;">What Say Why Funds</p>
+      <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--bone);">Three outputs from one process.</h2>
+
+      <div class="grant-items">
+        <div class="grant-item">
+          <h3>The Practice — Expanded</h3>
+          <p>10-15 facilitated engagements with mission-driven professionals stuck between knowing and saying. The camera arrives. The client holds it. They film what's true.</p>
+        </div>
+        <div class="grant-item">
+          <h3>The Research-Practice Bridge</h3>
+          <p>Documents the metabolic process itself — what happens somatically, narratively, and structurally when someone moves from institutional script to honest expression. Bilingual Dashboard measurement throughout.</p>
+        </div>
+        <div class="grant-item">
+          <h3>The Public Artifact</h3>
+          <p>A short film or essay series that makes the practice visible. Not a case study deck. A piece of work that demonstrates what metabolized experience looks like when it's allowed to travel.</p>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">13</span>
+  </div>
+
+  <!-- ——— 14: CLOSE ——— -->
+  <div class="slide slide--dark close-slide">
+    <div class="slide-inner" style="text-align: center;">
+      <p class="small-caps" style="color: var(--ash); margin-bottom: 3rem;">Rubinstein Productions</p>
+      <h1 class="tagline">Say <em>why.</em></h1>
+      <p style="font-family: 'EB Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--ash); margin-bottom: 3rem;">
+        Stay in the asking.
+      </p>
+      <div class="slide-divider" style="margin: 0 auto 2rem;"></div>
+      <div class="contact-info">
+        <p>Isaac Rubinstein</p>
+        <p><a href="mailto:isaac@rubinsteinproductions.com">isaac@rubinsteinproductions.com</a></p>
+        <p><a href="https://rubinsteinproductions.com">rubinsteinproductions.com</a></p>
+        <p style="margin-top: 1rem; font-size: 0.75rem; font-style: italic; color: var(--ash); opacity: 0.6;">Seattle, WA / Remote &middot; April 2026</p>
+      </div>
+    </div>
+    <span class="slide-number">14</span>
+  </div>
+
+</body>
+</html>

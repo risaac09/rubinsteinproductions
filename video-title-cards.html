@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubinstein Productions - Video Title Card Templates</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --marrow: #1a1412;
+            --blood: #8b2e1c;
+            --amber: #c8923a;
+            --bone: #f2ece4;
+            --ash: #a89e93;
+            --white: #faf8f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f3f0;
+            color: var(--marrow);
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        .intro {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            background: white;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .intro h1 {
+            font-family: 'EB Garamond', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--marrow);
+            font-weight: 600;
+        }
+
+        .intro p {
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: var(--ash);
+            line-height: 1.8;
+        }
+
+        .intro ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+            color: var(--ash);
+        }
+
+        .intro li {
+            margin-bottom: 8px;
+        }
+
+        .intro code {
+            background: #f9f7f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .card-wrapper {
+            margin-bottom: 80px;
+        }
+
+        .card-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--ash);
+            margin-bottom: 12px;
+            margin-left: 20px;
+        }
+
+        .card-container {
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.5);
+            transform-origin: top center;
+            border: 1px solid #e8e3de;
+        }
+
+        /* Card 1: Opening Title Card */
+        .card-1 {
+            background: linear-gradient(135deg, var(--marrow) 0%, #241e1a 100%);
+        }
+
+        .card-1-content {
+            text-align: center;
+            width: 100%;
+        }
+
+        .card-1-title {
+            font-family: 'EB Garamond', serif;
+            font-size: 72px;
+            color: var(--bone);
+            margin-bottom: 30px;
+            font-weight: 400;
+            letter-spacing: -1px;
+        }
+
+        .card-1-highlight {
+            color: var(--blood);
+            font-weight: 600;
+        }
+
+        .card-1-accent {
+            width: 80px;
+            height: 2px;
+            background: var(--amber);
+            margin: 30px auto;
+        }
+
+        .card-1-footer {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--ash);
+        }
+
+        /* Card 2: Yapper Title Card */
+        .card-2 {
+            background: linear-gradient(135deg, var(--marrow) 0%, #241e1a 100%);
+        }
+
+        .card-2-content {
+            text-align: left;
+            width: 100%;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        .card-2-topic {
+            font-family: 'EB Garamond', serif;
+            font-size: 64px;
+            color: var(--bone);
+            margin-bottom: 40px;
+            font-weight: 400;
+            line-height: 1.2;
+            max-width: 1200px;
+        }
+
+        .card-2-speaker {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--ash);
+        }
+
+        .card-2-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--amber);
+            border-radius: 50%;
+        }
+
+        /* Card 3: Expert Explainer Title Card */
+        .card-3 {
+            background: var(--bone);
+        }
+
+        .card-3-accent {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--blood);
+        }
+
+        .card-3-content {
+            text-align: left;
+            width: 100%;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+
+        .card-3-topic {
+            font-family: 'EB Garamond', serif;
+            font-size: 56px;
+            color: var(--marrow);
+            margin-bottom: 20px;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .card-3-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            color: var(--ash);
+            font-weight: 300;
+        }
+
+        /* Card 4: Lower Third */
+        .card-4 {
+            background: linear-gradient(135deg, var(--marrow) 0%, #241e1a 100%);
+        }
+
+        .card-4-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 20, 18, 0.85);
+            backdrop-filter: blur(4px);
+            padding: 30px 60px;
+            border-top: 2px solid var(--amber);
+        }
+
+        .card-4-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            color: var(--bone);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .card-4-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--ash);
+            font-weight: 400;
+        }
+
+        /* Card 5: End Card / CTA */
+        .card-5 {
+            background: linear-gradient(135deg, var(--marrow) 0%, #241e1a 100%);
+        }
+
+        .card-5-content {
+            text-align: center;
+            width: 100%;
+        }
+
+        .card-5-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--amber);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .card-5-url {
+            font-family: 'EB Garamond', serif;
+            font-size: 48px;
+            color: var(--bone);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .card-5-tagline {
+            font-family: 'EB Garamond', serif;
+            font-size: 36px;
+            color: var(--ash);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* Card 6: Chapter/Section Divider */
+        .card-6 {
+            background: linear-gradient(135deg, var(--marrow) 0%, #241e1a 100%);
+        }
+
+        .card-6-content {
+            text-align: center;
+            width: 100%;
+        }
+
+        .card-6-number {
+            font-family: 'EB Garamond', serif;
+            font-size: 120px;
+            color: var(--blood);
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .card-6-divider {
+            width: 100px;
+            height: 1px;
+            background: var(--ash);
+            margin: 20px auto;
+        }
+
+        .card-6-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--bone);
+            font-weight: 500;
+        }
+
+        .preview-info {
+            text-align: center;
+            color: var(--ash);
+            font-size: 12px;
+            margin-top: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card-description {
+            max-width: 900px;
+            margin: 0 auto 20px;
+            padding: 0 40px;
+            font-size: 14px;
+            color: var(--ash);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="intro">
+        <h1>Video Title Card Templates</h1>
+        <p><strong>Rubinstein Productions</strong> — Video overlay and YouTube thumbnail templates at 1920×1080px</p>
+
+        <h2 style="font-family: 'EB Garamond', serif; font-size: 20px; margin-top: 30px; margin-bottom: 12px; color: var(--marrow);">How to Use These Templates</h2>
+        <p>These templates are designed for video overlays, YouTube thumbnails, and title cards. To get crisp, production-ready graphics:</p>
+        <ul>
+            <li><strong>Browser zoom to 200%</strong> (Cmd/Ctrl + Plus twice) to view the cards at full resolution</li>
+            <li><strong>Take a screenshot</strong> at 200% zoom for a 3840×2160px image (2x resolution)</li>
+            <li><strong>Export as PNG</strong> with transparent background by cropping to card boundaries</li>
+            <li><strong>Use in video editor</strong> as overlays, lower thirds, or title card sequences</li>
+            <li>Cards are shown at 50% scale in this preview for easier browsing</li>
+        </ul>
+
+        <h2 style="font-family: 'EB Garamond', serif; font-size: 20px; margin-top: 30px; margin-bottom: 12px; color: var(--marrow);">Brand Palette</h2>
+        <p><strong>Colors:</strong> Marrow (#1a1412), Blood (#8b2e1c), Amber (#c8923a), Bone (#f2ece4), Ash (#a89e93), White (#faf8f5)</p>
+        <p><strong>Fonts:</strong> EB Garamond (serif, elegant headlines) + Inter (sans, clean body text)</p>
+    </div>
+
+    <div class="container">
+        <!-- Card 1: Opening Title Card -->
+        <div class="card-wrapper">
+            <div class="card-label">Card 1 — Opening Title Card</div>
+            <div class="card-description">Bold opening statement: "Say why." with emphasis on "why" in blood red. Small RUBINSTEIN PRODUCTIONS footer with amber accent line.</div>
+            <div class="card-container">
+                <div class="card card-1">
+                    <div class="card-1-content">
+                        <div class="card-1-title">
+                            Say <span class="card-1-highlight">why.</span>
+                        </div>
+                        <div class="card-1-accent"></div>
+                        <div class="card-1-footer">Rubinstein Productions</div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-info">1920×1080px (shown at 50% scale)</div>
+        </div>
+
+        <!-- Card 2: Yapper Title Card -->
+        <div class="card-wrapper">
+            <div class="card-label">Card 2 — Yapper Title Card (60-90s talking heads)</div>
+            <div class="card-description">Topic in large EB Garamond with speaker name in small caps. Amber dot separator for clean, elegant introduction.</div>
+            <div class="card-container">
+                <div class="card card-2">
+                    <div class="card-2-content">
+                        <div class="card-2-topic">On honesty in systems</div>
+                        <div class="card-2-speaker">
+                            <span>Isaac Rubinstein</span>
+                            <div class="card-2-dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-info">1920×1080px (shown at 50% scale) — replace "On honesty in systems" with your topic</div>
+        </div>
+
+        <!-- Card 3: Expert Explainer Title Card -->
+        <div class="card-wrapper">
+            <div class="card-label">Card 3 — Expert Explainer Title Card (2-4 min segments)</div>
+            <div class="card-description">Light bone background with dark marrow text. Vertical blood accent bar on left. Subtitle in ash for supporting context.</div>
+            <div class="card-container">
+                <div class="card card-3">
+                    <div class="card-3-accent"></div>
+                    <div class="card-3-content">
+                        <div class="card-3-topic">The architecture of clarity</div>
+                        <div class="card-3-subtitle">How to structure ideas that land</div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-info">1920×1080px (shown at 50% scale) — light background + accent bar</div>
+        </div>
+
+        <!-- Card 4: Lower Third -->
+        <div class="card-wrapper">
+            <div class="card-label">Card 4 — Lower Third (on-screen name/title)</div>
+            <div class="card-description">Semi-transparent marrow bar at bottom of frame with name and title. Amber border accent at top. Perfect for talking head segments and interviews.</div>
+            <div class="card-container">
+                <div class="card card-4">
+                    <div class="card-4-content">
+                        <div class="card-4-name">Isaac Rubinstein</div>
+                        <div class="card-4-title">Facilitator & Filmmaker</div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-info">1920×1080px (shown at 50% scale) — semi-transparent overlay with top amber border</div>
+        </div>
+
+        <!-- Card 5: End Card / CTA -->
+        <div class="card-wrapper">
+            <div class="card-label">Card 5 — End Card / Call-to-Action</div>
+            <div class="card-description">Website URL in large EB Garamond bone text. Amber label and italic tagline for consistent brand messaging.</div>
+            <div class="card-container">
+                <div class="card card-5">
+                    <div class="card-5-content">
+                        <div class="card-5-label">Visit</div>
+                        <div class="card-5-url">rubinsteinproductions.com</div>
+                        <div class="card-5-tagline">Say why.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-info">1920×1080px (shown at 50% scale) — end of video CTA card</div>
+        </div>
+
+        <!-- Card 6: Chapter/Section Divider -->
+        <div class="card-wrapper">
+            <div class="card-label">Card 6 — Chapter/Section Divider</div>
+            <div class="card-description">Large blood-red chapter number with chapter title below. Thin ash horizontal rule for visual separation in longer videos.</div>
+            <div class="card-container">
+                <div class="card card-6">
+                    <div class="card-6-content">
+                        <div class="card-6-number">1</div>
+                        <div class="card-6-divider"></div>
+                        <div class="card-6-title">The Setup</div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-info">1920×1080px (shown at 50% scale) — change number and title for each chapter</div>
+        </div>
+    </div>
+</body>
+</html>

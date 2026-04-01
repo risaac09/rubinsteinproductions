@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rubinstein Productions — Brand Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --marrow: #1a1412;
+      --blood: #8b2e1c;
+      --amber: #c8923a;
+      --bone: #f2ece4;
+      --ash: #a89e93;
+      --white: #faf8f5;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #e8e4de;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .card-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    /* ——— CARD BASE ——— */
+    .card {
+      width: 1080px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* Scale down for preview */
+      transform: scale(0.5);
+      transform-origin: top center;
+      margin-bottom: -540px;
+    }
+
+    .small-caps {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .serif {
+      font-family: 'EB Garamond', Georgia, serif;
+    }
+
+    /* ========================================
+       CARD 1: "Say why." — Hero card
+       ======================================== */
+    .card-hero {
+      background: var(--marrow);
+      color: var(--bone);
+      padding: 120px;
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    .card-hero .tagline {
+      font-family: 'EB Garamond', serif;
+      font-size: 96px;
+      line-height: 1.1;
+      margin-bottom: 40px;
+    }
+
+    .card-hero .tagline em {
+      color: var(--blood);
+    }
+
+    .card-hero .sub {
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--ash);
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .card-hero .brand {
+      position: absolute;
+      bottom: 80px;
+      left: 120px;
+      color: var(--ash);
+    }
+
+    /* ========================================
+       CARD 2: Metabolize — Digital Liver
+       ======================================== */
+    .card-metabolize {
+      background: var(--white);
+      color: var(--marrow);
+      padding: 120px;
+      text-align: center;
+    }
+
+    .card-metabolize .top-label {
+      color: var(--ash);
+      margin-bottom: 60px;
+    }
+
+    .card-metabolize .main-text {
+      font-family: 'EB Garamond', serif;
+      font-size: 64px;
+      line-height: 1.25;
+      max-width: 800px;
+    }
+
+    .card-metabolize .main-text .highlight {
+      color: var(--blood);
+    }
+
+    .card-metabolize .bottom-line {
+      position: absolute;
+      bottom: 80px;
+      width: 60px;
+      height: 1px;
+      background: var(--ash);
+    }
+
+    /* ========================================
+       CARD 3: Let Go / Keep — Filter card
+       ======================================== */
+    .card-filter {
+      background: var(--bone);
+      color: var(--marrow);
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      padding: 0;
+    }
+
+    .card-filter .col {
+      padding: 100px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card-filter .divider-line {
+      background: var(--ash);
+      opacity: 0.3;
+    }
+
+    .card-filter .col-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 42px;
+      margin-bottom: 50px;
+    }
+
+    .card-filter .release .col-title {
+      color: var(--ash);
+    }
+
+    .card-filter .keep .col-title {
+      color: var(--blood);
+    }
+
+    .card-filter .col ul {
+      list-style: none;
+    }
+
+    .card-filter .col ul li {
+      font-size: 24px;
+      font-weight: 300;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      line-height: 1.4;
+    }
+
+    .card-filter .release ul li {
+      color: var(--ash);
+      text-decoration: line-through;
+      text-decoration-color: rgba(168,158,147,0.5);
+    }
+
+    /* ========================================
+       CARD 4: Quote cards (series of 3)
+       ======================================== */
+    .card-quote {
+      background: var(--marrow);
+      color: var(--bone);
+      padding: 140px;
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    .card-quote .time-label {
+      color: var(--amber);
+      margin-bottom: 60px;
+    }
+
+    .card-quote .quote-text {
+      font-family: 'EB Garamond', serif;
+      font-size: 72px;
+      font-style: italic;
+      line-height: 1.2;
+      max-width: 800px;
+    }
+
+    .card-quote .brand-mark {
+      position: absolute;
+      bottom: 80px;
+      left: 140px;
+      color: var(--ash);
+    }
+
+    /* ========================================
+       CARD 5: Method — 4-step
+       ======================================== */
+    .card-method {
+      background: var(--white);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      padding: 0;
+    }
+
+    .card-method .method-header {
+      padding: 80px 100px 40px;
+      text-align: left;
+    }
+
+    .card-method .method-header .small-caps {
+      color: var(--ash);
+      margin-bottom: 20px;
+    }
+
+    .card-method .method-header h2 {
+      font-family: 'EB Garamond', serif;
+      font-size: 48px;
+      color: var(--marrow);
+    }
+
+    .card-method .method-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 1px;
+      background: var(--ash);
+    }
+
+    .card-method .method-cell {
+      background: var(--white);
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-method .method-cell .step-num {
+      font-family: 'EB Garamond', serif;
+      font-size: 56px;
+      color: var(--blood);
+      margin-bottom: 12px;
+    }
+
+    .card-method .method-cell .step-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--marrow);
+      margin-bottom: 16px;
+    }
+
+    .card-method .method-cell p {
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--ash);
+      line-height: 1.5;
+    }
+
+    /* ========================================
+       CARD 6: Amber accent — "Simple true statements"
+       ======================================== */
+    .card-amber {
+      background: var(--amber);
+      color: var(--marrow);
+      padding: 140px;
+      text-align: center;
+    }
+
+    .card-amber .main-text {
+      font-family: 'EB Garamond', serif;
+      font-size: 80px;
+      line-height: 1.15;
+    }
+
+    .card-amber .brand-mark {
+      position: absolute;
+      bottom: 80px;
+      color: rgba(26,20,18,0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CARD 1: Hero -->
+  <p class="card-label">Card 1 — Hero / Profile Banner</p>
+  <div class="card card-hero">
+    <p class="tagline">Say <em>why.</em></p>
+    <p class="sub">Honesty and clarity are natural. The systems we live inside make them feel impossible.</p>
+    <p class="small-caps brand">Rubinstein Productions</p>
+  </div>
+
+  <!-- CARD 2: Metabolize -->
+  <p class="card-label">Card 2 — Digital Liver Concept</p>
+  <div class="card card-metabolize">
+    <p class="small-caps top-label">The Digital Liver</p>
+    <p class="main-text">
+      Your message doesn't need more polish.<br>
+      It needs <span class="highlight">metabolizing.</span>
+    </p>
+    <div class="bottom-line"></div>
+  </div>
+
+  <!-- CARD 3: Filter -->
+  <p class="card-label">Card 3 — Let Go / Keep</p>
+  <div class="card card-filter">
+    <div class="col release">
+      <p class="col-title">Let go of</p>
+      <ul>
+        <li>Jargon as armor</li>
+        <li>Performing credibility</li>
+        <li>Hedging every sentence</li>
+        <li>Waiting until it's perfect</li>
+        <li>The fear of being held to your words</li>
+      </ul>
+    </div>
+    <div class="divider-line"></div>
+    <div class="col keep">
+      <p class="col-title">Keep</p>
+      <ul>
+        <li>The thing you actually believe</li>
+        <li>The sentence that scares you</li>
+        <li>Your real voice</li>
+        <li>The work that matters</li>
+        <li>Simple, true statements</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CARD 4a: Past Quote -->
+  <p class="card-label">Card 4a — Past</p>
+  <div class="card card-quote">
+    <p class="small-caps time-label">Past · Person</p>
+    <p class="quote-text">Who you were before you started hiding.</p>
+    <p class="small-caps brand-mark">Rubinstein Productions</p>
+  </div>
+
+  <!-- CARD 4b: Present Quote -->
+  <p class="card-label">Card 4b — Present</p>
+  <div class="card card-quote">
+    <p class="small-caps time-label">Present · Place</p>
+    <p class="quote-text">Between silence and speech — that's where the work happens.</p>
+    <p class="small-caps brand-mark">Rubinstein Productions</p>
+  </div>
+
+  <!-- CARD 4c: Future Quote -->
+  <p class="card-label">Card 4c — Future</p>
+  <div class="card card-quote">
+    <p class="small-caps time-label">Future · Thing</p>
+    <p class="quote-text">The work that exists once you finally say it.</p>
+    <p class="small-caps brand-mark">Rubinstein Productions</p>
+  </div>
+
+  <!-- CARD 5: Method -->
+  <p class="card-label">Card 5 — How The Work Moves</p>
+  <div class="card card-method">
+    <div class="method-header">
+      <p class="small-caps">How The Work Moves</p>
+      <h2>I send you a camera.</h2>
+    </div>
+    <div class="method-grid">
+      <div class="method-cell">
+        <p class="step-num">I</p>
+        <p class="step-name">Receive</p>
+        <p>A camera and lens arrive at your door. The technology is part of the process.</p>
+      </div>
+      <div class="method-cell">
+        <p class="step-num">II</p>
+        <p class="step-name">Talk</p>
+        <p>Facilitated conversations. What's honest surfaces. What's noise falls away.</p>
+      </div>
+      <div class="method-cell">
+        <p class="step-num">III</p>
+        <p class="step-name">Film</p>
+        <p>You film yourself. Your hands, your space, your terms.</p>
+      </div>
+      <div class="method-cell">
+        <p class="step-num">IV</p>
+        <p class="step-name">Keep</p>
+        <p>A 3-min brand video. All your footage. The data. The experience. Yours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 6: Amber Statement -->
+  <p class="card-label">Card 6 — Anchor Statement</p>
+  <div class="card card-amber">
+    <p class="main-text">Simple, true statements.</p>
+    <p class="small-caps brand-mark">Rubinstein Productions</p>
+  </div>
+
+</body>
+</html>
