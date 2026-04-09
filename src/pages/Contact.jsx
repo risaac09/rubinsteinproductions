@@ -177,7 +177,7 @@ export default function Contact() {
               </div>
 
               {status === 'error' && (
-                <p className="form-error">Something went wrong. Try emailing directly: risaac09@gmail.com</p>
+                <p className="form-error">Something went wrong. Try emailing directly: isaac@rubinsteinproductions.com</p>
               )}
 
               <button
@@ -193,8 +193,8 @@ export default function Contact() {
           <aside className="contact-sidebar scroll-reveal">
             <div className="sidebar-block">
               <p className="small-caps">Email</p>
-              <a href="mailto:risaac09@gmail.com" className="sidebar-link">
-                risaac09@gmail.com
+              <a href="mailto:isaac@rubinsteinproductions.com" className="sidebar-link">
+                isaac@rubinsteinproductions.com
               </a>
             </div>
 
