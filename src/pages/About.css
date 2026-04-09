@@ -1,0 +1,88 @@
+.about-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-height) + 2rem) var(--space-md) var(--space-xl);
+  background: var(--white);
+}
+
+.about-hero-inner {
+  width: 100%;
+  will-change: opacity, transform;
+}
+
+.about-hero-headline {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  line-height: 1.1;
+  color: var(--marrow);
+  margin: 1.5rem 0 2rem;
+}
+
+.about-hero-headline em {
+  color: var(--blood);
+  font-style: italic;
+}
+
+.about-hero-lede {
+  font-size: 1.1rem;
+  color: var(--ash);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.about-lede-text {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.about-block p {
+  color: var(--ash);
+  margin-bottom: 1.2rem;
+  max-width: 640px;
+}
+
+.about-section-headline {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin: 1.5rem 0 2rem;
+  line-height: 1.25;
+}
+
+/* ——— VOICE GRID ——— */
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--ash);
+  margin-top: 2rem;
+}
+
+.voice-item {
+  background: var(--white);
+  padding: 2rem 1.5rem;
+}
+
+.voice-item h3 {
+  font-size: 1.2rem;
+  color: var(--marrow);
+  margin-bottom: 0.7rem;
+}
+
+.voice-item p {
+  font-size: 0.85rem;
+  color: var(--ash);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .voice-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .voice-grid {
+    grid-template-columns: 1fr;
+  }
+}

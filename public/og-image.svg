@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#faf8f5"/>
+
+  <!-- Subtle horizontal rule -->
+  <line x1="80" y1="120" x2="320" y2="120" stroke="#a89e93" stroke-width="1"/>
+
+  <!-- RUBINSTEIN PRODUCTIONS label -->
+  <text x="80" y="105" font-family="Georgia, serif" font-size="14" letter-spacing="4" fill="#a89e93" text-transform="uppercase">RUBINSTEIN PRODUCTIONS</text>
+
+  <!-- Main headline: "Say" -->
+  <text x="80" y="310" font-family="Georgia, serif" font-size="148" font-weight="400" fill="#1a1412">Say</text>
+
+  <!-- Main headline: "why." in blood red italic -->
+  <text x="340" y="310" font-family="Georgia, serif" font-size="148" font-style="italic" fill="#8b2e1c">why.</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="380" font-family="Georgia, serif" font-size="26" fill="#a89e93">Facilitation &amp; Film for mission-driven professionals.</text>
+
+  <!-- Bottom rule -->
+  <line x1="80" y1="500" x2="1120" y2="500" stroke="#a89e93" stroke-width="1" opacity="0.4"/>
+
+  <!-- URL -->
+  <text x="80" y="530" font-family="Georgia, serif" font-size="18" fill="#a89e93" letter-spacing="1">rubinsteinproductions.com</text>
+
+  <!-- RP logomark bottom right -->
+  <rect x="1060" y="480" width="60" height="60" rx="6" fill="#1a1412"/>
+  <text x="1068" y="527" font-family="Georgia, serif" font-size="36" fill="#f2ece4">R</text>
+  <text x="1093" y="527" font-family="Georgia, serif" font-size="36" fill="#8b2e1c">P</text>
+</svg>

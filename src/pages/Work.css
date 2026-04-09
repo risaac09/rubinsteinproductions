@@ -1,0 +1,70 @@
+.work-headline {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  color: var(--marrow);
+  margin: 1.5rem 0;
+  line-height: 1.05;
+}
+
+.work-sub {
+  font-size: 1.05rem;
+  color: var(--ash);
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+.work-placeholder {
+  font-family: 'EB Garamond', serif;
+  font-size: 4rem;
+  color: var(--ash);
+  letter-spacing: 0.5em;
+  margin-bottom: 1.5rem;
+}
+
+.work-placeholder-note {
+  font-size: 0.9rem;
+  color: var(--ash);
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.work-expect-headline {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin: 1.5rem 0 2.5rem;
+  line-height: 1.25;
+}
+
+.expect-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--ash);
+}
+
+.expect-item {
+  background: var(--white);
+  padding: 2rem 1.5rem;
+}
+
+.expect-item h3 {
+  font-size: 1.1rem;
+  color: var(--marrow);
+  margin-bottom: 0.6rem;
+}
+
+.expect-item p {
+  font-size: 0.85rem;
+  color: var(--ash);
+  line-height: 1.6;
+}
+
+.work-cta-headline {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 480px) {
+  .expect-grid {
+    grid-template-columns: 1fr;
+  }
+}

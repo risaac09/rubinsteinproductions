@@ -1,0 +1,208 @@
+/* ——— DESIGN SYSTEM ——— */
+/* Sharp. Honest. No gradients. No shadows. No rounded corners. */
+
+:root {
+  --marrow: #1a1412;
+  --blood: #8b2e1c;
+  --amber: #c8923a;
+  --bone: #f2ece4;
+  --ash: #a89e93;
+  --white: #faf8f5;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+  --space-2xl: 8rem;
+
+  --nav-height: 64px;
+}
+
+/* ——— RESET ——— */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-weight: 300;
+  color: var(--marrow);
+  background: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ——— TYPOGRAPHY ——— */
+h1, h2, h3, h4, .serif {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-weight: 400;
+}
+
+.small-caps {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+
+/* ——— LAYOUT ——— */
+.content-narrow {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.content-wide {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section-pad {
+  padding: var(--space-xl) var(--space-md);
+}
+
+.bg-bone {
+  background: var(--bone);
+}
+
+.bg-marrow {
+  background: var(--marrow);
+  color: var(--bone);
+}
+
+/* ——— DIVIDER ——— */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--ash);
+  margin: var(--space-lg) 0;
+}
+
+.divider-short {
+  width: 40px;
+  height: 1px;
+  background: var(--ash);
+  margin: var(--space-md) 0;
+}
+
+/* ——— BUTTONS ——— */
+.btn-primary {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bone);
+  background: var(--marrow);
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border: 1px solid var(--marrow);
+  transition: background 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--blood);
+  border-color: var(--blood);
+}
+
+.btn-ghost {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--marrow);
+  background: transparent;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border: 1px solid var(--ash);
+  transition: border-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  border-color: var(--marrow);
+}
+
+.cta-link {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--marrow);
+  text-decoration: none;
+  border-bottom: 1px solid var(--blood);
+  padding-bottom: 4px;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.cta-link:hover {
+  color: var(--blood);
+}
+
+/* ——— ACCESSIBILITY ——— */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--marrow);
+  color: var(--bone);
+  z-index: 10000;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 2px solid var(--blood);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ——— SCROLL ANIMATION UTILITIES ——— */
+/* Elements start invisible; JS reveals them. If JS fails, they remain visible via .no-js fallback. */
+.scroll-reveal {
+  visibility: hidden;
+}
+
+.scroll-reveal.is-ready {
+  visibility: visible;
+}
+
+/* Pinned sections need a containing wrapper */
+.pin-wrap {
+  overflow: hidden;
+}
+
+/* Line-by-line text reveal */
+.line-wrap {
+  overflow: hidden;
+  display: block;
+}
+
+/* Reduced motion: show everything immediately */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

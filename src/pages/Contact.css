@@ -1,0 +1,148 @@
+.contact-headline {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  color: var(--marrow);
+  margin: 1.5rem 0;
+  line-height: 1.05;
+}
+
+.contact-sub {
+  font-size: 1.05rem;
+  color: var(--ash);
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+/* ——— GRID ——— */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* ——— FORM ——— */
+.contact-form-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-field label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--marrow);
+}
+
+.form-field label span {
+  color: var(--ash);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 300;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--marrow);
+  background: var(--white);
+  border: 1px solid rgba(168, 158, 147, 0.5);
+  padding: 0.8rem 1rem;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.25s;
+  border-radius: 0;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: var(--marrow);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--ash);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-error {
+  font-size: 0.82rem;
+  color: var(--blood);
+  line-height: 1.5;
+}
+
+/* ——— SIDEBAR ——— */
+.contact-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-top: 0.5rem;
+}
+
+.sidebar-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-block p {
+  font-size: 0.9rem;
+  color: var(--ash);
+  line-height: 1.6;
+}
+
+.sidebar-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: var(--marrow);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ash);
+  padding-bottom: 2px;
+  transition: border-color 0.25s, color 0.25s;
+  align-self: flex-start;
+}
+
+.sidebar-link:hover {
+  color: var(--blood);
+  border-color: var(--blood);
+}
+
+/* ——— SUCCESS ——— */
+.contact-success {
+  padding: 3rem 0;
+}
+
+.contact-success h2 {
+  font-size: 2.2rem;
+  margin: 1.2rem 0 1rem;
+}
+
+.contact-success p {
+  color: var(--ash);
+}
+
+/* ——— RESPONSIVE ——— */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
