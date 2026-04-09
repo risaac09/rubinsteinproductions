@@ -94,6 +94,25 @@ export default function Services() {
       })
     }
 
+    // Case study section: fade in
+    const caseStudyEls = document.querySelectorAll('.bg-bone .scroll-reveal')
+    if (caseStudyEls.length) {
+      caseStudyEls.forEach(el => {
+        markReady(el)
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: 'power2.out',
+            scrollTrigger: { trigger: el, start: 'top 85%' },
+          }
+        )
+      })
+    }
+
     // Methodology items: stagger
     const methodItems = document.querySelectorAll('.methodology-item')
     if (methodItems.length) {
