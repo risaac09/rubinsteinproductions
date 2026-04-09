@@ -16,7 +16,7 @@ export default function Services() {
 
   usePageMeta({
     title: 'Services & Pricing',
-    description: 'Three tiers of facilitated video production. The Mirror (single session from $500), The Map (full package $5K–$12K), The Territory (monthly $4K–$8K/mo).',
+    description: 'Founder Story: facilitated conversation + short film from $1,500. Program engagement for cohorts and workshops. Facilitation, film, and evaluation grounded in real methodology.',
     path: '/services',
   })
 
@@ -53,13 +53,12 @@ export default function Services() {
       gsap.set('.services-hero-inner', { opacity: 1 })
     })
 
-    // Tier cards: stagger 0.9→1 scale
+    // Tier cards: fade in + scale
     const tierCards = document.querySelectorAll('.tier-card')
-    const tierGrid = document.querySelector('.tier-grid')
-    if (tierCards.length && tierGrid) {
+    if (tierCards.length) {
       markReady(tierCards)
 
-      // Pin the section title
+      // Section title
       const tierTitle = document.querySelector('.tier-section-title')
       if (tierTitle) {
         markReady(tierTitle)
@@ -76,43 +75,23 @@ export default function Services() {
         )
       }
 
-      gsap.fromTo(
-        tierCards,
-        { opacity: 0, y: 50, scale: 0.93 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.75,
-          ease: 'power2.out',
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: tierGrid,
-            start: 'top 75%',
-          },
-        }
-      )
-
-      // Featured card (The Map, index 1): slightly more dramatic + subtle border pulse
-      const featuredCard = tierCards[1]
-      if (featuredCard) {
+      tierCards.forEach(card => {
         gsap.fromTo(
-          featuredCard,
-          { opacity: 0, y: 60, scale: 0.87 },
+          card,
+          { opacity: 0, y: 50, scale: 0.93 },
           {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.85,
+            duration: 0.75,
             ease: 'power2.out',
-            delay: 0.1,
             scrollTrigger: {
-              trigger: tierGrid,
-              start: 'top 75%',
+              trigger: card,
+              start: 'top 80%',
             },
           }
         )
-      }
+      })
     }
 
     // Methodology items: stagger
@@ -163,32 +142,24 @@ export default function Services() {
         itemListElement: [
           {
             '@type': 'Offer',
-            name: 'The Mirror — Single Facilitation Session',
-            description: 'One 90-minute facilitated conversation with narrative synthesis document.',
-            price: '500',
-            priceCurrency: 'USD',
-          },
-          {
-            '@type': 'Offer',
-            name: 'The Map — Full Say Why Package',
-            description: 'Facilitation, camera shipped to you, 3-minute produced brand video, all raw footage returned.',
+            name: 'Founder Story — Facilitated Conversation + Short Film',
+            description: "One or two facilitated conversations and a 2–3 minute produced film that says what you've become.",
             priceSpecification: {
               '@type': 'PriceSpecification',
-              minPrice: '5000',
-              maxPrice: '12000',
+              minPrice: '1500',
+              maxPrice: '2500',
               priceCurrency: 'USD',
             },
           },
           {
             '@type': 'Offer',
-            name: 'The Territory — Ongoing Monthly Partnership',
-            description: 'Monthly facilitation and video production, 2–4 videos per month.',
+            name: 'Program Engagement — Embedded Documentation + Evaluation',
+            description: 'Facilitation, documentation, and evaluation embedded in your program, workshop, or cohort.',
             priceSpecification: {
               '@type': 'PriceSpecification',
-              minPrice: '4000',
+              minPrice: '3000',
               maxPrice: '8000',
               priceCurrency: 'USD',
-              unitText: 'MONTH',
             },
           },
         ],
@@ -200,76 +171,108 @@ export default function Services() {
           <div className="content-narrow">
             <p className="small-caps">Services</p>
             <h1 className="services-hero-headline">
-              Three ways in.<br />
-              One honest <em>conversation.</em>
+              The work scales<br />
+              to where <em>you are.</em>
             </h1>
             <p className="services-hero-sub">
-              The work takes different shapes depending on where you are.
-              All three share the same foundation: facilitation, film, and
+              It starts with a facilitated conversation and a short film.
+              For programs and cohorts, it goes deeper — embedded documentation
+              and evaluation. Same foundation: facilitation, film, and
               the conviction that clarity is relational.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ——— TIER CARDS ——— */}
+      {/* ——— FOUNDER STORY ——— */}
       <section className="tiers-section section-pad">
         <div className="content-wide">
           <div className="tier-section-title scroll-reveal">
-            <p className="small-caps">Work with me</p>
-            <h2 className="tiers-headline">Three tiers. One methodology.</h2>
+            <p className="small-caps">Start here</p>
+            <h2 className="tiers-headline">Founder Story</h2>
           </div>
 
           <div className="tier-grid">
-            <div className="tier-card scroll-reveal">
-              <p className="tier-tag small-caps">Single session</p>
-              <h3 className="tier-name">The Mirror</h3>
-              <p className="tier-price">Starting at $500</p>
+            <div className="tier-card tier-card--featured scroll-reveal" style={{ maxWidth: '38rem', margin: '0 auto' }}>
+              <p className="tier-tag small-caps" style={{ color: 'var(--amber)' }}>The offering</p>
+              <h3 className="tier-name">Say what you've become.</h3>
+              <p className="tier-price">$1,500 – $2,500</p>
               <p className="tier-desc">
-                One facilitated conversation. Enough to hear yourself clearly
-                and know what to do next.
+                A facilitated conversation and a short film. You talk.
+                I listen. We make something you can point to.
               </p>
               <ul className="tier-list">
-                <li>90-minute facilitated session</li>
-                <li>Narrative synthesis document</li>
-                <li>Recording of the conversation</li>
-              </ul>
-              <Link to="/contact" className="cta-link">Start here</Link>
-            </div>
-
-            <div className="tier-card tier-card--featured scroll-reveal">
-              <p className="tier-tag small-caps" style={{ color: 'var(--amber)' }}>Most complete</p>
-              <h3 className="tier-name">The Map</h3>
-              <p className="tier-price">$5,000 – $12,000</p>
-              <p className="tier-desc">
-                The full offering. Facilitation, camera, film, and a message
-                you can finally stand behind.
-              </p>
-              <ul className="tier-list">
-                <li>2–3 facilitated sessions</li>
+                <li>1–2 facilitated sessions</li>
                 <li>Camera and lens shipped to you</li>
-                <li>3-minute produced brand video</li>
+                <li>2–3 minute produced film</li>
                 <li>All raw footage returned</li>
-                <li>Performance data and messaging doc</li>
+                <li>Narrative synthesis document</li>
               </ul>
-              <Link to="/contact" className="cta-link">Start here</Link>
+              <Link to="/contact" className="cta-link">Start a conversation</Link>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="tier-card scroll-reveal">
-              <p className="tier-tag small-caps">Ongoing partnership</p>
-              <h3 className="tier-name">The Territory</h3>
-              <p className="tier-price">$4,000 – $8,000 / month</p>
-              <p className="tier-desc">
-                Monthly facilitation and production. For when the work is ongoing
-                and the clarity needs to keep pace.
-              </p>
+      {/* ——— CASE STUDY: GDC ——— */}
+      <section className="bg-bone section-pad">
+        <div className="content-narrow">
+          <div className="scroll-reveal">
+            <p className="small-caps">What this becomes</p>
+            <h2 style={{ marginBottom: '1.5rem' }}>When I embedded in a 10-week design challenge</h2>
+            <div style={{
+              position: 'relative',
+              paddingBottom: '56.25%',
+              height: 0,
+              overflow: 'hidden',
+              marginBottom: '2rem',
+              borderRadius: '4px',
+            }}>
+              <iframe
+                src="https://www.youtube.com/embed/I5HH-s8Z5yU"
+                title="The Genesis Design Challenge: Making the Invisible Value Visible"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                }}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+            <p style={{ color: 'var(--ash)', marginBottom: '1rem' }}>
+              The Genesis Design Challenge brought eight people together to
+              build something from nothing. I embedded as facilitator and
+              documentarian — conducting wayfinding interviews, tracking
+              individual learning arcs, and producing a compilation film.
+            </p>
+            <p style={{ color: 'var(--ash)', marginBottom: '1rem' }}>
+              The result: a 15-minute film, an impact evaluation report with
+              longitudinal data across five pulse surveys, and individual
+              narrative artifacts for each participant.
+            </p>
+            <p style={{ color: 'var(--ash)', marginBottom: '1.5rem' }}>
+              This is what happens when facilitation and film go deeper —
+              embedded in a program, documenting what emerges, and producing
+              evaluation data that proves it happened.
+            </p>
+          </div>
+          <div className="scroll-reveal" style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <div className="tier-card" style={{ flex: '1', minWidth: '14rem' }}>
+              <p className="tier-tag small-caps">Program engagement</p>
+              <h3 className="tier-name" style={{ fontSize: '1.1rem' }}>For cohorts, workshops, and containers</h3>
+              <p className="tier-price">$3,000 – $8,000</p>
               <ul className="tier-list">
-                <li>Monthly facilitation sessions</li>
-                <li>2–4 produced videos per month</li>
-                <li>Strategic narrative guidance</li>
-                <li>Ongoing creative partnership</li>
+                <li>Embedded facilitation across the program arc</li>
+                <li>Individual participant interviews</li>
+                <li>Compilation film + individual stories</li>
+                <li>Impact evaluation report</li>
               </ul>
-              <Link to="/contact" className="cta-link">Start here</Link>
+              <Link to="/contact" className="cta-link">Let's talk about your program</Link>
             </div>
           </div>
         </div>
@@ -279,10 +282,10 @@ export default function Services() {
       <section className="bg-bone section-pad">
         <div className="content-narrow">
           <div className="scroll-reveal">
-            <p className="small-caps">Methodology</p>
+            <p className="small-caps">How it works</p>
             <h2 className="methodology-headline">Four phases. One honest conversation.</h2>
             <p style={{ color: 'var(--ash)', marginTop: '0.5rem' }}>
-              <Link to="/about">Learn more about Isaac's facilitation approach.</Link>
+              <Link to="/about">Learn more about the facilitation approach.</Link>
             </p>
           </div>
 
@@ -328,9 +331,10 @@ export default function Services() {
       <section className="section-pad">
         <div className="content-narrow scroll-reveal" style={{ textAlign: 'center' }}>
           <p className="small-caps">Start</p>
-          <h2 className="services-cta-headline">Not sure which tier fits?</h2>
+          <h2 className="services-cta-headline">It starts with a conversation.</h2>
           <p style={{ color: 'var(--ash)', marginBottom: '2.5rem' }}>
-            Start with a conversation. We'll figure it out together.
+            Tell me what you're building, where you are in the process,
+            and what you need to show for it. We'll figure out the rest together.
           </p>
           <Link to="/contact" className="btn-primary">Get in touch</Link>
         </div>

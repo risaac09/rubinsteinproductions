@@ -16,7 +16,7 @@ export default function Home() {
 
   usePageMeta({
     title: null,
-    description: 'Facilitation and film for mission-driven professionals. A camera, a conversation, and a 3-minute brand video that sounds like you.',
+    description: "Facilitation and film for people in transition. A camera, a conversation, and a short film that says what you've become.",
     path: '/',
   })
 
@@ -217,7 +217,7 @@ export default function Home() {
           jobTitle: 'Facilitator & Filmmaker',
         },
         priceRange: '$500 – $12,000',
-        serviceType: ['Facilitation', 'Video Production', 'Brand Strategy'],
+        serviceType: ['Facilitation', 'Documentary Film', 'Program Evaluation'],
         sameAs: [
           'https://www.linkedin.com/in/isaacrubinstein/',
         ],
@@ -351,7 +351,7 @@ export default function Home() {
             with someone listening the whole time.
           </p>
           <Link to="/services" className="cta-link" style={{ color: 'var(--bone)', borderColor: 'var(--blood)' }}>
-            See the tiers
+            See how it works
           </Link>
         </div>
       </section>
@@ -379,26 +379,25 @@ export default function Home() {
       </section>
 
       {/* ——— WHO THIS IS FOR ——— */}
-      {/* TODO: Add images — a headshot (public/images/isaac-rubinstein-headshot.webp) and a camera-kit photo (public/images/camera-kit.webp) would significantly improve credibility */}
       <section className="personas-section bg-bone section-pad">
         <div className="content-wide">
           <p className="small-caps">Who this is for</p>
           <h2 className="personas-headline">
-            People whose systems trained them to optimize instead of speak.
+            People who've been through something real and need to show it.
           </h2>
           <div className="persona-grid">
             {[
               {
-                name: 'The Mission-Driven Analyst',
-                desc: "Mid-career nonprofit or social enterprise professional. Deeply cares about impact but operates inside systems that reward jargon over clarity. Has moments of genuine clarity in private. They're fleeting.",
+                name: 'Starting a new chapter',
+                desc: "You've been through a transition — burnout recovery, a career shift, grad school, a layoff — and the story hasn't caught up to who you've become. You need something tangible to point to.",
               },
               {
-                name: 'The Newly Independent Consultant',
-                desc: "The systems that built their expertise also trained them to hide it behind precision and caveats. Rich experience, no through-line. The story hasn't caught up to who they've become.",
+                name: 'Running a program',
+                desc: "You're holding a container — a cohort, a workshop, a design challenge — and something real is happening inside it. You need it documented and evaluated, not just marketed.",
               },
               {
-                name: 'The Academic-Turned-Practitioner',
-                desc: 'Academia optimized them for hedging. Outside it, those habits produce silence. They have something real to say. The institutional voice keeps getting in the way.',
+                name: 'Building something new',
+                desc: "You're developing a methodology, launching a practice, or piloting something that doesn't fit neatly into existing categories. You need someone who can hold the complexity while you articulate it.",
               },
             ].map(({ name, desc }) => (
               <div key={name} className="persona-card scroll-reveal">
@@ -408,7 +407,7 @@ export default function Home() {
             ))}
           </div>
           <p style={{ marginTop: 'var(--space-lg)', textAlign: 'center' }}>
-            <Link to="/services" className="cta-link">See which tier fits →</Link>
+            <Link to="/services" className="cta-link">See how it works →</Link>
           </p>
         </div>
       </section>
