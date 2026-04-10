@@ -16,8 +16,6 @@ export default function Footer() {
           <span className="dot-sep" aria-hidden="true" />
           <Link to="/services">Services</Link>
           <span className="dot-sep" aria-hidden="true" />
-          <Link to="/work">Work</Link>
-          <span className="dot-sep" aria-hidden="true" />
           <Link to="/contact">Contact</Link>
         </nav>
 
