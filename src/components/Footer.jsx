@@ -20,7 +20,7 @@ export default function Footer() {
         </nav>
 
         <div className="footer-social">
-          <a href="https://www.linkedin.com/in/isaacrubinstein/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/isaacrubinstein123" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span className="dot-sep" aria-hidden="true" />
           <a href="https://substack.com/@isaacrubinstein" target="_blank" rel="noopener noreferrer">Substack</a>
           <span className="dot-sep" aria-hidden="true" />
