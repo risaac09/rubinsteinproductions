@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
@@ -13,6 +13,18 @@ const prefersReducedMotion = () =>
 
 export default function Services() {
   const containerRef = useRef(null)
+
+  useEffect(() => {
+    function onMessage(e) {
+      if (e.origin !== 'https://risaac09.github.io') return
+      if (e.data?.type === 'height') {
+        const f = document.querySelector('iframe[title="Information Metabolism Diagnostic"]')
+        if (f) f.style.height = e.data.px + 'px'
+      }
+    }
+    window.addEventListener('message', onMessage)
+    return () => window.removeEventListener('message', onMessage)
+  }, [])
 
   usePageMeta({
     title: 'Services & Pricing',
@@ -343,6 +355,27 @@ export default function Services() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ——— DIAGNOSTIC ——— */}
+      <section className="section-pad">
+        <div className="content-narrow">
+          <div className="scroll-reveal" style={{ marginBottom: '2rem' }}>
+            <p className="small-caps">Not sure where to start?</p>
+            <h2 style={{ marginBottom: '0.75rem' }}>Take the diagnostic.</h2>
+            <p style={{ color: 'var(--ash)' }}>
+              Twelve questions about how information moves through your system.
+              Four minutes. The report tells you which service tier fits — or whether
+              you need something else entirely.
+            </p>
+          </div>
+          <iframe
+            src="https://risaac09.github.io/alchemy-diagnostic/embed.html"
+            style={{ width: '100%', border: 'none', display: 'block' }}
+            title="Information Metabolism Diagnostic"
+            loading="lazy"
+          />
         </div>
       </section>
 
