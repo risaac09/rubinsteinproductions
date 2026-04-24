@@ -22,6 +22,7 @@ export default function Nav() {
       <NavLink to="/" className="nav-logo">
         <svg width="28" height="28" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect width="120" height="120" rx="12" fill="var(--marrow)" />
+          <rect x="48" y="24" width="2.5" height="76" fill="var(--ash)" opacity="0.5" />
           <text x="14" y="82" fontFamily="'EB Garamond', Georgia, serif" fontSize="72" fill="var(--bone)">R</text>
           <text x="50" y="82" fontFamily="'EB Garamond', Georgia, serif" fontSize="72" fill="var(--blood)">P</text>
         </svg>

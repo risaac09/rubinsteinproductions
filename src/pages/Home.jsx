@@ -249,6 +249,11 @@ export default function Home() {
       {/* ——— METABOLIZE / APPROACH ——— */}
       <section className="metabolize-section bg-marrow">
         <div className="content-narrow">
+          <svg className="liver-mark scroll-reveal" width="64" height="64" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="40" cy="40" rx="36" ry="32" fill="none" stroke="var(--ash)" strokeWidth="1.5" opacity="0.4" />
+            <ellipse cx="42" cy="42" rx="20" ry="18" fill="none" stroke="var(--blood)" strokeWidth="2" />
+            <circle cx="42" cy="42" r="3" fill="var(--amber)" />
+          </svg>
           <p className="small-caps metabolize-label scroll-reveal" style={{ color: 'var(--ash)' }}>
             The Digital Liver
           </p>

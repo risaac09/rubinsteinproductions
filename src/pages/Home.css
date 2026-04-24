@@ -64,6 +64,11 @@
   padding: var(--space-xl) var(--space-md);
 }
 
+.liver-mark {
+  display: block;
+  margin: 0 auto 1.5rem;
+}
+
 .metabolize-label {
   margin-bottom: 1.5rem;
 }
