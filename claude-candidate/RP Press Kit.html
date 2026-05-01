@@ -169,6 +169,16 @@
       .logo-grid, .plate-grid, .contact-grid { grid-template-columns: 1fr 1fr; }
       .bio-grid { grid-template-columns: 1fr; gap: 12px; }
     }
+    /* skip link — a11y */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--rp-accent); color: var(--rp-ink);
+      padding: 12px 20px;
+      font-family: var(--rp-font-mono); font-size: 12px; letter-spacing: 0.25em;
+      text-transform: lowercase; text-decoration: none;
+      z-index: 100;
+    }
+    .skip-link:focus { left: 16px; top: 16px; }
   </style>
 </head>
 <body>
@@ -180,7 +190,8 @@
       <text x="50" y="68" text-anchor="middle" font-family="monospace" font-size="9" letter-spacing="2" fill="#E8DEC9">RP</text>
     </svg>
   </template>
-  <div class="wrap">
+  <a class="skip-link" href="#main">skip to content</a>
+  <div class="wrap" id="main">
     <div class="chrome-top">
       <span>rubinstein productions · press kit</span>
       <span>v 1.0 · 2027</span>

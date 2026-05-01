@@ -206,6 +206,17 @@
       .head .right { text-align: left; }
       .coords { grid-template-columns: 1fr; }
     }
+    /* skip link — a11y */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--rp-accent, #2F6A62); color: var(--rp-ink, #F4EFE3);
+      padding: 12px 20px;
+      font-family: var(--rp-font-mono); font-size: 12px; letter-spacing: 0.25em;
+      text-transform: lowercase; text-decoration: none;
+      z-index: 100;
+    }
+    .skip-link:focus { left: 16px; top: 16px; }
+    @media print { .skip-link, .print-btn { display: none; } }
   </style>
 </head>
 <body>
@@ -216,9 +227,10 @@
     </svg>
   </template>
 
+  <a class="skip-link" href="#main">skip to content</a>
   <button class="print-btn" onclick="window.print()">print / save pdf</button>
 
-  <div class="page-shell">
+  <div class="page-shell" id="main">
     <article class="page" data-screen-label="Capabilities Statement">
       <header class="head">
         <div>

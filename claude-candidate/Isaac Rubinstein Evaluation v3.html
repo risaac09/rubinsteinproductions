@@ -321,6 +321,16 @@
       .sec-head { grid-template-columns: 1fr; gap: 8px; }
       .sec-lede { grid-column: 1; }
     }
+    /* skip link — a11y */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--rp-accent, #2F6A62); color: var(--rp-ink, #F4EFE3);
+      padding: 12px 20px;
+      font-family: var(--rp-font-mono); font-size: 12px; letter-spacing: 0.25em;
+      text-transform: lowercase; text-decoration: none;
+      z-index: 100;
+    }
+    .skip-link:focus { left: 16px; top: 16px; }
   </style>
 </head>
 <body>
@@ -331,7 +341,8 @@
     </svg>
   </template>
 
-  <nav class="nav">
+  <a class="skip-link" href="#main">skip to content</a>
+  <nav class="nav" aria-label="primary">
     <a href="#top" class="nav-mark">Isaac <span class="ev-it">Rubinstein</span><span class="pip">MPH</span></a>
     <div class="nav-links">
       <a href="#about">About</a>
@@ -342,6 +353,7 @@
     </div>
   </nav>
 
+  <main id="main">
   <section id="top" class="hero" data-screen-label="01 Hero">
     <div class="ev-eyebrow">Independent program evaluator &amp; advisor</div>
     <h1 class="ev-h1">Isaac Rubinstein, <span class="ev-it">MPH.</span></h1>
@@ -560,6 +572,7 @@
     </div>
   </section>
 
+  </main>
   <footer class="foot">
     <span>© 2026 Isaac Rubinstein</span>
     <span>Set in Public Sans &amp; Cormorant Garamond</span>
