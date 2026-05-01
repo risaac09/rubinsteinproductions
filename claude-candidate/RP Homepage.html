@@ -31,7 +31,7 @@
 
     /* hero */
     .hero {
-      min-height: 100vh; padding: 120px 40px 80px;
+      min-height: 100dvh; padding: 120px 40px 80px;
       display: flex; flex-direction: column; justify-content: center;
       max-width: 1320px; margin: 0 auto;
       position: relative;
@@ -155,9 +155,43 @@
     .foot a { color: var(--rp-mute); text-decoration: none; }
     .foot a:hover { color: var(--rp-accent); }
 
+    /* skip link — a11y */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--rp-accent); color: var(--rp-ink);
+      padding: 12px 20px;
+      font-family: var(--rp-font-mono); font-size: 12px; letter-spacing: 0.25em;
+      text-transform: lowercase; text-decoration: none;
+      z-index: 100;
+    }
+    .skip-link:focus { left: 16px; top: 16px; }
+
+    /* arc fallback — visible if JS fails or while React mounts */
+    .arc-fallback {
+      font-family: var(--rp-font-mono); font-size: 12px; letter-spacing: 0.25em;
+      color: var(--rp-mute); text-transform: lowercase;
+      padding: 24px 0; margin: 0; text-align: center;
+    }
+
     @media (max-width: 880px) {
       .plate-grid { grid-template-columns: repeat(2, 1fr); }
       .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .nav { padding: 16px 20px; }
+      .hero { padding: 100px 20px 140px; }
+      .hero-meta {
+        position: static; flex-direction: column; gap: 8px;
+        margin-top: 48px; padding-top: 24px;
+        border-top: 1px solid var(--rp-rule);
+      }
+      .manifesto { padding: 80px 20px; }
+      .arc-band { padding: 60px 20px; }
+      .plates { padding: 80px 20px; }
+      .plate-grid { grid-template-columns: 1fr; gap: 12px; }
+      .plate-card { aspect-ratio: 16 / 10; }
+      .cta { padding: 100px 20px; }
+      .foot { padding: 32px 20px; flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
@@ -168,7 +202,8 @@
       <text x="50" y="58" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="38" fill="#C8922E">SW</text>
     </svg>
   </template>
-  <nav class="nav">
+  <a class="skip-link" href="#main">skip to content</a>
+  <nav class="nav" aria-label="primary">
     <span class="nav-mark">Say <span class="it">Why</span></span>
     <div class="nav-links">
       <a href="#manifesto">manifesto</a>
@@ -179,6 +214,7 @@
     </div>
   </nav>
 
+  <main id="main">
   <section class="hero">
     <div class="hero-tag">rp · arc opens april 2026 → closes september 25, 2027</div>
     <h1 class="hero-h">Say<br><span class="it">Why.</span></h1>
@@ -199,7 +235,9 @@
   </section>
 
   <section class="arc-band">
-    <div id="arc-mount"></div>
+    <div id="arc-mount">
+      <p class="arc-fallback">arc · april 2026 → september 25 · 2027 · 17 months · 10 plates</p>
+    </div>
   </section>
 
   <section id="plates" class="plates">
@@ -224,6 +262,7 @@
     <div class="cta-rule"></div>
     <a class="cta-link" href="mailto:isaac@rubinsteinproductions.com">isaac@rubinsteinproductions.com</a>
   </section>
+  </main>
 
   <footer class="foot">
     <span>© rubinstein productions · 2026—2027</span>
