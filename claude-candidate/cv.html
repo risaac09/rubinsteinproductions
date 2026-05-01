@@ -152,10 +152,22 @@
       .entry, .section-h { break-inside: avoid; }
       .head h1 { font-size: 36px; }
     }
+    /* skip link — a11y */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--rp-accent, #C8922E); color: var(--rp-ink, #0E0B08);
+      padding: 12px 20px;
+      font-family: var(--rp-font-mono); font-size: 12px; letter-spacing: 0.25em;
+      text-transform: lowercase; text-decoration: none;
+      z-index: 100;
+    }
+    .skip-link:focus { left: 16px; top: 16px; }
+    @media print { .skip-link { display: none; } }
   </style>
 </head>
 <body>
-  <nav class="nav">
+  <a class="skip-link" href="#main">skip to content</a>
+  <nav class="nav" aria-label="primary">
     <a href="Isaac Rubinstein Evaluation v3.html" class="nav-mark">Isaac <span class="ev-it">Rubinstein</span></a>
     <div class="actions">
       <button class="btn-print" onclick="window.print()">print / save pdf</button>
@@ -163,7 +175,7 @@
     </div>
   </nav>
 
-  <article class="wrap" data-screen-label="CV">
+  <article class="wrap" id="main" data-screen-label="CV">
     <header class="head">
       <div>
         <h1>Isaac Rubinstein, <span class="ev-it">MPH.</span></h1>
