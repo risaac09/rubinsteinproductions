@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Rubinstein Productions — About</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tokens.css" />
+  <style>
+    body { background: var(--rp-ink); color: var(--rp-fg); }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 64px 40px 120px; }
+    .wrap--wide { max-width: 1200px; }
+    .chrome-top {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding-bottom: 16px; border-bottom: 1px solid var(--rp-rule);
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.2em;
+      color: var(--rp-mute); text-transform: lowercase;
+    }
+    .mark {
+      font-family: var(--rp-font-serif); font-size: 24px; line-height: 1;
+      color: var(--rp-fg); letter-spacing: 0;
+    }
+    .mark .it { font-style: italic; }
+    .hero {
+      padding: 96px 0 64px;
+      display: flex; flex-direction: column; gap: 32px;
+    }
+    .hero-tag {
+      font-family: var(--rp-font-mono); font-size: 13px; letter-spacing: 0.3em;
+      color: var(--rp-accent); text-transform: lowercase;
+    }
+    .hero-h {
+      font-family: var(--rp-font-display); font-weight: 700;
+      font-size: clamp(64px, 9vw, 128px); line-height: 0.92;
+      letter-spacing: -0.015em; text-transform: uppercase; color: var(--rp-fg);
+      margin: 0;
+    }
+    .hero-h .accent { color: var(--rp-accent); }
+    .hero-rule { width: 240px; height: 2px; background: var(--rp-accent); }
+    .hero-sub {
+      font-family: var(--rp-font-serif); font-style: italic;
+      font-size: clamp(20px, 2.4vw, 32px); line-height: 1.4;
+      color: var(--rp-fg-dim); max-width: 640px;
+    }
+    .section-rule {
+      display: flex; align-items: baseline; gap: 24px;
+      padding: 64px 0 32px;
+    }
+    .section-num {
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.3em;
+      color: var(--rp-accent); text-transform: lowercase;
+    }
+    .section-h {
+      font-family: var(--rp-font-display); font-weight: 700;
+      font-size: 40px; letter-spacing: -0.005em; text-transform: uppercase;
+      color: var(--rp-fg); margin: 0;
+    }
+    .section-line { flex: 1; height: 1px; background: var(--rp-rule); }
+    .prose {
+      font-family: var(--rp-font-mono); font-size: 15px; line-height: 1.8;
+      color: var(--rp-fg-dim); max-width: 640px;
+    }
+    .prose p { margin: 0 0 24px; }
+    .prose .lead {
+      font-family: var(--rp-font-serif); font-style: italic;
+      font-size: 26px; line-height: 1.5; color: var(--rp-fg);
+    }
+    .prose .accent { color: var(--rp-accent); }
+    .prose strong { color: var(--rp-fg); font-weight: 500; }
+
+    .plate-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      padding: 48px 0; align-items: center;
+    }
+    .plate-row--reverse > :first-child { order: 2; }
+    .plate-img {
+      width: 100%; aspect-ratio: 4 / 5;
+      background: var(--rp-ink-2); border: 1px solid var(--rp-rule);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .plate-img img { width: 100%; height: 100%; object-fit: cover; }
+    .plate-meta {
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.25em;
+      color: var(--rp-accent); text-transform: lowercase; margin-bottom: 12px;
+    }
+    .plate-title {
+      font-family: var(--rp-font-display); font-weight: 700;
+      font-size: 56px; line-height: 0.95; letter-spacing: -0.01em;
+      text-transform: uppercase; margin: 0 0 16px;
+    }
+    .plate-motto {
+      font-family: var(--rp-font-serif); font-style: italic;
+      font-size: 22px; line-height: 1.4; color: var(--rp-fg-dim);
+      padding-left: 16px; border-left: 1px solid var(--rp-accent);
+    }
+
+    .closing {
+      padding: 96px 0;
+      text-align: center;
+      border-top: 1px solid var(--rp-rule);
+      margin-top: 96px;
+    }
+    .closing-h {
+      font-family: var(--rp-font-display); font-weight: 700;
+      font-size: clamp(48px, 7vw, 96px); line-height: 0.95;
+      letter-spacing: -0.01em; text-transform: uppercase;
+    }
+    .closing-h .it { font-family: var(--rp-font-serif); font-style: italic; font-weight: 400; text-transform: none; color: var(--rp-accent); }
+    .closing-meta {
+      font-family: var(--rp-font-mono); font-size: 13px; letter-spacing: 0.3em;
+      color: var(--rp-mute); text-transform: lowercase; margin-top: 32px;
+    }
+    .closing-meta a { color: var(--rp-accent); text-decoration: none; }
+
+    .footer-chrome {
+      display: flex; justify-content: space-between; padding: 32px 0 0;
+      border-top: 1px solid var(--rp-rule); margin-top: 64px;
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.2em;
+      color: var(--rp-mute-2); text-transform: lowercase;
+    }
+    @media (max-width: 720px) {
+      .plate-row { grid-template-columns: 1fr; gap: 32px; }
+      .plate-row--reverse > :first-child { order: 0; }
+    }
+  </style>
+</head>
+<body>
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <rect width="100" height="100" fill="#0E0B08"/>
+      <text x="50" y="58" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="36" fill="#C8922E">RP</text>
+    </svg>
+  </template>
+  <div class="wrap">
+    <div class="chrome-top">
+      <span>rubinstein productions</span>
+      <span>v 1.0 · 2027</span>
+    </div>
+
+    <section class="hero">
+      <div class="hero-tag">rp · about · 01</div>
+      <h1 class="hero-h">A System for<br><span class="accent">Saying Why.</span></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">a 17-month publishing arc on knowledge metabolism, somatic practice, and the seam where institutions meet the body. one practitioner · one voice · one arc.</p>
+    </section>
+
+    <section>
+      <div class="section-rule">
+        <span class="section-num">02 · the work</span>
+        <h2 class="section-h">Manifesto</h2>
+        <span class="section-line"></span>
+      </div>
+      <div class="prose">
+        <p class="lead">Rubinstein Productions is a publishing project framed as a metabolic system: information enters as signal, integrates into pattern, flows as practice, and crosses thresholds into expression.</p>
+        <p>I entered medicine at the bedside and returned at the systems level. The work I do — across public health, institutional change, and the framework of care — is one continuous loop: <span class="accent">practitioner ↔ patient</span>, the inside version made public, the body preconditioning the mind.</p>
+        <p>This site is the publishing arm of that inquiry. <strong>Ten plates</strong> render the architecture. <strong>One year of writing</strong> fills it in. The arc opens april 2026 and closes <span class="accent">september 25, 2027</span> — seventeen months exactly.</p>
+        <p class="lead">Expression as practice · not performance.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-rule">
+        <span class="section-num">03 · timeline</span>
+        <h2 class="section-h">The Arc</h2>
+        <span class="section-line"></span>
+      </div>
+      <div id="arc-mount"></div>
+    </section>
+  </div>
+
+  <div class="wrap wrap--wide">
+    <div class="section-rule">
+      <span class="section-num">04 · plates</span>
+      <h2 class="section-h">Ten Plates · One Argument</h2>
+      <span class="section-line"></span>
+    </div>
+
+    <div class="plate-row">
+      <div class="plate-img"><img src="assets/plates/01-digital-liver.png" alt="digital liver" /></div>
+      <div>
+        <div class="plate-meta">plate 01</div>
+        <h3 class="plate-title">The Digital<br>Liver</h3>
+        <div class="plate-motto">information that cannot be metabolized is composted.</div>
+      </div>
+    </div>
+
+    <div class="plate-row plate-row--reverse">
+      <div class="plate-img"><img src="assets/plates/02-sift.png" alt="sift" /></div>
+      <div>
+        <div class="plate-meta">plate 02</div>
+        <h3 class="plate-title">SIFT</h3>
+        <div class="plate-motto">signal · integration · flow · threshold — the four operations.</div>
+      </div>
+    </div>
+
+    <div class="plate-row">
+      <div class="plate-img"><img src="assets/plates/03-arc.png" alt="arc" /></div>
+      <div>
+        <div class="plate-meta">plate 03</div>
+        <h3 class="plate-title">The Arc</h3>
+        <div class="plate-motto">april 2026 → september 25, 2027 · seventeen months · one voice located.</div>
+      </div>
+    </div>
+
+    <div class="plate-row plate-row--reverse">
+      <div class="plate-img"><img src="assets/plates/06-running.png" alt="running" /></div>
+      <div>
+        <div class="plate-meta">plate 06</div>
+        <h3 class="plate-title">Running</h3>
+        <div class="plate-motto">the body preconditions the mind. somatic practice as epistemic method.</div>
+      </div>
+    </div>
+
+    <div class="plate-row">
+      <div class="plate-img"><img src="assets/plates/08-say-the-thing.png" alt="say the thing" /></div>
+      <div>
+        <div class="plate-meta">plate 08</div>
+        <h3 class="plate-title">Say the<br>Thing</h3>
+        <div class="plate-motto">the inside version, made public. expression as practice — not performance.</div>
+      </div>
+    </div>
+
+    <div class="plate-row plate-row--reverse">
+      <div class="plate-img"><img src="assets/plates/10-september-25.png" alt="september 25" /></div>
+      <div>
+        <div class="plate-meta">plate 10 · close</div>
+        <h3 class="plate-title">September 25</h3>
+        <div class="plate-motto">one arc · one year · one voice. the close of the publication arc, 2027.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="closing">
+      <div class="closing-h">
+        Say <span class="it">Why.</span>
+      </div>
+      <div class="closing-meta">
+        <a href="mailto:isaac@rubinsteinproductions.com">isaac@rubinsteinproductions.com</a> · rubinsteinproductions.com
+      </div>
+    </section>
+    <div class="footer-chrome">
+      <span>rp · about · 01</span>
+      <span>v 1.0 · 2027</span>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="arc-timeline.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById("arc-mount")).render(<window.ArcTimeline />);
+  </script>
+</body>
+</html>

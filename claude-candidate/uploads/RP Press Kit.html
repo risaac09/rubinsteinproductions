@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Rubinstein Productions — Press Kit</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tokens.css" />
+  <style>
+    body { background: var(--rp-ink); color: var(--rp-fg); }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 48px 40px 96px; }
+    .chrome-top, .chrome-bot {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 16px 0; border-bottom: 1px solid var(--rp-rule);
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.2em;
+      color: var(--rp-mute); text-transform: lowercase;
+    }
+    .chrome-bot { border-bottom: 0; border-top: 1px solid var(--rp-rule); margin-top: 64px; }
+    .hero {
+      padding: 64px 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .hero-tag {
+      font-family: var(--rp-font-mono); font-size: 13px; letter-spacing: 0.3em;
+      color: var(--rp-accent); text-transform: lowercase; margin-bottom: 16px;
+    }
+    .hero-h {
+      font-family: var(--rp-font-display); font-weight: 700;
+      font-size: clamp(56px, 7vw, 96px); line-height: 0.92;
+      letter-spacing: -0.015em; text-transform: uppercase; color: var(--rp-fg);
+      margin: 0;
+    }
+    .hero-h .accent { color: var(--rp-accent); }
+    .hero-rule { width: 180px; height: 2px; background: var(--rp-accent); margin: 24px 0; }
+    .hero-sub {
+      font-family: var(--rp-font-serif); font-style: italic;
+      font-size: 24px; line-height: 1.4; color: var(--rp-fg-dim);
+    }
+    .portrait {
+      aspect-ratio: 4 / 5;
+      background: var(--rp-ink-2);
+      border: 1px solid var(--rp-rule);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--rp-font-mono); font-size: 12px; letter-spacing: 0.2em;
+      color: var(--rp-mute-2); text-transform: lowercase;
+    }
+    .section {
+      padding: 64px 0;
+      border-top: 1px solid var(--rp-rule);
+    }
+    .section-rule {
+      display: flex; align-items: baseline; gap: 24px; margin-bottom: 40px;
+    }
+    .section-num {
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.3em;
+      color: var(--rp-accent); text-transform: lowercase;
+    }
+    .section-h {
+      font-family: var(--rp-font-display); font-weight: 700;
+      font-size: 36px; letter-spacing: -0.005em; text-transform: uppercase;
+      color: var(--rp-fg); margin: 0;
+    }
+    .section-line { flex: 1; height: 1px; background: var(--rp-rule); }
+
+    /* logo grid */
+    .logo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .logo-tile {
+      background: var(--rp-ink-2); border: 1px solid var(--rp-rule);
+      padding: 48px; min-height: 240px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 16px; position: relative;
+    }
+    .logo-tile.inverse { background: var(--rp-oat); }
+    .logo-tile.inverse .lockup-meta { color: #5C4818; }
+    .lockup-meta {
+      position: absolute; top: 12px; left: 16px;
+      font-family: var(--rp-font-mono); font-size: 10px; letter-spacing: 0.25em;
+      color: var(--rp-mute); text-transform: lowercase;
+    }
+    .lockup-dl {
+      position: absolute; bottom: 12px; right: 16px;
+      font-family: var(--rp-font-mono); font-size: 10px; letter-spacing: 0.2em;
+      color: var(--rp-accent); text-transform: lowercase; text-decoration: none;
+    }
+    .lockup-dl:hover { color: var(--rp-accent-glow); }
+
+    .lockup-primary {
+      font-family: var(--rp-font-serif); font-size: 64px; line-height: 1;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: var(--rp-fg);
+    }
+    .lockup-primary.dark-on-cream { color: #1A140A; }
+    .lockup-primary .it { font-style: italic; }
+    .lockup-primary .accent-rule { width: 140px; height: 2px; background: var(--rp-accent); }
+    .lockup-primary.dark-on-cream .accent-rule { background: #8E6820; }
+
+    .lockup-stacked {
+      font-family: var(--rp-font-serif); font-size: 56px; line-height: 1;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .lockup-stacked .why { font-style: italic; color: var(--rp-accent); }
+
+    .lockup-mono {
+      font-family: var(--rp-font-mono); font-size: 14px; letter-spacing: 0.3em;
+      color: var(--rp-fg); text-transform: uppercase;
+    }
+    .lockup-mono-rule { width: 180px; height: 1px; background: var(--rp-accent); margin: 12px 0; }
+    .lockup-mono-sub { font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.25em; color: var(--rp-mute); }
+
+    /* bio block */
+    .bio-grid { display: grid; grid-template-columns: 200px 1fr; gap: 32px; padding: 24px 0; border-bottom: 1px solid var(--rp-rule); align-items: baseline; }
+    .bio-grid:last-child { border-bottom: 0; }
+    .bio-label {
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.25em;
+      color: var(--rp-accent); text-transform: lowercase;
+    }
+    .bio-prose {
+      font-family: var(--rp-font-mono); font-size: 14px; line-height: 1.75; color: var(--rp-fg-dim);
+    }
+    .bio-prose.lead { font-family: var(--rp-font-serif); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--rp-fg); }
+    .copy-btn {
+      display: inline-block; margin-top: 12px;
+      padding: 6px 12px; border: 1px solid var(--rp-rule); background: transparent;
+      color: var(--rp-mute); font-family: var(--rp-font-mono); font-size: 10px;
+      letter-spacing: 0.25em; text-transform: lowercase; cursor: pointer;
+      transition: border-color var(--rp-dur-quick), color var(--rp-dur-quick);
+    }
+    .copy-btn:hover { border-color: var(--rp-accent); color: var(--rp-accent); }
+
+    /* plate grid */
+    .plate-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .plate-tile {
+      aspect-ratio: 4 / 5;
+      background: var(--rp-ink-2); border: 1px solid var(--rp-rule);
+      overflow: hidden; position: relative; cursor: pointer;
+      transition: border-color var(--rp-dur-quick);
+    }
+    .plate-tile:hover { border-color: var(--rp-accent); }
+    .plate-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .plate-tile-meta {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 8px 10px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      font-family: var(--rp-font-mono); font-size: 9px; letter-spacing: 0.2em;
+      color: var(--rp-fg); text-transform: lowercase;
+      display: flex; justify-content: space-between;
+    }
+
+    /* contact */
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .contact-block {
+      background: var(--rp-ink-2); border: 1px solid var(--rp-rule);
+      padding: 32px;
+    }
+    .contact-block .label {
+      font-family: var(--rp-font-mono); font-size: 10px; letter-spacing: 0.3em;
+      color: var(--rp-accent); text-transform: lowercase; margin-bottom: 12px;
+    }
+    .contact-block .value {
+      font-family: var(--rp-font-display); font-size: 22px; font-weight: 700;
+      letter-spacing: -0.005em; color: var(--rp-fg); text-transform: uppercase;
+    }
+    .contact-block a { color: inherit; text-decoration: none; }
+
+    @media (max-width: 880px) {
+      .hero { grid-template-columns: 1fr; gap: 32px; }
+      .logo-grid, .plate-grid, .contact-grid { grid-template-columns: 1fr 1fr; }
+      .bio-grid { grid-template-columns: 1fr; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <rect width="100" height="100" fill="#0E0B08"/>
+      <text x="50" y="42" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#C8922E">press</text>
+      <line x1="30" y1="50" x2="70" y2="50" stroke="#C8922E" stroke-width="1.5"/>
+      <text x="50" y="68" text-anchor="middle" font-family="monospace" font-size="9" letter-spacing="2" fill="#E8DEC9">RP</text>
+    </svg>
+  </template>
+  <div class="wrap">
+    <div class="chrome-top">
+      <span>rubinstein productions · press kit</span>
+      <span>v 1.0 · 2027</span>
+    </div>
+
+    <section class="hero">
+      <div>
+        <div class="hero-tag">rp · press · 01</div>
+        <h1 class="hero-h">Press &<br><span class="accent">Media Kit.</span></h1>
+        <div class="hero-rule"></div>
+        <p class="hero-sub">logos, lockups, portrait, bios in three lengths, the ten plates, and contact. press@rubinsteinproductions.com for embargoed assets.</p>
+      </div>
+      <div class="portrait">[ portrait · 4×5 · drop in jpg ]</div>
+    </section>
+
+    <!-- LOGOS -->
+    <section class="section">
+      <div class="section-rule">
+        <span class="section-num">02 · marks</span>
+        <h2 class="section-h">Logo Lockups</h2>
+        <span class="section-line"></span>
+      </div>
+      <div class="logo-grid">
+        <div class="logo-tile">
+          <span class="lockup-meta">primary · centered</span>
+          <div class="lockup-primary">
+            <span>Say <span class="it">Why</span></span>
+            <span class="accent-rule"></span>
+          </div>
+          <a class="lockup-dl" href="#">↓ svg / png</a>
+        </div>
+        <div class="logo-tile">
+          <span class="lockup-meta">stacked · portrait</span>
+          <div class="lockup-stacked">
+            <span>Say</span>
+            <span class="why">Why</span>
+          </div>
+          <a class="lockup-dl" href="#">↓ svg / png</a>
+        </div>
+        <div class="logo-tile">
+          <span class="lockup-meta">monoline · for chrome</span>
+          <div style="text-align:center;">
+            <div class="lockup-mono">RUBINSTEIN PRODUCTIONS</div>
+            <div class="lockup-mono-rule"></div>
+            <div class="lockup-mono-sub">say · why · 2027</div>
+          </div>
+          <a class="lockup-dl" href="#">↓ svg / png</a>
+        </div>
+        <div class="logo-tile inverse">
+          <span class="lockup-meta">inverse · for print</span>
+          <div class="lockup-primary dark-on-cream">
+            <span>Say <span class="it">Why</span></span>
+            <span class="accent-rule"></span>
+          </div>
+          <a class="lockup-dl" href="#">↓ svg / png</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIOS -->
+    <section class="section">
+      <div class="section-rule">
+        <span class="section-num">03 · bios</span>
+        <h2 class="section-h">Bio · Three Lengths</h2>
+        <span class="section-line"></span>
+      </div>
+
+      <div class="bio-grid">
+        <div>
+          <div class="bio-label">tagline</div>
+          <button class="copy-btn" data-copy="tag">copy</button>
+        </div>
+        <div class="bio-prose lead" id="bio-tag">expression as practice · not performance.</div>
+      </div>
+
+      <div class="bio-grid">
+        <div>
+          <div class="bio-label">50 words</div>
+          <button class="copy-btn" data-copy="50">copy</button>
+        </div>
+        <div class="bio-prose lead" id="bio-50">
+          Isaac Rubinstein is a practitioner, writer, and maker working at the seam between somatic practice and systems change. Rubinstein Productions is his publishing project — a 17-month arc opening april 2026 and closing september 25, 2027, rendered as ten design plates and a year of writing.
+        </div>
+      </div>
+
+      <div class="bio-grid">
+        <div>
+          <div class="bio-label">150 words</div>
+          <button class="copy-btn" data-copy="150">copy</button>
+        </div>
+        <div class="bio-prose" id="bio-150">
+          Isaac Rubinstein entered medicine at the bedside and returned at the systems level. He works as a practitioner and change agent across public health, institutions, and the framework. Rubinstein Productions is the publishing arm of his ongoing inquiry — a personal knowledge metabolism system rendered as ten design plates and seventeen months of writing. The project frames information not as object but as event: signal, integration, flow, threshold. Each plate carries one diagram. Each diagram carries one argument. The arc opens april 2026 and closes september 25, 2027 — one essay published, one voice located, one system handed off.
+        </div>
+      </div>
+
+      <div class="bio-grid">
+        <div>
+          <div class="bio-label">500 words</div>
+          <button class="copy-btn" data-copy="500">copy</button>
+        </div>
+        <div class="bio-prose" id="bio-500">
+          <p>Isaac Rubinstein is a practitioner, writer, and maker working at the seam between somatic practice and systems change. He entered medicine at the bedside — sitting with patients, learning the body as instrument — and returned at the systems level, working across public health institutions and the broader framework of care. Change management, on his account, is a somatic skill before it is a managerial one.</p>
+          <p>Rubinstein Productions is the publishing arm of his ongoing inquiry. The project frames information not as object but as event: signal, integration, flow, threshold. The architecture is rendered as ten design plates — the digital liver, sift, the arc, layers, vault, running, relational, say the thing, loop, september 25 — each carrying one diagram, each diagram carrying one argument.</p>
+          <p>The work is structured as a 17-month arc, opening april 2026 and closing september 25, 2027. Across that span: the ten plates published in sequence, a long-form essay deposited monthly, and a closing publication that gathers the system into a single document handed back to the field. The motto is <em>say why</em>; the operating principle is <em>expression as practice, not performance</em>.</p>
+          <p>His clients include institutions navigating change at the human scale — practitioners returning to leadership, organizations metabolizing transitions, individuals rendering their own systems public. He lives and works in Providence, Rhode Island.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATES -->
+    <section class="section">
+      <div class="section-rule">
+        <span class="section-num">04 · imagery</span>
+        <h2 class="section-h">The Ten Plates · Hi-Res</h2>
+        <span class="section-line"></span>
+      </div>
+      <div class="plate-grid">
+        <a class="plate-tile" href="assets/plates/01-digital-liver.png" download><img src="assets/plates/01-digital-liver.png" alt="01"><div class="plate-tile-meta"><span>01</span><span>↓</span></div></a>
+        <a class="plate-tile" href="assets/plates/02-sift.png" download><img src="assets/plates/02-sift.png" alt="02"><div class="plate-tile-meta"><span>02</span><span>↓</span></div></a>
+        <a class="plate-tile" href="assets/plates/03-arc.png" download><img src="assets/plates/03-arc.png" alt="03"><div class="plate-tile-meta"><span>03</span><span>↓</span></div></a>
+        <a class="plate-tile" href="assets/plates/04-layers.png" download><img src="assets/plates/04-layers.png" alt="04"><div class="plate-tile-meta"><span>04</span><span>↓</span></div></a>
+        <a class="plate-tile" href="assets/plates/05-vault.png" download><img src="assets/plates/05-vault.png" alt="05"><div class="plate-tile-meta"><span>05</span><span>↓</span></div></a>
+        <a class="plate-tile" href="assets/plates/06-running.png" download><img src="assets/plates/06-running.png" alt="06"><div class="plate-tile-meta"><span>06</span><span>↓</span></div></a>
+        <a class="plate-tile" href="assets/plates/07-relational.png" download><img src="assets/plates/07-relational.png" alt="07"><div class="plate-tile-meta"><span>07</span><span>↓</span></div></a>
+        <a class="plate-tile" href="assets/plates/08-say-the-thing.png" download><img src="assets/plates/08-say-the-thing.png" alt="08"><div class="plate-tile-meta"><span>08</span><span>↓</span></div></a>
+        <a class="plate-tile" href="assets/plates/09-loop.png" download><img src="assets/plates/09-loop.png" alt="09"><div class="plate-tile-meta"><span>09</span><span>↓</span></div></a>
+        <a class="plate-tile" href="assets/plates/10-september-25.png" download><img src="assets/plates/10-september-25.png" alt="10"><div class="plate-tile-meta"><span>10</span><span>↓</span></div></a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section">
+      <div class="section-rule">
+        <span class="section-num">05 · contact</span>
+        <h2 class="section-h">Press Inquiries</h2>
+        <span class="section-line"></span>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-block">
+          <div class="label">interviews & embargo</div>
+          <div class="value"><a href="mailto:press@rubinsteinproductions.com">press@<br>rubinsteinproductions.com</a></div>
+        </div>
+        <div class="contact-block">
+          <div class="label">general</div>
+          <div class="value"><a href="mailto:isaac@rubinsteinproductions.com">isaac@<br>rubinsteinproductions.com</a></div>
+        </div>
+        <div class="contact-block">
+          <div class="label">based</div>
+          <div class="value">Providence<br>Rhode Island</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="chrome-bot">
+      <span>rp · press · 01 · v 1.0 · 2027</span>
+      <span>arc closes · september 25, 2027</span>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll(".copy-btn").forEach(b => {
+      b.addEventListener("click", () => {
+        const map = { tag: "bio-tag", "50": "bio-50", "150": "bio-150", "500": "bio-500" };
+        const id = map[b.dataset.copy];
+        const text = document.getElementById(id).innerText.trim();
+        navigator.clipboard.writeText(text);
+        const orig = b.textContent;
+        b.textContent = "copied";
+        b.style.color = "var(--rp-accent)";
+        b.style.borderColor = "var(--rp-accent)";
+        setTimeout(() => { b.textContent = orig; b.style.color = ""; b.style.borderColor = ""; }, 1400);
+      });
+    });
+  </script>
+</body>
+</html>
