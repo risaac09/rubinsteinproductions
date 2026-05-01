@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Aligned Eval Documents — Canvas</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tokens.css" />
+  <style>
+    body { background: var(--rp-ink); color: var(--rp-fg); font-family: var(--rp-font-mono); margin: 0; padding: 32px; }
+    .head { max-width: 1200px; margin: 0 auto 24px; }
+    .head h1 { font-family: var(--rp-font-display); font-size: 48px; letter-spacing: -0.015em; margin: 0 0 8px; text-transform: uppercase; }
+    .head .it { font-family: var(--rp-font-serif); font-style: italic; color: var(--rp-accent); text-transform: none; }
+    .head p { font-family: var(--rp-font-serif); font-style: italic; font-size: 20px; color: var(--rp-fg-dim); margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
+    .card { background: var(--rp-ink-2); border: 1px solid var(--rp-rule); border-radius: 8px; overflow: hidden; }
+    .card .meta { padding: 14px 18px; border-bottom: 1px solid var(--rp-rule); display: flex; justify-content: space-between; align-items: baseline; }
+    .card .meta .name { font-family: var(--rp-font-display); font-size: 16px; text-transform: uppercase; letter-spacing: 0.02em; }
+    .card .meta .num { font-size: 11px; color: var(--rp-accent); letter-spacing: 0.2em; }
+    .card iframe { display: block; width: 100%; height: 540px; border: 0; background: #F4EFE3; }
+    .card a.open { display: block; padding: 12px 18px; font-size: 12px; letter-spacing: 0.15em; text-transform: lowercase; color: var(--rp-accent); border-top: 1px solid var(--rp-rule); text-decoration: none; }
+    .card a.open:hover { background: var(--rp-ink-3); }
+  </style>
+</head>
+<body>
+  <div class="head">
+    <h1>One <span class="it">design language.</span></h1>
+    <p>paper sister of rp · public sans · cormorant italic · jetbrains mono · teal accent</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="meta"><span class="name">Eval site (case statement)</span><span class="num">01 · longform</span></div>
+      <iframe src="Isaac Rubinstein Evaluation v3.html" loading="lazy"></iframe>
+      <a class="open" href="Isaac Rubinstein Evaluation v3.html" target="_blank">open full →</a>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="name">Capabilities statement</span><span class="num">02 · 1-pager</span></div>
+      <iframe src="capabilities-statement.html" loading="lazy"></iframe>
+      <a class="open" href="capabilities-statement.html" target="_blank">open full →</a>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="name">CV</span><span class="num">03 · resume</span></div>
+      <iframe src="cv.html" loading="lazy"></iframe>
+      <a class="open" href="cv.html" target="_blank">open full →</a>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="name">Case study — CPU-HEZ</span><span class="num">04 · narrative</span></div>
+      <iframe src="case-study-cpu-hez.html" loading="lazy"></iframe>
+      <a class="open" href="case-study-cpu-hez.html" target="_blank">open full →</a>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="name">Case study — RIPCA</span><span class="num">05 · narrative</span></div>
+      <iframe src="case-study-ripca.html" loading="lazy"></iframe>
+      <a class="open" href="case-study-ripca.html" target="_blank">open full →</a>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="name">Case study — Seattle Children's</span><span class="num">06 · narrative</span></div>
+      <iframe src="case-study-seattle-childrens.html" loading="lazy"></iframe>
+      <a class="open" href="case-study-seattle-childrens.html" target="_blank">open full →</a>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="name">Case study — Workday</span><span class="num">07 · narrative</span></div>
+      <iframe src="case-study-workday.html" loading="lazy"></iframe>
+      <a class="open" href="case-study-workday.html" target="_blank">open full →</a>
+    </div>
+    <div class="card">
+      <div class="meta"><span class="name">RP Homepage (publishing arm)</span><span class="num">08 · sister system</span></div>
+      <iframe src="RP Homepage.html" loading="lazy"></iframe>
+      <a class="open" href="RP Homepage.html" target="_blank">open full →</a>
+    </div>
+  </div>
+</body>
+</html>

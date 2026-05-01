@@ -1,0 +1,298 @@
+/* ============================================================
+   RUBINSTEIN PRODUCTIONS — DESIGN TOKENS
+   v1.0 · derived from the 10 plates (Digital Liver → September 25)
+   ============================================================ */
+
+:root {
+  /* —— PALETTE · core ————————————————————————————————— */
+  --rp-ink:        #0E0B08;   /* near-black field, slightly warm */
+  --rp-ink-2:      #141009;   /* card / panel */
+  --rp-ink-3:      #1B160E;   /* hover / emphasis */
+  --rp-rule:       #2A2218;   /* hairline rules */
+  --rp-grid:       #1A1610;   /* blueprint grid */
+
+  --rp-oat:        #E8DEC9;   /* primary display, cream */
+  --rp-oat-dim:    #B5A98F;   /* secondary text */
+  --rp-mute:       #6E6450;   /* metadata / monospace */
+  --rp-mute-2:     #4A412F;   /* faint metadata */
+
+  /* —— PALETTE · accents ————————————————————————————————— */
+  --rp-gold:       #C8922E;   /* primary accent — umber gold */
+  --rp-gold-soft:  #8E6820;   /* gold deep */
+  --rp-gold-glow:  #E5B14A;   /* gold light */
+
+  --rp-blue:       #6B92B8;   /* practitioner / cognition */
+  --rp-blue-deep:  #3E587A;
+  --rp-teal:       #4F8A82;   /* flow / integration */
+  --rp-oxblood:    #8C3A2E;   /* threshold / soma */
+  --rp-oxblood-d:  #5C261D;
+
+  /* —— PALETTE · semantic roles ————————————————————————————————— */
+  --rp-bg:         var(--rp-ink);
+  --rp-fg:         var(--rp-oat);
+  --rp-fg-dim:     var(--rp-oat-dim);
+  --rp-meta:       var(--rp-mute);
+  --rp-accent:     var(--rp-gold);
+  --rp-accent-soft:var(--rp-gold-soft);
+  --rp-accent-glow:var(--rp-gold-glow);
+
+  /* —— TYPE STACK ————————————————————————————————— */
+  /* Display: condensed grotesque sans, oat color, all-caps headlines */
+  --rp-font-display: "Oswald", "Barlow Condensed", "Helvetica Neue", sans-serif;
+  /* Serif italic: tags, mottos, breath text */
+  --rp-font-serif:   "Cormorant Garamond", "EB Garamond", "Iowan Old Style", Georgia, serif;
+  /* Mono: metadata, labels, plate chrome, all numbers in chrome */
+  --rp-font-mono:    "JetBrains Mono", "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
+
+  /* Type scale — modular, anchored to 16px base */
+  --rp-fs-meta:    11px;     /* footer chrome */
+  --rp-fs-mono:    13px;     /* metadata */
+  --rp-fs-body:    15px;
+  --rp-fs-tag:     20px;     /* serif italic tags */
+  --rp-fs-h4:      24px;
+  --rp-fs-h3:      32px;
+  --rp-fs-h2:      48px;     /* plate titles */
+  --rp-fs-h1:      72px;     /* poster headlines */
+  --rp-fs-display: 128px;    /* numerics e.g. "25" */
+
+  /* Tracking */
+  --rp-tr-tight:   -0.01em;
+  --rp-tr-normal:  0;
+  --rp-tr-wide:    0.08em;
+  --rp-tr-mono:    0.15em;   /* chrome labels */
+
+  /* Leading */
+  --rp-lh-tight:   1.05;
+  --rp-lh-snug:    1.2;
+  --rp-lh-body:    1.5;
+
+  /* —— SPACING (8px base) ————————————————————————————————— */
+  --rp-s-1:  4px;
+  --rp-s-2:  8px;
+  --rp-s-3:  12px;
+  --rp-s-4:  16px;
+  --rp-s-5:  24px;
+  --rp-s-6:  32px;
+  --rp-s-7:  48px;
+  --rp-s-8:  64px;
+  --rp-s-9:  96px;
+  --rp-s-10: 128px;
+
+  /* —— GRID & FRAME ————————————————————————————————— */
+  --rp-frame-pad-portrait:  56px;   /* margin from frame edge */
+  --rp-frame-pad-landscape: 80px;
+  --rp-rule-weight:         1px;
+
+  /* —— MOTION ————————————————————————————————— */
+  --rp-dur-instant: 80ms;
+  --rp-dur-quick:   180ms;
+  --rp-dur-base:    320ms;
+  --rp-dur-slow:    640ms;
+  --rp-dur-breath:  1200ms;
+  --rp-dur-glacial: 2400ms;
+
+  --rp-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --rp-ease-emphasis: cubic-bezier(0.3, 0, 0, 1);
+  --rp-ease-exit:     cubic-bezier(0.4, 0, 1, 1);
+  --rp-ease-breath:   cubic-bezier(0.45, 0, 0.55, 1);  /* sine-ish */
+
+  /* —— ARC (the 17-month publication arc) ————————————————————————————————— */
+  --rp-arc-start:        "april 2026";
+  --rp-arc-close:        "september 25, 2027";
+  --rp-arc-length:       "17 months";
+  --rp-arc-version:      "v 1.0 · 2027";
+
+  /* —— ELEVATION ————————————————————————————————— */
+  --rp-glow-gold:  0 0 32px rgba(200, 146, 46, 0.35);
+  --rp-glow-blue:  0 0 32px rgba(107, 146, 184, 0.30);
+  --rp-glow-red:   0 0 32px rgba(140, 58, 46, 0.30);
+}
+
+/* —— ACCENT THEMES (Tweak: cycle accent) ———————————————— */
+:root[data-accent="gold"] {
+  --rp-accent:      var(--rp-gold);
+  --rp-accent-soft: var(--rp-gold-soft);
+  --rp-accent-glow: var(--rp-gold-glow);
+}
+:root[data-accent="teal"] {
+  --rp-accent:      #5FA59B;
+  --rp-accent-soft: #2F6A62;
+  --rp-accent-glow: #84C7BE;
+}
+:root[data-accent="oxblood"] {
+  --rp-accent:      #B14A3A;
+  --rp-accent-soft: #6E2A20;
+  --rp-accent-glow: #D7705E;
+}
+
+/* —— LIGHT MODE (Tweak) ———————————————— */
+:root[data-mode="light"] {
+  --rp-ink:     #F4EFE3;
+  --rp-ink-2:   #ECE5D2;
+  --rp-ink-3:   #E2D9C0;
+  --rp-rule:    #C9BC9D;
+  --rp-grid:    #E0D6BC;
+  --rp-oat:     #1A140A;
+  --rp-oat-dim: #4B4128;
+  --rp-mute:    #6E6450;
+  --rp-mute-2:  #8B7E60;
+  --rp-gold:    #8E6820;
+  --rp-gold-soft:#5C3F0F;
+  --rp-gold-glow:#B98D2C;
+}
+
+/* —— RESET / BASE ———————————————————————————————— */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--rp-bg); color: var(--rp-fg); }
+body {
+  font-family: var(--rp-font-mono);
+  font-size: var(--rp-fs-body);
+  line-height: var(--rp-lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* —— TYPE PRIMITIVES ———————————————————————————————— */
+.rp-display {
+  font-family: var(--rp-font-display);
+  font-weight: 700;
+  letter-spacing: var(--rp-tr-tight);
+  line-height: var(--rp-lh-tight);
+  text-transform: uppercase;
+  color: var(--rp-fg);
+}
+.rp-tag {
+  font-family: var(--rp-font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--rp-fs-tag);
+  color: var(--rp-fg-dim);
+  letter-spacing: 0.005em;
+}
+.rp-mono {
+  font-family: var(--rp-font-mono);
+  font-size: var(--rp-fs-mono);
+  letter-spacing: var(--rp-tr-mono);
+  text-transform: lowercase;
+  color: var(--rp-meta);
+}
+.rp-mono--upper {
+  font-family: var(--rp-font-mono);
+  font-size: var(--rp-fs-mono);
+  letter-spacing: var(--rp-tr-mono);
+  text-transform: uppercase;
+  color: var(--rp-meta);
+}
+.rp-num {
+  font-family: var(--rp-font-display);
+  font-weight: 700;
+  color: var(--rp-accent);
+  line-height: 0.9;
+}
+
+/* —— PLATE FRAME (portrait) ———————————————————————————————— */
+.rp-plate {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--rp-bg);
+  padding: var(--rp-frame-pad-portrait);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.rp-plate__rule {
+  height: 1px;
+  background: var(--rp-rule);
+  margin: var(--rp-s-4) 0;
+}
+.rp-plate__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--rp-s-2);
+}
+.rp-plate__title {
+  font-family: var(--rp-font-display);
+  font-weight: 700;
+  font-size: var(--rp-fs-h2);
+  letter-spacing: var(--rp-tr-tight);
+  text-transform: uppercase;
+  color: var(--rp-fg);
+  margin: 0;
+}
+.rp-plate__sub {
+  font-family: var(--rp-font-serif);
+  font-style: italic;
+  font-size: var(--rp-fs-tag);
+  color: var(--rp-fg-dim);
+}
+.rp-plate__footer {
+  margin-top: auto;
+  border-top: 1px solid var(--rp-rule);
+  padding-top: var(--rp-s-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--rp-font-mono);
+  font-size: var(--rp-fs-meta);
+  letter-spacing: var(--rp-tr-mono);
+  color: var(--rp-meta);
+  text-transform: lowercase;
+}
+.rp-plate__chrome {
+  position: absolute;
+  bottom: 24px;
+  right: 32px;
+  font-family: var(--rp-font-mono);
+  font-size: var(--rp-fs-meta);
+  color: var(--rp-mute-2);
+  letter-spacing: var(--rp-tr-mono);
+}
+
+/* —— BLUEPRINT GRID UNDERLAY ———————————————————————————————— */
+.rp-grid-bg {
+  background-image:
+    linear-gradient(var(--rp-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rp-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.rp-grid-bg--fine {
+  background-image:
+    linear-gradient(var(--rp-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rp-grid) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* —— TOKENS / SWATCH PRIMITIVES ———————————————————————————————— */
+.rp-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rp-s-2);
+}
+.rp-swatch__chip {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--rp-rule);
+}
+.rp-swatch__name {
+  font-family: var(--rp-font-mono);
+  font-size: var(--rp-fs-mono);
+  letter-spacing: var(--rp-tr-mono);
+  color: var(--rp-fg-dim);
+}
+.rp-swatch__hex {
+  font-family: var(--rp-font-mono);
+  font-size: var(--rp-fs-meta);
+  color: var(--rp-mute);
+}
+
+/* —— REDUCED MOTION ———————————————————————————————— */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en" data-scope="eval">
+<head>
+  <meta charset="utf-8" />
+  <title>Isaac Rubinstein, MPH — Curriculum Vitae</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tokens.css" />
+  <style>
+    :root { --max: 880px; --pad-x: 40px; }
+    html, body { font-size: 16px; }
+    a { color: inherit; text-decoration: none; }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 40px;
+      background: color-mix(in srgb, var(--rp-ink) 92%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rp-rule);
+    }
+    .nav-mark { font-family: var(--rp-font-sans); font-size: 17px; font-weight: 600; color: var(--rp-fg); }
+    .nav-mark .ev-it { color: var(--rp-gold); }
+    .nav-back {
+      font-family: var(--rp-font-mono); font-size: 12px; letter-spacing: 0.04em;
+      color: var(--rp-fg-dim); transition: color 180ms;
+    }
+    .nav-back:hover { color: var(--rp-gold); }
+    .actions { display: flex; gap: 10px; }
+    .btn-print {
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.08em;
+      color: var(--rp-fg-dim); padding: 6px 12px; border: 1px solid var(--rp-rule);
+      border-radius: 4px; cursor: pointer; background: transparent;
+      text-transform: lowercase; transition: all 180ms;
+    }
+    .btn-print:hover { border-color: var(--rp-gold); color: var(--rp-gold); }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 140px var(--pad-x) 80px; }
+
+    .head {
+      padding-bottom: 28px; border-bottom: 1px solid var(--rp-rule);
+      margin-bottom: 40px;
+      display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end;
+    }
+    .head h1 {
+      font-family: var(--rp-font-sans); font-weight: 600;
+      font-size: clamp(40px, 5.4vw, 60px); line-height: 1.0;
+      letter-spacing: -0.025em; color: var(--rp-fg);
+      margin: 0 0 8px;
+    }
+    .head h1 .ev-it { color: var(--rp-gold); }
+    .head .role {
+      font-family: var(--rp-font-serif); font-style: italic;
+      font-size: 22px; color: var(--rp-fg-dim); margin: 0;
+    }
+    .head .contact {
+      font-family: var(--rp-font-mono); font-size: 12px; line-height: 1.7;
+      color: var(--rp-meta); text-align: right;
+    }
+    .head .contact a:hover { color: var(--rp-gold); }
+
+    .summary {
+      font-family: var(--rp-font-serif); font-style: italic;
+      font-size: 19px; line-height: 1.55; color: var(--rp-fg);
+      margin-bottom: 56px; max-width: 60ch; text-wrap: pretty;
+    }
+
+    .section { margin-bottom: 48px; }
+    .section-h {
+      display: grid; grid-template-columns: 200px 1fr; gap: 32px;
+      align-items: baseline; padding-bottom: 14px; margin-bottom: 20px;
+      border-bottom: 1px solid var(--rp-rule);
+    }
+    .section-h .num {
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.18em;
+      color: var(--rp-gold); text-transform: uppercase;
+    }
+    .section-h h2 {
+      font-family: var(--rp-font-sans); font-weight: 600;
+      font-size: 22px; letter-spacing: -0.01em; color: var(--rp-fg);
+      margin: 0;
+    }
+    .section-h h2 .ev-it { color: var(--rp-gold); }
+
+    .entry {
+      display: grid; grid-template-columns: 200px 1fr; gap: 32px;
+      padding: 18px 0; border-bottom: 1px solid var(--rp-rule);
+    }
+    .entry:last-child { border-bottom: 0; }
+    .entry .when {
+      font-family: var(--rp-font-mono); font-size: 12px; letter-spacing: 0.04em;
+      color: var(--rp-meta); padding-top: 3px;
+    }
+    .entry .body .title {
+      font-family: var(--rp-font-sans); font-weight: 600;
+      font-size: 17px; color: var(--rp-fg); margin: 0 0 4px;
+      letter-spacing: -0.005em;
+    }
+    .entry .body .org {
+      font-family: var(--rp-font-serif); font-style: italic;
+      font-size: 16px; color: var(--rp-gold); margin: 0 0 10px;
+    }
+    .entry .body p {
+      font-size: 15px; line-height: 1.6; color: var(--rp-fg-dim);
+      margin: 0 0 8px; max-width: 60ch; text-wrap: pretty;
+    }
+    .entry .body ul {
+      padding-left: 18px; margin: 6px 0 0;
+    }
+    .entry .body ul li {
+      font-size: 15px; line-height: 1.55; color: var(--rp-fg-dim);
+      margin-bottom: 4px;
+    }
+
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+      margin-left: 232px;
+    }
+    .skills-col h3 {
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.08em;
+      color: var(--rp-meta); text-transform: uppercase;
+      margin: 0 0 8px; font-weight: 400;
+    }
+    .skills-col ul {
+      list-style: none; padding: 0; margin: 0;
+      font-size: 14px; line-height: 1.7; color: var(--rp-fg);
+    }
+
+    .foot {
+      max-width: var(--max); margin: 0 auto;
+      padding: 32px var(--pad-x) 48px;
+      border-top: 1px solid var(--rp-rule);
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-family: var(--rp-font-mono); font-size: 11px;
+      color: var(--rp-meta); letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 720px) {
+      :root { --pad-x: 20px; }
+      .nav { padding: 14px 20px; }
+      .head { grid-template-columns: 1fr; }
+      .head .contact { text-align: left; }
+      .section-h, .entry { grid-template-columns: 1fr; gap: 8px; }
+      .skills-grid { margin-left: 0; }
+    }
+
+    @media print {
+      .nav, .actions, .btn-print { display: none !important; }
+      .wrap { padding: 24px 32px; max-width: none; }
+      :root[data-scope="eval"] { --rp-ink: #FFFFFF; --rp-ink-2: #FFFFFF; }
+      body { background: #FFFFFF !important; color: #1A1A1A !important; }
+      .entry, .section-h { break-inside: avoid; }
+      .head h1 { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="Isaac Rubinstein Evaluation v3.html" class="nav-mark">Isaac <span class="ev-it">Rubinstein</span></a>
+    <div class="actions">
+      <button class="btn-print" onclick="window.print()">print / save pdf</button>
+      <a href="Isaac Rubinstein Evaluation v3.html" class="nav-back">← back to site</a>
+    </div>
+  </nav>
+
+  <article class="wrap" data-screen-label="CV">
+    <header class="head">
+      <div>
+        <h1>Isaac Rubinstein, <span class="ev-it">MPH.</span></h1>
+        <p class="role">Independent program evaluator &amp; advisor</p>
+      </div>
+      <div class="contact">
+        <div><a href="mailto:isaac@isaacrubinstein.com">isaac@isaacrubinstein.com</a></div>
+        <div>Providence, RI</div>
+        <div>AEA · ENRI member</div>
+      </div>
+    </header>
+
+    <p class="summary">
+      Eight years across healthcare, evaluation, and change management — designing reports that survive federal review and steer the work in front of decision-makers, in the same document.
+    </p>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <div class="section-h">
+        <span class="num">01 · Experience</span>
+        <h2>Selected <span class="ev-it">engagements.</span></h2>
+      </div>
+
+      <div class="entry">
+        <div class="when">2023 — present</div>
+        <div class="body">
+          <p class="title">Lead Evaluator</p>
+          <p class="org">Central Providence Health Equity Zone</p>
+          <p>Designed shared-measurement infrastructure for a 60+ partner coalition. Two federal annual reports accepted on first submission; framework adopted as baseline for two newer cohorts.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">2026</div>
+        <div class="body">
+          <p class="title">Evaluation Lead</p>
+          <p class="org">RIPCA · FFY2026 Traffic Safety Program</p>
+          <p>Authored evaluation plan covering NHTSA performance measures across impaired driving, occupant protection, and speed enforcement. Adopted as the program's working document for federal reporting and quarterly steering decisions.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">2022 — 2024</div>
+        <div class="body">
+          <p class="title">Evaluation Consultant</p>
+          <p class="org">Seattle Children's Hospital</p>
+          <p>Built equity indicator framework spanning 12+ clinical service lines with stratification by language, race, and insurance. Family-advisor review built into the operational reporting cycle.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">2023 — 2024</div>
+        <div class="body">
+          <p class="title">Evaluation Consultant</p>
+          <p class="org">Workday Foundation · Workforce Portfolio</p>
+          <p>Designed a portfolio-level outcomes framework for 8+ workforce development grantees without disrupting grantee data systems. Replaced grantee-by-grantee review with one portfolio dashboard.</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="when">2018 — 2022</div>
+        <div class="body">
+          <p class="title">Earlier roles in healthcare evaluation &amp; change management</p>
+          <p class="org">Provider systems &amp; consultancies</p>
+          <p>Built evaluation, quality improvement, and operational reporting practices inside delivery systems. Foundation for current independent practice.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <div class="section-h">
+        <span class="num">02 · Methods</span>
+        <h2>Tools &amp; <span class="ev-it">approaches.</span></h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-col">
+          <h3>Qualitative</h3>
+          <ul>
+            <li>Stakeholder interviews</li>
+            <li>NVivo coding</li>
+            <li>Resident-voice surveys</li>
+            <li>Case studies</li>
+            <li>Implementation narrative</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h3>Quantitative</h3>
+          <ul>
+            <li>Indicator framework design</li>
+            <li>Logic models &amp; theory of change</li>
+            <li>Stratified outcome measurement</li>
+            <li>Federal performance reporting</li>
+            <li>Portfolio dashboards</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h3>Domains</h3>
+          <ul>
+            <li>Health equity</li>
+            <li>Traffic safety</li>
+            <li>Behavioral health</li>
+            <li>Workforce development</li>
+            <li>Place-based coalitions</li>
+          </ul>
+        </div>
+        <div class="skills-col">
+          <h3>Practice</h3>
+          <ul>
+            <li>Federal reporting (NHTSA, HRSA)</li>
+            <li>Multi-stakeholder facilitation</li>
+            <li>Shared-measurement systems</li>
+            <li>Cross-site learning</li>
+            <li>Evaluation capacity building</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <div class="section-h">
+        <span class="num">03 · Education</span>
+        <h2>Training &amp; <span class="ev-it">credentials.</span></h2>
+      </div>
+      <div class="entry">
+        <div class="when">MPH</div>
+        <div class="body">
+          <p class="title">Master of Public Health</p>
+          <p class="org">Concentration in program evaluation</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">Member</div>
+        <div class="body">
+          <p class="title">Professional affiliations</p>
+          <p class="org">American Evaluation Association · Evaluation Network of Rhode Island</p>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <footer class="foot">
+    <span>© 2026 isaac rubinstein</span>
+    <span>cv · v.2026</span>
+  </footer>
+</body>
+</html>

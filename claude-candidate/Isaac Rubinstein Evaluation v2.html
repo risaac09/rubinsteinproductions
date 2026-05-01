@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Isaac Rubinstein, MPH — Independent Program Evaluator</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      /* paper + teal — quietly designed */
+      --paper:    #F4EFE3;
+      --paper-2:  #ECE5D2;
+      --paper-3:  #E2D9C0;
+      --rule:     #D4C9AE;
+      --rule-2:   #B8A983;
+      --ink:      #1F1A12;
+      --ink-2:    #3A3221;
+      --ink-dim:  #5A4F36;
+      --mute:     #80755A;
+      --mute-2:   #A89A7B;
+
+      --teal:       #2F6A62;
+      --teal-deep:  #1F4A44;
+      --teal-soft:  #5FA59B;
+      --teal-tint:  #DFEAE7;
+
+      --sans:  "Public Sans", "Helvetica Neue", system-ui, -apple-system, sans-serif;
+      --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+      --mono:  "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+
+      --max:   1180px;
+      --pad-x: 40px;
+    }
+
+    :root[data-theme="ink"] {
+      --paper:    #14110B;
+      --paper-2:  #1B170E;
+      --paper-3:  #221D12;
+      --rule:     #2F2818;
+      --rule-2:   #443a26;
+      --ink:      #E8DEC9;
+      --ink-2:    #CDC0A0;
+      --ink-dim:  #B5A98F;
+      --mute:     #80755A;
+      --mute-2:   #4A412F;
+      --teal:       #5FA59B;
+      --teal-deep:  #2F6A62;
+      --teal-soft:  #84C7BE;
+      --teal-tint:  #1E2926;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--paper); color: var(--ink);
+      font-family: var(--sans); font-size: 17px; line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .it { font-family: var(--serif); font-style: italic; font-weight: 400; }
+    .accent { color: var(--teal); }
+    .meta {
+      font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
+      color: var(--mute); text-transform: none;
+    }
+
+    /* ─── nav ─────────────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 40px;
+      background: color-mix(in srgb, var(--paper) 92%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-mark {
+      font-family: var(--sans); font-size: 17px; font-weight: 600;
+      color: var(--ink); letter-spacing: -0.005em;
+      display: inline-flex; align-items: baseline; gap: 8px;
+    }
+    .nav-mark .it { color: var(--teal); font-weight: 400; }
+    .nav-mark .pip {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+      color: var(--mute); padding: 3px 6px;
+      border: 1px solid var(--rule); border-radius: 3px;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-size: 15px; color: var(--ink-dim);
+      transition: color 180ms;
+    }
+    .nav-links a:hover { color: var(--teal); }
+
+    /* ─── hero ────────────────────────────────────────────────────── */
+    .hero {
+      max-width: var(--max); margin: 0 auto;
+      padding: 160px var(--pad-x) 80px;
+    }
+    .eyebrow {
+      font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em;
+      color: var(--teal); margin-bottom: 32px;
+      display: inline-flex; gap: 10px; align-items: center;
+    }
+    .eyebrow::before {
+      content: ""; width: 24px; height: 1px; background: var(--teal);
+    }
+    .hero h1 {
+      font-family: var(--sans); font-weight: 600;
+      font-size: clamp(48px, 6.5vw, 84px); line-height: 1.05;
+      letter-spacing: -0.02em; color: var(--ink);
+      margin: 0 0 32px; max-width: 14ch;
+      text-wrap: balance;
+    }
+    .hero h1 .it {
+      color: var(--teal); font-weight: 400;
+      font-family: var(--serif); font-style: italic;
+      letter-spacing: -0.01em;
+    }
+    .hero-lede {
+      font-size: 22px; line-height: 1.55; color: var(--ink-2);
+      max-width: 64ch; margin: 0 0 48px;
+      text-wrap: pretty;
+    }
+    .hero-lede b { font-weight: 600; color: var(--ink); }
+
+    /* quick-read summary card */
+    .quick {
+      background: var(--paper-2);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 28px 32px;
+      max-width: 680px;
+      margin-bottom: 48px;
+    }
+    .quick-h {
+      font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em;
+      color: var(--teal); margin-bottom: 16px;
+    }
+    .quick ul {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .quick li {
+      display: grid; grid-template-columns: 88px 1fr; gap: 18px;
+      font-size: 16px; line-height: 1.55; color: var(--ink-2);
+      align-items: baseline;
+    }
+    .quick li b {
+      font-weight: 600; color: var(--ink); font-size: 14px;
+      letter-spacing: 0.01em;
+    }
+    .quick li span {
+      color: var(--ink-2);
+    }
+    .quick-cta { margin-top: 20px; }
+
+    /* stat row */
+    .stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+      padding: 28px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .stat .num {
+      font-family: var(--sans); font-weight: 600;
+      font-size: 36px; line-height: 1; color: var(--teal);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .stat .num.size { font-size: 28px; }
+    .stat .lbl {
+      font-size: 14px; line-height: 1.4; color: var(--ink-dim);
+      text-wrap: balance;
+    }
+
+    /* ─── sections ───────────────────────────────────────────────── */
+    section { position: relative; }
+    .sec {
+      max-width: var(--max); margin: 0 auto;
+      padding: 96px var(--pad-x);
+    }
+    .sec-head {
+      display: grid; grid-template-columns: 88px 1fr; gap: 24px;
+      align-items: baseline; margin-bottom: 48px;
+    }
+    .sec-num {
+      font-family: var(--mono); font-size: 13px;
+      color: var(--teal); letter-spacing: 0.04em;
+    }
+    .sec-title {
+      font-family: var(--sans); font-weight: 600;
+      font-size: clamp(32px, 3.6vw, 44px); line-height: 1.1;
+      letter-spacing: -0.02em; color: var(--ink);
+      margin: 0;
+      text-wrap: balance;
+    }
+    .sec-title .it {
+      font-family: var(--serif); font-style: italic; font-weight: 400;
+      color: var(--teal); letter-spacing: -0.01em;
+    }
+    .sec-lede {
+      font-size: 19px; line-height: 1.6; color: var(--ink-dim);
+      max-width: 70ch; margin: 0 0 56px;
+      grid-column: 2;
+      text-wrap: pretty;
+    }
+    .sec-head + .sec-lede { margin-top: -32px; }
+
+    /* ─── about ──────────────────────────────────────────────────── */
+    .about-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px;
+      align-items: start;
+    }
+    .about-body p {
+      font-size: 18px; line-height: 1.65; color: var(--ink-2);
+      margin: 0 0 20px; max-width: 60ch;
+      text-wrap: pretty;
+    }
+    .about-body p:first-child {
+      font-size: 21px; color: var(--ink); font-weight: 500;
+    }
+    .about-body a {
+      color: var(--teal); border-bottom: 1px solid var(--teal-soft);
+    }
+    .about-side { display: flex; flex-direction: column; gap: 20px; }
+    .portrait {
+      aspect-ratio: 4 / 5;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          var(--paper-2) 0,
+          var(--paper-2) 8px,
+          var(--paper-3) 8px,
+          var(--paper-3) 16px
+        );
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .portrait::before {
+      content: "IR";
+      font-family: var(--sans); font-weight: 600;
+      font-size: 72px; color: var(--rule-2);
+      letter-spacing: -0.02em;
+    }
+    .portrait::after {
+      content: "portrait — drop in";
+      position: absolute; bottom: 12px; left: 12px;
+      font-family: var(--mono); font-size: 11px; color: var(--mute);
+      background: var(--paper); padding: 4px 8px;
+      border: 1px solid var(--rule); border-radius: 3px;
+    }
+    .credentials {
+      display: flex; flex-direction: column;
+      border-top: 1px solid var(--rule);
+      padding-top: 16px;
+    }
+    .credentials .row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 8px 0; font-size: 14px;
+    }
+    .credentials .row .k { color: var(--mute); }
+    .credentials .row .v { color: var(--ink); font-weight: 500; }
+    .about-stats {
+      margin-top: 32px; padding-top: 28px;
+      border-top: 1px solid var(--rule);
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      max-width: 60ch;
+    }
+    .a-stat .n {
+      font-family: var(--sans); font-weight: 600;
+      font-size: 28px; line-height: 1; color: var(--teal);
+      letter-spacing: -0.01em; margin-bottom: 6px;
+    }
+    .a-stat .l {
+      font-size: 13px; line-height: 1.4; color: var(--ink-dim);
+    }
+
+    /* ─── approach (commitments) ─────────────────────────────────── */
+    .commits {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .commit {
+      background: var(--paper-2);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 32px 28px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .commit .name {
+      font-family: var(--sans); font-weight: 600;
+      font-size: 22px; color: var(--ink); letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .commit .name .dot {
+      display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--teal); margin-right: 10px; vertical-align: 0.2em;
+    }
+    .commit .body {
+      font-size: 16px; line-height: 1.6; color: var(--ink-2);
+      text-wrap: pretty;
+    }
+
+    .pull {
+      margin: 64px auto 0;
+      max-width: 800px;
+      padding: 32px 40px;
+      border-left: 3px solid var(--teal);
+      background: linear-gradient(to right, var(--teal-tint), transparent);
+      border-radius: 4px;
+    }
+    .pull-q {
+      font-family: var(--serif); font-style: italic;
+      font-size: clamp(22px, 2.4vw, 28px); line-height: 1.4;
+      color: var(--ink); margin: 0;
+      text-wrap: pretty;
+    }
+    .pull-attrib {
+      margin-top: 16px;
+      font-family: var(--mono); font-size: 12px; color: var(--mute);
+    }
+
+    .framework {
+      margin-top: 48px;
+      font-size: 17px; color: var(--ink-2);
+      max-width: 70ch;
+    }
+    .framework b { font-weight: 600; color: var(--ink); }
+
+    /* ─── services ───────────────────────────────────────────────── */
+    .services {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    }
+    .svc {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 32px 32px;
+      display: flex; flex-direction: column; gap: 16px;
+      transition: border-color 180ms, transform 180ms;
+    }
+    .svc:hover { border-color: var(--teal-soft); transform: translateY(-2px); }
+    .svc .name {
+      font-family: var(--sans); font-weight: 600;
+      font-size: 22px; color: var(--ink); letter-spacing: -0.01em;
+    }
+    .svc .body {
+      font-size: 16px; line-height: 1.6; color: var(--ink-2);
+      text-wrap: pretty;
+    }
+    .svc .recent {
+      padding: 14px 16px;
+      background: var(--teal-tint);
+      border-radius: 8px;
+      font-size: 14px; line-height: 1.5; color: var(--ink-2);
+    }
+    .svc .recent .r-k {
+      display: inline-block; margin-right: 8px;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em;
+      color: var(--teal-deep); font-weight: 500;
+    }
+    .svc .tags {
+      margin-top: auto;
+      font-family: var(--mono); font-size: 12px;
+      color: var(--mute); line-height: 1.7;
+      padding-top: 12px;
+      border-top: 1px solid var(--rule);
+    }
+    .svc--wide { grid-column: 1 / -1; }
+
+    /* ─── projects ───────────────────────────────────────────────── */
+    .projects { display: flex; flex-direction: column; gap: 0; }
+    .project {
+      display: grid; grid-template-columns: 220px 1fr; gap: 48px;
+      padding: 40px 0;
+      border-top: 1px solid var(--rule);
+      align-items: start;
+    }
+    .project:last-child { border-bottom: 1px solid var(--rule); }
+    .project-meta {
+      display: flex; flex-direction: column; gap: 4px;
+      font-size: 14px;
+    }
+    .project-meta .row { display: flex; gap: 12px; padding: 4px 0; }
+    .project-meta .k {
+      color: var(--mute); width: 70px; flex-shrink: 0;
+      font-family: var(--mono); font-size: 12px;
+    }
+    .project-meta .v { color: var(--ink); font-weight: 500; }
+    .project-body h3 {
+      font-family: var(--sans); font-weight: 600;
+      font-size: clamp(22px, 2.4vw, 28px); line-height: 1.25;
+      letter-spacing: -0.015em; color: var(--ink);
+      margin: 0 0 14px;
+      text-wrap: balance;
+    }
+    .project-body p {
+      font-size: 17px; line-height: 1.6; color: var(--ink-2);
+      margin: 0 0 16px; max-width: 65ch;
+      text-wrap: pretty;
+    }
+    .project-body .outcome {
+      padding: 14px 18px; margin: 0 0 18px;
+      background: var(--teal-tint);
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    .project-body .outcome .o-k {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em;
+      color: var(--teal-deep); font-weight: 500; margin-right: 8px;
+    }
+    .project-body .read {
+      font-size: 14px; color: var(--teal); font-weight: 500;
+      border-bottom: 1px solid var(--teal-soft); padding-bottom: 1px;
+    }
+
+    /* ─── writing band ───────────────────────────────────────────── */
+    .writing-band {
+      background: var(--paper-2);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .writing-band .sec { padding-top: 80px; padding-bottom: 80px; }
+    .writing-grid {
+      display: grid; grid-template-columns: 320px 1fr; gap: 64px;
+      align-items: start;
+    }
+    .writing-head h2 {
+      font-family: var(--sans); font-weight: 600;
+      font-size: 32px; line-height: 1.15; color: var(--ink);
+      margin: 0 0 16px; letter-spacing: -0.015em;
+    }
+    .writing-head h2 .it {
+      font-family: var(--serif); font-style: italic; font-weight: 400;
+      color: var(--teal);
+    }
+    .writing-head .kicker {
+      font-family: var(--mono); font-size: 12px; color: var(--teal);
+      margin-bottom: 12px; letter-spacing: 0.04em;
+    }
+    .writing-head p { font-size: 16px; color: var(--ink-dim); max-width: 32ch; }
+    .essays { display: flex; flex-direction: column; }
+    .essay {
+      display: grid; grid-template-columns: 140px 1fr; gap: 32px;
+      padding: 24px 0;
+      border-top: 1px solid var(--rule);
+      align-items: baseline;
+      transition: opacity 180ms;
+    }
+    .essays .essay:first-child { border-top: none; }
+    .essay .em {
+      font-family: var(--mono); font-size: 12px; color: var(--mute);
+      line-height: 1.6;
+    }
+    .essay .em .read { display: block; color: var(--mute-2); }
+    .essay h4 {
+      font-family: var(--sans); font-weight: 600;
+      font-size: 19px; line-height: 1.3; color: var(--ink);
+      margin: 0 0 6px; letter-spacing: -0.01em;
+    }
+    .essay p {
+      font-size: 15px; line-height: 1.55; color: var(--ink-dim);
+      margin: 0; max-width: 60ch;
+    }
+    .essay:hover h4 { color: var(--teal); }
+    .all-writing {
+      margin-top: 24px; padding-top: 16px;
+      border-top: 1px solid var(--rule);
+      font-size: 14px; color: var(--teal); font-weight: 500;
+    }
+
+    /* ─── contact ────────────────────────────────────────────────── */
+    .contact-sec { padding-top: 96px; padding-bottom: 64px; }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: start;
+    }
+    .contact-list { display: flex; flex-direction: column; }
+    .contact-list .item {
+      display: grid; grid-template-columns: 130px 1fr; gap: 20px;
+      padding: 14px 0;
+      border-top: 1px solid var(--rule);
+      align-items: baseline;
+      font-size: 15px;
+    }
+    .contact-list .item:last-child { border-bottom: 1px solid var(--rule); }
+    .contact-list .k {
+      font-family: var(--mono); font-size: 12px; color: var(--mute);
+    }
+    .contact-list .v { color: var(--ink); font-weight: 500; }
+    .contact-list .v a { color: var(--teal); border-bottom: 1px solid var(--teal-soft); }
+    .contact-side .body {
+      font-size: 18px; line-height: 1.6; color: var(--ink-2);
+      max-width: 56ch;
+      text-wrap: pretty;
+    }
+    .contact-side .body .best {
+      display: inline-block;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em;
+      color: var(--teal); margin-bottom: 8px;
+    }
+    .contact-side .body p { margin: 0 0 20px; }
+    .downloads {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px;
+      font-size: 15px; font-weight: 500;
+      border-radius: 8px;
+      transition: background 180ms, color 180ms, border-color 180ms;
+    }
+    .btn--primary {
+      background: var(--teal); color: #fff;
+      border: 1px solid var(--teal);
+    }
+    .btn--primary:hover { background: var(--teal-deep); border-color: var(--teal-deep); }
+    .btn--ghost {
+      background: transparent; color: var(--ink);
+      border: 1px solid var(--rule);
+    }
+    .btn--ghost:hover { border-color: var(--teal); color: var(--teal); }
+
+    /* ─── footer ─────────────────────────────────────────────────── */
+    .foot {
+      max-width: var(--max); margin: 0 auto;
+      padding: 32px var(--pad-x) 48px;
+      border-top: 1px solid var(--rule);
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      gap: 24px; align-items: center;
+      font-size: 13px; color: var(--mute);
+    }
+    .foot a { color: var(--ink-dim); transition: color 180ms; }
+    .foot a:hover { color: var(--teal); }
+    .foot .right { text-align: right; }
+    .sister {
+      display: inline-flex; gap: 6px; align-items: baseline;
+      padding: 6px 12px;
+      border: 1px solid var(--rule); border-radius: 999px;
+      font-size: 13px;
+      transition: border-color 180ms;
+    }
+    .sister:hover { border-color: var(--teal); }
+    .sister .it { color: var(--teal); }
+
+    /* ─── responsive ─────────────────────────────────────────────── */
+    @media (max-width: 980px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .commits { grid-template-columns: 1fr; }
+      .services { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .writing-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .project { grid-template-columns: 1fr; gap: 16px; }
+      .essay { grid-template-columns: 1fr; gap: 4px; }
+      .essay .em { display: none; }
+      .foot { grid-template-columns: 1fr; }
+      .foot .right { text-align: left; }
+    }
+    @media (max-width: 680px) {
+      :root { --pad-x: 20px; }
+      .nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { padding-top: 120px; }
+      .quick li { grid-template-columns: 1fr; gap: 4px; }
+      .sec-head { grid-template-columns: 1fr; gap: 8px; }
+      .sec-lede { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <rect width="100" height="100" fill="#F4EFE3"/>
+      <text x="50" y="62" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="46" fill="#2F6A62">IR</text>
+    </svg>
+  </template>
+
+  <nav class="nav">
+    <a href="#top" class="nav-mark">Isaac <span class="it">Rubinstein</span><span class="pip">MPH</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#approach">How I work</a>
+      <a href="#services">What I do</a>
+      <a href="#projects">Selected work</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section id="top" class="hero">
+    <div class="eyebrow">Independent program evaluator &amp; advisor</div>
+    <h1>Isaac Rubinstein, <span class="it">MPH.</span></h1>
+    <p class="hero-lede">
+      I help <b>state agencies, foundations, and community coalitions</b> answer the evaluation questions their decisions actually depend on — across health equity, traffic safety, behavioral health, and place-based initiatives.
+    </p>
+
+    <div class="quick">
+      <div class="quick-h">At a glance</div>
+      <ul>
+        <li><b>Who</b><span>State agencies, foundations, and community coalitions running state- or federally-funded programs.</span></li>
+        <li><b>What</b><span>Evaluation plans, mixed-methods data collection, and reporting that names the decision the report should inform.</span></li>
+        <li><b>How to start</b><span>Email a one-paragraph description of the program. I'll respond within one business day.</span></li>
+      </ul>
+      <a href="mailto:isaac@isaacrubinstein.com?subject=Evaluation%20inquiry" class="btn btn--primary quick-cta">Email a one-paragraph description →</a>
+    </div>
+  </section>
+
+  <section id="about" class="sec">
+    <header class="sec-head">
+      <div class="sec-num">01 / About</div>
+      <h2 class="sec-title">A practice in <span class="it">program evaluation.</span></h2>
+    </header>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>Trained in public health and community systems, Isaac has led evaluations across multi-site, multi-stakeholder programs — from place-based health equity initiatives to statewide safety and behavioral health efforts.</p>
+        <p>The work is to help government agencies and community organizations understand what works, for whom, and why. Engagements run across quantitative and qualitative methods: survey design, administrative data analysis, focus groups, and stakeholder interviews. Typical scope is state- and federally-funded — health equity, traffic safety, injury prevention, behavioral health, and community development — with a focus on social determinants of health and place-based approaches that center resident voice.</p>
+        <p>Member of the <a href="https://www.eval.org">American Evaluation Association</a> and the Evaluation Network of Rhode Island.</p>
+        <div class="about-stats">
+          <div class="a-stat"><div class="n">60+</div><div class="l">Coalition partners under federal reporting</div></div>
+          <div class="a-stat"><div class="n">8</div><div class="l">Years across healthcare, evaluation &amp; change management</div></div>
+          <div class="a-stat"><div class="n">AEA &middot; ENRI</div><div class="l">Member, American Evaluation Assn &amp; Evaluation Network of RI</div></div>
+        </div>
+      </div>
+      <aside class="about-side">
+        <div class="portrait" aria-label="Portrait placeholder for Isaac Rubinstein"></div>
+        <div class="credentials">
+          <div class="row"><span class="k">Credential</span><span class="v">MPH</span></div>
+          <div class="row"><span class="k">Practice</span><span class="v">Independent</span></div>
+          <div class="row"><span class="k">Member</span><span class="v">AEA &middot; ENRI</span></div>
+          <div class="row"><span class="k">Location</span><span class="v">Providence, RI</span></div>
+          <div class="row"><span class="k">Availability</span><span class="v">Booking ~2 months out</span></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="approach" class="sec">
+    <header class="sec-head">
+      <div class="sec-num">02 / How I work</div>
+      <h2 class="sec-title">Three commitments, written into <span class="it">every plan.</span></h2>
+    </header>
+    <p class="sec-lede">Every engagement begins with a short evaluation plan that names the primary user, the decision the report will inform, and how findings will be used. A funder, a coalition director, and a resident leader can read the same document and know exactly what they're agreeing to.</p>
+
+    <div class="commits">
+      <div class="commit">
+        <div class="name"><span class="dot"></span>Utilization-focused</div>
+        <div class="body">Named primary users, theory of change, and intended use are fixed in writing before design begins. If the named user can't tell me which decision the report will inform, we redesign the question before we collect data.</div>
+      </div>
+      <div class="commit">
+        <div class="name"><span class="dot"></span>Participatory</div>
+        <div class="body">The people closest to the program help shape the questions and interpret the findings — but participation is scoped, not symbolic. Every engagement names which decisions are co-owned with community partners and which are mine to make.</div>
+      </div>
+      <div class="commit">
+        <div class="name"><span class="dot"></span>Equity-centered</div>
+        <div class="body">Three questions ride every design: who benefits, who is missing from the data, and whose voice shapes the narrative. They appear in the evaluation plan, not the appendix.</div>
+      </div>
+    </div>
+
+    <div class="pull">
+      <p class="pull-q">If the named user can't tell me which decision the report will inform, we redesign the question before we collect data.</p>
+      <div class="pull-attrib">— Field note, 2026</div>
+    </div>
+
+    <p class="framework">All of this sits on the <b>CDC Framework for Program Evaluation in Public Health.</b> Agencies and funders get something they can act on: what is working, where it breaks down, and what to try next.</p>
+  </section>
+
+  <section id="services" class="sec">
+    <header class="sec-head">
+      <div class="sec-num">03 / What I do</div>
+      <h2 class="sec-title">Five service lines, <span class="it">one practice.</span></h2>
+    </header>
+    <div class="services">
+      <div class="svc">
+        <div class="name">Program Evaluation</div>
+        <div class="body">Formative, process, and outcome evaluations for state- and federally-funded programs. Logic models, theory of change, and evaluation plan design grounded in the CDC Framework.</div>
+        <div class="recent"><span class="r-k">Recent</span>Theory of change and indicator set co-designed with a statewide behavioral health initiative.</div>
+        <div class="tags">logic models · theory of change · CDC framework</div>
+      </div>
+      <div class="svc">
+        <div class="name">Data Collection &amp; Analysis</div>
+        <div class="body">Surveys, interviews, focus groups, and administrative data review. Mixed-methods analysis sized to the decision the report has to inform.</div>
+        <div class="recent"><span class="r-k">Recent</span>Resident-voice survey (n=400+) paired with 24 stakeholder interviews; coded in NVivo.</div>
+        <div class="tags">survey design · qualitative coding · admin data</div>
+      </div>
+      <div class="svc">
+        <div class="name">Stakeholder Reporting</div>
+        <div class="body">Evaluation briefs, dashboards, and presentations for funders, leadership, and program staff — formatted for the decision each audience faces.</div>
+        <div class="recent"><span class="r-k">Recent</span>Quarterly federal reports accepted on first submission across two reporting cycles &mdash; see Project 01 below.</div>
+        <div class="tags">federal reporting · briefs · dashboards</div>
+      </div>
+      <div class="svc">
+        <div class="name">Health Equity &amp; Place-Based</div>
+        <div class="body">Evaluation design for Health Equity Zone initiatives, community health assessments, and place-based programs addressing social determinants of health.</div>
+        <div class="recent"><span class="r-k">Recent</span>Lead evaluator on a multi-site community coalition &mdash; see Project 01 below.</div>
+        <div class="tags">HEZ · SDOH · community health · place-based</div>
+      </div>
+      <div class="svc svc--wide">
+        <div class="name">Capacity Building &amp; Advisory</div>
+        <div class="body">Readiness assessments, data infrastructure guidance, and technical assistance for organizations building internal evaluation capacity. Useful for state agencies and mid-sized nonprofits standing up an in-house evaluation function for the first time.</div>
+        <div class="recent"><span class="r-k">Recent</span>Readiness assessment and KPI framework for an enterprise rollout in pediatric healthcare &mdash; see Project 02 below.</div>
+        <div class="tags">readiness · TA · evaluation culture</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="sec">
+    <header class="sec-head">
+      <div class="sec-num">04 / Selected work</div>
+      <h2 class="sec-title">Recent <span class="it">engagements.</span></h2>
+    </header>
+    <div class="projects">
+      <article class="project">
+        <div class="project-meta">
+          <div class="row"><span class="k">Role</span><span class="v">Lead Evaluator</span></div>
+          <div class="row"><span class="k">Scope</span><span class="v">60+ partners</span></div>
+          <div class="row"><span class="k">Funder</span><span class="v">Federal &amp; local</span></div>
+          <div class="row"><span class="k">Period</span><span class="v">2023 →</span></div>
+        </div>
+        <div class="project-body">
+          <h3>Multi-site community development coalition evaluation, Providence, RI</h3>
+          <p>Led evaluation across a coalition focused on housing stability, workforce development, and resident engagement. Designed data collection systems, facilitated cross-site learning sessions, and delivered quarterly reports to federal and local funders.</p>
+          <p class="outcome"><span class="o-k">Outcome</span>Federal annual reports accepted on first submission across two cycles; coalition retained for follow-on engagement.</p>
+          <a href="#" class="read">Read the Central Providence HEZ case study →</a>
+        </div>
+      </article>
+      <article class="project">
+        <div class="project-meta">
+          <div class="row"><span class="k">Role</span><span class="v">Change &amp; Eval Lead</span></div>
+          <div class="row"><span class="k">Scope</span><span class="v">Enterprise rollout</span></div>
+          <div class="row"><span class="k">Domain</span><span class="v">Pediatric healthcare</span></div>
+          <div class="row"><span class="k">Period</span><span class="v">2021 — 2023</span></div>
+        </div>
+        <div class="project-body">
+          <h3>Pediatric healthcare system ERP implementation readiness</h3>
+          <p>Led change management evaluation for a pediatric healthcare system's ERP rollout. Developed readiness assessments, tracked adoption KPIs across finance, research, and supply chain, and produced stakeholder communications and training reports.</p>
+          <p class="outcome"><span class="o-k">Outcome</span>Readiness scorecard adopted as enterprise standard; adoption KPIs delivered to executive sponsors monthly through go-live.</p>
+          <a href="#" class="read">Case study available on request →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="writing-band">
+    <div class="sec">
+      <div class="writing-grid">
+        <div class="writing-head">
+          <div class="kicker">Field notes</div>
+          <h2>Notes on <span class="it">practice.</span></h2>
+          <p>Short essays on the parts of evaluation work that don't make it into the report.</p>
+        </div>
+        <div class="essays">
+          <a href="#" class="essay">
+            <div class="em">Apr 29, 2026<span class="read">6 min read</span></div>
+            <div>
+              <h4>Naming the question is the work</h4>
+              <p>The highest-leverage move in any engagement is the one made before any data is collected.</p>
+            </div>
+          </a>
+          <a href="#" class="essay">
+            <div class="em">Apr 29, 2026<span class="read">5 min read</span></div>
+            <div>
+              <h4>Dashboard delivery isn't dashboard utilization</h4>
+              <p>Most evaluations end at the moment the report is sent. The work I'm most often asked to do begins about three weeks later.</p>
+            </div>
+          </a>
+          <a href="#" class="essay">
+            <div class="em">Forthcoming<span class="read">draft</span></div>
+            <div>
+              <h4>Whose voice shapes the narrative</h4>
+              <p>Equity-centered evaluation isn't a section in the appendix. Three questions that should ride every design decision — and what to do when the answers conflict.</p>
+            </div>
+          </a>
+          <div class="all-writing">All writing →</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="sec contact-sec">
+    <header class="sec-head">
+      <div class="sec-num">05 / Contact</div>
+      <h2 class="sec-title">Start a <span class="it">conversation.</span></h2>
+    </header>
+    <div class="contact-grid">
+      <div class="contact-list">
+        <div class="item"><span class="k">Email</span><span class="v"><a href="mailto:isaac@isaacrubinstein.com">isaac@isaacrubinstein.com</a></span></div>
+        <div class="item"><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/isaacrubinstein">linkedin.com/in/isaacrubinstein</a></span></div>
+        <div class="item"><span class="k">Location</span><span class="v">Providence, RI</span></div>
+        <div class="item"><span class="k">Response</span><span class="v">Within one business day</span></div>
+        <div class="item"><span class="k">Engagement</span><span class="v">$25–150k · 6–18 months</span></div>
+        <div class="item"><span class="k">Contracting</span><span class="v">1099 or subcontract to prime</span></div>
+        <div class="item"><span class="k">Insurance</span><span class="v">Professional liability carried</span></div>
+      </div>
+      <div class="contact-side">
+        <div class="body">
+          <span class="best">Best fit</span>
+          <p>Federally- or state-funded evaluation contracts, place-based or multi-stakeholder programs, and engagements where a named decision-maker can describe what the report needs to change.</p>
+          <p>Email is best — a one-paragraph program description is plenty for a first read.</p>
+        </div>
+        <div class="downloads">
+          <a href="#" class="btn btn--primary">Capabilities statement (PDF) ↓</a>
+          <a href="#" class="btn btn--ghost">CV (PDF) ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>© 2026 Isaac Rubinstein</span>
+    <span>Set in Public Sans &amp; Cormorant Garamond</span>
+    <span class="right">
+      <a class="sister" href="RP Homepage.html">Publishing arm: <span class="it">Rubinstein Productions →</span></a>
+    </span>
+  </footer>
+
+  <!-- Tweaks -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel">
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "theme": "paper"
+    }/*EDITMODE-END*/;
+
+    function applyTheme(t) {
+      const root = document.documentElement;
+      if (t.theme === "ink") root.setAttribute("data-theme", "ink");
+      else root.removeAttribute("data-theme");
+    }
+    applyTheme(TWEAK_DEFAULTS);
+
+    function App() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+      React.useEffect(() => { applyTheme(t); }, [t.theme]);
+      return (
+        <TweaksPanel title="Tweaks">
+          <TweakRadio
+            label="Theme"
+            value={t.theme}
+            options={["paper", "ink"]}
+            onChange={(v) => setTweak("theme", v)}
+          />
+        </TweaksPanel>
+      );
+    }
+    const mount = document.createElement("div");
+    document.body.appendChild(mount);
+    ReactDOM.createRoot(mount).render(<App />);
+  </script>
+</body>
+</html>

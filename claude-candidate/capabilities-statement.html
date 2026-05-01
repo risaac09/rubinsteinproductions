@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en" data-scope="eval">
+<head>
+  <meta charset="utf-8" />
+  <title>Isaac Rubinstein, MPH — Capabilities Statement</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tokens.css" />
+  <style>
+    /* US Letter @ ~96dpi: 816 × 1056 */
+    .page-shell {
+      max-width: 1100px; margin: 40px auto; padding: 24px;
+    }
+    .page {
+      background: var(--rp-ink); color: var(--rp-fg);
+      width: 100%; aspect-ratio: 8.5 / 11;
+      padding: 56px 64px;
+      display: grid; grid-template-rows: auto auto 1fr auto;
+      gap: 28px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+      border: 1px solid var(--rp-rule);
+    }
+    /* header */
+    .head {
+      display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px;
+      padding-bottom: 20px; border-bottom: 1px solid var(--rp-rule);
+    }
+    .head .mark {
+      font-family: var(--rp-font-sans); font-weight: 600; font-size: 28px;
+      letter-spacing: -0.02em; color: var(--rp-fg);
+      display: inline-flex; align-items: baseline; gap: 10px;
+    }
+    .head .mark .ev-it { color: var(--rp-gold); }
+    .head .mark .pip {
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.08em;
+      color: var(--rp-meta); padding: 3px 6px;
+      border: 1px solid var(--rp-rule); border-radius: 3px;
+    }
+    .head .role {
+      font-family: var(--rp-font-serif); font-style: italic;
+      font-size: 17px; color: var(--rp-fg-dim); margin-top: 4px;
+    }
+    .head .right {
+      text-align: right;
+      font-family: var(--rp-font-mono); font-size: 11px;
+      letter-spacing: 0.04em; color: var(--rp-meta);
+      line-height: 1.6;
+    }
+    .head .right a { color: var(--rp-gold); }
+    .head .right .doc {
+      font-family: var(--rp-font-mono); font-size: 10px;
+      color: var(--rp-mute-2); letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+
+    /* lede band */
+    .lede {
+      display: grid; grid-template-columns: 1fr; gap: 14px;
+      padding-bottom: 4px;
+    }
+    .lede h1 {
+      font-family: var(--rp-font-sans); font-weight: 600;
+      font-size: 32px; line-height: 1.15;
+      letter-spacing: -0.02em; color: var(--rp-fg);
+      margin: 0; max-width: 32ch; text-wrap: balance;
+    }
+    .lede h1 .ev-it { color: var(--rp-gold); }
+    .lede p {
+      font-size: 14.5px; line-height: 1.55; color: var(--rp-fg-dim);
+      margin: 0; max-width: 78ch; text-wrap: pretty;
+    }
+
+    /* body grid */
+    .body {
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px;
+      align-items: start;
+    }
+    .body h3 {
+      font-family: var(--rp-font-sans); font-weight: 600;
+      font-size: 13px; letter-spacing: -0.005em;
+      color: var(--rp-fg); margin: 0 0 10px;
+      padding-bottom: 6px; border-bottom: 1px solid var(--rp-rule);
+      display: flex; justify-content: space-between; align-items: baseline;
+    }
+    .body h3 .num {
+      font-family: var(--rp-font-mono); font-size: 10px;
+      color: var(--rp-gold); letter-spacing: 0.08em; font-weight: 400;
+    }
+    .col { display: flex; flex-direction: column; gap: 24px; }
+
+    /* services */
+    .svc-list { display: flex; flex-direction: column; gap: 10px; }
+    .svc-row {
+      display: grid; grid-template-columns: 1fr; gap: 2px;
+      padding: 10px 12px;
+      border: 1px solid var(--rp-rule); border-radius: 6px;
+      background: var(--rp-ink-2);
+    }
+    .svc-row .name {
+      font-family: var(--rp-font-sans); font-weight: 600;
+      font-size: 13.5px; color: var(--rp-fg);
+    }
+    .svc-row .body-line {
+      font-size: 12px; line-height: 1.5; color: var(--rp-fg-dim);
+    }
+
+    /* differentiators */
+    .diffs { display: flex; flex-direction: column; gap: 12px; }
+    .diff {
+      display: grid; grid-template-columns: 16px 1fr; gap: 10px;
+      align-items: baseline;
+    }
+    .diff .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--rp-gold);
+      transform: translateY(4px);
+    }
+    .diff .name { font-weight: 600; color: var(--rp-fg); font-size: 12.5px; }
+    .diff .desc { font-size: 12px; line-height: 1.55; color: var(--rp-fg-dim); }
+
+    /* past performance */
+    .pp { display: flex; flex-direction: column; }
+    .pp-row {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 10px; padding: 10px 0;
+      border-top: 1px solid var(--rp-rule);
+      align-items: baseline;
+    }
+    .pp-row:first-child { border-top: none; }
+    .pp-row .pname {
+      font-family: var(--rp-font-sans); font-weight: 600;
+      font-size: 12.5px; color: var(--rp-fg);
+      line-height: 1.3;
+    }
+    .pp-row .pdesc {
+      font-size: 11.5px; line-height: 1.5; color: var(--rp-fg-dim); margin-top: 2px;
+    }
+    .pp-row .pmeta {
+      font-family: var(--rp-font-mono); font-size: 10px;
+      color: var(--rp-meta); letter-spacing: 0.04em;
+      text-align: right; line-height: 1.6; min-width: 90px;
+    }
+
+    /* coords box */
+    .coords {
+      background: var(--rp-eval-tint);
+      border-radius: 6px; padding: 14px 16px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px;
+      font-size: 11.5px; line-height: 1.5;
+    }
+    .coords .k {
+      font-family: var(--rp-font-mono); font-size: 10px;
+      color: var(--rp-gold-soft); letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .coords .v { color: var(--rp-fg); font-weight: 500; }
+
+    /* qualifications */
+    .quals { font-size: 12px; line-height: 1.6; color: var(--rp-fg-dim); }
+    .quals strong { color: var(--rp-fg); font-weight: 600; }
+    .quals .label {
+      font-family: var(--rp-font-mono); font-size: 10px;
+      color: var(--rp-meta); letter-spacing: 0.04em;
+      text-transform: uppercase; margin-bottom: 4px;
+    }
+    .quals .group { margin-bottom: 10px; }
+
+    /* footer chrome */
+    .foot {
+      padding-top: 14px; border-top: 1px solid var(--rp-rule);
+      display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px;
+      font-family: var(--rp-font-mono); font-size: 10px;
+      color: var(--rp-meta); letter-spacing: 0.06em;
+      text-transform: lowercase;
+    }
+    .foot .right { text-align: right; }
+    .foot .ev-it { color: var(--rp-gold); }
+
+    .print-btn {
+      position: fixed; top: 18px; right: 24px; z-index: 100;
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.08em;
+      color: var(--rp-fg-dim); padding: 8px 14px; border: 1px solid var(--rp-rule);
+      border-radius: 4px; cursor: pointer; background: color-mix(in srgb, var(--rp-ink) 92%, transparent);
+      backdrop-filter: blur(8px); text-transform: lowercase; transition: all 180ms;
+    }
+    .print-btn:hover { border-color: var(--rp-gold); color: var(--rp-gold); }
+
+    @media print {
+      @page { size: letter; margin: 0; }
+      .page-shell { max-width: none; margin: 0; padding: 0; }
+      .page {
+        box-shadow: none; border: none; aspect-ratio: auto;
+        height: 11in; width: 8.5in;
+        page-break-after: always; break-inside: avoid;
+      }
+      .print-btn { display: none !important; }
+      body { background: var(--rp-ink); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      /* keep the warm paper look on print */
+    }
+    @media (max-width: 720px) {
+      .page { aspect-ratio: auto; padding: 32px 28px; }
+      .body { grid-template-columns: 1fr; }
+      .head { grid-template-columns: 1fr; }
+      .head .right { text-align: left; }
+      .coords { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <rect width="100" height="100" fill="#F4EFE3"/>
+      <text x="50" y="62" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="42" fill="#2F6A62">CS</text>
+    </svg>
+  </template>
+
+  <button class="print-btn" onclick="window.print()">print / save pdf</button>
+
+  <div class="page-shell">
+    <article class="page" data-screen-label="Capabilities Statement">
+      <header class="head">
+        <div>
+          <div class="mark">Isaac <span class="ev-it">Rubinstein</span><span class="pip">MPH</span></div>
+          <div class="role">independent program evaluator &amp; advisor — providence, ri</div>
+        </div>
+        <div class="right">
+          <div class="doc">capabilities · 2026</div>
+          <div>isaac@isaacrubinstein.com</div>
+          <div>linkedin.com/in/isaacrubinstein</div>
+          <div>aea · enri member</div>
+        </div>
+      </header>
+
+      <section class="lede">
+        <h1>Evaluation that names the <span class="ev-it">decision the report has to inform.</span></h1>
+        <p>I lead evaluations for state agencies, foundations, and community coalitions running state- and federally-funded programs across health equity, traffic safety, behavioral health, and place-based initiatives. Engagements run mixed-methods — surveys, interviews, focus groups, and administrative data — and are scoped to the decision a named user is going to make with the findings.</p>
+      </section>
+
+      <section class="body">
+        <div class="col">
+          <div>
+            <h3>Service lines <span class="num">01 / 02</span></h3>
+            <div class="svc-list">
+              <div class="svc-row">
+                <div class="name">Program Evaluation</div>
+                <div class="body-line">Formative, process, and outcome evaluations grounded in the CDC Framework. Logic models, theory of change, indicator design.</div>
+              </div>
+              <div class="svc-row">
+                <div class="name">Data Collection &amp; Analysis</div>
+                <div class="body-line">Surveys, interviews, focus groups, admin data review. Mixed-methods analysis sized to the decision.</div>
+              </div>
+              <div class="svc-row">
+                <div class="name">Stakeholder Reporting</div>
+                <div class="body-line">Evaluation briefs, dashboards, and presentations formatted for the audience that has to act on them.</div>
+              </div>
+              <div class="svc-row">
+                <div class="name">Health Equity &amp; Place-Based</div>
+                <div class="body-line">HEZ initiatives, community health assessments, social-determinants-of-health programs centering resident voice.</div>
+              </div>
+              <div class="svc-row">
+                <div class="name">Capacity Building &amp; Advisory</div>
+                <div class="body-line">Readiness assessments, data infrastructure, and TA for organizations standing up internal evaluation function.</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3>Past performance <span class="num">02 / 02</span></h3>
+            <div class="pp">
+              <div class="pp-row">
+                <div>
+                  <div class="pname">Multi-site community development coalition, Providence RI</div>
+                  <div class="pdesc">Lead evaluator across 60+ partners; quarterly federal reports accepted on first submission across two cycles.</div>
+                </div>
+                <div class="pmeta">lead eval<br/>2023 →<br/>federal &amp; local</div>
+              </div>
+              <div class="pp-row">
+                <div>
+                  <div class="pname">Pediatric healthcare ERP rollout — change &amp; eval</div>
+                  <div class="pdesc">Readiness scorecard adopted as enterprise standard; adoption KPIs to executive sponsors monthly through go-live.</div>
+                </div>
+                <div class="pmeta">change &amp; eval<br/>2021 — 2023<br/>enterprise</div>
+              </div>
+              <div class="pp-row">
+                <div>
+                  <div class="pname">Statewide behavioral health initiative — theory of change</div>
+                  <div class="pdesc">Co-designed indicator set with state agency and provider partners; adopted as planning baseline.</div>
+                </div>
+                <div class="pmeta">indicator design<br/>2024<br/>statewide</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div>
+            <h3>What's distinctive</h3>
+            <div class="diffs">
+              <div class="diff">
+                <span class="dot"></span>
+                <div>
+                  <div class="name">Utilization-focused, in writing.</div>
+                  <div class="desc">Named primary users, theory of change, and intended use are fixed before design begins.</div>
+                </div>
+              </div>
+              <div class="diff">
+                <span class="dot"></span>
+                <div>
+                  <div class="name">Participatory, scoped — not symbolic.</div>
+                  <div class="desc">Every engagement names which decisions are co-owned with community partners and which are mine.</div>
+                </div>
+              </div>
+              <div class="diff">
+                <span class="dot"></span>
+                <div>
+                  <div class="name">Equity questions in the plan, not the appendix.</div>
+                  <div class="desc">Who benefits, who is missing, whose voice shapes the narrative — answered upfront.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3>Engagement coordinates</h3>
+            <div class="coords">
+              <div><div class="k">Typical scope</div><div class="v">$25–150k</div></div>
+              <div><div class="k">Duration</div><div class="v">6–18 months</div></div>
+              <div><div class="k">Contracting</div><div class="v">1099 / subcontract</div></div>
+              <div><div class="k">Insurance</div><div class="v">Prof. liability</div></div>
+              <div><div class="k">Response</div><div class="v">1 business day</div></div>
+              <div><div class="k">Booking</div><div class="v">~2 mos. out</div></div>
+            </div>
+          </div>
+
+          <div>
+            <h3>Qualifications</h3>
+            <div class="quals">
+              <div class="group">
+                <div class="label">Credential</div>
+                <strong>MPH</strong>, Brown University School of Public Health
+              </div>
+              <div class="group">
+                <div class="label">Methods</div>
+                CDC Framework · logic models · theory of change · survey design · qualitative coding (NVivo) · administrative data analysis · readiness assessment
+              </div>
+              <div class="group">
+                <div class="label">Domains</div>
+                Health equity zones · traffic safety &amp; injury prevention · behavioral health · place-based community development · pediatric healthcare change management
+              </div>
+              <div class="group">
+                <div class="label">Affiliations</div>
+                American Evaluation Association (AEA) · Evaluation Network of Rhode Island (ENRI)
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>© 2026 isaac rubinstein</span>
+        <span class="ev-it">say what the report has to change.</span>
+        <span class="right">capabilities · v.2026 · isaacrubinstein.com</span>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
