@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Say Why · Rubinstein Productions</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Say Why. A Series from Rubinstein Productions. One hour of filmed conversation with someone whose clarity I want others to see." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── BRAND TOKENS ─────────────────────────────────────── */
+    :root {
+      --sw-marrow:     #1a1412;
+      --sw-blood:      #8b2e1c;
+      --sw-amber:      #c8923a;
+      --sw-bone:       #f2ece4;
+      --sw-ash:        #a89e93;
+      --sw-warm-white: #faf8f5;
+
+      --sw-font-display: "Oswald", "Barlow Condensed", "Helvetica Neue", sans-serif;
+      --sw-font-serif:   "Cormorant Garamond", "EB Garamond", "Iowan Old Style", Georgia, serif;
+      --sw-font-mono:    "JetBrains Mono", "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
+
+      --sw-measure: 36rem;
+      --sw-pad-x:   clamp(20px, 5vw, 40px);
+      --sw-pad-y:   clamp(72px, 12vw, 160px);
+    }
+
+    /* ── RESET / BASE ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--sw-warm-white);
+      color: var(--sw-marrow);
+      font-family: var(--sw-font-serif);
+      font-size: 19px;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      text-wrap: pretty;
+    }
+    ::selection { background: var(--sw-amber); color: var(--sw-marrow); }
+
+    a {
+      color: var(--sw-blood);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      transition: color 180ms;
+    }
+    a:hover, a:focus-visible { color: var(--sw-marrow); }
+    :focus-visible { outline: 2px solid var(--sw-amber); outline-offset: 4px; border-radius: 2px; }
+
+    /* ── PAGE FRAME ───────────────────────────────────────── */
+    .page { display: flex; flex-direction: column; min-height: 100dvh; }
+    .wrap {
+      width: 100%;
+      max-width: var(--sw-measure);
+      margin: 0 auto;
+      padding-left:  var(--sw-pad-x);
+      padding-right: var(--sw-pad-x);
+    }
+
+    /* skip-link a11y */
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--sw-marrow); color: var(--sw-warm-white);
+      padding: 12px 16px; z-index: 1000;
+      font-family: var(--sw-font-mono); font-size: 12px;
+      text-decoration: none; letter-spacing: 0.2em; text-transform: lowercase;
+    }
+    .skip-link:focus { left: 16px; top: 16px; }
+
+    /* ── NAV ──────────────────────────────────────────────── */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 24px var(--sw-pad-x);
+      font-family: var(--sw-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: var(--sw-ash);
+      text-transform: lowercase;
+      border-bottom: 1px solid color-mix(in oklab, var(--sw-ash) 35%, transparent);
+    }
+    .nav-mark {
+      font-family: var(--sw-font-serif);
+      font-size: 18px;
+      letter-spacing: 0;
+      color: var(--sw-marrow);
+      text-transform: none;
+    }
+    .nav-mark .it { font-style: italic; color: var(--sw-blood); }
+    .nav a { color: var(--sw-ash); text-decoration: none; }
+    .nav a:hover { color: var(--sw-blood); }
+
+    /* ── HERO ─────────────────────────────────────────────── */
+    .hero {
+      padding-top: clamp(72px, 14vw, 160px);
+      padding-bottom: clamp(56px, 10vw, 120px);
+    }
+    .hero-eyebrow {
+      font-family: var(--sw-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: lowercase;
+      color: var(--sw-blood);
+      margin: 0 0 28px;
+    }
+    .hero-eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 28px; height: 1px;
+      background: var(--sw-blood);
+      vertical-align: middle;
+      margin-right: 12px;
+      transform: translateY(-2px);
+    }
+    .hero-h {
+      font-family: var(--sw-font-display);
+      font-weight: 600;
+      font-size: clamp(64px, 14vw, 144px);
+      line-height: 0.92;
+      letter-spacing: -0.015em;
+      text-transform: uppercase;
+      color: var(--sw-marrow);
+      margin: 0;
+    }
+    .hero-h .it {
+      font-family: var(--sw-font-serif);
+      font-style: italic;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: -0.005em;
+      color: var(--sw-blood);
+    }
+    .hero-sub {
+      font-family: var(--sw-font-serif);
+      font-style: italic;
+      font-size: clamp(22px, 3.2vw, 30px);
+      line-height: 1.35;
+      color: var(--sw-marrow);
+      margin: 36px 0 0;
+      max-width: 28ch;
+    }
+    .hero-sub .em { color: var(--sw-blood); font-style: italic; }
+
+    /* ── SECTIONS ─────────────────────────────────────────── */
+    section { scroll-margin-top: 80px; }
+
+    .section {
+      padding-top: clamp(56px, 9vw, 96px);
+      padding-bottom: clamp(56px, 9vw, 96px);
+    }
+    .section--bone { background: var(--sw-bone); }
+
+    .eyebrow {
+      font-family: var(--sw-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.32em;
+      text-transform: lowercase;
+      color: var(--sw-ash);
+      margin: 0 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 24px; height: 1px;
+      background: var(--sw-ash);
+    }
+
+    h2.section-h {
+      font-family: var(--sw-font-display);
+      font-weight: 500;
+      font-size: clamp(34px, 5.4vw, 52px);
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--sw-marrow);
+      margin: 0 0 36px;
+      text-wrap: balance;
+    }
+    h2.section-h .it {
+      font-family: var(--sw-font-serif);
+      font-style: italic;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: -0.005em;
+      color: var(--sw-blood);
+    }
+
+    p.lede,
+    .section p {
+      font-family: var(--sw-font-serif);
+      font-size: clamp(19px, 2.1vw, 22px);
+      line-height: 1.55;
+      color: var(--sw-marrow);
+      margin: 0 0 1.1em;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    /* ── STEPS ────────────────────────────────────────────── */
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: clamp(32px, 5vw, 56px);
+    }
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: clamp(20px, 4vw, 36px);
+      align-items: baseline;
+    }
+    .step-num {
+      font-family: var(--sw-font-display);
+      font-weight: 600;
+      font-size: clamp(56px, 9vw, 96px);
+      line-height: 0.85;
+      letter-spacing: -0.02em;
+      color: var(--sw-amber);
+      grid-row: span 2;
+    }
+    .step-label {
+      font-family: var(--sw-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: lowercase;
+      color: var(--sw-ash);
+      margin: 0 0 10px;
+      align-self: end;
+    }
+    .step-body {
+      font-family: var(--sw-font-serif);
+      font-size: clamp(19px, 2.1vw, 22px);
+      line-height: 1.55;
+      color: var(--sw-marrow);
+      margin: 0;
+    }
+
+    /* ── PULL QUOTE ───────────────────────────────────────── */
+    .quote {
+      padding-top: clamp(72px, 11vw, 128px);
+      padding-bottom: clamp(72px, 11vw, 128px);
+      background:
+        linear-gradient(var(--sw-bone), var(--sw-bone));
+      border-top: 1px solid color-mix(in oklab, var(--sw-amber) 40%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--sw-amber) 40%, transparent);
+    }
+    .quote-inner {
+      border-left: 2px solid var(--sw-amber);
+      padding-left: clamp(20px, 4vw, 36px);
+    }
+    .quote blockquote {
+      margin: 0;
+      font-family: var(--sw-font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.4;
+      color: var(--sw-marrow);
+      text-wrap: pretty;
+    }
+    .quote cite {
+      display: block;
+      margin-top: 24px;
+      font-style: normal;
+      font-family: var(--sw-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: lowercase;
+      color: var(--sw-ash);
+    }
+    .quote cite .who { color: var(--sw-marrow); letter-spacing: 0.14em; }
+
+    /* ── CLOSING LINE ─────────────────────────────────────── */
+    .closer {
+      background: var(--sw-marrow);
+      color: var(--sw-warm-white);
+      padding-top: clamp(96px, 16vw, 200px);
+      padding-bottom: clamp(96px, 16vw, 200px);
+      text-align: center;
+    }
+    .closer-h {
+      font-family: var(--sw-font-display);
+      font-weight: 500;
+      font-size: clamp(40px, 8.5vw, 112px);
+      line-height: 1.0;
+      letter-spacing: -0.015em;
+      text-transform: uppercase;
+      color: var(--sw-warm-white);
+      margin: 0;
+      max-width: 14ch;
+      margin-inline: auto;
+      text-wrap: balance;
+    }
+    .closer-h .it {
+      font-family: var(--sw-font-serif);
+      font-style: italic;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: -0.005em;
+      color: var(--sw-amber);
+    }
+    .closer-link {
+      display: inline-block;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 200ms;
+    }
+    .closer-link:hover .closer-cue,
+    .closer-link:focus-visible .closer-cue { color: var(--sw-amber); }
+    .closer-link:hover .closer-h .it { color: var(--sw-warm-white); }
+    .closer-cue {
+      display: inline-block;
+      margin-top: clamp(32px, 5vw, 56px);
+      font-family: var(--sw-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: lowercase;
+      color: color-mix(in oklab, var(--sw-warm-white) 60%, transparent);
+      transition: color 200ms;
+    }
+    .closer-cue::after {
+      content: " \2192";
+      letter-spacing: 0;
+    }
+
+    /* ── CTA ──────────────────────────────────────────────── */
+    .cta {
+      padding-top: clamp(80px, 12vw, 144px);
+      padding-bottom: clamp(80px, 12vw, 144px);
+      text-align: center;
+    }
+    .cta-btn {
+      display: inline-block;
+      font-family: var(--sw-font-mono);
+      font-size: 13px;
+      letter-spacing: 0.28em;
+      text-transform: lowercase;
+      text-decoration: none;
+      color: var(--sw-marrow);
+      background: var(--sw-amber);
+      padding: 20px 32px;
+      border: 1px solid var(--sw-amber);
+      transition: background 200ms, color 200ms, border-color 200ms, transform 200ms;
+    }
+    .cta-btn:hover,
+    .cta-btn:focus-visible {
+      background: var(--sw-marrow);
+      color: var(--sw-amber);
+      border-color: var(--sw-marrow);
+    }
+    .cta-note {
+      font-family: var(--sw-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: lowercase;
+      color: var(--sw-ash);
+      margin: 28px 0 0;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    .foot {
+      margin-top: auto;
+      padding: 32px var(--sw-pad-x) 40px;
+      border-top: 1px solid color-mix(in oklab, var(--sw-ash) 35%, transparent);
+      font-family: var(--sw-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: lowercase;
+      color: var(--sw-ash);
+      text-align: center;
+    }
+    .foot a { color: var(--sw-ash); text-decoration: underline; text-decoration-color: color-mix(in oklab, var(--sw-ash) 40%, transparent); text-underline-offset: 3px; }
+    .foot a:hover { color: var(--sw-blood); }
+
+    /* ── MOBILE TUNING ────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .hero-eyebrow { font-size: 11px; letter-spacing: 0.24em; }
+      .hero-sub { font-size: 21px; max-width: none; }
+      .step { grid-template-columns: auto 1fr; column-gap: 18px; }
+      .step-num { font-size: 56px; }
+      .step-body { font-size: 18px; }
+      .quote blockquote { font-size: 20px; }
+      .nav { padding: 16px var(--sw-pad-x); font-size: 11px; letter-spacing: 0.18em; }
+      .nav-mark { font-size: 16px; }
+      .cta-btn { font-size: 12px; padding: 18px 24px; }
+    }
+
+    /* ── REDUCED MOTION ───────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">skip to content</a>
+  <div class="page" data-screen-label="01 Say Why landing">
+
+    <header class="nav" role="banner">
+      <a href="/" class="nav-mark" aria-label="Rubinstein Productions home">
+        Rubinstein <span class="it">Productions</span>
+      </a>
+      <span aria-hidden="true">say why · 2026</span>
+    </header>
+
+    <main id="main">
+
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="title">
+        <div class="wrap">
+          <p class="hero-eyebrow">A Series</p>
+          <h1 id="title" class="hero-h">Say<br/><span class="it">Why.</span></h1>
+          <p class="hero-sub">A Series from <span class="em">Rubinstein Productions.</span></p>
+        </div>
+      </section>
+
+      <!-- WHAT IT IS -->
+      <section class="section" aria-labelledby="what">
+        <div class="wrap">
+          <p class="eyebrow"><span>what it is</span></p>
+          <h2 id="what" class="section-h">One hour of <span class="it">filmed conversation.</span></h2>
+          <p>A Series under Rubinstein Productions, my facilitation and film practice. One hour of filmed conversation with someone whose clarity I want others to see. Long-form on Substack and YouTube; shorter clips on TikTok. We chat the week before, see what's real in the moment, and decide together what seems to point toward the "Why."</p>
+        </div>
+      </section>
+
+      <!-- WHAT IT WOULD LOOK LIKE FOR YOU -->
+      <section class="section section--bone" aria-labelledby="for-you">
+        <div class="wrap">
+          <p class="eyebrow"><span>what it would look like for you</span></p>
+          <h2 id="for-you" class="section-h">Three <span class="it">steps.</span></h2>
+
+          <ol class="steps">
+            <li class="step">
+              <span class="step-num" aria-hidden="true">1</span>
+              <p class="step-label">step one</p>
+              <p class="step-body">A 30 to 60 minute call. Phone or video, your pick. We talk. I'll probably ask what's real for you right now. If at the end either of us feels it's not the time, that's the end of it. No hard feelings, no follow-up.</p>
+            </li>
+            <li class="step">
+              <span class="step-num" aria-hidden="true">2</span>
+              <p class="step-label">step two</p>
+              <p class="step-body">If we both feel it, an hour of filmed conversation, where you live or somewhere you choose.</p>
+            </li>
+            <li class="step">
+              <span class="step-num" aria-hidden="true">3</span>
+              <p class="step-label">step three</p>
+              <p class="step-body">Edit and publish. Full episode on Substack and YouTube; shorter clips on TikTok. You see everything before it goes anywhere. You can pull anything you don't want out there. You own your story; I own the production craft.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- WHO I AM -->
+      <section class="section" aria-labelledby="who">
+        <div class="wrap">
+          <p class="eyebrow"><span>who i am in this context</span></p>
+          <h2 id="who" class="section-h">Half-friend, half-interviewer, <span class="it">half-listener.</span></h2>
+          <p>A dude obsessed with his tool, the production apparatus, asking questions and saying what I'd say anyway. Half-friend, half-interviewer, half-listener.</p>
+          <p>I'm here to get to know you and reflect you. Listening, waiting, and observing are the work. A shared meditation. The space of the relationship.</p>
+        </div>
+      </section>
+
+      <!-- WHY -->
+      <section class="section section--bone" aria-labelledby="why">
+        <div class="wrap">
+          <p class="eyebrow"><span>why i'm doing this</span></p>
+          <h2 id="why" class="section-h">Because I want to share the <span class="it">brilliance and clarity</span> of the people I love.</h2>
+          <p>The systems we live in make it hard for people to be witnessed in what they actually see and know and believe. Too much noise. Too much performance. Too much extraction.</p>
+          <p>The most important things any of us ever say come out sideways. My job is to attend with enough subtlety to practice what I like to remind myself of, easy love, right effort and loving-kindness.</p>
+          <p>No prep. Just show up as you.</p>
+        </div>
+      </section>
+
+      <!-- METHODOLOGY -->
+      <section id="methodology" class="section" aria-labelledby="methodology-h">
+        <div class="wrap">
+          <p class="eyebrow"><span>methodology · theory of change</span></p>
+          <h2 id="methodology-h" class="section-h">The scarce resource is <span class="it">metabolized expression.</span></h2>
+          <p>Metabolized expression is speech processed through one specific body in one specific life, made available to others. Witnessing is what makes that metabolism possible. The apparatus is downstream of that.</p>
+          <p>The systems we work inside make honest speech structurally expensive. The hour holds different conditions: the camera is in their hands, the edit is under their veto. Inside those conditions, someone says a version they couldn't say at the conference. Some people watching recognize themselves in them and have a small moment with their own capacity for unprotected speech; the method is open enough that other practitioners can adopt their own version of it.</p>
+          <p>What goes in is a regulated body across from another body, a camera the participant operates, a five-day pause between the conversation and any cutting of it, and a methodology published openly. The activity is an hour. What comes out is a published episode, the clips that come from it, and a public methodology document anyone can read. In the short term, one person experiences being witnessed and some number of people in the audience recognize themselves in them. The long-term intention, which I don't know yet whether the series will produce, is a recognized public scarcity called metabolized expression, fewer rooms where the living version is too expensive to say, and other practitioners doing their own version of this so it stops being mine.</p>
+        </div>
+      </section>
+
+      <!-- PULL QUOTE -->
+      <aside class="quote" aria-label="Quotation">
+        <div class="wrap">
+          <div class="quote-inner">
+            <blockquote>
+              "Even though you try to put people under control, it is impossible. You cannot do it. The best way to control people is to encourage them to be mischievous. Then they will be in control in a wider sense. To give your sheep or cow a large, spacious meadow is the way to control him. So it is with people: first let them do what they want, and watch them. This is the best policy. To ignore them is not good. That is the worst policy. The second worst is trying to control them."
+              <cite>
+                <span class="who">Shunryu Suzuki</span> · Zen Mind, Beginner's Mind · "Control"
+              </cite>
+            </blockquote>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CLOSING LINE -->
+      <section class="closer" aria-label="Closing line">
+        <div class="wrap">
+          <a class="closer-link" href="#methodology">
+            <p class="closer-h">This is a method of <span class="it">social change.</span></p>
+            <span class="closer-cue">read the methodology</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta" aria-labelledby="cta-h">
+        <div class="wrap">
+          <h2 id="cta-h" style="position:absolute;left:-9999px;">Get in touch</h2>
+          <a class="cta-btn" href="mailto:isaac@rubinsteinproductions.com?subject=Say%20Why%20%E2%80%94%20Step%201">
+            Are you in for Step 1?
+          </a>
+          <p class="cta-note">isaac@rubinsteinproductions.com</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="foot" role="contentinfo">
+      <span>Rubinstein Productions · Say Why · 2026</span>
+    </footer>
+
+  </div>
+</body>
+</html>
