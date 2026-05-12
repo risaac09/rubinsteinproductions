@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Methodology · Say Why · Rubinstein Productions</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Methodology and theory of change behind Say Why." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sw-marrow:     #1a1412;
+      --sw-blood:      #8b2e1c;
+      --sw-amber:      #c8923a;
+      --sw-bone:       #f2ece4;
+      --sw-ash:        #a89e93;
+      --sw-warm-white: #faf8f5;
+      --sw-font-display: "Oswald", "Barlow Condensed", "Helvetica Neue", sans-serif;
+      --sw-font-serif:   "Cormorant Garamond", "EB Garamond", "Iowan Old Style", Georgia, serif;
+      --sw-font-mono:    "JetBrains Mono", "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
+      --sw-measure: 36rem;
+      --sw-pad-x:   clamp(20px, 5vw, 40px);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--sw-warm-white);
+      color: var(--sw-marrow);
+      font-family: var(--sw-font-serif);
+      font-size: 19px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--sw-blood); text-underline-offset: 3px; }
+    a:hover { color: var(--sw-marrow); }
+    .nav {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 24px var(--sw-pad-x);
+      font-family: var(--sw-font-mono); font-size: 12px;
+      letter-spacing: 0.22em; color: var(--sw-ash); text-transform: lowercase;
+      border-bottom: 1px solid color-mix(in oklab, var(--sw-ash) 35%, transparent);
+    }
+    .nav-mark { font-family: var(--sw-font-serif); font-size: 18px; letter-spacing: 0; color: var(--sw-marrow); text-decoration: none; }
+    .nav-mark .it { font-style: italic; color: var(--sw-blood); }
+    .nav .back { color: var(--sw-ash); text-decoration: none; }
+    .nav .back:hover { color: var(--sw-blood); }
+    .wrap {
+      max-width: var(--sw-measure);
+      margin: 0 auto;
+      padding: clamp(72px, 12vw, 144px) var(--sw-pad-x);
+    }
+    .eyebrow {
+      font-family: var(--sw-font-mono); font-size: 11px;
+      letter-spacing: 0.32em; text-transform: lowercase;
+      color: var(--sw-ash); margin: 0 0 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--sw-ash); }
+    h1 {
+      font-family: var(--sw-font-display); font-weight: 600;
+      font-size: clamp(48px, 9vw, 96px); line-height: 0.95;
+      letter-spacing: -0.015em; text-transform: uppercase;
+      color: var(--sw-marrow); margin: 0 0 24px;
+      text-wrap: balance;
+    }
+    h1 .it { font-family: var(--sw-font-serif); font-style: italic; font-weight: 500; text-transform: none; color: var(--sw-blood); }
+    .stub {
+      margin-top: 56px;
+      padding: 28px clamp(20px, 4vw, 32px);
+      background: var(--sw-bone);
+      border-left: 2px solid var(--sw-amber);
+      font-family: var(--sw-font-mono);
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--sw-marrow);
+      letter-spacing: 0.02em;
+    }
+    .stub strong { font-weight: 500; letter-spacing: 0.22em; text-transform: lowercase; color: var(--sw-blood); display: block; margin-bottom: 8px; }
+    .back-foot {
+      max-width: var(--sw-measure); margin: 0 auto; padding: 32px var(--sw-pad-x) 64px;
+      font-family: var(--sw-font-mono); font-size: 12px; letter-spacing: 0.22em;
+      color: var(--sw-ash); text-transform: lowercase;
+    }
+    .back-foot a { color: var(--sw-ash); text-decoration: underline; text-underline-offset: 3px; }
+    .back-foot a:hover { color: var(--sw-blood); }
+  </style>
+</head>
+<body>
+  <header class="nav" role="banner">
+    <a href="say-why.html" class="nav-mark">Rubinstein <span class="it">Productions</span></a>
+    <a href="say-why.html" class="back">← say why</a>
+  </header>
+
+  <main class="wrap" data-screen-label="01 Methodology stub">
+    <p class="eyebrow"><span>methodology · theory of change</span></p>
+    <h1>This is a method of <span class="it">social change.</span></h1>
+
+    <p>Placeholder page. This is where the methodology and theory of change for Say Why will live: how attention, witness, and the production apparatus add up to a method, and why that constitutes change rather than content.</p>
+
+    <p>Draft when ready. The link from <a href="say-why.html">say why</a> already routes here.</p>
+
+    <div class="stub">
+      <strong>to write</strong>
+      what easy love is in practice. what counts as witness. the relationship between long-form on substack and clips on tiktok. who this is and isn't for. what success looks like at 5, 20, 100 conversations.
+    </div>
+  </main>
+
+  <footer class="back-foot" role="contentinfo">
+    <span><a href="say-why.html">← back to say why</a> · CC-BY-SA 4.0</span>
+  </footer>
+</body>
+</html>
