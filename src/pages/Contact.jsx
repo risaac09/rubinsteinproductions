@@ -3,6 +3,8 @@ import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { markReady } from '../hooks/useScrollAnimations.js'
 import usePageMeta from '../hooks/usePageMeta.js'
+import MediaFrame from '../components/media/MediaFrame.jsx'
+import { media } from '../data/media.js'
 import './Contact.css'
 
 const prefersReducedMotion = () =>
@@ -10,14 +12,14 @@ const prefersReducedMotion = () =>
 
 export default function Contact() {
   const containerRef = useRef(null)
-  const [status, setStatus] = useState('idle')
+  const [status, setStatus] = useState('idle') // idle | submitting | success | error
+  const [form, setForm] = useState({ name: '', email: '', context: '', tier: '' })
 
   usePageMeta({
     title: 'Contact',
     description: 'Start a conversation with Rubinstein Productions. No pitch, no onboarding form. Response within 48 hours.',
     path: '/contact',
-  }) // idle | submitting | success | error
-  const [form, setForm] = useState({ name: '', email: '', context: '', tier: '' })
+  })
 
   useGSAP(() => {
     if (prefersReducedMotion()) {
@@ -25,25 +27,6 @@ export default function Contact() {
       return
     }
 
-    // Hero
-    const heroEls = document.querySelectorAll('.contact-hero .scroll-reveal')
-    heroEls.forEach((el, i) => {
-      markReady(el)
-      gsap.fromTo(
-        el,
-        { opacity: 0, y: 25 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: 'power2.out',
-          delay: i * 0.1,
-          scrollTrigger: { trigger: el, start: 'top 85%' },
-        }
-      )
-    })
-
-    // Form and sidebar slide in from opposite sides
     const formEl = document.querySelector('.contact-form-col')
     const sidebarEl = document.querySelector('.contact-sidebar')
 
@@ -72,7 +55,6 @@ export default function Contact() {
         }
       )
     }
-
   }, { scope: containerRef })
 
   const handleChange = e => {
@@ -107,9 +89,13 @@ export default function Contact() {
         style={{ paddingTop: 'calc(var(--nav-height) + var(--space-xl))' }}
       >
         <div className="content-narrow">
-          <p className="small-caps scroll-reveal">Contact</p>
-          <h1 className="contact-headline scroll-reveal">Start a conversation.</h1>
-          <p className="contact-sub scroll-reveal">
+          <div className="contact-hero-slate">
+            <span className="frame-index frame-index--amber">CONTACT · 04</span>
+            <span className="rule-thin" aria-hidden="true" />
+            <span className="frame-index">Response within 48 hours</span>
+          </div>
+          <h1 className="contact-headline">Start a conversation.</h1>
+          <p className="contact-sub">
             No pitch. No onboarding form. Just a conversation to figure out
             whether the work makes sense.
           </p>
@@ -121,15 +107,29 @@ export default function Contact() {
         <div className="contact-grid content-wide">
 
           {status === 'success' ? (
-            <div className="contact-success">
-              <p className="small-caps">Received</p>
+            <div className="contact-success scroll-reveal">
+              <p className="frame-index frame-index--amber">Received</p>
               <h2>We'll talk soon.</h2>
-              <p>Expect a response within 48 hours.</p>
+              <p className="contact-success-body">
+                Expect a response within 48 hours, usually sooner. If something
+                urgent comes up in the meantime, you can also email{' '}
+                <a href="mailto:isaac@rubinsteinproductions.com">
+                  isaac@rubinsteinproductions.com
+                </a>{' '}
+                directly.
+              </p>
+              <p className="contact-success-next">
+                <span className="frame-index">What happens next</span>
+                A short call to hear where you are and whether the work is a fit.
+                No pressure. No pitch. Just a conversation.
+              </p>
             </div>
           ) : (
             <form className="contact-form-col scroll-reveal" onSubmit={handleSubmit} noValidate>
+              <p className="frame-index contact-form-label">Send a note · I — IV</p>
+
               <div className="form-field">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name"><span className="form-field-num">I</span> Name</label>
                 <input
                   id="name"
                   name="name"
@@ -142,7 +142,7 @@ export default function Contact() {
               </div>
 
               <div className="form-field">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email"><span className="form-field-num">II</span> Email</label>
                 <input
                   id="email"
                   name="email"
@@ -155,7 +155,7 @@ export default function Contact() {
               </div>
 
               <div className="form-field">
-                <label htmlFor="context">What's the context?</label>
+                <label htmlFor="context"><span className="form-field-num">III</span> What's the context?</label>
                 <textarea
                   id="context"
                   name="context"
@@ -167,7 +167,9 @@ export default function Contact() {
               </div>
 
               <div className="form-field">
-                <label htmlFor="tier">What are you looking for? <span>(optional)</span></label>
+                <label htmlFor="tier">
+                  <span className="form-field-num">IV</span> What are you looking for? <span>(optional)</span>
+                </label>
                 <select id="tier" name="tier" value={form.tier} onChange={handleChange}>
                   <option value="">Not sure yet</option>
                   <option value="founder-story">Founder Story ($1,500–$2,500)</option>
@@ -177,7 +179,12 @@ export default function Contact() {
               </div>
 
               {status === 'error' && (
-                <p className="form-error">Something went wrong. Try emailing directly: isaac@rubinsteinproductions.com</p>
+                <p className="form-error">
+                  Something went wrong on send. Try emailing directly:{' '}
+                  <a href="mailto:isaac@rubinsteinproductions.com">
+                    isaac@rubinsteinproductions.com
+                  </a>
+                </p>
               )}
 
               <button
@@ -185,21 +192,29 @@ export default function Contact() {
                 className="btn-primary"
                 disabled={status === 'submitting'}
               >
-                {status === 'submitting' ? 'Sending...' : 'Send'}
+                {status === 'submitting' ? 'Sending…' : 'Send'}
               </button>
             </form>
           )}
 
           <aside className="contact-sidebar scroll-reveal">
+            <div className="contact-room">
+              <MediaFrame entry={media.contactRoom} aspect="3-2" showMeta={false} />
+              <p className="margin-note contact-room-note">
+                The room these conversations usually start in.
+                A chair by a window, low light, a notebook waiting.
+              </p>
+            </div>
+
             <div className="sidebar-block">
-              <p className="small-caps">Email</p>
+              <p className="frame-index">Email</p>
               <a href="mailto:isaac@rubinsteinproductions.com" className="sidebar-link">
                 isaac@rubinsteinproductions.com
               </a>
             </div>
 
             <div className="sidebar-block">
-              <p className="small-caps">LinkedIn</p>
+              <p className="frame-index">LinkedIn</p>
               <a
                 href="https://www.linkedin.com/in/isaacrubinstein/"
                 target="_blank"
@@ -211,15 +226,16 @@ export default function Contact() {
             </div>
 
             <div className="sidebar-block">
-              <p className="small-caps">Response time</p>
-              <p>Within 48 hours, usually sooner.</p>
+              <p className="frame-index">Response time</p>
+              <p>Within 48 hours. Usually sooner.</p>
             </div>
 
             <div className="sidebar-block">
-              <p className="small-caps">What happens next</p>
+              <p className="frame-index">What happens next</p>
               <p>
                 A short call to hear where you are and whether the work is a fit.
-                No pressure. No pitch. Just a conversation.
+                If it is, we figure out scope and timing. If it isn't, I'll say
+                so — sometimes I'll point you to someone better matched.
               </p>
             </div>
           </aside>

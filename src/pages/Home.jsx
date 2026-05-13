@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { fadeInUp, staggerEntrance, slideIn, markReady } from '../hooks/useScrollAnimations.js'
+import { staggerEntrance, slideIn, markReady } from '../hooks/useScrollAnimations.js'
 import usePageMeta from '../hooks/usePageMeta.js'
 import StructuredData from '../components/StructuredData.jsx'
+import CinematicHero from '../components/media/CinematicHero.jsx'
+import FrameStrip from '../components/media/FrameStrip.jsx'
+import AudioMoment from '../components/media/AudioMoment.jsx'
+import { media } from '../data/media.js'
 import './Home.css'
 
 const prefersReducedMotion = () =>
@@ -22,64 +26,11 @@ export default function Home() {
 
   useGSAP(() => {
     if (prefersReducedMotion()) {
-      // Show everything immediately
       gsap.set('.scroll-reveal', { visibility: 'visible', opacity: 1 })
       return
     }
 
-    const mm = gsap.matchMedia()
-
-    // ——— HERO: PINNED SCROLL-THROUGH ———
-    mm.add('(min-width: 768px)', () => {
-      const heroSection = document.querySelector('.hero-section')
-      const heroHeadline = document.querySelector('.hero-headline')
-      const heroLabel = document.querySelector('.hero-label')
-      const heroSub = document.querySelector('.hero-sub')
-      const heroCtas = document.querySelector('.hero-ctas')
-
-      if (!heroSection) return
-
-      markReady([heroHeadline, heroLabel, heroSub, heroCtas])
-
-      // Initial state
-      gsap.set([heroHeadline, heroLabel, heroSub, heroCtas], { opacity: 1 })
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: heroSection,
-          start: 'top top',
-          end: '+=150%',
-          pin: true,
-          pinSpacing: true,
-          scrub: 1,
-          anticipatePin: 1,
-        },
-      })
-
-      // CTAs fade out first (0–20% of scroll range)
-      tl.to(heroCtas, { opacity: 0, y: -20, ease: 'power2.in' }, 0)
-
-      // Label + sub fade out faster (0–35%)
-      tl.to([heroLabel, heroSub], { opacity: 0, y: -15, ease: 'power2.in' }, 0)
-
-      // Headline scales up then fades (20–100%)
-      tl.to(heroHeadline, { scale: 1.15, ease: 'none' }, 0.05)
-      tl.to(heroHeadline, { opacity: 0, ease: 'power2.in' }, 0.5)
-    })
-
-    // Mobile hero: simple fade-in, no pin
-    mm.add('(max-width: 767px)', () => {
-      const heroEls = [
-        '.hero-label',
-        '.hero-headline',
-        '.hero-sub',
-        '.hero-ctas',
-      ]
-      heroEls.forEach(sel => markReady(sel))
-      gsap.set(heroEls, { opacity: 1 })
-    })
-
-    // ——— METABOLIZE SECTION: label slides, text fades ———
+    // ——— METABOLIZE: label slides, paragraphs fade ———
     const metabolizeLabel = document.querySelector('.metabolize-label')
     const metabolizeParagraphs = document.querySelectorAll('.metabolize-body p')
 
@@ -109,15 +60,12 @@ export default function Home() {
           duration: 0.8,
           ease: 'power2.out',
           stagger: 0.15,
-          scrollTrigger: {
-            trigger: metabolizeParagraphs[0],
-            start: 'top 80%',
-          },
+          scrollTrigger: { trigger: metabolizeParagraphs[0], start: 'top 80%' },
         }
       )
     }
 
-    // ——— TIME GRID: staggered cell entrance ———
+    // ——— TIME GRID ———
     const timeCells = document.querySelectorAll('.time-cell')
     if (timeCells.length) {
       markReady(timeCells)
@@ -130,34 +78,24 @@ export default function Home() {
           duration: 0.6,
           ease: 'power2.out',
           stagger: 0.06,
-          scrollTrigger: {
-            trigger: '.time-grid',
-            start: 'top 80%',
-          },
+          scrollTrigger: { trigger: '.time-grid', start: 'top 80%' },
         }
       )
     }
 
-    // ——— FILTER SECTION: opposite-direction slide ———
+    // ——— FILTER SECTION ———
     const filterRelease = document.querySelector('.filter-col--release')
     const filterKeep = document.querySelector('.filter-col--keep')
-
     if (filterRelease) slideIn(filterRelease, 'left')
     if (filterKeep) slideIn(filterKeep, 'right')
 
-    // ——— METHOD STEPS: stagger with number count-up ———
-    const methodSteps = document.querySelectorAll('.method-step')
-    if (methodSteps.length) {
-      staggerEntrance(document.querySelector('.method-steps'), methodSteps)
-    }
-
-    // ——— PERSONAS: stagger left-to-right ———
+    // ——— PERSONAS ———
     const personaCards = document.querySelectorAll('.persona-card')
     if (personaCards.length) {
       staggerEntrance(document.querySelector('.persona-grid'), personaCards)
     }
 
-    // ——— OFFERING SECTION: dark reveal ———
+    // ——— OFFERING ———
     const offeringSection = document.querySelector('.offering-section')
     if (offeringSection) {
       const offeringInner = offeringSection.querySelector('.offering-inner')
@@ -170,15 +108,12 @@ export default function Home() {
           y: 0,
           duration: 0.9,
           ease: 'power2.out',
-          scrollTrigger: {
-            trigger: offeringSection,
-            start: 'top 70%',
-          },
+          scrollTrigger: { trigger: offeringSection, start: 'top 70%' },
         }
       )
     }
 
-    // ——— CTA SECTION: fade + scale ———
+    // ——— CTA ———
     const ctaSection = document.querySelector('.home-cta-section')
     if (ctaSection) {
       markReady(ctaSection)
@@ -190,16 +125,9 @@ export default function Home() {
           scale: 1,
           duration: 0.8,
           ease: 'power2.out',
-          scrollTrigger: {
-            trigger: ctaSection,
-            start: 'top 80%',
-          },
+          scrollTrigger: { trigger: ctaSection, start: 'top 80%' },
         }
       )
-    }
-
-    return () => {
-      mm.revert()
     }
   }, { scope: containerRef })
 
@@ -223,31 +151,35 @@ export default function Home() {
         ],
       }} />
 
-      {/* ——— HERO ——— */}
-      <section className="hero-section">
-        <div className="hero-inner">
-          <div className="hero-label scroll-reveal">
-            <span className="small-caps">Rubinstein Productions</span>
-            <span className="hero-label-sep" aria-hidden="true" />
-            <span className="small-caps">Facilitation &amp; Film</span>
-          </div>
-          <h1 className="hero-headline scroll-reveal">
-            Say <em>why.</em>
-          </h1>
-          <p className="hero-sub scroll-reveal">
-            Honesty and clarity are natural. The systems we live inside make them
-            feel impossible. This is facilitation and film that makes space for
-            what's already true.
-          </p>
-          <div className="hero-ctas scroll-reveal">
-            <Link to="/services" className="btn-primary">How it works</Link>
-            <Link to="/contact" className="btn-ghost">Start a conversation</Link>
-          </div>
+      {/* ——— CINEMATIC HERO ——— */}
+      <CinematicHero
+        media={media.homeHero}
+        index="RP · VOL 01"
+        slate="OPENING FRAME"
+        tone="dark"
+        align="left"
+      >
+        <div className="hero-label">
+          <span className="small-caps">Rubinstein Productions</span>
+          <span className="hero-label-sep" aria-hidden="true" />
+          <span className="small-caps">Facilitation &amp; Film</span>
         </div>
-      </section>
+        <h1 className="hero-headline">
+          Say <em>why.</em>
+        </h1>
+        <p className="hero-sub">
+          Honesty and clarity are natural. The systems we live inside make them
+          feel impossible. This is facilitation and film that makes space for
+          what's already true.
+        </p>
+        <div className="hero-ctas">
+          <Link to="/services" className="btn-primary btn-primary--invert">How it works</Link>
+          <Link to="/contact" className="btn-ghost btn-ghost--invert">Start a conversation</Link>
+        </div>
+      </CinematicHero>
 
       {/* ——— METABOLIZE / APPROACH ——— */}
-      <section className="metabolize-section bg-marrow">
+      <section className="metabolize-section bg-marrow grain">
         <div className="content-narrow">
           <svg className="liver-mark scroll-reveal" width="64" height="64" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <ellipse cx="40" cy="40" rx="36" ry="32" fill="none" stroke="var(--ash)" strokeWidth="1.5" opacity="0.4" />
@@ -281,8 +213,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ——— THE METHOD IN FOUR FRAMES ——— */}
+      <FrameStrip
+        label="The method · I — IV"
+        heading="Receive. Talk. Film. Keep. Four frames of the work."
+        entries={[
+          { ...media.homeMethodReceive, caption: 'I · Receive — the case at the door, tape unbroken.' },
+          { ...media.homeMethodTalk,    caption: 'II · Talk — listening, not waiting to speak.' },
+          { ...media.homeMethodFilm,    caption: 'III · Film — their hands on the camera.' },
+          { ...media.homeMethodKeep,    caption: 'IV · Keep — drive returned, film bookmarked.' },
+        ]}
+        aspect="3-2"
+      />
+
       {/* ——— TIME GRID ——— */}
       <section className="time-grid-section">
+        <div className="time-grid-meta content-wide">
+          <p className="small-caps">A 3×3 of what shifts</p>
+          <span className="rule-thin" aria-hidden="true" />
+        </div>
         <div className="time-grid">
           {[
             { label: 'Past · Person', text: 'Who you were before clarity felt dangerous.', dark: false },
@@ -298,6 +247,7 @@ export default function Home() {
             <div key={i} className={`time-cell scroll-reveal${dark ? ' time-cell--dark' : ''}`}>
               <p className="time-cell-label">{label}</p>
               <p className="time-cell-text">{text}</p>
+              <span className="time-cell-index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
             </div>
           ))}
         </div>
@@ -339,8 +289,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ——— THE OFFERING ——— */}
-      <section className="offering-section bg-marrow">
+      {/* ——— THE OFFERING + SOUND QUOTE ——— */}
+      <section className="offering-section bg-marrow-deep grain">
         <div className="offering-inner content-narrow scroll-reveal">
           <p className="small-caps" style={{ color: 'var(--amber)' }}>The offering</p>
           <h2 className="offering-headline">I send you a camera and a lens.</h2>
@@ -359,34 +309,27 @@ export default function Home() {
             See how it works
           </Link>
         </div>
-      </section>
 
-      {/* ——— METHOD STEPS ——— */}
-      <section className="method-section section-pad">
-        <div className="content-wide">
-          <p className="small-caps">How the work moves</p>
-          <div className="divider-short" />
-          <div className="method-steps">
-            {[
-              { num: 'I', name: 'Receive', text: 'A camera and lens arrive at your door. The technology is part of the process.' },
-              { num: 'II', name: 'Talk', text: "We have facilitated conversations. What's honest surfaces. What's noise falls away." },
-              { num: 'III', name: 'Film', text: 'You film yourself. Your hands, your space, your terms. This is your performance.' },
-              { num: 'IV', name: 'Keep', text: "A 3-minute brand video. All your footage. The data. The experience. It's yours." },
-            ].map(({ num, name, text }) => (
-              <div key={num} className="method-step scroll-reveal">
-                <p className="method-step-num">{num}</p>
-                <p className="method-step-name">{name}</p>
-                <p className="method-step-text">{text}</p>
-              </div>
-            ))}
-          </div>
+        <div className="offering-audio content-narrow">
+          <AudioMoment
+            tone="dark"
+            label="From the practice · Field note"
+            quote="Clarity is relational. It happens between people, not inside them."
+            attribution="Isaac Rubinstein · Working notes, 2025"
+            transcript="The thing nobody teaches you about communication is that you don't think your way into clarity. You can't. Clarity isn't a state inside one head — it's a state between people. Someone listens; something loosens; what's true gets simpler. That's the actual mechanism. That's why facilitation works and packaging doesn't."
+            src={media.homeAudioMoment.src}
+            duration={87}
+          />
         </div>
       </section>
 
       {/* ——— WHO THIS IS FOR ——— */}
       <section className="personas-section bg-bone section-pad">
         <div className="content-wide">
-          <p className="small-caps">Who this is for</p>
+          <div className="personas-header">
+            <p className="small-caps">Who this is for</p>
+            <span className="rule-thin" aria-hidden="true" />
+          </div>
           <h2 className="personas-headline">
             People who've been through something real and need to show it.
           </h2>
@@ -404,8 +347,9 @@ export default function Home() {
                 name: 'Building something new',
                 desc: "You're developing a methodology, launching a practice, or piloting something that doesn't fit neatly into existing categories. You need someone who can hold the complexity while you articulate it.",
               },
-            ].map(({ name, desc }) => (
+            ].map(({ name, desc }, i) => (
               <div key={name} className="persona-card scroll-reveal">
+                <p className="frame-index persona-num">0{i + 1}</p>
                 <h3>{name}</h3>
                 <p>{desc}</p>
               </div>

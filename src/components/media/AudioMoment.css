@@ -1,0 +1,203 @@
+.audio-moment {
+  margin: 0;
+  max-width: 720px;
+}
+
+.audio-moment-frame {
+  border-top: 1px solid var(--ash);
+  border-bottom: 1px solid var(--ash);
+  padding: var(--space-lg) 0;
+}
+
+.audio-moment--dark .audio-moment-frame {
+  border-color: rgba(168, 158, 147, 0.35);
+}
+
+.audio-moment-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: var(--space-md);
+}
+
+.audio-moment-rule {
+  flex: 1;
+}
+
+.audio-moment-duration {
+  color: var(--ash);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ——— QUOTE ——— */
+.audio-moment-quote {
+  margin: 0 0 1rem;
+}
+
+.audio-moment-quote p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  line-height: 1.35;
+  color: var(--marrow);
+  font-style: italic;
+  text-indent: -0.45em;
+}
+
+.audio-moment--dark .audio-moment-quote p { color: var(--bone); }
+
+.audio-moment-quote p::before { content: "“"; }
+.audio-moment-quote p::after  { content: "”"; }
+
+.audio-moment-attribution {
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.2em;
+}
+
+/* ——— CONTROLS ——— */
+.audio-moment-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.audio-moment-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--marrow);
+  background: var(--bone);
+  border: 1px solid var(--marrow);
+  padding: 0.7rem 1.1rem 0.7rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+  flex-shrink: 0;
+}
+
+.audio-moment--dark .audio-moment-play {
+  color: var(--bone);
+  background: transparent;
+  border-color: var(--bone);
+}
+
+.audio-moment-play:hover:not(:disabled) {
+  background: var(--marrow);
+  color: var(--bone);
+}
+
+.audio-moment--dark .audio-moment-play:hover:not(:disabled) {
+  background: var(--bone);
+  color: var(--marrow);
+}
+
+.audio-moment-play:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.audio-moment-play-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+
+.audio-moment-waveform {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+  height: 56px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.audio-moment-waveform:disabled { cursor: default; }
+
+.audio-moment-bar {
+  display: block;
+  width: 100%;
+  flex: 1;
+  background: var(--ash);
+  opacity: 0.35;
+  transition: background 0.2s, opacity 0.2s;
+  min-height: 2px;
+}
+
+.audio-moment-bar--filled {
+  background: var(--blood);
+  opacity: 1;
+}
+
+.audio-moment--dark .audio-moment-bar {
+  background: var(--ash);
+  opacity: 0.3;
+}
+
+.audio-moment--dark .audio-moment-bar--filled {
+  background: var(--amber);
+  opacity: 1;
+}
+
+/* ——— TRANSCRIPT ——— */
+.audio-moment-transcript {
+  margin-top: var(--space-md);
+}
+
+.audio-moment-transcript > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0;
+  color: var(--ash);
+}
+
+.audio-moment-transcript > summary::-webkit-details-marker { display: none; }
+
+.audio-moment-transcript[open] .audio-moment-transcript-cue {
+  transform: rotate(45deg);
+}
+
+.audio-moment-transcript-cue {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--ash);
+  transition: transform 0.25s;
+}
+
+.audio-moment-transcript p {
+  margin-top: 1rem;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--marrow);
+  max-width: 38rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--ash);
+}
+
+.audio-moment--dark .audio-moment-transcript p {
+  color: var(--bone);
+  border-left-color: rgba(168, 158, 147, 0.4);
+}
+
+@media (max-width: 600px) {
+  .audio-moment-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-sm);
+  }
+  .audio-moment-waveform {
+    height: 44px;
+  }
+}

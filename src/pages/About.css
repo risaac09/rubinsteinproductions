@@ -1,25 +1,20 @@
-.about-hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: calc(var(--nav-height) + 2rem) var(--space-md) var(--space-xl);
-  background: var(--white);
-}
-
-.about-hero-inner {
-  width: 100%;
-  will-change: opacity, transform;
+/* ——— HERO (rendered inside CinematicHero) ——— */
+.about-hero-label {
+  margin-bottom: 1.2rem;
+  color: var(--ash);
 }
 
 .about-hero-headline {
-  font-size: clamp(2.4rem, 5.5vw, 4rem);
-  line-height: 1.1;
-  color: var(--marrow);
-  margin: 1.5rem 0 2rem;
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height: 1.08;
+  color: var(--bone);
+  margin: 0 0 1.8rem;
+  font-weight: 400;
 }
 
 .about-hero-headline em {
-  color: var(--blood);
+  color: var(--amber);
   font-style: italic;
 }
 
@@ -30,23 +25,120 @@
   line-height: 1.7;
 }
 
+/* ——— CHAPTERS ——— */
+.about-chapter-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.about-chapter-grid--reverse .chapter--text {
+  order: 2;
+}
+
+.about-chapter-grid--reverse .chapter--audio,
+.about-chapter-grid--reverse .chapter--media {
+  order: 1;
+}
+
+.chapter--text {
+  max-width: 36rem;
+}
+
+.about-section-headline {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin: 1.2rem 0 1.6rem;
+  line-height: 1.25;
+  color: var(--marrow);
+  font-weight: 400;
+}
+
 .about-lede-text {
   font-family: 'EB Garamond', serif;
   font-size: 1.25rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  color: var(--marrow);
 }
 
-.about-block p {
+.chapter p {
   color: var(--ash);
   margin-bottom: 1.2rem;
-  max-width: 640px;
+  max-width: 36rem;
 }
 
-.about-section-headline {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  margin: 1.5rem 0 2rem;
-  line-height: 1.25;
+.about-chapter-philosophy .chapter p {
+  color: var(--ash);
+}
+
+.about-chapter-philosophy .chapter p:last-of-type {
+  color: var(--bone);
+}
+
+.chapter .frame-index {
+  margin-bottom: 0.6rem;
+}
+
+.margin-note {
+  margin-top: 1.8rem;
+}
+
+.about-chapter-philosophy .margin-note {
+  color: var(--ash);
+  border-left-color: rgba(168, 158, 147, 0.4);
+}
+
+/* ——— CITIES (split-screen Seattle / Oslo) ——— */
+.about-cities-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: var(--space-lg);
+}
+
+.about-cities-header .rule-thin {
+  margin-top: 0.4rem;
+  max-width: 240px;
+}
+
+.about-cities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.about-cities-frame {
+  position: relative;
+}
+
+.about-cities-frame::before {
+  content: attr(data-label);
+}
+
+.about-cities-frame--seattle .media-frame-slate::before {
+  content: "Seattle";
+  color: var(--amber);
+  margin-right: 0.5rem;
+  letter-spacing: 0.22em;
+}
+
+.about-cities-frame--oslo .media-frame-slate::before {
+  content: "Oslo";
+  color: var(--amber);
+  margin-right: 0.5rem;
+  letter-spacing: 0.22em;
+}
+
+.about-cities-note {
+  max-width: 480px;
+  margin: var(--space-lg) auto 0;
+  text-align: center;
+  border-left: 0;
+  border-top: 1px solid var(--ash);
+  padding: 1.4rem 0 0;
 }
 
 /* ——— VOICE GRID ——— */
@@ -59,23 +151,46 @@
 }
 
 .voice-item {
-  background: var(--white);
+  background: var(--bone);
   padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.voice-item-num {
+  margin-bottom: 0.5rem;
+  color: var(--ash);
 }
 
 .voice-item h3 {
   font-size: 1.2rem;
   color: var(--marrow);
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.5rem;
 }
 
 .voice-item p {
   font-size: 0.85rem;
   color: var(--ash);
   line-height: 1.6;
+  margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .about-chapter-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .about-chapter-grid--reverse .chapter--text { order: 1; }
+  .about-chapter-grid--reverse .chapter--audio,
+  .about-chapter-grid--reverse .chapter--media { order: 2; }
+
+  .about-cities-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
   .voice-grid {
     grid-template-columns: 1fr 1fr;
   }

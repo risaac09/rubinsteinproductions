@@ -1,12 +1,15 @@
 /* ——— DESIGN SYSTEM ——— */
-/* Sharp. Honest. No gradients. No shadows. No rounded corners. */
+/* Sharp. Honest. No decorative shadows. No rounded corners. */
 
 :root {
   --marrow: #1a1412;
+  --marrow-deep: #0c0908;
+  --cinema: #050403;
   --blood: #8b2e1c;
   --amber: #c8923a;
   --bone: #f2ece4;
   --ash: #a89e93;
+  --ash-soft: #c7bfb3;
   --white: #faf8f5;
 
   --space-xs: 0.5rem;
@@ -17,6 +20,8 @@
   --space-2xl: 8rem;
 
   --nav-height: 64px;
+
+  --grain-url: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ——— RESET ——— */
@@ -139,6 +144,29 @@ h1, h2, h3, h4, .serif {
   border-color: var(--marrow);
 }
 
+/* Inverse variants — use on cinema/marrow dark fields. */
+.btn-primary--invert {
+  color: var(--marrow);
+  background: var(--bone);
+  border-color: var(--bone);
+}
+
+.btn-primary--invert:hover {
+  color: var(--bone);
+  background: var(--blood);
+  border-color: var(--blood);
+}
+
+.btn-ghost--invert {
+  color: var(--bone);
+  border-color: rgba(242, 236, 228, 0.5);
+}
+
+.btn-ghost--invert:hover {
+  color: var(--bone);
+  border-color: var(--bone);
+}
+
 .cta-link {
   display: inline-block;
   font-family: 'Inter', sans-serif;
@@ -205,4 +233,190 @@ h1, h2, h3, h4, .serif {
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+/* ——— CINEMATIC FIELDS ——— */
+.bg-cinema {
+  background: var(--cinema);
+  color: var(--bone);
+}
+
+.bg-marrow-deep {
+  background: var(--marrow-deep);
+  color: var(--bone);
+}
+
+/* Subtle film grain overlay. The pseudo sits at z-index 0 in an isolated
+   stacking context so children naturally render above it without needing
+   their own positioning. */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--grain-url);
+  background-size: 240px 240px;
+  opacity: 0.07;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: -1;
+}
+
+.grain-strong::after {
+  opacity: 0.13;
+}
+
+/* Cinematic vignette overlay for video heroes. */
+.cinema-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 50% 50%, rgba(5,4,3,0.1) 30%, rgba(5,4,3,0.7) 100%),
+    linear-gradient(180deg, rgba(5,4,3,0.3) 0%, rgba(5,4,3,0.0) 30%, rgba(5,4,3,0.0) 70%, rgba(5,4,3,0.65) 100%),
+    linear-gradient(90deg, rgba(5,4,3,0.45) 0%, rgba(5,4,3,0) 38%);
+}
+
+/* ——— FRAME / EDITORIAL PRIMITIVES ——— */
+
+/* Thin index number used like a film slate. */
+.frame-index {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ash);
+  font-variant-numeric: tabular-nums;
+}
+
+.frame-index--amber { color: var(--amber); }
+.frame-index--blood { color: var(--blood); }
+
+/* Caption used under MediaFrame stills. */
+.frame-caption {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--marrow);
+  font-style: italic;
+}
+
+.frame-caption--invert { color: var(--bone); }
+
+/* Credit/meta line under caption. */
+.frame-credit {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-top: 0.4rem;
+}
+
+/* Thin horizontal rule used as a frame edge or timeline. */
+.rule-thin {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--ash);
+  opacity: 0.5;
+}
+
+.rule-thin--bone {
+  background: var(--ash);
+  opacity: 0.4;
+}
+
+/* Field-note marginalia: small inline annotation, hand-of-the-editor feel. */
+.margin-note {
+  display: block;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ash);
+  line-height: 1.5;
+  border-left: 1px solid var(--ash);
+  padding-left: 0.9rem;
+  max-width: 22rem;
+}
+
+/* Small slate-style metadata block. */
+.slate {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ash);
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.slate-sep {
+  display: inline-block;
+  width: 1px;
+  height: 10px;
+  background: currentColor;
+  opacity: 0.4;
+  align-self: center;
+}
+
+/* ——— ASPECT-RATIO WRAPPERS ——— */
+.aspect {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--marrow);
+}
+
+.aspect > * {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aspect-21-9 { aspect-ratio: 21 / 9; }
+.aspect-16-9 { aspect-ratio: 16 / 9; }
+.aspect-3-2  { aspect-ratio: 3 / 2; }
+.aspect-4-5  { aspect-ratio: 4 / 5; }
+.aspect-1-1  { aspect-ratio: 1 / 1; }
+
+/* ——— TIMELINE TICKS (used by ProcessTimeline) ——— */
+.tl-tick {
+  display: inline-block;
+  width: 1px;
+  height: 10px;
+  background: var(--ash);
+  opacity: 0.5;
+}
+
+/* ——— MOTION UTILITIES ——— */
+/* GSAP handles most reveals via JS. These are CSS fallbacks
+   and small idle treatments that don't need scroll triggers. */
+
+.lift-on-hover {
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+}
+
+.lift-on-hover:hover {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lift-on-hover {
+    transition: none;
+  }
+  .grain::after { display: none; }
+  .cinema-overlay { display: none; }
 }

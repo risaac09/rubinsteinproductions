@@ -1,25 +1,14 @@
-/* ——— HERO ——— */
-.hero-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: calc(var(--nav-height) + 2rem) var(--space-md) var(--space-xl);
-  background: var(--white);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-inner {
-  max-width: 800px;
-  margin: 0 auto;
-  width: 100%;
-}
-
+/* ——— HERO (rendered inside CinematicHero) ——— */
 .hero-label {
   display: flex;
   align-items: center;
   gap: 0.8rem;
   margin-bottom: 2.5rem;
+  color: var(--ash);
+}
+
+.hero-label .small-caps {
+  color: var(--ash);
 }
 
 .hero-label-sep {
@@ -31,32 +20,31 @@
 
 .hero-headline {
   font-family: 'EB Garamond', serif;
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  line-height: 1.05;
-  color: var(--marrow);
-  margin-bottom: 2rem;
+  font-size: clamp(3rem, 7.5vw, 6rem);
+  line-height: 1.02;
+  color: var(--bone);
+  margin-bottom: 1.8rem;
+  font-weight: 400;
   will-change: transform, opacity;
 }
 
 .hero-headline em {
-  color: var(--blood);
+  color: var(--amber);
   font-style: italic;
 }
 
 .hero-sub {
   font-size: 1.1rem;
   color: var(--ash);
-  max-width: 500px;
-  margin-bottom: 3rem;
+  max-width: 520px;
+  margin-bottom: 2.6rem;
   line-height: 1.7;
-  will-change: opacity;
 }
 
 .hero-ctas {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  will-change: opacity;
 }
 
 /* ——— METABOLIZE ——— */
@@ -89,6 +77,19 @@
 /* ——— TIME GRID ——— */
 .time-grid-section {
   background: var(--white);
+  padding: var(--space-xl) 0 0;
+}
+
+.time-grid-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 var(--space-md) var(--space-md);
+  margin: 0 auto;
+}
+
+.time-grid-meta .rule-thin {
+  flex: 1;
 }
 
 .time-grid {
@@ -101,6 +102,7 @@
 .time-cell {
   background: var(--white);
   padding: 2.5rem 2rem;
+  position: relative;
 }
 
 .time-cell--dark {
@@ -127,6 +129,19 @@
 
 .time-cell--dark .time-cell-text {
   color: var(--bone);
+}
+
+.time-cell-index {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--ash);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.55;
 }
 
 /* ——— FILTER ——— */
@@ -201,53 +216,28 @@
   color: var(--bone);
 }
 
-/* ——— METHOD STEPS ——— */
-.method-section {
-  background: var(--white);
-}
-
-.method-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--ash);
-  margin-top: 2rem;
-}
-
-.method-step {
-  background: var(--white);
-  padding: 2rem 1.5rem;
-  text-align: center;
-}
-
-.method-step-num {
-  font-family: 'EB Garamond', serif;
-  font-size: 2rem;
-  color: var(--blood);
-  margin-bottom: 0.5rem;
-}
-
-.method-step-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--marrow);
-  margin-bottom: 0.8rem;
-}
-
-.method-step-text {
-  font-size: 0.8rem;
-  color: var(--ash);
-  line-height: 1.5;
+.offering-audio {
+  margin-top: var(--space-2xl);
+  padding: 0 var(--space-md);
 }
 
 /* ——— PERSONAS ——— */
+.personas-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.personas-header .rule-thin {
+  flex: 1;
+}
+
 .personas-headline {
   font-size: clamp(1.5rem, 3vw, 2rem);
-  margin: 1.5rem 0 2.5rem;
+  margin: 0.5rem 0 2.5rem;
   line-height: 1.3;
+  max-width: 36rem;
 }
 
 .persona-grid {
@@ -260,11 +250,19 @@
   padding: 2rem 1.5rem;
   background: var(--white);
   border-top: 2px solid var(--blood);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.persona-num {
+  margin-bottom: 0.6rem;
+  color: var(--ash);
 }
 
 .persona-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
+  font-size: 1.15rem;
+  margin-bottom: 0.6rem;
   color: var(--marrow);
 }
 
@@ -296,10 +294,6 @@
     gap: 1.5rem;
   }
 
-  .method-steps {
-    grid-template-columns: 1fr 1fr;
-  }
-
   .filter-cols {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -312,10 +306,6 @@
 }
 
 @media (max-width: 480px) {
-  .method-steps {
-    grid-template-columns: 1fr;
-  }
-
   .time-grid {
     gap: 1px;
   }

@@ -1,0 +1,197 @@
+.cinematic-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+  background: var(--cinema);
+  color: var(--bone);
+}
+
+.cinematic-hero--light {
+  background: var(--white);
+  color: var(--marrow);
+}
+
+/* ——— BG MEDIA LAYER ——— */
+.cinematic-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.cinematic-hero-img,
+.cinematic-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(1.05);
+}
+
+/* ——— SLATE (top-left) ——— */
+.cinematic-hero-slate {
+  position: absolute;
+  top: calc(var(--nav-height) + 1.5rem);
+  left: var(--space-md);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.cinematic-hero-slate .frame-index {
+  letter-spacing: 0.25em;
+  font-size: 0.58rem;
+}
+
+.cinematic-hero-slate .frame-index::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 1px;
+  background: var(--ash);
+  vertical-align: middle;
+  margin-left: 0.9rem;
+  opacity: 0.5;
+}
+
+.cinematic-hero-slate .frame-index:last-child::after {
+  display: none;
+}
+
+/* ——— SCROLL CUE (bottom-right) ——— */
+.cinematic-hero-cue {
+  position: absolute;
+  bottom: var(--space-lg);
+  right: var(--space-md);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ash);
+}
+
+.cinematic-hero-cue-line {
+  display: block;
+  width: 1px;
+  height: 36px;
+  background: var(--ash);
+  opacity: 0.5;
+  animation: cinematic-hero-cue-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes cinematic-hero-cue-pulse {
+  0%, 100% { transform: scaleY(0.5); opacity: 0.3; transform-origin: top; }
+  50%      { transform: scaleY(1);   opacity: 0.7; transform-origin: top; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-hero-cue-line { animation: none; opacity: 0.5; }
+}
+
+/* ——— FOREGROUND CONTENT ——— */
+.cinematic-hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-height) + 3rem) var(--space-md) var(--space-2xl);
+  will-change: opacity, transform;
+}
+
+.cinematic-hero--left .cinematic-hero-content {
+  justify-content: flex-start;
+}
+
+.cinematic-hero--center .cinematic-hero-content {
+  justify-content: center;
+  text-align: center;
+}
+
+.cinematic-hero-inner {
+  max-width: 820px;
+  width: 100%;
+}
+
+.cinematic-hero--center .cinematic-hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ——— PLACEHOLDER ART ——— */
+.cinematic-hero-placeholder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(110% 80% at 30% 40%, rgba(139, 46, 28, 0.18) 0%, rgba(5,4,3,0) 55%),
+    radial-gradient(80% 60% at 75% 70%, rgba(200, 146, 58, 0.10) 0%, rgba(5,4,3,0) 60%),
+    linear-gradient(180deg, var(--marrow) 0%, var(--cinema) 100%);
+  overflow: hidden;
+}
+
+/* Frame lines suggesting a 21:9 letterbox inside the hero */
+.cinematic-hero-placeholder-stripe {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--ash);
+  opacity: 0.18;
+}
+
+.cinematic-hero-placeholder-stripe:nth-child(1) { top: 14vh; }
+.cinematic-hero-placeholder-stripe--2 { bottom: 14vh; top: auto; }
+.cinematic-hero-placeholder-stripe--3 {
+  top: 50%;
+  right: 6vw;
+  left: auto;
+  transform: translateY(-50%);
+  width: 88px;
+  height: 88px;
+  border: 1px solid var(--ash);
+  background: transparent;
+  opacity: 0.1;
+}
+
+@media (max-width: 900px) {
+  .cinematic-hero-placeholder-stripe--3 { display: none; }
+}
+
+.cinematic-hero-placeholder-meta {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: var(--space-md);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 28rem;
+}
+
+.cinematic-hero-placeholder-label {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--bone);
+  opacity: 0.55;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .cinematic-hero-slate {
+    left: var(--space-sm);
+    gap: 0.6rem;
+  }
+  .cinematic-hero-cue { display: none; }
+  .cinematic-hero-content {
+    padding: calc(var(--nav-height) + 4rem) var(--space-md) var(--space-xl);
+  }
+  .cinematic-hero-placeholder-meta {
+    left: var(--space-sm);
+    bottom: var(--space-md);
+  }
+}

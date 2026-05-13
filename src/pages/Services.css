@@ -1,113 +1,114 @@
-.services-hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: calc(var(--nav-height) + 2rem) var(--space-md) var(--space-xl);
-  background: var(--white);
-}
-
-.services-hero-inner {
-  width: 100%;
-  will-change: opacity, transform;
+/* ——— HERO (rendered inside CinematicHero) ——— */
+.services-hero-label {
+  margin-bottom: 1.2rem;
+  color: var(--ash);
 }
 
 .services-hero-headline {
-  font-size: clamp(2.4rem, 5.5vw, 4rem);
-  line-height: 1.1;
-  color: var(--marrow);
-  margin: 1.5rem 0 2rem;
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height: 1.08;
+  color: var(--bone);
+  margin: 0 0 1.8rem;
+  font-weight: 400;
 }
 
 .services-hero-headline em {
-  color: var(--blood);
+  color: var(--amber);
   font-style: italic;
 }
 
 .services-hero-sub {
   font-size: 1.05rem;
   color: var(--ash);
-  max-width: 520px;
+  max-width: 540px;
   line-height: 1.7;
 }
 
-/* ——— TIERS ——— */
-.tiers-section {
-  background: var(--white);
-}
-
-.tiers-headline {
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-  margin: 1.5rem 0 3rem;
-  line-height: 1.2;
-}
-
-.tier-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--ash);
-}
-
-.tier-card {
-  background: var(--white);
-  padding: 2.5rem 2rem;
+/* ——— SERVICE TRACKS ——— */
+.service-tracks-header {
   display: flex;
-  flex-direction: column;
-  gap: 0;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: var(--space-xl);
 }
 
-/* Featured card: subtle blood glow — the ONE shadow exception */
-.tier-card--featured {
-  background: var(--white);
-  box-shadow: 0 0 0 1px rgba(139, 46, 28, 0.25), inset 0 0 0 1px rgba(139, 46, 28, 0.1);
-  position: relative;
-  z-index: 1;
-}
-
-.tier-tag {
-  margin-bottom: 0.5rem;
-}
-
-.tier-name {
-  font-family: 'EB Garamond', serif;
-  font-size: 1.6rem;
-  color: var(--marrow);
-  margin-bottom: 0.3rem;
-  font-weight: 400;
-}
-
-.tier-price {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  color: var(--amber);
-  text-transform: uppercase;
-  margin-bottom: 1.2rem;
-}
-
-.tier-desc {
-  font-size: 0.9rem;
-  color: var(--ash);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+.service-tracks-header .rule-thin {
   flex: 1;
 }
 
-.tier-list {
-  list-style: none;
-  margin-bottom: 2rem;
+.service-track {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: var(--space-2xl);
+  align-items: start;
+  padding: var(--space-xl) 0;
+  border-top: 1px solid rgba(168, 158, 147, 0.3);
 }
 
-.tier-list li {
-  font-size: 0.82rem;
+.service-track:last-child {
+  border-bottom: 1px solid rgba(168, 158, 147, 0.3);
+}
+
+.service-track--reverse .service-track-meta { order: 2; }
+.service-track--reverse .service-track-media { order: 1; }
+
+.service-track-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.service-track-name {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.1;
   color: var(--marrow);
-  padding: 0.45rem 0 0.45rem 1rem;
+  margin: 0.4rem 0 0.3rem;
+  font-weight: 400;
+}
+
+.service-track-tag {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--marrow);
+  margin-bottom: 0.6rem;
+}
+
+.service-track-price {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 1.3rem;
+}
+
+.service-track-desc {
+  color: var(--ash);
+  line-height: 1.7;
+  max-width: 30rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-track-list {
+  list-style: none;
+  margin-bottom: 1.8rem;
+  max-width: 30rem;
+}
+
+.service-track-list li {
+  font-size: 0.88rem;
+  color: var(--marrow);
+  padding: 0.55rem 0 0.55rem 1.1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   position: relative;
 }
 
-.tier-list li::before {
+.service-track-list li::before {
   content: '';
   position: absolute;
   left: 0;
@@ -118,79 +119,92 @@
   transform: translateY(-50%);
 }
 
-/* ——— METHODOLOGY ——— */
-.methodology-headline {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  margin: 1.5rem 0 3rem;
-  line-height: 1.25;
+.service-track .cta-link {
+  align-self: flex-start;
+  margin-top: 0.4rem;
 }
 
-.methodology-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.methodology-item {
-  padding: 2rem 0;
-}
-
-.methodology-item-line {
-  width: 100%;
-  height: 1px;
-  background: var(--ash);
-  margin-bottom: 1.5rem;
-}
-
-.methodology-item-inner {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-}
-
-.methodology-num {
+/* ——— CASE STUDY ——— */
+.case-study-headline {
   font-family: 'EB Garamond', serif;
-  font-size: 2.5rem;
-  color: var(--blood);
-  line-height: 1;
-  flex-shrink: 0;
-  width: 2.5rem;
-}
-
-.methodology-content {
-  flex: 1;
-}
-
-.methodology-name {
-  font-size: 1.1rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  line-height: 1.2;
   color: var(--marrow);
-  margin-bottom: 0.6rem;
+  margin: 1.2rem 0 1.8rem;
+  font-weight: 400;
 }
 
-.methodology-desc {
-  font-size: 0.9rem;
+.case-study-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  background: var(--marrow);
+  border: 1px solid var(--ash);
+}
+
+.case-study-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.case-study-slate {
+  margin-bottom: 1.6rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--ash);
+  border-bottom: 1px solid var(--ash);
   color: var(--ash);
-  line-height: 1.6;
-  max-width: 560px;
 }
 
+.case-study-body {
+  color: var(--ash);
+  margin-bottom: 1.2rem;
+  max-width: 38rem;
+  line-height: 1.7;
+}
+
+/* ——— DIAGNOSTIC ——— */
+.services-diagnostic-header {
+  margin-bottom: var(--space-lg);
+  max-width: 38rem;
+}
+
+.services-diagnostic-headline {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0.6rem 0 1rem;
+  color: var(--marrow);
+  font-weight: 400;
+}
+
+.services-diagnostic-sub {
+  color: var(--ash);
+  line-height: 1.7;
+  max-width: 36rem;
+}
+
+/* ——— CTA ——— */
 .services-cta-headline {
+  font-family: 'EB Garamond', serif;
   font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-  margin: 1.5rem 0;
+  margin: 1rem 0;
+  font-weight: 400;
 }
 
 /* ——— RESPONSIVE ——— */
-@media (max-width: 768px) {
-  .tier-grid {
+@media (max-width: 900px) {
+  .service-track {
     grid-template-columns: 1fr;
+    gap: var(--space-lg);
   }
-
-  .tier-card--featured {
-    box-shadow: none;
-    border-top: 2px solid rgba(139, 46, 28, 0.4);
+  .service-track--reverse .service-track-meta,
+  .service-track--reverse .service-track-media {
+    order: initial;
   }
-
-  .methodology-item-inner {
-    gap: 1.5rem;
-  }
+  .service-track-meta { order: 2; }
+  .service-track-media { order: 1; }
 }
