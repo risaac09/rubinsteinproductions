@@ -1,0 +1,3 @@
+# Netlify SPA fallback — serve index.html for unknown paths so React Router
+# can handle client-side routing.
+/*    /index.html   200
