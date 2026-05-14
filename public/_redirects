@@ -1,0 +1,4 @@
+# Netlify SPA fallback — serve index.html for unknown paths so React Router
+# can handle client-side routing. Static files (e.g. /say-why/index.html,
+# /sitemap.xml, /og-image.svg, /404.html) take precedence and are served as-is.
+/*    /index.html   200
