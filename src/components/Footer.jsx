@@ -20,11 +20,13 @@ export default function Footer() {
         </nav>
 
         <div className="footer-social">
-          <a href="https://www.linkedin.com/in/isaacrubinstein123" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/isaacrubinstein" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span className="dot-sep" aria-hidden="true" />
           <a href="https://substack.com/@isaacrubinstein" target="_blank" rel="noopener noreferrer">Substack</a>
           <span className="dot-sep" aria-hidden="true" />
           <a href="https://www.youtube.com/@risaac09" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <span className="dot-sep" aria-hidden="true" />
+          <a href="https://isaacrubinstein.com" target="_blank" rel="noopener noreferrer">Evaluation Practice</a>
         </div>
 
         <p className="footer-copy">© {new Date().getFullYear()} Rubinstein Productions. All rights reserved.</p>
