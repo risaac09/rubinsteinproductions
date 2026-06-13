@@ -17,6 +17,8 @@ export default function Footer() {
           <Link to="/services">Services</Link>
           <span className="dot-sep" aria-hidden="true" />
           <Link to="/contact">Contact</Link>
+          <span className="dot-sep" aria-hidden="true" />
+          <a href="/hr1-tracker">H.R. 1 Tracker</a>
         </nav>
 
         <div className="footer-social">
