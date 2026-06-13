@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cross-State H.R. 1 Implementation Tracker | Rubinstein Productions</title>
+  <meta name="description" content="What eight early-implementer states' Medicaid work-requirement dashboards show, and what they can't see. Compiled by Isaac Rubinstein, Rubinstein Productions." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://rubinsteinproductions.com/hr1-tracker" />
+  <meta property="og:title" content="Cross-State H.R. 1 Implementation Tracker" />
+  <meta property="og:description" content="What eight early-implementer states' Medicaid work-requirement dashboards show, and what they can't see." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://rubinsteinproductions.com/hr1-tracker" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect width='120' height='120' rx='12' fill='%231a1412'/><rect x='48' y='24' width='4' height='76' fill='%23a89e93' opacity='0.5'/><text x='14' y='82' font-family='Georgia,serif' font-size='72' fill='%23f2ece4'>R</text><text x='50' y='82' font-family='Georgia,serif' font-size='72' fill='%238b2e1c'>P</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1412;
+      --cream: #f2ece4;
+      --rust: #8b2e1c;
+      --stone: #a89e93;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    .home-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--rust);
+      text-decoration: none;
+    }
+    .home-link:hover { text-decoration: underline; }
+    h1 { font-size: 2.1rem; font-weight: 600; line-height: 1.2; margin: 1.5rem 0 0.75rem; }
+    .byline {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--stone);
+      margin-bottom: 2rem;
+    }
+    .intro p { margin-bottom: 1rem; }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 2.5rem 0 1.25rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--stone);
+    }
+    .state { margin-bottom: 2.25rem; }
+    .state h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .agency { font-style: italic; color: #4a423c; margin-bottom: 0.85rem; }
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 560px) { .cols { grid-template-columns: 1fr; } }
+    .col {
+      border: 1px solid var(--stone);
+      border-radius: 4px;
+      padding: 0.85rem 1rem;
+      font-size: 1.02rem;
+      background: rgba(255,255,255,0.35);
+    }
+    .col .label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .col.visible-col .label { color: var(--ink); }
+    .col.opaque-col { border-color: var(--rust); }
+    .col.opaque-col .label { color: var(--rust); }
+    .closing p { margin-bottom: 1rem; }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--stone);
+      font-size: 1rem;
+      color: #4a423c;
+    }
+    footer p { margin-bottom: 0.85rem; }
+    footer a { color: var(--rust); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="home-link" href="/">Rubinstein Productions</a>
+    <h1>Cross-State H.R. 1 Implementation Tracker</h1>
+    <p class="byline">As of 2026-05-25. Compiled by Isaac Rubinstein, Rubinstein Productions.</p>
+
+    <div class="intro">
+      <p>H.R. 1 imposes 80-hour-per-month work requirements on Medicaid expansion adults, federally effective 2027-01-01. State implementations span 19 months across the early-implementer cohort. Each state generates its own dashboard, its own reporting process, its own first-cohort experience. The cross-state pattern, what is working and where it is breaking, is not visible from any single state's reporting.</p>
+      <p>This tracker captures what is publicly visible across eight early-implementer states and names what is opaque without member-level documentation.</p>
+    </div>
+
+    <h2>The eight states</h2>
+
+    <section class="state">
+      <h3>Nebraska. Live 2026-05-01.</h3>
+      <p class="agency">DHHS Division of Medicaid &amp; Long-Term Care. Director Drew Gonshorowski (Paragon Institute background, appointed Dec 2024).</p>
+      <div class="cols">
+        <div class="col visible-col"><span class="label">Visible</span>Implementation dashboard at dhhs.ne.gov. First state to go live nationally, 24 days into operation as of this writing.</div>
+        <div class="col opaque-col"><span class="label">Opaque</span>First-cohort experience with the monthly reporting workflow. Exemption-pathway failure rates. Frontline FQHC staff observations. Behavioral-health carve-out functioning.</div>
+      </div>
+    </section>
+
+    <section class="state">
+      <h3>Montana. Live 2026-07-01 (5 weeks out).</h3>
+      <p class="agency">DPHHS. Director Charlie Brereton. Deputy Medicaid Director Gene Hermanson. Implementation page at dphhs.mt.gov/medicaidchanges.</p>
+      <div class="cols">
+        <div class="col visible-col"><span class="label">Visible</span>Statute, effective date, agency communications. Pre-launch is the only baseline window.</div>
+        <div class="col opaque-col"><span class="label">Opaque</span>Frontier and rural CHC absorption patterns. How urban-versus-rural disenrollment will diverge. SUD treatment continuity disruption (the most exemption-sensitive population).</div>
+      </div>
+    </section>
+
+    <section class="state">
+      <h3>Iowa. Live 2026-12-01. 146,000 affected.</h3>
+      <p class="agency">Iowa HHS Medicaid. Director Lee Grossman (started Sept 2025, prior WY Medicaid Director, Iowa native).</p>
+      <div class="cols">
+        <div class="col visible-col"><span class="label">Visible</span>Population estimate, effective date, work-requirements page at hhs.iowa.gov. Iowa just merged MH and SUD into one Behavioral Health Service System (July 2025).</div>
+        <div class="col opaque-col"><span class="label">Opaque</span>How the BH-system reorganization interacts with work-requirement enforcement. CHC documentation burden across 146K monthly reporters. New-director posture toward external evaluation.</div>
+      </div>
+    </section>
+
+    <section class="state">
+      <h3>Arkansas. Soft launch 2026-07-01. Federal enforcement 2027-01-01.</h3>
+      <p class="agency">Arkansas DHS Medicaid (ARHOME).</p>
+      <div class="cols">
+        <div class="col visible-col"><span class="label">Visible</span>2018 work-requirement experiment is the only U.S. precedent. 18,000 lost coverage in five months. ACHI produced the canonical quantitative evaluation.</div>
+        <div class="col opaque-col"><span class="label">Opaque</span>Whether 2026 design choices avoid the 2018 failure modes. Whether CHCs that absorbed 2018 churn still hold longitudinal memory. The qualitative companion to ACHI's quant work has never been written.</div>
+      </div>
+    </section>
+
+    <section class="state">
+      <h3>Georgia. Pathways extended through 2026-12-31.</h3>
+      <p class="agency">Georgia DCH. Medicaid Director Stuart Portman (incoming NAMD president 2026-04-01).</p>
+      <div class="cols">
+        <div class="col visible-col"><span class="label">Visible</span>GAO and ProPublica analyses of Pathways cost ratios. Enrollment numbers far below projection.</div>
+        <div class="col opaque-col"><span class="label">Opaque</span>Whether the second-half-2026 extension period gets framed as course-correction or defense. Member experience with the Pathways reporting interface, distinct from H.R. 1 federal design.</div>
+      </div>
+    </section>
+
+    <section class="state">
+      <h3>Idaho. Statutory adoption by 2026-12-31. Federal effective 2027.</h3>
+      <p class="agency">Idaho DHW Division of Medicaid.</p>
+      <div class="cols">
+        <div class="col visible-col"><span class="label">Visible</span>HB 913 signed April 2026. 34,000 at risk. 3-month lookback is the longest in the country.</div>
+        <div class="col opaque-col"><span class="label">Opaque</span>Whether the 3-month lookback protects or excludes. Frontier-rural CHC documentation burden under that design. The interaction between extended lookback and reporting-month verification cycles.</div>
+      </div>
+    </section>
+
+    <section class="state">
+      <h3>South Dakota. Implementation pending.</h3>
+      <p class="agency">SD DSS Medicaid.</p>
+      <div class="cols">
+        <div class="col visible-col"><span class="label">Visible</span>Statute trajectory. SD also received $189.4M Rural Health Transformation grant (separate but coincident funding stream).</div>
+        <div class="col opaque-col"><span class="label">Opaque</span>Whether the two funding streams get consolidated under one learning vehicle. Tribal-population exemption pathway functioning (Community HealthCare Association of the Dakotas covers ND and SD both).</div>
+      </div>
+    </section>
+
+    <section class="state">
+      <h3>Ohio. Implementation pending.</h3>
+      <p class="agency">Ohio Department of Medicaid. OACHC (Ohio Association of Community Health Centers) covers 60+ CHCs across 200+ counties.</p>
+      <div class="cols">
+        <div class="col visible-col"><span class="label">Visible</span>Statute trajectory. Geographic distribution of affected population is unusually broad.</div>
+        <div class="col opaque-col"><span class="label">Opaque</span>How eligibility churn cascades across 200+ counties with varying CHC density. Multi-site narrative documentation across OACHC membership has not been attempted.</div>
+      </div>
+    </section>
+
+    <h2>The cross-state question</h2>
+    <div class="closing">
+      <p>The data dashboards each state will publish will tell you who fell off and when. They will not tell you why. They will not tell you what frontline FQHC staff observed during the first three reporting cycles. They will not tell you which exemption pathways failed and which held. They will not tell you whether the design choice that distinguishes Idaho from Arkansas mattered in practice.</p>
+      <p>Eight states implementing the same federal requirement on eight different timelines with seven different design variations is a natural cross-state experiment. The synthesis question, what worked and what did not, is the synthesis no single state agency can answer for itself.</p>
+    </div>
+
+    <footer>
+      <p><strong>About this tracker.</strong> Compiled from publicly available state announcements, KFF tracking, and the prospect-list research dispatch dated 2026-05-25. Maintained by Isaac Rubinstein, Rubinstein Productions: a small evaluation and facilitation practice, developmental and narrative-based, hybrid orientation.</p>
+      <p>If extending this tracker through member-level documentation interests you, a 20-minute call to talk it through is here for the asking. <a href="https://rubinsteinproductions.com">rubinsteinproductions.com</a></p>
+    </footer>
+  </div>
+</body>
+</html>
