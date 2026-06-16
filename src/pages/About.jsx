@@ -81,20 +81,42 @@ export default function About() {
 
   return (
     <div ref={containerRef}>
+      {/* Single canonical Person node for the whole site. Other pages reference
+          it by @id rather than emitting competing Person graphs. */}
       <StructuredData data={{
         '@context': 'https://schema.org',
         '@type': 'Person',
+        '@id': 'https://rubinsteinproductions.com/#isaac',
         name: 'Isaac Rubinstein',
-        jobTitle: 'Facilitator & Filmmaker',
+        honorificSuffix: 'MPH',
+        jobTitle: 'Facilitator, Filmmaker & Program Evaluator',
         url: 'https://rubinsteinproductions.com/about',
         worksFor: {
           '@type': 'Organization',
           name: 'Rubinstein Productions',
           url: 'https://rubinsteinproductions.com',
         },
-        knowsAbout: ['Facilitation', 'Filmmaking', 'Brand Video Production', 'Relational Ontology'],
+        knowsAbout: [
+          'Facilitation',
+          'Filmmaking',
+          'Brand Video Production',
+          'Relational Ontology',
+          'Program Evaluation',
+          'Utilization-Focused Evaluation',
+          'Health Equity Zone Evaluation',
+          'Public Health Evaluation',
+          'Mixed-Methods Research',
+        ],
         alumniOf: { '@type': 'EducationalOrganization', name: 'Master of Public Health Program' },
-        sameAs: ['https://www.linkedin.com/in/isaacrubinstein/'],
+        memberOf: [
+          { '@type': 'Organization', name: 'American Evaluation Association', url: 'https://www.eval.org' },
+          { '@type': 'Organization', name: 'Evaluation Network of Rhode Island' },
+        ],
+        sameAs: [
+          'https://www.linkedin.com/in/isaacrubinstein/',
+          'https://substack.com/@isaacrubinstein',
+          'https://www.youtube.com/@risaac09',
+        ],
       }} />
 
       {/* ——— HERO ——— */}

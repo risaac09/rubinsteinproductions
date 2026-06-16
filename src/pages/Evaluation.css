@@ -1,0 +1,207 @@
+/* Evaluation practice page. Reuses global tokens + utility classes. */
+
+.eval-hero {
+  padding-top: calc(var(--nav-height) + 3rem);
+}
+
+.eval-hero-headline {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(2.4rem, 5.5vw, 3.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: var(--marrow);
+  margin: 0.75rem 0 1.5rem;
+}
+.eval-hero-headline em { font-style: italic; color: var(--blood); }
+
+.eval-hero-lede {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  color: var(--marrow);
+  max-width: 42rem;
+  margin: 0 0 1rem;
+}
+
+.eval-hero-cred {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+
+/* ——— ABOUT ——— */
+.eval-about {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.eval-lead {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--marrow);
+  margin-bottom: 1.1rem;
+}
+
+.eval-about-text p {
+  line-height: 1.65;
+  color: var(--ash);
+}
+
+.eval-portrait {
+  margin: 0;
+}
+.eval-portrait img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+  filter: grayscale(0.15);
+}
+.eval-portrait figcaption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-top: 0.6rem;
+}
+
+/* ——— SHARED HEADINGS ——— */
+.eval-section-headline {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+  line-height: 1.15;
+  color: var(--marrow);
+  margin: 0.4rem 0 1.5rem;
+}
+
+/* ——— APPROACH ——— */
+.eval-commitments {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.eval-commitment h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--marrow);
+  margin-bottom: 0.4rem;
+}
+.eval-commitment p {
+  line-height: 1.6;
+  color: var(--ash);
+  max-width: 44rem;
+}
+
+.eval-quote {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--marrow);
+  border-left: 2px solid var(--blood);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  max-width: 40rem;
+}
+
+.eval-foundation {
+  line-height: 1.65;
+  color: var(--ash);
+  max-width: 44rem;
+}
+.eval-foundation strong { color: var(--marrow); }
+
+/* ——— SERVICES ——— */
+.eval-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5rem;
+}
+.eval-service-card {
+  background: var(--bone-2, rgba(255, 255, 255, 0.5));
+  border: 1px solid rgba(168, 158, 147, 0.25);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+.eval-svc-num {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--blood);
+}
+.eval-service-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--marrow);
+  margin: 0.5rem 0 0.6rem;
+}
+.eval-service-card p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ash);
+  margin-bottom: 0.9rem;
+}
+.eval-svc-keys {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--blood);
+}
+
+/* ——— PROJECTS ——— */
+.eval-project {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 2rem;
+  padding: 1.75rem 0;
+  border-top: 1px solid rgba(168, 158, 147, 0.3);
+}
+.eval-project:last-of-type {
+  border-bottom: 1px solid rgba(168, 158, 147, 0.3);
+}
+.eval-project-meta {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.eval-project-meta dt {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+.eval-project-meta dd {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--marrow);
+}
+.eval-project h3 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: var(--marrow);
+  margin: 0 0 0.6rem;
+}
+.eval-project p {
+  line-height: 1.6;
+  color: var(--ash);
+}
+
+/* ——— RESPONSIVE ——— */
+@media (max-width: 768px) {
+  .eval-about { grid-template-columns: 1fr; gap: 2rem; }
+  .eval-portrait { max-width: 18rem; }
+  .eval-project { grid-template-columns: 1fr; gap: 1rem; }
+  .eval-project-meta { flex-direction: row; flex-wrap: wrap; gap: 1.25rem; }
+}

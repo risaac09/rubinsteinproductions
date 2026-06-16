@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 const BASE_URL = 'https://rubinsteinproductions.com'
 const SITE_NAME = 'Rubinstein Productions'
-const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.jpg`
+const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`
 
 export default function usePageMeta({ title, description, path, ogImage }) {
   useEffect(() => {
@@ -31,6 +31,8 @@ export default function usePageMeta({ title, description, path, ogImage }) {
     setMetaProperty('og:description', description)
     setMetaProperty('og:url', canonicalUrl)
     setMetaProperty('og:image', image)
+    setMetaProperty('og:image:width', '1200')
+    setMetaProperty('og:image:height', '630')
     setMetaProperty('og:type', 'website')
     setMetaProperty('og:site_name', SITE_NAME)
 
