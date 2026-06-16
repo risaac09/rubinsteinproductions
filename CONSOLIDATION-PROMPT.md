@@ -56,19 +56,19 @@ Decisions already made (do not re-litigate):
 ## What to port (inventory, already confirmed to exist)
 
 From `isaacrubinstein.com/`:
-- **Evaluation positioning** — the About, Approach, and Services copy from
+- **Evaluation positioning.** The About, Approach, and Services copy from
   `index.html` (MPH, independent program evaluator, utilization-focused).
-- **Method page** — `method/index.html`, "How I structure an evaluation
+- **Method page.** `method/index.html`, "How I structure an evaluation
   engagement."
-- **Case study** — `work/central-providence-hez/index.html`, Central Providence
+- **Case study.** `work/central-providence-hez/index.html`, Central Providence
   Health Equity Zone.
-- **Writing** — `writing/index.html` plus the two essays:
+- **Writing.** `writing/index.html` plus the two essays:
   - `naming-the-question-is-the-work/`
   - `dashboard-delivery-isnt-dashboard-utilization/`
-- **Assets** — `cv.pdf`, `headshot.jpg`, favicons, OG image. Pull what you reuse.
+- **Assets.** `cv.pdf`, `headshot.jpg`, favicons, OG image. Pull what you reuse.
 
 New (not ported, built fresh):
-- **Films / vertical video** — the vertical work. Source is YouTube `@risaac09`
+- **Films / vertical video.** The vertical work. Source is YouTube `@risaac09`
   (Shorts). Build a simple responsive gallery that embeds them. No new
   dependencies; use plain `<iframe>` lite-embeds or thumbnail-to-YouTube links so
   it stays fast.
@@ -168,6 +168,59 @@ design tokens in `src/styles/design-system.css`.
   - [ ] Lighthouse holds 95+ perf / 100 a11y on the new pages
   - [ ] Old `isaacrubinstein.com` URLs redirect (if you kept the safety-net stub)
   - [ ] `README.md` describes the GitHub Pages deploy, not Netlify; `_redirects` gone
+
+---
+
+## Corrections from the review panel (do these, they change the outcome)
+
+A review pass caught five things the steps above get wrong or soft-pedal. Treat
+this section as overriding where it conflicts.
+
+1. **Resolve the Netlify connection before any content work, and prove which host
+   serves the apex.** The repo is still wired to Netlify (site id
+   `8ed4687e-468f-4119-acc9-eb0ba077c6ce` in the README, a `.netlify/` ignore
+   line, the `_redirects` file). GitHub Actions going green does not prove users
+   see GitHub Pages. Run `dig +short rubinsteinproductions.com A` (GitHub Pages =
+   `185.199.108-111.153`) and `curl -sI https://rubinsteinproductions.com` (look
+   for `Server: GitHub.com` vs a Netlify `X-NF-Request-Id` header). Then, in the
+   Netlify dashboard, disconnect the repo or delete the site so PR pushes stop
+   triggering a parallel build. This is a precondition, not a step-8 afterthought.
+
+2. **Do not let isaacrubinstein.com lapse. Keep it registered.** GitHub Pages
+   cannot issue a real 301, only a meta-refresh, which Google treats as a soft
+   redirect that needs time and a live referring domain to pass link equity. A
+   lapsed domain kills that signal and 404s every inbound link permanently. Keep
+   it (~$12/yr) pointing at per-URL stubs for at least 12 months, file a Google
+   Search Console **Change of Address**, and keep the old `robots.txt` crawlable
+   (no `Disallow: /`, or Google never sees the canonical). Map each old URL to its
+   specific new route, not all to `/evaluation`: `/method/` to `/evaluation/method`,
+   `/work/central-providence-hez/` to `/work/central-providence`, and each
+   `/writing/<essay>/` to its new essay route.
+
+3. **The OG image is already broken on RP. Fix it, do not "reuse" it.** `public/`
+   ships only `og-image.svg`, but `index.html` and `usePageMeta.js` reference
+   `og-image.jpg`, which does not exist, and social platforms do not render SVG
+   cards. Port the old site's real raster `og-image.png` (1200x630) into `public/`,
+   point the meta tags at it, and add `og:image:width`/`height`.
+
+4. **Reconcile three Person schemas into one, not two.** RP already ships two
+   competing graphs: a `ProfessionalService` with a `Person` founder in
+   `Home.jsx` and a separate top-level `Person` in `About.jsx`, both
+   "Facilitator & Filmmaker." The old site adds a third, "MPH, Program Evaluator,"
+   with richer `knowsAbout`/`memberOf`/`address`. Collapse to a single `Person`
+   `@id` whose `jobTitle` spans both facets, carry over the old site's
+   `knowsAbout`/`memberOf`/`address`, and emit the core JSON-LD in static
+   `index.html` so non-JS crawlers see it.
+
+5. **Two smaller traps.** (a) The SPA-on-Pages fallback returns HTTP 404 to
+   crawlers for `/evaluation`, `/writing/<essay>`, etc., even though humans see the
+   page. Since the whole point is migrating SEO equity to these routes, either
+   pre-render the SEO-critical pages to real 200 HTML or at minimum list every new
+   route in `sitemap.xml`. (b) `cv.pdf` almost certainly has
+   `isaac@isaacrubinstein.com` baked into its text. Re-export it with the new
+   address before porting, and forward the old mailbox (which requires keeping the
+   domain, see point 2). Do not port the old IR/MPH favicons; they are the wrong
+   brand. Generate `favicon.ico` + `apple-touch-icon.png` from RP's own mark.
 
 ---
 
