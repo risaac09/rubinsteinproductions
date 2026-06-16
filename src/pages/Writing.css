@@ -1,0 +1,175 @@
+/* Writing index + essay detail. Reuses global tokens and utility classes
+   (content-narrow, section-pad, small-caps, divider-short) from design-system.css. */
+
+.writing-hero {
+  padding-top: calc(var(--nav-height) + 3rem);
+}
+
+.writing-hero-headline {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--marrow);
+  margin: 0.5rem 0 1.25rem;
+}
+
+.writing-hero-headline em {
+  font-style: italic;
+  color: var(--blood);
+}
+
+.writing-hero-dek {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--ash);
+  max-width: 40rem;
+}
+
+/* ——— ESSAY LIST ——— */
+.essay-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.essay-card {
+  border-top: 1px solid rgba(168, 158, 147, 0.3);
+}
+.essay-card:last-child {
+  border-bottom: 1px solid rgba(168, 158, 147, 0.3);
+}
+
+.essay-card-link {
+  display: block;
+  padding: 2rem 0;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.25s;
+}
+.essay-card-link:hover {
+  opacity: 0.7;
+}
+
+.essay-card-meta,
+.essay-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+
+.essay-card-dot { opacity: 0.6; }
+
+.essay-card-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.15;
+  color: var(--marrow);
+  margin: 0.6rem 0 0.6rem;
+}
+
+.essay-card-dek {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ash);
+  max-width: 42rem;
+  margin: 0 0 0.9rem;
+}
+
+.essay-card-cue {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blood);
+}
+
+/* ——— ESSAY DETAIL ——— */
+.essay-wrap {
+  padding-top: calc(var(--nav-height) + 3rem);
+}
+
+.essay-back {
+  color: var(--ash);
+  text-decoration: none;
+}
+.essay-back:hover { color: var(--blood); }
+
+.essay-title {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--marrow);
+  margin: 0.5rem 0 1rem;
+}
+
+.essay-dek {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--ash);
+  max-width: 40rem;
+  margin: 0 0 1.25rem;
+}
+
+.essay-meta {
+  margin-bottom: 2.5rem;
+}
+
+.essay-body {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--marrow);
+  max-width: 40rem;
+}
+
+.essay-body p {
+  margin: 0 0 1.4rem;
+}
+
+.essay-h {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blood);
+  margin: 2.75rem 0 1rem;
+}
+
+.essay-quote {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.45rem;
+  line-height: 1.4;
+  color: var(--marrow);
+  border-left: 2px solid var(--blood);
+  padding-left: 1.5rem;
+  margin: 2.25rem 0;
+}
+
+.essay-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 3.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(168, 158, 147, 0.3);
+  max-width: 40rem;
+}
+
+.essay-foot-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ash);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.essay-foot-link:hover { color: var(--blood); }
