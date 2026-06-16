@@ -1,4 +1,4 @@
-/* ——— HERO ——— */
+/* HERO */
 .hero-section {
   min-height: 100vh;
   display: flex;
@@ -59,7 +59,7 @@
   will-change: opacity;
 }
 
-/* ——— METABOLIZE ——— */
+/* METABOLIZE */
 .metabolize-section {
   padding: var(--space-xl) var(--space-md);
 }
@@ -86,7 +86,7 @@
   max-width: 640px;
 }
 
-/* ——— TIME GRID ——— */
+/* TIME GRID */
 .time-grid-section {
   background: var(--white);
 }
@@ -94,7 +94,7 @@
 .time-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 1px;
   background: var(--ash);
 }
 
@@ -129,7 +129,7 @@
   color: var(--bone);
 }
 
-/* ——— FILTER ——— */
+/* FILTER */
 .filter-section-wrap {
   max-width: 720px;
 }
@@ -179,7 +179,7 @@
   color: var(--marrow);
 }
 
-/* ——— OFFERING ——— */
+/* OFFERING */
 .offering-section {
   padding: var(--space-xl) var(--space-md);
 }
@@ -201,7 +201,7 @@
   color: var(--bone);
 }
 
-/* ——— METHOD STEPS ——— */
+/* METHOD STEPS */
 .method-section {
   background: var(--white);
 }
@@ -243,7 +243,7 @@
   line-height: 1.5;
 }
 
-/* ——— PERSONAS ——— */
+/* PERSONAS */
 .personas-headline {
   font-size: clamp(1.5rem, 3vw, 2rem);
   margin: 1.5rem 0 2.5rem;
@@ -274,7 +274,7 @@
   line-height: 1.6;
 }
 
-/* ——— HOME CTA ——— */
+/* HOME CTA */
 .home-cta-headline {
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin: 1.5rem 0;
@@ -285,7 +285,7 @@
   margin-bottom: 2.5rem;
 }
 
-/* ——— RESPONSIVE ——— */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .time-grid {
     grid-template-columns: 1fr;
@@ -314,9 +314,5 @@
 @media (max-width: 480px) {
   .method-steps {
     grid-template-columns: 1fr;
-  }
-
-  .time-grid {
-    gap: 1px;
   }
 }

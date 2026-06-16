@@ -19,7 +19,7 @@
   box-shadow: 0 1px 0 rgba(168, 158, 147, 0.25);
 }
 
-/* ——— LOGO ——— */
+/* LOGO */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -51,7 +51,7 @@
   color: var(--ash);
 }
 
-/* ——— LINKS ——— */
+/* LINKS */
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -74,7 +74,7 @@
   color: var(--marrow);
 }
 
-/* ——— TOGGLE ——— */
+/* TOGGLE */
 .nav-toggle {
   display: none;
   background: none;
@@ -104,7 +104,7 @@
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* ——— RESPONSIVE ——— */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .nav-toggle {
     display: flex;

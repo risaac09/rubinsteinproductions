@@ -235,9 +235,10 @@ export function drawLine(target, opts = {}) {
 
 /**
  * Pin a section while an animation plays, then release.
- * Returns the ScrollTrigger instance.
+ * Returns the ScrollTrigger instance, or null when reduced motion is preferred.
  */
 export function pinSection(trigger, opts = {}) {
+  if (prefersReducedMotion()) return null
   return ScrollTrigger.create({
     trigger,
     start: 'top top',

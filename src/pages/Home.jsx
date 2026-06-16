@@ -29,7 +29,7 @@ export default function Home() {
 
     const mm = gsap.matchMedia()
 
-    // ——— HERO: PINNED SCROLL-THROUGH ———
+    // HERO: PINNED SCROLL-THROUGH
     mm.add('(min-width: 768px)', () => {
       const heroSection = document.querySelector('.hero-section')
       const heroHeadline = document.querySelector('.hero-headline')
@@ -79,7 +79,7 @@ export default function Home() {
       gsap.set(heroEls, { opacity: 1 })
     })
 
-    // ——— METABOLIZE SECTION: label slides, text fades ———
+    // METABOLIZE SECTION: label slides, text fades
     const metabolizeLabel = document.querySelector('.metabolize-label')
     const metabolizeParagraphs = document.querySelectorAll('.metabolize-body p')
 
@@ -117,7 +117,7 @@ export default function Home() {
       )
     }
 
-    // ——— TIME GRID: staggered cell entrance ———
+    // TIME GRID: staggered cell entrance
     const timeCells = document.querySelectorAll('.time-cell')
     if (timeCells.length) {
       markReady(timeCells)
@@ -138,26 +138,26 @@ export default function Home() {
       )
     }
 
-    // ——— FILTER SECTION: opposite-direction slide ———
+    // FILTER SECTION: opposite-direction slide
     const filterRelease = document.querySelector('.filter-col--release')
     const filterKeep = document.querySelector('.filter-col--keep')
 
     if (filterRelease) slideIn(filterRelease, 'left')
     if (filterKeep) slideIn(filterKeep, 'right')
 
-    // ——— METHOD STEPS: stagger with number count-up ———
+    // METHOD STEPS: stagger with number count-up
     const methodSteps = document.querySelectorAll('.method-step')
     if (methodSteps.length) {
       staggerEntrance(document.querySelector('.method-steps'), methodSteps)
     }
 
-    // ——— PERSONAS: stagger left-to-right ———
+    // PERSONAS: stagger left-to-right
     const personaCards = document.querySelectorAll('.persona-card')
     if (personaCards.length) {
       staggerEntrance(document.querySelector('.persona-grid'), personaCards)
     }
 
-    // ——— OFFERING SECTION: dark reveal ———
+    // OFFERING SECTION: dark reveal
     const offeringSection = document.querySelector('.offering-section')
     if (offeringSection) {
       const offeringInner = offeringSection.querySelector('.offering-inner')
@@ -178,7 +178,7 @@ export default function Home() {
       )
     }
 
-    // ——— CTA SECTION: fade + scale ———
+    // CTA SECTION: fade + scale
     const ctaSection = document.querySelector('.home-cta-section')
     if (ctaSection) {
       markReady(ctaSection)
@@ -223,7 +223,7 @@ export default function Home() {
         ],
       }} />
 
-      {/* ——— HERO ——— */}
+      {/* HERO */}
       <section className="hero-section">
         <div className="hero-inner">
           <div className="hero-label scroll-reveal">
@@ -246,7 +246,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ——— METABOLIZE / APPROACH ——— */}
+      {/* METABOLIZE / APPROACH */}
       <section className="metabolize-section bg-marrow">
         <div className="content-narrow">
           <svg className="liver-mark scroll-reveal" width="64" height="64" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -266,7 +266,7 @@ export default function Home() {
           </h2>
           <div className="metabolize-body">
             <p>
-              The feeling of saying something honest and clear — you know it. It's
+              The feeling of saying something honest and clear. You know it. It's
               fleeting. Not because you lack courage, but because the systems you
               operate inside are designed to extract, optimize, and package
               everything you say. Jargon, hedging, over-explaining, silence: these
@@ -281,7 +281,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ——— TIME GRID ——— */}
+      {/* TIME GRID */}
       <section className="time-grid-section">
         <div className="time-grid">
           {[
@@ -303,7 +303,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ——— FILTER: LET GO / KEEP ——— */}
+      {/* FILTER: LET GO / KEEP */}
       <section className="filter-section-wrap section-pad content-narrow">
         <p className="small-caps">What the liver does</p>
         <h2 className="filter-headline">
@@ -339,7 +339,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ——— THE OFFERING ——— */}
+      {/* THE OFFERING */}
       <section className="offering-section bg-marrow">
         <div className="offering-inner content-narrow scroll-reveal">
           <p className="small-caps" style={{ color: 'var(--amber)' }}>The offering</p>
@@ -361,7 +361,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ——— METHOD STEPS ——— */}
+      {/* METHOD STEPS */}
       <section className="method-section section-pad">
         <div className="content-wide">
           <p className="small-caps">How the work moves</p>
@@ -383,7 +383,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ——— WHO THIS IS FOR ——— */}
+      {/* WHO THIS IS FOR */}
       <section className="personas-section bg-bone section-pad">
         <div className="content-wide">
           <p className="small-caps">Who this is for</p>
@@ -394,11 +394,11 @@ export default function Home() {
             {[
               {
                 name: 'Starting a new chapter',
-                desc: "You've been through a transition — burnout recovery, a career shift, grad school, a layoff — and the story hasn't caught up to who you've become. You need something tangible to point to.",
+                desc: "You've been through a transition: burnout recovery, a career shift, grad school, a layoff. The story hasn't caught up to who you've become. You need something tangible to point to.",
               },
               {
                 name: 'Running a program',
-                desc: "You're holding a container — a cohort, a workshop, a design challenge — and something real is happening inside it. You need it documented and evaluated, not just marketed.",
+                desc: "You're holding a container: a cohort, a workshop, a design challenge. Something real is happening inside it. You need it documented and evaluated, not just marketed.",
               },
               {
                 name: 'Building something new',
@@ -417,7 +417,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ——— HOME CTA ——— */}
+      {/* HOME CTA */}
       <section className="home-cta-section bg-bone section-pad scroll-reveal">
         <div className="content-narrow" style={{ textAlign: 'center' }}>
           <p className="small-caps">Start</p>

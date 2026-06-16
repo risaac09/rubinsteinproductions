@@ -15,7 +15,7 @@ export default function About() {
 
   usePageMeta({
     title: 'About',
-    description: 'Isaac Rubinstein is a facilitator and filmmaker. MPH. Based between Seattle and Oslo. Grounded in relational ontology — clarity is something that happens between people.',
+    description: 'Isaac Rubinstein is a facilitator and filmmaker. MPH. Based between Seattle and Oslo. Grounded in relational ontology: clarity is something that happens between people.',
     path: '/about',
   })
 
@@ -97,7 +97,7 @@ export default function About() {
         sameAs: ['https://www.linkedin.com/in/isaacrubinstein/'],
       }} />
 
-      {/* ——— HERO ——— */}
+      {/* HERO */}
       <section className="about-hero">
         <div className="about-hero-inner scroll-reveal">
           <div className="content-narrow">
@@ -114,8 +114,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ——— ORIGIN ——— */}
-      {/* TODO: Add headshot — public/images/isaac-rubinstein-headshot.webp — would anchor credibility on this page */}
+      {/* ORIGIN */}
+      {/* TODO: Add headshot, public/images/isaac-rubinstein-headshot.webp; would anchor credibility on this page */}
       <section className="bg-bone section-pad">
         <div className="content-narrow about-block scroll-reveal">
           <p className="small-caps">Origin</p>
@@ -129,7 +129,7 @@ export default function About() {
             Master of Public Health. A decade working inside the systems that train people
             to optimize instead of speak: healthcare, nonprofits, social enterprise.
             He left to build a practice at the intersection of facilitation, film,
-            and the philosophy of information — what happens when people metabolize
+            and the philosophy of information: what happens when people metabolize
             what they know into what they can say.
           </p>
           <p>
@@ -138,7 +138,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ——— PHILOSOPHY ——— */}
+      {/* PHILOSOPHY */}
       <section className="section-pad">
         <div className="content-narrow about-block scroll-reveal">
           <p className="small-caps">Philosophy</p>
@@ -163,7 +163,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ——— BACKGROUND ——— */}
+      {/* BACKGROUND */}
       <section className="bg-bone section-pad">
         <div className="content-narrow about-block scroll-reveal">
           <p className="small-caps">Background</p>
@@ -173,7 +173,7 @@ export default function About() {
           </h2>
           <p>
             Isaac spent a decade working inside nonprofit healthcare, social enterprise,
-            and mission-driven organizations — the exact environments where the gap
+            and mission-driven organizations: the exact environments where the gap
             between what people believe and what they say is widest.
           </p>
           <p>
@@ -191,7 +191,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ——— VOICE & TONE ——— */}
+      {/* VOICE & TONE */}
       <section className="section-pad">
         <div className="content-wide">
           <div className="about-block scroll-reveal">
@@ -215,7 +215,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ——— CTA ——— */}
+      {/* CTA */}
       <section className="bg-bone section-pad">
         <div className="content-narrow about-block scroll-reveal" style={{ textAlign: 'center' }}>
           <p className="small-caps">Work together</p>

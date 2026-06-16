@@ -173,7 +173,7 @@ export default function Services() {
         itemListElement: [
           {
             '@type': 'Offer',
-            name: 'Founder Story — Facilitated Conversation + Short Film',
+            name: 'Founder Story: Facilitated Conversation + Short Film',
             description: "One or two facilitated conversations and a 2–3 minute produced film that says what you've become.",
             priceSpecification: {
               '@type': 'PriceSpecification',
@@ -184,7 +184,7 @@ export default function Services() {
           },
           {
             '@type': 'Offer',
-            name: 'Program Engagement — Embedded Documentation + Evaluation',
+            name: 'Program Engagement: Embedded Documentation + Evaluation',
             description: 'Facilitation, documentation, and evaluation embedded in your program, workshop, or cohort.',
             priceSpecification: {
               '@type': 'PriceSpecification',
@@ -196,7 +196,7 @@ export default function Services() {
         ],
       }} />
 
-      {/* ——— HERO ——— */}
+      {/* HERO */}
       <section className="services-hero">
         <div className="services-hero-inner scroll-reveal">
           <div className="content-narrow">
@@ -207,7 +207,7 @@ export default function Services() {
             </h1>
             <p className="services-hero-sub">
               It starts with a facilitated conversation and a short film.
-              For programs and cohorts, it goes deeper — embedded documentation
+              For programs and cohorts, it goes deeper: embedded documentation
               and evaluation. Same foundation: facilitation, film, and
               the conviction that clarity is relational.
             </p>
@@ -215,7 +215,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ——— FOUNDER STORY ——— */}
+      {/* FOUNDER STORY */}
       <section className="tiers-section section-pad">
         <div className="content-wide">
           <div className="tier-section-title scroll-reveal">
@@ -245,7 +245,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ——— CASE STUDY: GDC ——— */}
+      {/* CASE STUDY: GDC */}
       <section className="bg-bone section-pad">
         <div className="content-narrow">
           <div className="scroll-reveal">
@@ -278,7 +278,7 @@ export default function Services() {
             <p style={{ color: 'var(--ash)', marginBottom: '1rem' }}>
               The Genesis Design Challenge brought eight people together to
               build something from nothing. I embedded as facilitator and
-              documentarian — conducting wayfinding interviews, tracking
+              documentarian: conducting wayfinding interviews, tracking
               individual learning arcs, and producing a compilation film.
             </p>
             <p style={{ color: 'var(--ash)', marginBottom: '1rem' }}>
@@ -287,7 +287,7 @@ export default function Services() {
               narrative artifacts for each participant.
             </p>
             <p style={{ color: 'var(--ash)', marginBottom: '1.5rem' }}>
-              This is what happens when facilitation and film go deeper —
+              This is what happens when facilitation and film go deeper:
               embedded in a program, documenting what emerges, and producing
               evaluation data that proves it happened.
             </p>
@@ -309,7 +309,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ——— METHODOLOGY ——— */}
+      {/* METHODOLOGY */}
       <section className="bg-bone section-pad">
         <div className="content-narrow">
           <div className="scroll-reveal">
@@ -325,7 +325,7 @@ export default function Services() {
               {
                 num: 'I',
                 name: 'Receive',
-                desc: 'A camera and lens arrive at your door. You unbox them. You hold them. The technology is part of the process — owning the means of production changes the relationship with what you produce.',
+                desc: 'A camera and lens arrive at your door. You unbox them. You hold them. The technology is part of the process: owning the means of production changes the relationship with what you produce.',
               },
               {
                 num: 'II',
@@ -335,7 +335,7 @@ export default function Services() {
               {
                 num: 'III',
                 name: 'Film',
-                desc: 'You film yourself. Your hands. Your space. Your terms. The footage is yours before the edit. This is your performance — documented on your own equipment, in your own environment.',
+                desc: 'You film yourself. Your hands. Your space. Your terms. The footage is yours before the edit. This is your performance, documented on your own equipment, in your own environment.',
               },
               {
                 num: 'IV',
@@ -358,7 +358,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ——— DIAGNOSTIC ——— */}
+      {/* DIAGNOSTIC */}
       <section className="section-pad">
         <div className="content-narrow">
           <div className="scroll-reveal" style={{ marginBottom: '2rem' }}>
@@ -366,7 +366,7 @@ export default function Services() {
             <h2 style={{ marginBottom: '0.75rem' }}>Take the diagnostic.</h2>
             <p style={{ color: 'var(--ash)' }}>
               Twelve questions about how information moves through your system.
-              Four minutes. The report tells you which service tier fits — or whether
+              Four minutes. The report tells you which service tier fits, or whether
               you need something else entirely.
             </p>
           </div>
@@ -379,7 +379,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ——— CTA ——— */}
+      {/* CTA */}
       <section className="section-pad">
         <div className="content-narrow scroll-reveal" style={{ textAlign: 'center' }}>
           <p className="small-caps">Start</p>

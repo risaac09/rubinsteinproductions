@@ -101,7 +101,7 @@ export default function Contact() {
   return (
     <div ref={containerRef}>
 
-      {/* ——— HERO ——— */}
+      {/* HERO */}
       <section
         className="contact-hero section-pad"
         style={{ paddingTop: 'calc(var(--nav-height) + var(--space-xl))' }}
@@ -116,7 +116,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* ——— FORM + SIDEBAR ——— */}
+      {/* FORM + SIDEBAR */}
       <section className="contact-body section-pad bg-bone">
         <div className="contact-grid content-wide">
 

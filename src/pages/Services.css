@@ -30,7 +30,7 @@
   line-height: 1.7;
 }
 
-/* ——— TIERS ——— */
+/* TIERS */
 .tiers-section {
   background: var(--white);
 }
@@ -56,7 +56,7 @@
   gap: 0;
 }
 
-/* Featured card: subtle blood glow — the ONE shadow exception */
+/* Featured card: The Featured Tier Glow, a 1px blood ring at 0.25 alpha plus a 1px inset ring at 0.1 alpha. The ONE shadow exception. */
 .tier-card--featured {
   background: var(--white);
   box-shadow: 0 0 0 1px rgba(139, 46, 28, 0.25), inset 0 0 0 1px rgba(139, 46, 28, 0.1);
@@ -118,7 +118,7 @@
   transform: translateY(-50%);
 }
 
-/* ——— METHODOLOGY ——— */
+/* METHODOLOGY */
 .methodology-headline {
   font-size: clamp(1.5rem, 3vw, 2.2rem);
   margin: 1.5rem 0 3rem;
@@ -179,7 +179,7 @@
   margin: 1.5rem 0;
 }
 
-/* ——— RESPONSIVE ——— */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .tier-grid {
     grid-template-columns: 1fr;

@@ -7,7 +7,7 @@ const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.jpg`
 export default function usePageMeta({ title, description, path, ogImage }) {
   useEffect(() => {
     const fullTitle = title
-      ? `${title} — ${SITE_NAME}`
+      ? `${title} · ${SITE_NAME}`
       : `${SITE_NAME}: Say Why`
     const canonicalUrl = `${BASE_URL}${path || '/'}`
     const image = ogImage || DEFAULT_OG_IMAGE

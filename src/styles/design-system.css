@@ -1,4 +1,4 @@
-/* ——— DESIGN SYSTEM ——— */
+/* DESIGN SYSTEM */
 /* Sharp. Honest. No gradients. No shadows. No rounded corners. */
 
 :root {
@@ -8,6 +8,10 @@
   --bone: #f2ece4;
   --ash: #a89e93;
   --white: #faf8f5;
+
+  /* Dark-surface grades: blood as type on marrow, amber as hover on dark. Roles remap, base hexes never change. */
+  --blood-bright: #c24631;
+  --amber-bright: #e0a94a;
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -19,7 +23,7 @@
   --nav-height: 64px;
 }
 
-/* ——— RESET ——— */
+/* RESET */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -41,7 +45,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ——— TYPOGRAPHY ——— */
+/* TYPOGRAPHY */
 h1, h2, h3, h4, .serif {
   font-family: 'EB Garamond', Georgia, serif;
   font-weight: 400;
@@ -56,7 +60,7 @@ h1, h2, h3, h4, .serif {
   color: var(--ash);
 }
 
-/* ——— LAYOUT ——— */
+/* LAYOUT */
 .content-narrow {
   max-width: 720px;
   margin: 0 auto;
@@ -82,7 +86,7 @@ h1, h2, h3, h4, .serif {
   color: var(--bone);
 }
 
-/* ——— DIVIDER ——— */
+/* DIVIDER */
 .divider {
   width: 40px;
   height: 1px;
@@ -97,7 +101,7 @@ h1, h2, h3, h4, .serif {
   margin: var(--space-md) 0;
 }
 
-/* ——— BUTTONS ——— */
+/* BUTTONS */
 .btn-primary {
   display: inline-block;
   font-family: 'Inter', sans-serif;
@@ -157,7 +161,7 @@ h1, h2, h3, h4, .serif {
   color: var(--blood);
 }
 
-/* ——— ACCESSIBILITY ——— */
+/* ACCESSIBILITY */
 .skip-link {
   position: absolute;
   top: -100%;
@@ -177,13 +181,18 @@ h1, h2, h3, h4, .serif {
   top: 0;
 }
 
-/* ——— SCROLL ANIMATION UTILITIES ——— */
+/* SCROLL ANIMATION UTILITIES */
 /* Elements start invisible; JS reveals them. If JS fails, they remain visible via .no-js fallback. */
 .scroll-reveal {
   visibility: hidden;
 }
 
 .scroll-reveal.is-ready {
+  visibility: visible;
+}
+
+/* If JS never runs, the no-js class set on <html> is never removed; content stays visible. */
+.no-js .scroll-reveal {
   visibility: visible;
 }
 

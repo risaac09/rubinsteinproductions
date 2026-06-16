@@ -12,7 +12,7 @@
   line-height: 1.7;
 }
 
-/* ——— GRID ——— */
+/* GRID */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 380px;
@@ -20,7 +20,7 @@
   align-items: start;
 }
 
-/* ——— FORM ——— */
+/* FORM */
 .contact-form-col {
   display: flex;
   flex-direction: column;
@@ -89,7 +89,7 @@
   line-height: 1.5;
 }
 
-/* ——— SIDEBAR ——— */
+/* SIDEBAR */
 .contact-sidebar {
   display: flex;
   flex-direction: column;
@@ -125,7 +125,7 @@
   border-color: var(--blood);
 }
 
-/* ——— SUCCESS ——— */
+/* SUCCESS */
 .contact-success {
   padding: 3rem 0;
 }
@@ -139,7 +139,7 @@
   color: var(--ash);
 }
 
-/* ——— RESPONSIVE ——— */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr;
