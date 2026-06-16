@@ -4,6 +4,17 @@ Paste this whole file into a Claude Code session on the M2 Pro, started from the
 folder that holds both repos (`~/code` or wherever `rubinsteinproductions/` and
 `isaacrubinstein.com/` sit side by side). It is written to be executed, not just read.
 
+> **Status (June 2026): the repo-side port is already done in PR #2.** The
+> `/evaluation`, `/writing`, and `/films` routes, the nav and footer wiring, the
+> single-Person schema merge, the Open Graph image fix, the sitemap, the README
+> fix, and the `_redirects` removal all shipped in that branch and pass
+> `npm run build`. What remains for the Mac is the credential and DNS work that
+> can only happen on your machine: steps 1 and 2 in "Corrections from the review
+> panel" (confirm DNS / disconnect Netlify, keep the old domain and stand up the
+> per-URL redirect stubs), the Google Search Console change-of-address, the email
+> forward, and re-exporting `cv.pdf` with the new address. Treat the build steps
+> below as the record of what was done, and focus on those credential steps.
+
 ---
 
 ## First, the truth about where these sites live
