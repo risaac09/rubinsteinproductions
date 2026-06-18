@@ -211,11 +211,7 @@ export default function Home() {
         name: 'Rubinstein Productions',
         description: 'Facilitation and film for mission-driven professionals',
         url: 'https://rubinsteinproductions.com',
-        founder: {
-          '@type': 'Person',
-          name: 'Isaac Rubinstein',
-          jobTitle: 'Facilitator & Filmmaker',
-        },
+        founder: { '@id': 'https://rubinsteinproductions.com/#isaac' },
         priceRange: '$500 – $12,000',
         serviceType: ['Facilitation', 'Documentary Film', 'Program Evaluation'],
         sameAs: [
