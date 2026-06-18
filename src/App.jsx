@@ -5,6 +5,9 @@ import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Services from './pages/Services.jsx'
+import Evaluation from './pages/Evaluation.jsx'
+import Writing, { Essay } from './pages/Writing.jsx'
+import Films from './pages/Films.jsx'
 import Contact from './pages/Contact.jsx'
 
 function ScrollToTop() {
@@ -35,7 +38,11 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-<Route path="/contact" element={<Contact />} />
+          <Route path="/evaluation" element={<Evaluation />} />
+          <Route path="/writing" element={<Writing />} />
+          <Route path="/writing/:slug" element={<Essay />} />
+          <Route path="/films" element={<Films />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>
     </BrowserRouter>

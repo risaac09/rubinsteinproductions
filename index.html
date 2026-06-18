@@ -13,17 +13,57 @@
   <meta property="og:description" content="Facilitation and film that makes space for what's already true." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rubinsteinproductions.com" />
-  <meta property="og:image" content="https://rubinsteinproductions.com/og-image.jpg" />
+  <meta property="og:image" content="https://rubinsteinproductions.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Rubinstein Productions" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Rubinstein Productions: Say Why" />
   <meta name="twitter:description" content="Facilitation and film that makes space for what's already true." />
-  <meta name="twitter:image" content="https://rubinsteinproductions.com/og-image.jpg" />
+  <meta name="twitter:image" content="https://rubinsteinproductions.com/og-image.png" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect width='120' height='120' rx='12' fill='%231a1412'/><rect x='48' y='24' width='4' height='76' fill='%23a89e93' opacity='0.5'/><text x='14' y='82' font-family='Georgia,serif' font-size='72' fill='%23f2ece4'>R</text><text x='50' y='82' font-family='Georgia,serif' font-size='72' fill='%238b2e1c'>P</text></svg>" />
   <link rel="canonical" href="https://rubinsteinproductions.com" />
+
+  <!-- Static JSON-LD: one canonical Person + the Organization. Emitted here (not
+       only via JS) so crawlers that don't run scripts still see the identity.
+       Per-page JSON-LD references this Person by @id. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://rubinsteinproductions.com/#isaac",
+        "name": "Isaac Rubinstein",
+        "honorificSuffix": "MPH",
+        "jobTitle": "Facilitator, Filmmaker & Program Evaluator",
+        "url": "https://rubinsteinproductions.com/about",
+        "worksFor": { "@id": "https://rubinsteinproductions.com/#org" },
+        "memberOf": [
+          { "@type": "Organization", "name": "American Evaluation Association", "url": "https://www.eval.org" },
+          { "@type": "Organization", "name": "Evaluation Network of Rhode Island" }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/isaacrubinstein/",
+          "https://substack.com/@isaacrubinstein",
+          "https://www.youtube.com/@risaac09"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://rubinsteinproductions.com/#org",
+        "name": "Rubinstein Productions",
+        "description": "Facilitation, film, and program evaluation for people and programs in transition.",
+        "url": "https://rubinsteinproductions.com",
+        "founder": { "@id": "https://rubinsteinproductions.com/#isaac" },
+        "serviceType": ["Facilitation", "Documentary Film", "Program Evaluation"]
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

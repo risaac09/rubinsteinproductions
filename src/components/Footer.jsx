@@ -16,6 +16,12 @@ export default function Footer() {
           <span className="dot-sep" aria-hidden="true" />
           <Link to="/services">Services</Link>
           <span className="dot-sep" aria-hidden="true" />
+          <Link to="/evaluation">Evaluation</Link>
+          <span className="dot-sep" aria-hidden="true" />
+          <Link to="/writing">Writing</Link>
+          <span className="dot-sep" aria-hidden="true" />
+          <Link to="/films">Films</Link>
+          <span className="dot-sep" aria-hidden="true" />
           <Link to="/contact">Contact</Link>
           <span className="dot-sep" aria-hidden="true" />
           <a href="/hr1-tracker">H.R. 1 Tracker</a>
@@ -27,8 +33,6 @@ export default function Footer() {
           <a href="https://substack.com/@isaacrubinstein" target="_blank" rel="noopener noreferrer">Substack</a>
           <span className="dot-sep" aria-hidden="true" />
           <a href="https://www.youtube.com/@risaac09" target="_blank" rel="noopener noreferrer">YouTube</a>
-          <span className="dot-sep" aria-hidden="true" />
-          <a href="https://isaacrubinstein.com" target="_blank" rel="noopener noreferrer">Evaluation Practice</a>
         </div>
 
         <p className="footer-copy">© {new Date().getFullYear()} Rubinstein Productions. All rights reserved.</p>
