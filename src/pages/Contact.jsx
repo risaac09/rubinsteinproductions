@@ -1,12 +1,9 @@
 import { useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
-import { markReady } from '../hooks/useScrollAnimations.js'
+import { markReady, prefersReducedMotion } from '../hooks/useScrollAnimations.js'
 import usePageMeta from '../hooks/usePageMeta.js'
 import './Contact.css'
-
-const prefersReducedMotion = () =>
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 export default function Contact() {
   const containerRef = useRef(null)
