@@ -2,14 +2,11 @@ import { useRef } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
-import { markReady } from '../hooks/useScrollAnimations.js'
+import { markReady, prefersReducedMotion } from '../hooks/useScrollAnimations.js'
 import usePageMeta from '../hooks/usePageMeta.js'
 import StructuredData from '../components/StructuredData.jsx'
 import essays, { getEssay } from '../data/essays.js'
 import './Writing.css'
-
-const prefersReducedMotion = () =>
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 export default function Writing() {
   const containerRef = useRef(null)
