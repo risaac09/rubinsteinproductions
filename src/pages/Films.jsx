@@ -2,14 +2,11 @@ import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
-import { markReady } from '../hooks/useScrollAnimations.js'
+import { markReady, prefersReducedMotion } from '../hooks/useScrollAnimations.js'
 import usePageMeta from '../hooks/usePageMeta.js'
 import StructuredData from '../components/StructuredData.jsx'
 import { featured, verticals } from '../data/films.js'
 import './Films.css'
-
-const prefersReducedMotion = () =>
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 const CHANNEL = 'https://www.youtube.com/@risaac09'
 
