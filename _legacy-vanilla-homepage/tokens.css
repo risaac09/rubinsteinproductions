@@ -1,0 +1,108 @@
+/* ============================================================
+   Rubinstein Productions — Brand tokens
+   Source of truth: 00 Canonical/Say Why - Canonical Positioning & Skill Embedding.md
+   ============================================================ */
+
+:root {
+  /* Palette — canonical */
+  --rp-marrow: #1a1412;     /* primary dark · backgrounds, headers, body text */
+  --rp-marrow-2: #221917;   /* card surface */
+  --rp-marrow-3: #2c211d;   /* hover / emphasis */
+  --rp-blood: #8b2e1c;      /* secondary accent · CTAs, H2, active */
+  --rp-blood-d: #5c1d10;    /* blood deep */
+  --rp-amber: #c8923a;      /* warm accent · dividers, highlights */
+  --rp-amber-soft: #8e6820;
+  --rp-bone: #f2ece4;       /* light bg · cards, alt rows */
+  --rp-ash: #a89e93;        /* muted text · captions, metadata */
+  --rp-ash-2: #6e6450;      /* faint metadata */
+  --rp-white: #faf8f5;      /* page bg · warm white, never #fff */
+
+  /* Working aliases */
+  --rp-bg: var(--rp-marrow);
+  --rp-fg: var(--rp-bone);
+  --rp-fg-dim: var(--rp-ash);
+  --rp-mute: var(--rp-ash);
+  --rp-mute-2: var(--rp-ash-2);
+  --rp-rule: rgba(242, 236, 228, 0.12);
+  --rp-rule-strong: rgba(242, 236, 228, 0.22);
+  --rp-accent: var(--rp-amber);
+  --rp-accent-warm: var(--rp-blood);
+
+  /* Type */
+  --rp-font-display: "EB Garamond", Georgia, serif;
+  --rp-font-body: "Inter", -apple-system, "Segoe UI", Calibri, sans-serif;
+  --rp-font-mono: "Geist Mono", "JetBrains Mono", Consolas, monospace;
+
+  /* Scale (16px base) */
+  --rp-fs-meta: 11px;
+  --rp-fs-mono: 13px;
+  --rp-fs-body: 16px;
+  --rp-fs-lede: 20px;
+  --rp-fs-h4: 24px;
+  --rp-fs-h3: 32px;
+  --rp-fs-h2: 48px;
+  --rp-fs-h1: 80px;
+  --rp-fs-display: 128px;
+
+  /* Spacing — 8px base */
+  --rp-sp-1: 4px;
+  --rp-sp-2: 8px;
+  --rp-sp-3: 12px;
+  --rp-sp-4: 16px;
+  --rp-sp-6: 24px;
+  --rp-sp-8: 32px;
+  --rp-sp-12: 48px;
+  --rp-sp-16: 64px;
+  --rp-sp-24: 96px;
+  --rp-sp-32: 128px;
+
+  /* Motion */
+  --rp-dur-quick: 180ms;
+  --rp-dur-base: 320ms;
+  --rp-dur-slow: 640ms;
+  --rp-ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+/* Reset / base */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--rp-bg);
+  color: var(--rp-fg);
+  font-family: var(--rp-font-body);
+  font-size: var(--rp-fs-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* Utility classes */
+.rp-mono {
+  font-family: var(--rp-font-mono);
+  font-size: var(--rp-fs-mono);
+  letter-spacing: 0.05em;
+  color: var(--rp-mute);
+}
+.rp-meta {
+  font-family: var(--rp-font-mono);
+  font-size: var(--rp-fs-meta);
+  letter-spacing: 0.2em;
+  color: var(--rp-mute-2);
+  text-transform: lowercase;
+}
+.rp-rule {
+  height: 1px;
+  background: var(--rp-amber);
+  border: 0;
+}
+.rp-section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: var(--rp-sp-24) var(--rp-sp-8);
+}
+@media (max-width: 720px) {
+  .rp-section { padding: var(--rp-sp-16) var(--rp-sp-6); }
+}
