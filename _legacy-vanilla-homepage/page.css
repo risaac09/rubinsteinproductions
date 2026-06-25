@@ -1,0 +1,243 @@
+/* ============================================================
+   Shared page-shell styles for sub-pages (about, press, case studies).
+   The homepage (index.html) inlines its own styles since it has
+   sections the sub-pages don't.
+   ============================================================ */
+
+/* nav */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 32px;
+  background: rgba(26, 20, 18, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rp-rule);
+}
+.nav-mark {
+  font-family: var(--rp-font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--rp-fg);
+  letter-spacing: 0.005em;
+}
+.nav-mark .it { font-style: italic; color: var(--rp-amber); }
+.nav-mark a { color: inherit; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a {
+  font-family: var(--rp-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--rp-mute);
+  text-transform: lowercase;
+  transition: color var(--rp-dur-quick) var(--rp-ease);
+}
+.nav-links a:hover { color: var(--rp-amber); }
+
+/* page hero */
+.page-hero {
+  padding: 160px 32px 80px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.page-hero-tag {
+  font-family: var(--rp-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  color: var(--rp-amber);
+  text-transform: lowercase;
+  margin-bottom: 24px;
+}
+.page-hero-h {
+  font-family: var(--rp-font-display);
+  font-weight: 500;
+  font-size: clamp(48px, 8vw, 112px);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--rp-fg);
+  margin: 0 0 32px;
+}
+.page-hero-h .it { font-style: italic; color: var(--rp-amber); }
+.page-hero-rule {
+  width: 200px;
+  height: 1px;
+  background: var(--rp-amber);
+  margin: 0 0 32px;
+  border: 0;
+}
+.page-hero-sub {
+  font-family: var(--rp-font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.45;
+  color: var(--rp-fg);
+  max-width: 760px;
+  margin: 0;
+}
+
+/* prose */
+.prose {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 32px 80px;
+}
+.prose h2 {
+  font-family: var(--rp-font-display);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.1;
+  color: var(--rp-fg);
+  margin: 56px 0 20px;
+}
+.prose h2 .it { font-style: italic; color: var(--rp-amber); }
+.prose h2:first-child { margin-top: 0; }
+.prose h3 {
+  font-family: var(--rp-font-display);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.15;
+  color: var(--rp-fg);
+  margin: 32px 0 12px;
+}
+.prose h3 .it { font-style: italic; color: var(--rp-amber); }
+.prose p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--rp-fg);
+  margin: 0 0 20px;
+}
+.prose p .accent { color: var(--rp-amber); }
+.prose .lede {
+  font-family: var(--rp-font-display);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.55;
+  color: var(--rp-fg);
+  margin: 0 0 32px;
+}
+.prose .pull {
+  font-family: var(--rp-font-display);
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--rp-fg);
+  margin: 32px 0;
+  padding-left: 24px;
+  border-left: 2px solid var(--rp-amber);
+}
+.prose ul, .prose ol {
+  margin: 0 0 20px;
+  padding: 0 0 0 20px;
+}
+.prose li {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--rp-fg);
+  margin: 0 0 10px;
+}
+.prose li::marker { color: var(--rp-amber); }
+.prose a {
+  color: var(--rp-amber);
+  border-bottom: 1px solid var(--rp-amber);
+  padding-bottom: 1px;
+}
+.prose a:hover { color: var(--rp-fg); border-color: var(--rp-fg); }
+
+/* meta strip — used on case study heroes */
+.meta-strip {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px 64px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.meta-cell {
+  padding: 20px 0;
+  border-top: 2px solid var(--rp-amber);
+}
+.meta-label {
+  font-family: var(--rp-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--rp-amber);
+  text-transform: lowercase;
+  margin-bottom: 8px;
+}
+.meta-value {
+  font-family: var(--rp-font-body);
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--rp-fg);
+}
+
+/* contact band */
+.contact {
+  border-top: 1px solid var(--rp-rule);
+  padding: 120px 32px;
+  text-align: center;
+}
+.contact-status {
+  font-family: var(--rp-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  color: var(--rp-amber);
+  text-transform: lowercase;
+  margin-bottom: 28px;
+}
+.contact-h {
+  font-family: var(--rp-font-display);
+  font-weight: 500;
+  font-size: clamp(40px, 7vw, 96px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  color: var(--rp-fg);
+  margin: 0;
+}
+.contact-h .it { font-style: italic; color: var(--rp-amber); }
+.contact-rule {
+  width: 200px;
+  height: 1px;
+  background: var(--rp-amber);
+  margin: 32px auto;
+  border: 0;
+}
+.contact-cta {
+  display: inline-block;
+  padding: 16px 28px;
+  font-family: var(--rp-font-mono);
+  font-size: 13px;
+  letter-spacing: 0.24em;
+  color: var(--rp-fg);
+  text-transform: lowercase;
+  border: 1px solid var(--rp-amber);
+  transition: background var(--rp-dur-quick) var(--rp-ease),
+              color var(--rp-dur-quick) var(--rp-ease);
+}
+.contact-cta:hover { background: var(--rp-amber); color: var(--rp-marrow); }
+
+/* footer */
+.foot {
+  padding: 32px;
+  border-top: 1px solid var(--rp-rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  font-family: var(--rp-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--rp-mute-2);
+  text-transform: lowercase;
+}
+.foot a { color: var(--rp-mute); }
+.foot a:hover { color: var(--rp-amber); }
+
+/* responsive */
+@media (max-width: 880px) {
+  .nav-links { display: none; }
+  .meta-strip { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .meta-strip { grid-template-columns: 1fr; }
+}

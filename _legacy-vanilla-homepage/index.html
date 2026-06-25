@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Rubinstein Productions — Facilitation and film for honest expression</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Facilitation and film practice. I work with mission-driven leaders to recover the inside version of their truth and build capacity to express it on camera." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Rubinstein Productions — Say the thing." />
+  <meta property="og:description" content="Facilitation and film for mission-driven people stuck between knowing what's true and saying it." />
+  <meta property="og:url" content="https://rubinsteinproductions.com/" />
+  <meta property="og:image" content="https://rubinsteinproductions.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Rubinstein Productions — Say the thing." />
+  <meta name="twitter:description" content="Facilitation and film for mission-driven people stuck between knowing what's true and saying it." />
+  <meta name="twitter:image" content="https://rubinsteinproductions.com/og.png" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tokens.css" />
+
+  <style>
+    /* ============================================================
+       Page-specific styles. Tokens live in tokens.css.
+       ============================================================ */
+
+    /* nav */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 32px;
+      background: rgba(26, 20, 18, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rp-rule);
+    }
+    .nav-mark {
+      font-family: var(--rp-font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--rp-fg);
+      letter-spacing: 0.005em;
+    }
+    .nav-mark .it { font-style: italic; color: var(--rp-amber); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-family: var(--rp-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      color: var(--rp-mute);
+      text-transform: lowercase;
+      transition: color var(--rp-dur-quick) var(--rp-ease);
+    }
+    .nav-links a:hover { color: var(--rp-amber); }
+
+    /* hero */
+    .hero {
+      min-height: 92vh;
+      padding: 140px 32px 80px;
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .hero-tag {
+      font-family: var(--rp-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      color: var(--rp-amber);
+      text-transform: lowercase;
+      margin-bottom: 28px;
+    }
+    .hero-h {
+      font-family: var(--rp-font-display);
+      font-weight: 500;
+      font-size: clamp(64px, 11vw, 168px);
+      line-height: 0.94;
+      letter-spacing: -0.015em;
+      color: var(--rp-fg);
+      margin: 0;
+    }
+    .hero-h .it {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--rp-amber);
+    }
+    .hero-rule {
+      width: 240px;
+      height: 1px;
+      background: var(--rp-amber);
+      margin: 36px 0 32px;
+    }
+    .hero-sub {
+      font-family: var(--rp-font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(22px, 2.4vw, 32px);
+      line-height: 1.4;
+      color: var(--rp-fg);
+      max-width: 760px;
+      margin: 0;
+    }
+    .hero-meta {
+      position: absolute;
+      bottom: 32px; left: 32px; right: 32px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    /* diagnosis strip */
+    .diagnosis {
+      border-top: 1px solid var(--rp-rule);
+      border-bottom: 1px solid var(--rp-rule);
+    }
+    .diagnosis-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 96px 32px;
+    }
+    .diagnosis p {
+      font-family: var(--rp-font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(22px, 2.6vw, 30px);
+      line-height: 1.5;
+      margin: 0 0 24px;
+      color: var(--rp-fg);
+    }
+    .diagnosis p:last-child { margin-bottom: 0; }
+    .diagnosis .accent { color: var(--rp-amber); font-style: italic; }
+    .diagnosis-byline {
+      margin-top: 40px;
+      font-family: var(--rp-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: var(--rp-mute);
+      text-transform: lowercase;
+    }
+
+    /* services */
+    .services { max-width: 1240px; margin: 0 auto; padding: 120px 32px; }
+    .services-h {
+      font-family: var(--rp-font-display);
+      font-weight: 500;
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--rp-fg);
+      margin: 0 0 16px;
+    }
+    .services-h .it { font-style: italic; color: var(--rp-amber); }
+    .services-sub {
+      font-family: var(--rp-font-body);
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--rp-fg-dim);
+      max-width: 680px;
+      margin: 0 0 56px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .service {
+      background: var(--rp-marrow-2);
+      border: 1px solid var(--rp-rule);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: border-color var(--rp-dur-base) var(--rp-ease),
+                  transform var(--rp-dur-base) var(--rp-ease);
+    }
+    .service:hover { border-color: var(--rp-amber); transform: translateY(-3px); }
+    .service-tag {
+      font-family: var(--rp-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: var(--rp-amber);
+      text-transform: lowercase;
+    }
+    .service-name {
+      font-family: var(--rp-font-display);
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 1.05;
+      color: var(--rp-fg);
+      margin: 0;
+    }
+    .service-name .it { font-style: italic; color: var(--rp-amber); }
+    .service-pitch {
+      font-family: var(--rp-font-display);
+      font-style: italic;
+      font-size: 19px;
+      line-height: 1.4;
+      color: var(--rp-fg);
+      margin: 0;
+    }
+    .service-body {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--rp-fg-dim);
+      margin: 0;
+    }
+    .service-meta {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--rp-rule);
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--rp-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--rp-mute);
+      text-transform: lowercase;
+    }
+
+    /* method */
+    .method {
+      background: var(--rp-marrow-2);
+      border-top: 1px solid var(--rp-rule);
+      border-bottom: 1px solid var(--rp-rule);
+    }
+    .method-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 120px 32px;
+    }
+    .method-tag {
+      font-family: var(--rp-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      color: var(--rp-amber);
+      text-transform: lowercase;
+      margin-bottom: 16px;
+    }
+    .method-h {
+      font-family: var(--rp-font-display);
+      font-weight: 500;
+      font-size: clamp(48px, 7vw, 96px);
+      line-height: 0.98;
+      letter-spacing: -0.01em;
+      margin: 0 0 24px;
+    }
+    .method-h .it { font-style: italic; color: var(--rp-amber); }
+    .method-lede {
+      font-family: var(--rp-font-display);
+      font-style: italic;
+      font-size: clamp(20px, 2.2vw, 26px);
+      line-height: 1.45;
+      color: var(--rp-fg);
+      max-width: 820px;
+      margin: 0 0 64px;
+    }
+    .phases {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .phase {
+      padding: 28px 0;
+      border-top: 2px solid var(--rp-amber);
+    }
+    .phase-num {
+      font-family: var(--rp-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: var(--rp-amber);
+      text-transform: lowercase;
+      margin-bottom: 12px;
+    }
+    .phase-name {
+      font-family: var(--rp-font-display);
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 1.1;
+      color: var(--rp-fg);
+      margin: 0 0 12px;
+    }
+    .phase-body {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--rp-fg-dim);
+      margin: 0;
+    }
+
+    /* work */
+    .work { max-width: 1240px; margin: 0 auto; padding: 120px 32px; }
+    .work-h {
+      font-family: var(--rp-font-display);
+      font-weight: 500;
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      margin: 0 0 16px;
+    }
+    .work-h .it { font-style: italic; color: var(--rp-amber); }
+    .work-sub {
+      font-family: var(--rp-font-display);
+      font-style: italic;
+      font-size: 20px;
+      line-height: 1.45;
+      color: var(--rp-fg-dim);
+      max-width: 640px;
+      margin: 0 0 48px;
+    }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .case {
+      aspect-ratio: 4 / 5;
+      background: var(--rp-marrow-2);
+      border: 1px solid var(--rp-rule);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color var(--rp-dur-base) var(--rp-ease),
+                  transform var(--rp-dur-base) var(--rp-ease);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .case:hover { border-color: var(--rp-amber); transform: translateY(-3px); }
+    .case-meta {
+      font-family: var(--rp-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--rp-amber);
+      text-transform: lowercase;
+    }
+    .case-title {
+      font-family: var(--rp-font-display);
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1.1;
+      color: var(--rp-fg);
+      margin: 0;
+    }
+    .case-title .it { font-style: italic; color: var(--rp-amber); }
+    .case-foot {
+      font-family: var(--rp-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--rp-mute);
+      text-transform: lowercase;
+    }
+
+    /* about strip */
+    .about {
+      border-top: 1px solid var(--rp-rule);
+    }
+    .about-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 120px 32px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .about-tag {
+      font-family: var(--rp-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      color: var(--rp-amber);
+      text-transform: lowercase;
+    }
+    .about-name {
+      font-family: var(--rp-font-display);
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 1.05;
+      color: var(--rp-fg);
+      margin: 12px 0 0;
+    }
+    .about-body p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--rp-fg);
+      margin: 0 0 18px;
+    }
+    .about-body p:last-of-type { margin-bottom: 24px; }
+    .about-body .accent { color: var(--rp-amber); }
+    .about-link {
+      font-family: var(--rp-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: var(--rp-amber);
+      text-transform: lowercase;
+      border-bottom: 1px solid var(--rp-amber);
+      padding-bottom: 2px;
+    }
+
+    /* contact band */
+    .contact {
+      border-top: 1px solid var(--rp-rule);
+      padding: 140px 32px;
+      text-align: center;
+    }
+    .contact-status {
+      font-family: var(--rp-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      color: var(--rp-amber);
+      text-transform: lowercase;
+      margin-bottom: 32px;
+    }
+    .contact-h {
+      font-family: var(--rp-font-display);
+      font-weight: 500;
+      font-size: clamp(56px, 9vw, 144px);
+      line-height: 0.98;
+      letter-spacing: -0.015em;
+      color: var(--rp-fg);
+      margin: 0;
+    }
+    .contact-h .it { font-style: italic; color: var(--rp-amber); }
+    .contact-rule {
+      width: 240px;
+      height: 1px;
+      background: var(--rp-amber);
+      margin: 40px auto;
+      border: 0;
+    }
+    .contact-cta {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 16px 28px;
+      font-family: var(--rp-font-mono);
+      font-size: 13px;
+      letter-spacing: 0.24em;
+      color: var(--rp-fg);
+      text-transform: lowercase;
+      border: 1px solid var(--rp-amber);
+      transition: background var(--rp-dur-quick) var(--rp-ease),
+                  color var(--rp-dur-quick) var(--rp-ease);
+    }
+    .contact-cta:hover { background: var(--rp-amber); color: var(--rp-marrow); }
+
+    /* footer */
+    .foot {
+      padding: 32px;
+      border-top: 1px solid var(--rp-rule);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+      font-family: var(--rp-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--rp-mute-2);
+      text-transform: lowercase;
+    }
+    .foot a { color: var(--rp-mute); }
+    .foot a:hover { color: var(--rp-amber); }
+
+    /* responsive */
+    @media (max-width: 880px) {
+      .services-grid,
+      .work-grid,
+      .phases { grid-template-columns: 1fr 1fr; }
+      .about-inner { grid-template-columns: 1fr; gap: 32px; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 540px) {
+      .services-grid,
+      .work-grid,
+      .phases { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <span class="nav-mark">Rubinstein <span class="it">Productions</span></span>
+    <div class="nav-links">
+      <a href="#services">services</a>
+      <a href="#method">method</a>
+      <a href="#work">work</a>
+      <a href="#about">about</a>
+      <a href="mailto:isaac@rubinsteinproductions.com">contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-tag">facilitation · film · evaluation</div>
+    <h1 class="hero-h">Say<br><span class="it">the thing.</span></h1>
+    <hr class="hero-rule" />
+    <p class="hero-sub">A facilitation and film practice for mission-driven people stuck between knowing what's true and saying it.</p>
+    <div class="hero-meta">
+      <span class="rp-meta">rubinstein productions</span>
+      <span class="rp-meta">providence · rhode island</span>
+      <span class="rp-meta">↓</span>
+    </div>
+  </section>
+
+  <!-- DIAGNOSIS -->
+  <section class="diagnosis">
+    <div class="diagnosis-inner">
+      <p>Most organizations are stuck between knowing what's true and saying it. The messaging sounds generic because the articulation happens <span class="accent">downstream of lived experience</span>, not inside it.</p>
+      <p>The gap isn't a communications problem. It's a <span class="accent">safety problem</span> — the institutional environment has made honesty feel expensive.</p>
+      <p>Say Why is RP's methodology for helping leaders and teams metabolize what they already know into expression that carries the weight of cost, body, and relation. Output: artifacts that travel without you in the room.</p>
+      <div class="diagnosis-byline">— the practice, in 60 words</div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <h2 class="services-h">Three ways<br>to <span class="it">begin.</span></h2>
+    <p class="services-sub">All roads start with a conversation. Founder Story is the entry. Program Engagement is the embedded arc. Organizational Embedding is held until one paid engagement at that depth exists — currently by invitation.</p>
+
+    <div class="services-grid">
+
+      <article class="service">
+        <span class="service-tag">01 · founder story</span>
+        <h3 class="service-name">Founder<br><span class="it">Story.</span></h3>
+        <p class="service-pitch">"I've been through something real but I can't show what I've become yet."</p>
+        <p class="service-body">A facilitated conversation and a short film. One pass through the methodology. The camera ships to you, you film yourself, everything is returned.</p>
+        <div class="service-meta">
+          <span>one pass · 2–4 weeks</span>
+          <span>from $1,500</span>
+        </div>
+      </article>
+
+      <article class="service">
+        <span class="service-tag">02 · program engagement</span>
+        <h3 class="service-name">Program<br><span class="it">Engagement.</span></h3>
+        <p class="service-pitch">"Something real is happening in my program but I can't prove it or show it."</p>
+        <p class="service-body">Embedded documentation and evaluation across the full arc — Container, Excavation, Performance, Translation. Bilingual Dashboard delivered at close.</p>
+        <div class="service-meta">
+          <span>full arc · 6–10 weeks</span>
+          <span>from $3,000</span>
+        </div>
+      </article>
+
+      <article class="service">
+        <span class="service-tag">03 · org embedding</span>
+        <h3 class="service-name">Organizational<br><span class="it">Embedding.</span></h3>
+        <p class="service-pitch">"We're building something new and need infrastructure to tell its story and prove it works."</p>
+        <p class="service-body">Repeated cycles of the methodology over months. Ongoing narrative and evaluation capacity. Held until one completed paid engagement exists at this depth.</p>
+        <div class="service-meta">
+          <span>3+ months · ongoing</span>
+          <span>by invitation</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="method" class="method">
+    <div class="method-inner">
+      <div class="method-tag">the methodology</div>
+      <h2 class="method-h">Say <span class="it">Why.</span></h2>
+      <p class="method-lede">Facilitation grounded in nervous-system science. A camera that ships to you, not a crew that arrives. Measurement in two registers — institutional and relational. Everything returns.</p>
+
+      <div class="phases">
+        <div class="phase">
+          <div class="phase-num">01 · phase</div>
+          <h4 class="phase-name">Container</h4>
+          <p class="phase-body">Relational safety and institutional permission, built simultaneously. Logic model. Roadmap the organization can sign off on.</p>
+        </div>
+        <div class="phase">
+          <div class="phase-num">02 · phase</div>
+          <h4 class="phase-name">Excavation</h4>
+          <p class="phase-body">Surface the inside version. Map the feedback loops keeping honest expression contained. Recognition: <em>that's it — that's the thing.</em></p>
+        </div>
+        <div class="phase">
+          <div class="phase-num">03 · phase</div>
+          <h4 class="phase-name">Performance</h4>
+          <p class="phase-body">The camera ships. You film yourself, on your terms, in your space. I facilitate remotely. Zero-measurement zone — emergence happens because it isn't being measured.</p>
+        </div>
+        <div class="phase">
+          <div class="phase-num">04 · phase</div>
+          <h4 class="phase-name">Translation</h4>
+          <p class="phase-body">A 3-minute brand video from your raw footage. All footage, data, and deliverables returned. Bilingual Dashboard for Program Engagement and above.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="work">
+    <h2 class="work-h">Selected <span class="it">work.</span></h2>
+    <p class="work-sub">Engagements that show the methodology under load — facilitation, evaluation, change-readiness, narrative infrastructure.</p>
+
+    <div class="work-grid">
+      <a class="case" href="case-studies/central-providence-unidos.html">
+        <span class="case-meta">01 · evaluation</span>
+        <h3 class="case-title">Central Providence<br><span class="it">Unidos.</span></h3>
+        <span class="case-foot">three-layer framework · 60+ partners · bilingual dashboard</span>
+      </a>
+      <a class="case" href="case-studies/workday-sch-2026.html">
+        <span class="case-meta">02 · change readiness</span>
+        <h3 class="case-title">Seattle Children's<br><span class="it">Workday Phase 2.</span></h3>
+        <span class="case-foot">change management readiness program lead · embedded evaluation</span>
+      </a>
+      <a class="case" href="case-studies/genesis-design-challenge.html">
+        <span class="case-meta">03 · proof of process</span>
+        <h3 class="case-title">Genesis Design<br><span class="it">Challenge.</span></h3>
+        <span class="case-foot">10-week embedded · 8 participants · compilation film + impact report</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="about-inner">
+      <div>
+        <span class="about-tag">about · isaac</span>
+        <h2 class="about-name">Isaac<br>Rubinstein</h2>
+      </div>
+      <div class="about-body">
+        <p>I entered medicine at the bedside and returned at the systems level. The work I do across institutions is one continuous loop: <span class="accent">practitioner ↔ patient</span> · the body preconditioning the mind · the inside version made public.</p>
+        <p>I facilitate. I ship a camera to the participant. They film themselves. Everything is returned. The methodology is grounded in polyvagal theory, participatory evaluation, and community-based system dynamics — and the work is anti-extractive by design.</p>
+        <p>MPH. Pediatric psychiatric direct-care background. Based in Providence, Rhode Island.</p>
+        <a class="about-link" href="about.html">read the long version →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <div class="contact-status">currently booking · summer 2026</div>
+    <h2 class="contact-h">Start a<br><span class="it">conversation.</span></h2>
+    <hr class="contact-rule" />
+    <a class="contact-cta" href="mailto:isaac@rubinsteinproductions.com">isaac@rubinsteinproductions.com</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <span>© rubinstein productions · 2026</span>
+    <span>
+      <a href="about.html">about</a> ·
+      <a href="press.html">press</a> ·
+      <a href="mailto:isaac@rubinsteinproductions.com">contact</a>
+    </span>
+    <span>providence · rhode island</span>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- background -->
+  <rect width="1200" height="630" fill="#1a1412"/>
+
+  <!-- subtle grid -->
+  <g stroke="#2c211d" stroke-width="1" opacity="0.5">
+    <line x1="0" y1="80" x2="1200" y2="80"/>
+    <line x1="0" y1="550" x2="1200" y2="550"/>
+  </g>
+
+  <!-- top mono chrome -->
+  <text x="80" y="60"
+        font-family="Geist Mono, Consolas, monospace"
+        font-size="14"
+        letter-spacing="3"
+        fill="#a89e93">rubinstein productions</text>
+  <text x="1120" y="60" text-anchor="end"
+        font-family="Geist Mono, Consolas, monospace"
+        font-size="14"
+        letter-spacing="3"
+        fill="#a89e93">v 1.0 · 2026</text>
+
+  <!-- mono accent tag -->
+  <text x="80" y="220"
+        font-family="Geist Mono, Consolas, monospace"
+        font-size="16"
+        letter-spacing="6"
+        fill="#c8923a">facilitation · film · evaluation</text>
+
+  <!-- main mark -->
+  <text x="80" y="360"
+        font-family="EB Garamond, Georgia, serif"
+        font-weight="500"
+        font-size="160"
+        fill="#f2ece4">Say</text>
+  <text x="80" y="490"
+        font-family="EB Garamond, Georgia, serif"
+        font-style="italic"
+        font-weight="500"
+        font-size="160"
+        fill="#c8923a">the thing.</text>
+
+  <!-- hairline rule -->
+  <line x1="80" y1="525" x2="320" y2="525" stroke="#c8923a" stroke-width="1.5"/>
+
+  <!-- bottom mono chrome -->
+  <text x="80" y="600"
+        font-family="Geist Mono, Consolas, monospace"
+        font-size="14"
+        letter-spacing="3"
+        fill="#a89e93">rubinsteinproductions.com</text>
+  <text x="1120" y="600" text-anchor="end"
+        font-family="Geist Mono, Consolas, monospace"
+        font-size="14"
+        letter-spacing="3"
+        fill="#a89e93">providence · rhode island</text>
+</svg>
