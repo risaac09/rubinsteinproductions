@@ -13,7 +13,7 @@ export default function Services() {
 
   useEffect(() => {
     function onMessage(e) {
-      if (e.origin !== 'https://risaac09.github.io') return
+      if (e.origin !== 'https://alchemy.rubinsteinproductions.com') return
       if (e.data?.type === 'height') {
         const f = document.querySelector('iframe[title="Information Metabolism Diagnostic"]')
         if (f) f.style.height = e.data.px + 'px'
@@ -368,7 +368,7 @@ export default function Services() {
             </p>
           </div>
           <iframe
-            src="https://risaac09.github.io/alchemy-diagnostic/embed.html"
+            src="https://alchemy.rubinsteinproductions.com/embed.html"
             style={{ width: '100%', border: 'none', display: 'block' }}
             title="Information Metabolism Diagnostic"
             loading="lazy"
