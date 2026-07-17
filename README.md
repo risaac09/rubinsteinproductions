@@ -36,3 +36,7 @@ is set by `public/CNAME`.
 # manual build (CI does this for you)
 npm run build
 ```
+
+## License
+
+Code is MIT, see `LICENSE`. Site copy, images, film stills, and brand assets remain the property of Rubinstein Productions.
