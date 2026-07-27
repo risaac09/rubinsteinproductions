@@ -153,6 +153,30 @@
   margin: 2.25rem 0;
 }
 
+/* ——— PLAIN-LANGUAGE VARIANT ——— */
+.essay-plain {
+  margin-top: 3.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(168, 158, 147, 0.3);
+  max-width: 40rem;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--marrow);
+}
+
+.essay-plain p {
+  margin: 0 0 1.3rem;
+}
+.essay-plain p:last-child {
+  margin-bottom: 0;
+}
+
+.essay-plain-note {
+  font-style: italic;
+  color: var(--ash);
+}
+
 .essay-foot {
   display: flex;
   flex-direction: column;
