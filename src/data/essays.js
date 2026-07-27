@@ -6,6 +6,12 @@
 //   { t: 'h' }   sub-heading
 // Newest first. Slug matches the old isaacrubinstein.com/writing/<slug>/ path so
 // the retired-domain redirect stubs can map one-to-one.
+//
+// Variant convention: each essay also carries a `plain` field, an array of
+// paragraph strings holding a plain-language version of the argument for
+// readers outside evaluation. Unlike `body`, the plain variant is NEW site
+// copy, so it follows the CLAUDE.md voice rules (no em-dashes, no rule-of-three,
+// and the rest). The original body stays verbatim; never edit it to match.
 
 const essays = [
   {
@@ -38,6 +44,14 @@ const essays = [
       { t: 'p', c: 'Evaluation, on a much smaller scale, has the same property. The chain — whose decision the report is for, who is paying, whose data this is, who decides what the findings mean — is there whether we name it or not. The engagements I am proudest of are the ones where I named it first, in writing, before anything else got built. The engagements I learned the most from are the ones where I didn’t.' },
       { t: 'p', c: 'I am still figuring out, in a sober way, how much of this is method and how much of it is something more like a practice. For now I will say only that the question is the work. The methods are how we keep our promises to it.' },
     ],
+    plain: [
+      'This essay begins with a talk the computer scientist Jaron Lanier gave at Brown University. A student asked whether artificial general intelligence was bullshit, and Lanier told him he had not asked a question. His point was that real power belongs to whoever defines the problem. Teachers, parents, and chatbots reward correct answers to questions someone else already posed. The rarer skill, and the more political one, is forming the question in the first place.',
+      'Isaac connects that moment to his own field. Michael Quinn Patton, a central figure in program evaluation, has taught the same lesson for forty years: before collecting any data, name the specific person whose decision the report exists to inform, then design the whole study backwards from that decision.',
+      'Most evaluators work in the other direction. They pick the methods first, the surveys and focus groups and administrative records, and leave the purpose of the report for a closing paragraph. By then the evaluator has already narrowed what the study can find, and the data gets organized around what was easy to collect rather than around the decision at hand.',
+      'Isaac’s own rule is short. Every evaluation he takes must have, in writing, one named person who can finish the sentence “When I read the report, I will use it to decide ___.” If that person cannot finish it, he holds off on data collection and reworks the question with them. A coalition director who asks for an outcome evaluation often turns out to need evidence to defend a budget line at a state hearing, and once she names that need, the study gets smaller and the report gets shorter and easier to act on.',
+      'Once the question is named, the harder conversation about who shapes it becomes possible. Some questions belong to the funder, who paid for an answer to a specific decision. Others belong to residents, whose lives the program touches and who hold authority over how their experience gets framed, and a few belong to the evaluator because answering them well takes technical training. Isaac writes that division of authority down in plain language before any data collection and invites his partners to argue with it. Resident councils have rewritten his list, and he has accepted the rewrites.',
+      'The chain of relations underneath an evaluation, whose decision the report serves, who pays, whose data it is, who decides what the findings mean, exists whether anyone names it or not. Naming it first, in writing, changes what the engagement can become. The question is the work. The methods are how the evaluator keeps promises to it.',
+    ],
   },
   {
     slug: 'dashboard-delivery-isnt-dashboard-utilization',
@@ -66,6 +80,14 @@ const essays = [
       { t: 'h', c: 'What I have stopped pretending is optional' },
       { t: 'p', c: 'For a long time I thought of the facilitation layer as a value-add — the kind of thing a thoughtful evaluator brings to an engagement when there is room in the budget. I no longer think this is honest. The dashboard without the walkthrough produces nothing the program will remember in six months. The report without the staff briefing produces nothing the funder will reference at the next planning cycle.' },
       { t: 'p', c: 'If I cannot get the facilitation layer into the scope of work, I would rather not take the engagement. The deliverable, on its own, is not the work. The deliverable is the artifact that records the work. Dashboard delivery and dashboard utilization are different operations, and an evaluator who is paid for the first but expected to produce the second is being asked to do the harder job for free. I have done that job for free, more than once. I would rather, now, name it in the contract.' },
+    ],
+    plain: [
+      'A coalition director once told Isaac that her team had received four dashboards from four evaluators in five years, and that no one opened any of them more than once a quarter. The dashboards were competently built, with clean charts and reasonable indicators. They had never become part of how the coalition made decisions. That gap is the subject of this essay.',
+      'Most evaluation contracts pay for a product: a report, a logic model, a dashboard, a theory of change on one page. The funder reviews the product and the invoice is tied to it. The change a program hoped for happens later, in the meeting where a manager asks staff what the numbers show, or in the budget conversation where someone either cites the dashboard or leaves it closed. Those moments fall outside the deliverable, and whether they go well depends on how the evaluator prepared for them.',
+      'Isaac calls the missing piece the facilitation layer, the set of practices that turn a delivered product into a used one. Every dashboard he helps build comes with scheduled walkthroughs, one with leadership and one with the staff who will use it, where the group reads last week’s real numbers together. In the walkthrough he learns what the dashboard is missing, and the staff learn that the dashboard is for them.',
+      'He also builds reading capacity in stages. The first quarterly review with a coalition covers vocabulary rather than results: what counts as a baseline, what counts as a meaningful change, what to do when an indicator moves in the wrong direction. Serious data review starts about six months in, once everyone in the room can read what they are seeing. He holds a place for community knowledge in the same room as the indicators, so that when the numbers and the stories disagree the conversation gets richer instead of thinner.',
+      'His main example is Central Providence, where he helped architect a shared measurement system across more than sixty organizations, tracking fourteen indicators in six health equity domains. On its own, the dashboard would have been a quarterly compliance ritual. A Data Academy ran alongside it, co-designed with Brown University and taught in English and Spanish, and partner organizations that went through it began bringing their own data to meetings and arguing back. That argument was the outcome the system existed to produce.',
+      'Isaac used to treat this facilitation work as optional, something a thoughtful evaluator adds when the budget allows. He has stopped. A dashboard delivered without a walkthrough leaves nothing a program remembers in six months, so he now writes the facilitation layer into the scope of work, and he would rather decline an engagement than do that part for free. The deliverable is the record of the work. The facilitation is the work itself.',
     ],
   },
 ]

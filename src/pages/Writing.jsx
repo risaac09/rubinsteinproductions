@@ -119,6 +119,7 @@ export function Essay() {
         datePublished: essay.dateISO,
         url: `https://rubinsteinproductions.com/writing/${essay.slug}`,
         description: essay.dek,
+        ...(essay.plain ? { abstract: essay.plain.join(' ') } : {}),
         author: { '@id': 'https://rubinsteinproductions.com/#isaac' },
         publisher: { '@type': 'Organization', name: 'Rubinstein Productions' },
       }} />
@@ -142,6 +143,18 @@ export function Essay() {
               return <p key={i}>{b.c}</p>
             })}
           </div>
+
+          {essay.plain && (
+            <section className="essay-plain" aria-label="Plain-language version">
+              <p className="small-caps">In plain language</p>
+              <div className="divider-short" />
+              <p className="essay-plain-note">
+                The essay above is the published text. This section carries the
+                same argument for readers outside evaluation.
+              </p>
+              {essay.plain.map((p, i) => <p key={i}>{p}</p>)}
+            </section>
+          )}
 
           <nav className="essay-foot">
             {essays.filter(e => e.slug !== essay.slug).map(e => (
