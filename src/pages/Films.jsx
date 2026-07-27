@@ -2,22 +2,12 @@ import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
-<<<<<<< HEAD
 import { markReady, prefersReducedMotion } from '../hooks/useScrollAnimations.js'
-=======
-import { markReady } from '../hooks/useScrollAnimations.js'
->>>>>>> origin/claude/consolidate-business-sites-vv5sk3
 import usePageMeta from '../hooks/usePageMeta.js'
 import StructuredData from '../components/StructuredData.jsx'
 import { featured, verticals } from '../data/films.js'
 import './Films.css'
 
-<<<<<<< HEAD
-=======
-const prefersReducedMotion = () =>
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
->>>>>>> origin/claude/consolidate-business-sites-vv5sk3
 const CHANNEL = 'https://www.youtube.com/@risaac09'
 
 // Click-to-load: show the YouTube thumbnail until the user opts in, then swap in
