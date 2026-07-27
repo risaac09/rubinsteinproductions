@@ -2,21 +2,11 @@ import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
-<<<<<<< HEAD
 import { markReady, staggerEntrance, prefersReducedMotion } from '../hooks/useScrollAnimations.js'
-=======
-import { markReady, staggerEntrance } from '../hooks/useScrollAnimations.js'
->>>>>>> origin/claude/consolidate-business-sites-vv5sk3
 import usePageMeta from '../hooks/usePageMeta.js'
 import StructuredData from '../components/StructuredData.jsx'
 import './Evaluation.css'
 
-<<<<<<< HEAD
-=======
-const prefersReducedMotion = () =>
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
->>>>>>> origin/claude/consolidate-business-sites-vv5sk3
 const services = [
   {
     n: 'i.',
