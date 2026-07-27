@@ -8,6 +8,11 @@ import StructuredData from '../components/StructuredData.jsx'
 import essays, { getEssay } from '../data/essays.js'
 import './Writing.css'
 
+=======
+const prefersReducedMotion = () =>
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+>>>>>>> origin/claude/consolidate-business-sites-vv5sk3
 export default function Writing() {
   const containerRef = useRef(null)
 
@@ -119,6 +124,7 @@ export function Essay() {
         datePublished: essay.dateISO,
         url: `https://rubinsteinproductions.com/writing/${essay.slug}`,
         description: essay.dek,
+<<<<<<< HEAD
         ...(essay.plain ? { abstract: essay.plain.join(' ') } : {}),
         author: { '@id': 'https://rubinsteinproductions.com/#isaac' },
         publisher: { '@type': 'Organization', name: 'Rubinstein Productions' },
