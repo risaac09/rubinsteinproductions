@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>RP — Proposal Template</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="deck.css" />
+  <style>
+    .slide-pad { padding: 80px 96px; box-sizing: border-box; }
+    deck-stage > section { background: var(--rp-ink); color: var(--rp-fg); }
+  </style>
+</head>
+<body style="background:#000;">
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <rect width="100" height="100" fill="#0E0B08"/>
+      <text x="50" y="46" text-anchor="middle" font-family="monospace" font-size="9" letter-spacing="2" fill="#C8922E">proposal</text>
+      <line x1="30" y1="54" x2="70" y2="54" stroke="#C8922E" stroke-width="1.5"/>
+      <text x="50" y="74" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#E8DEC9">RP</text>
+    </svg>
+  </template>
+  <deck-stage id="deck" width="1920" height="1080">
+    <!-- 12 slide mounts; populated by React below -->
+    <section id="s1"></section><section id="s2"></section><section id="s3"></section>
+    <section id="s4"></section><section id="s5"></section><section id="s6"></section>
+    <section id="s7"></section><section id="s8"></section><section id="s9"></section>
+    <section id="s10"></section><section id="s11"></section><section id="s12"></section>
+  </deck-stage>
+
+  <script src="deck-stage.js"></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="arc-timeline.jsx"></script>
+  <script type="text/babel" src="proposal-slides.jsx"></script>
+  <script type="text/babel">
+    const slides = window.ProposalSlides;
+    const labels = window.ProposalLabels;
+    slides.forEach((Comp, i) => {
+      const el = document.getElementById(`s${i+1}`);
+      el.setAttribute("data-screen-label", labels[i]);
+      ReactDOM.createRoot(el).render(<Comp />);
+    });
+  </script>
+</body>
+</html>

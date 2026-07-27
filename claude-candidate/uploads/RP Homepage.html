@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Rubinstein Productions</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tokens.css" />
+  <style>
+    body { background: var(--rp-ink); color: var(--rp-fg); overflow-x: hidden; }
+    /* nav */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px; background: rgba(14, 11, 8, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rp-rule);
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.25em;
+      color: var(--rp-mute); text-transform: lowercase;
+    }
+    .nav-mark {
+      font-family: var(--rp-font-serif); font-size: 22px; line-height: 1;
+      color: var(--rp-fg); letter-spacing: 0;
+    }
+    .nav-mark .it { font-style: italic; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { color: var(--rp-mute); text-decoration: none; transition: color var(--rp-dur-quick); }
+    .nav-links a:hover { color: var(--rp-accent); }
+
+    /* hero */
+    .hero {
+      min-height: 100vh; padding: 120px 40px 80px;
+      display: flex; flex-direction: column; justify-content: center;
+      max-width: 1320px; margin: 0 auto;
+      position: relative;
+    }
+    .hero-tag {
+      font-family: var(--rp-font-mono); font-size: 13px; letter-spacing: 0.35em;
+      color: var(--rp-accent); text-transform: lowercase; margin-bottom: 24px;
+    }
+    .hero-h {
+      font-family: var(--rp-font-display); font-weight: 700;
+      font-size: clamp(72px, 12vw, 192px); line-height: 0.88;
+      letter-spacing: -0.02em; text-transform: uppercase; color: var(--rp-fg);
+      margin: 0;
+    }
+    .hero-h .it { font-family: var(--rp-font-serif); font-style: italic; font-weight: 400; text-transform: none; color: var(--rp-accent); }
+    .hero-rule { width: 280px; height: 2px; background: var(--rp-accent); margin: 40px 0; }
+    .hero-sub {
+      font-family: var(--rp-font-serif); font-style: italic;
+      font-size: clamp(22px, 2.6vw, 36px); line-height: 1.4;
+      color: var(--rp-fg-dim); max-width: 780px;
+    }
+    .hero-meta {
+      position: absolute; bottom: 40px; left: 40px; right: 40px;
+      display: flex; justify-content: space-between;
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.25em;
+      color: var(--rp-mute); text-transform: lowercase;
+    }
+
+    /* manifesto strip */
+    .manifesto {
+      padding: 120px 40px;
+      max-width: 980px; margin: 0 auto;
+    }
+    .manifesto p {
+      font-family: var(--rp-font-serif); font-style: italic;
+      font-size: clamp(28px, 3.4vw, 44px); line-height: 1.45;
+      color: var(--rp-fg); margin: 0 0 32px;
+    }
+    .manifesto .accent { color: var(--rp-accent); font-style: italic; }
+    .manifesto .small {
+      font-family: var(--rp-font-mono); font-size: 13px; letter-spacing: 0.25em;
+      color: var(--rp-mute); text-transform: lowercase; font-style: normal;
+      margin-top: 64px;
+    }
+
+    /* arc band */
+    .arc-band {
+      padding: 80px 40px; border-top: 1px solid var(--rp-rule); border-bottom: 1px solid var(--rp-rule);
+      max-width: 1320px; margin: 0 auto;
+    }
+
+    /* plates section */
+    .plates {
+      max-width: 1400px; margin: 0 auto;
+      padding: 120px 40px;
+    }
+    .plates-h {
+      font-family: var(--rp-font-display); font-weight: 700;
+      font-size: clamp(48px, 7vw, 96px); line-height: 0.95;
+      letter-spacing: -0.015em; text-transform: uppercase;
+      margin: 0 0 16px;
+    }
+    .plates-h .it { font-family: var(--rp-font-serif); font-style: italic; font-weight: 400; text-transform: none; color: var(--rp-accent); }
+    .plates-sub {
+      font-family: var(--rp-font-serif); font-style: italic;
+      font-size: 24px; color: var(--rp-fg-dim); margin-bottom: 64px; max-width: 600px;
+    }
+    .plate-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
+    }
+    .plate-card {
+      aspect-ratio: 4 / 5;
+      background: var(--rp-ink-2); border: 1px solid var(--rp-rule);
+      overflow: hidden; position: relative;
+      cursor: pointer; transition: border-color var(--rp-dur-base), transform var(--rp-dur-base);
+    }
+    .plate-card:hover { border-color: var(--rp-accent); transform: translateY(-4px); }
+    .plate-card img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.92; transition: opacity var(--rp-dur-base); }
+    .plate-card:hover img { opacity: 1; }
+    .plate-meta {
+      position: absolute; top: 12px; left: 12px;
+      font-family: var(--rp-font-mono); font-size: 10px; letter-spacing: 0.25em;
+      color: var(--rp-fg); text-transform: lowercase;
+      background: rgba(14, 11, 8, 0.8); padding: 4px 8px;
+    }
+    .plate-title {
+      position: absolute; bottom: 12px; left: 12px; right: 12px;
+      font-family: var(--rp-font-display); font-weight: 700;
+      font-size: 16px; text-transform: uppercase; letter-spacing: -0.005em;
+      color: var(--rp-fg);
+    }
+
+    /* cta band */
+    .cta {
+      padding: 160px 40px; text-align: center;
+      border-top: 1px solid var(--rp-rule);
+    }
+    .cta-h {
+      font-family: var(--rp-font-display); font-weight: 700;
+      font-size: clamp(64px, 10vw, 160px); line-height: 0.92;
+      letter-spacing: -0.015em; text-transform: uppercase;
+    }
+    .cta-h .it { font-family: var(--rp-font-serif); font-style: italic; font-weight: 400; text-transform: none; color: var(--rp-accent); }
+    .cta-rule { width: 280px; height: 2px; background: var(--rp-accent); margin: 40px auto; }
+    .cta-link {
+      display: inline-block; margin-top: 32px;
+      font-family: var(--rp-font-mono); font-size: 14px; letter-spacing: 0.3em;
+      color: var(--rp-fg); text-transform: lowercase; text-decoration: none;
+      padding: 16px 32px; border: 1px solid var(--rp-accent);
+      transition: background var(--rp-dur-quick), color var(--rp-dur-quick);
+    }
+    .cta-link:hover { background: var(--rp-accent); color: var(--rp-ink); }
+
+    /* footer */
+    .foot {
+      padding: 40px; border-top: 1px solid var(--rp-rule);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+      font-family: var(--rp-font-mono); font-size: 11px; letter-spacing: 0.25em;
+      color: var(--rp-mute-2); text-transform: lowercase;
+    }
+    .foot a { color: var(--rp-mute); text-decoration: none; }
+    .foot a:hover { color: var(--rp-accent); }
+
+    @media (max-width: 880px) {
+      .plate-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <rect width="100" height="100" fill="#0E0B08"/>
+      <text x="50" y="58" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="38" fill="#C8922E">SW</text>
+    </svg>
+  </template>
+  <nav class="nav">
+    <span class="nav-mark">Say <span class="it">Why</span></span>
+    <div class="nav-links">
+      <a href="#manifesto">manifesto</a>
+      <a href="#plates">plates</a>
+      <a href="RP About.html">about</a>
+      <a href="RP Press Kit.html">press</a>
+      <a href="mailto:isaac@rubinsteinproductions.com">contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-tag">rp · arc opens april 2026 → closes september 25, 2027</div>
+    <h1 class="hero-h">Say<br><span class="it">Why.</span></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">a 17-month publishing arc on knowledge metabolism, somatic practice, and the seam where institutions meet the body.</p>
+    <div class="hero-meta">
+      <span>rubinstein productions</span>
+      <span>v 1.0 · 2027</span>
+      <span>↓ scroll</span>
+    </div>
+  </section>
+
+  <section id="manifesto" class="manifesto">
+    <p>Information is not an object. It is <span class="accent">an event</span> — signal, integration, flow, threshold.</p>
+    <p>I entered medicine at the bedside and returned at the systems level. The work I do across institutions is one continuous loop: <span class="accent">practitioner ↔ patient</span> · the body preconditioning the mind · the inside version made public.</p>
+    <p>Rubinstein Productions is the publishing arm of that inquiry. Ten plates render the architecture. Seventeen months of writing fill it in.</p>
+    <div class="small">↳ expression as practice · not performance.</div>
+  </section>
+
+  <section class="arc-band">
+    <div id="arc-mount"></div>
+  </section>
+
+  <section id="plates" class="plates">
+    <h2 class="plates-h">Ten Plates ·<br><span class="it">one argument.</span></h2>
+    <p class="plates-sub">each plate carries one diagram. each diagram carries one argument. the system is the sequence.</p>
+    <div class="plate-grid">
+      <a class="plate-card" href="RP About.html"><img src="assets/plates/01-digital-liver.png" alt="01"><span class="plate-meta">01</span><span class="plate-title">Digital Liver</span></a>
+      <a class="plate-card" href="RP About.html"><img src="assets/plates/02-sift.png" alt="02"><span class="plate-meta">02</span><span class="plate-title">SIFT</span></a>
+      <a class="plate-card" href="RP About.html"><img src="assets/plates/03-arc.png" alt="03"><span class="plate-meta">03</span><span class="plate-title">The Arc</span></a>
+      <a class="plate-card" href="RP About.html"><img src="assets/plates/04-layers.png" alt="04"><span class="plate-meta">04</span><span class="plate-title">Layers</span></a>
+      <a class="plate-card" href="RP About.html"><img src="assets/plates/05-vault.png" alt="05"><span class="plate-meta">05</span><span class="plate-title">The Vault</span></a>
+      <a class="plate-card" href="RP About.html"><img src="assets/plates/06-running.png" alt="06"><span class="plate-meta">06</span><span class="plate-title">Running</span></a>
+      <a class="plate-card" href="RP About.html"><img src="assets/plates/07-relational.png" alt="07"><span class="plate-meta">07</span><span class="plate-title">Relational</span></a>
+      <a class="plate-card" href="RP About.html"><img src="assets/plates/08-say-the-thing.png" alt="08"><span class="plate-meta">08</span><span class="plate-title">Say the Thing</span></a>
+      <a class="plate-card" href="RP About.html"><img src="assets/plates/09-loop.png" alt="09"><span class="plate-meta">09</span><span class="plate-title">The Loop</span></a>
+      <a class="plate-card" href="RP About.html"><img src="assets/plates/10-september-25.png" alt="10"><span class="plate-meta">10 · close</span><span class="plate-title">September 25</span></a>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-h">Say <span class="it">Why.</span></div>
+    <div class="cta-rule"></div>
+    <a class="cta-link" href="mailto:isaac@rubinsteinproductions.com">isaac@rubinsteinproductions.com</a>
+  </section>
+
+  <footer class="foot">
+    <span>© rubinstein productions · 2026—2027</span>
+    <span><a href="RP About.html">about</a> · <a href="RP Press Kit.html">press</a> · <a href="mailto:press@rubinsteinproductions.com">press@rp</a></span>
+    <span>providence · rhode island</span>
+  </footer>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="arc-timeline.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById("arc-mount")).render(<window.ArcTimeline />);
+  </script>
+</body>
+</html>
