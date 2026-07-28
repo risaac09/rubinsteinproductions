@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Say Why · Rubinstein Productions</title>
+  <meta name="description" content="Say Why: a filmed conversation series from Rubinstein Productions. One hour with someone whose clarity deserves witness." />
+  <link rel="canonical" href="https://rubinsteinproductions.com/say-why/" />
+  <meta property="og:title" content="Say Why · Rubinstein Productions" />
+  <meta property="og:description" content="One hour of filmed conversation with someone whose clarity I want others to see." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rubinsteinproductions.com/say-why/" />
+  <meta property="og:image" content="https://rubinsteinproductions.com/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* Say Why, styled to the Brand B canon (src/styles/design-system.css):
+       sharp, honest, no gradients, no shadows, no rounded corners. Static
+       page: Pages serves /say-why/ directly, ahead of the SPA fallback. */
+    :root {
+      --marrow: #1a1412;
+      --blood: #8b2e1c;
+      --amber: #c8923a;
+      --bone: #f2ece4;
+      --ash: #a89e93;
+      --white: #faf8f5;
+      --blood-bright: #c24631;
+      --amber-bright: #e0a94a;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --nav-height: 64px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.1875rem;
+      line-height: 1.65;
+      color: var(--marrow);
+      background: var(--white);
+    }
+    .skip-link {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--marrow); color: var(--white);
+      padding: 0.5rem 1rem; z-index: 10;
+    }
+    .skip-link:focus { left: 0; }
+    .wrap { max-width: 44rem; margin: 0 auto; padding: 0 var(--space-md); }
+    .it { font-style: italic; }
+    .em { color: var(--blood); }
+
+    .nav {
+      height: var(--nav-height);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--space-md);
+      border-bottom: 1px solid var(--marrow);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 0.8125rem; font-weight: 400;
+    }
+    .nav-mark { color: var(--marrow); text-decoration: none; }
+    .nav-mark:hover .it { color: var(--blood); }
+    .nav > span { color: var(--ash); letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.6875rem; }
+
+    .hero { padding: var(--space-xl) 0 var(--space-lg); }
+    .hero-eyebrow, .eyebrow span {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--blood);
+    }
+    .hero-h {
+      font-size: clamp(3.5rem, 12vw, 7rem);
+      font-weight: 400; line-height: 0.95;
+      margin: var(--space-sm) 0;
+    }
+    .hero-sub { color: var(--ash); font-size: 1.25rem; }
+    .hero-sub .em { color: var(--marrow); }
+
+    .section { padding: var(--space-lg) 0; }
+    .section--bone { background: var(--bone); }
+    .eyebrow { margin-bottom: var(--space-sm); }
+    .section-h {
+      font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+      font-weight: 400; line-height: 1.15;
+      margin-bottom: var(--space-md);
+    }
+    .section p + p { margin-top: var(--space-sm); }
+
+    .steps { list-style: none; display: grid; gap: var(--space-md); }
+    .step { border-top: 1px solid var(--marrow); padding-top: var(--space-sm); position: relative; }
+    .step-num {
+      font-family: 'Inter', sans-serif; font-weight: 300;
+      font-size: 2.5rem; color: var(--amber); line-height: 1;
+      display: block; margin-bottom: 0.25rem;
+    }
+    .step-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--blood); margin-bottom: 0.5rem;
+    }
+
+    .quote { background: var(--marrow); color: var(--bone); padding: var(--space-xl) 0; }
+    .quote blockquote { font-size: 1.375rem; line-height: 1.55; font-style: italic; }
+    .quote cite {
+      display: block; margin-top: var(--space-md); font-style: normal;
+      font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: var(--ash);
+    }
+    .quote .who { color: var(--amber-bright); }
+
+    .cta { padding: var(--space-xl) 0; text-align: center; }
+    .cta-btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif; font-size: 0.9375rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--white); background: var(--blood);
+      padding: 1rem 2.5rem; text-decoration: none;
+      border: 1px solid var(--blood);
+    }
+    .cta-btn:hover, .cta-btn:focus { background: var(--white); color: var(--blood); }
+    .cta-note { margin-top: var(--space-sm); color: var(--ash); font-size: 1rem; }
+
+    .foot {
+      border-top: 1px solid var(--marrow);
+      padding: var(--space-md);
+      font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--ash);
+      text-align: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">skip to content</a>
+
+  <header class="nav" role="banner">
+    <a href="/" class="nav-mark" aria-label="Rubinstein Productions home">
+      Rubinstein <span class="it">Productions</span>
+    </a>
+    <span aria-hidden="true">say why · 2026</span>
+  </header>
+
+  <main id="main">
+
+    <section class="hero" aria-labelledby="title">
+      <div class="wrap">
+        <p class="hero-eyebrow">A Series</p>
+        <h1 id="title" class="hero-h">Say<br/><span class="it">Why.</span></h1>
+        <p class="hero-sub">A Series from <span class="em">Rubinstein Productions.</span></p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="what">
+      <div class="wrap">
+        <p class="eyebrow"><span>what it is</span></p>
+        <h2 id="what" class="section-h">One hour of <span class="it">filmed conversation.</span></h2>
+        <p>A Series under Rubinstein Productions, my facilitation and film practice. One hour of filmed conversation with someone whose clarity I want others to see. Long-form on Substack and YouTube; shorter clips on TikTok. We chat the week before, see what's real in the moment, and decide together what seems to point toward the "Why."</p>
+      </div>
+    </section>
+
+    <section class="section section--bone" aria-labelledby="for-you">
+      <div class="wrap">
+        <p class="eyebrow"><span>what it would look like for you</span></p>
+        <h2 id="for-you" class="section-h">Three <span class="it">steps.</span></h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <p class="step-label">step one</p>
+            <p class="step-body">A 30 to 60 minute call. Phone or video, your pick. We talk. I'll probably ask what's real for you right now. If at the end either of us feels it's not the time, that's the end of it. No hard feelings, no follow-up.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <p class="step-label">step two</p>
+            <p class="step-body">If we both feel it, an hour of filmed conversation, where you live or somewhere you choose.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <p class="step-label">step three</p>
+            <p class="step-body">Edit and publish. Full episode on Substack and YouTube; shorter clips on TikTok. You see everything before it goes anywhere. You can pull anything you don't want out there. You own your story; I own the production craft.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="who">
+      <div class="wrap">
+        <p class="eyebrow"><span>who i am in this context</span></p>
+        <h2 id="who" class="section-h">Half-friend, half-interviewer, <span class="it">half-listener.</span></h2>
+        <p>A dude obsessed with his tool, the production apparatus, asking questions and saying what I'd say anyway. Half-friend, half-interviewer, half-listener.</p>
+        <p>I'm here to get to know you and reflect you. Listening, waiting, and observing are the work. A shared meditation. The space of the relationship.</p>
+      </div>
+    </section>
+
+    <section class="section section--bone" aria-labelledby="why">
+      <div class="wrap">
+        <p class="eyebrow"><span>why i'm doing this</span></p>
+        <h2 id="why" class="section-h">Because I want to share the <span class="it">brilliance and clarity</span> of the people I love.</h2>
+        <p>The systems we live in make it hard for people to be witnessed in what they actually see and know and believe. Too much noise. Too much performance. Too much extraction.</p>
+        <p>The most important things any of us ever say come out sideways. My job is to attend with enough subtlety to practice what I like to remind myself of, easy love, right effort and loving-kindness.</p>
+        <p>No prep. Just show up as you.</p>
+      </div>
+    </section>
+
+    <aside class="quote" aria-label="Quotation">
+      <div class="wrap">
+        <blockquote>
+          "Even though you try to put people under control, it is impossible. You cannot do it. The best way to control people is to encourage them to be mischievous. Then they will be in control in a wider sense. To give your sheep or cow a large, spacious meadow is the way to control him. So it is with people: first let them do what they want, and watch them. This is the best policy. To ignore them is not good. That is the worst policy. The second worst is trying to control them."
+          <cite><span class="who">Shunryu Suzuki</span> · Zen Mind, Beginner's Mind · "Control"</cite>
+        </blockquote>
+      </div>
+    </aside>
+
+    <section class="cta" aria-labelledby="cta-h">
+      <div class="wrap">
+        <h2 id="cta-h" style="position:absolute;left:-9999px;">Get in touch</h2>
+        <a class="cta-btn" href="mailto:isaac@rubinsteinproductions.com?subject=Say%20Why%2C%20Step%201">
+          Are you in for Step 1?
+        </a>
+        <p class="cta-note">isaac@rubinsteinproductions.com</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot" role="contentinfo">
+    <span>Rubinstein Productions · Say Why · 2026</span>
+  </footer>
+
+</body>
+</html>
