@@ -15,6 +15,13 @@ folder that holds both repos (`~/code` or wherever `rubinsteinproductions/` and
 > forward, and re-exporting `cv.pdf` with the new address. Treat the build steps
 > below as the record of what was done, and focus on those credential steps.
 
+> **Status (2026-07-28): the hosting question is settled the other way.** DNS
+> and response headers (`server: Netlify`) confirm Netlify as the production
+> host; the GitHub Pages deploy on push to `main` is a mirror. `public/_redirects`
+> was deliberately re-added as the Netlify SPA fallback (commit 9f87368). The
+> "confirm DNS / disconnect Netlify" actionable below is dead. Do not disconnect
+> Netlify. `CLAUDE.md` carries the authoritative statement.
+
 ---
 
 ## First, the truth about where these sites live
