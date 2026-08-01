@@ -37,7 +37,7 @@ export default function Writing() {
       <StructuredData data={{
         '@context': 'https://schema.org',
         '@type': 'Blog',
-        name: 'Rubinstein Productions — Writing',
+        name: 'Rubinstein Productions: Writing',
         url: 'https://rubinsteinproductions.com/writing',
         author: { '@id': 'https://rubinsteinproductions.com/#isaac' },
         blogPost: essays.map(e => ({
