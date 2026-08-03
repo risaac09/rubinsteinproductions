@@ -11,13 +11,14 @@ Facilitation, film, and program evaluation for people and programs in transition
 - **Writing** — short essays on evaluation practice
 - **Films** — documentary and vertical-format work
 - **/hr1-tracker** — Cross-State H.R. 1 Implementation Tracker (static, in `public/`)
+- **/say-why** — Say Why static series page (static, in `public/say-why/`)
 
 ## Stack
 
 - React + Vite
-- react-router (client-side routing; `public/404.html` is the SPA fallback on GitHub Pages)
+- react-router (client-side routing; `public/_redirects` is the Netlify SPA fallback, `public/404.html` covers the GitHub Pages mirror)
 - GSAP scroll animations
-- Hosted on GitHub Pages
+- Production served by Netlify; GitHub Pages carries a mirror
 
 ## Development
 
@@ -28,9 +29,11 @@ npm run dev
 
 ## Deploy
 
-Deployment is automatic. Pushing to `main` runs `.github/workflows/deploy.yml`,
-which builds with Vite and publishes `dist/` to GitHub Pages. The custom domain
-is set by `public/CNAME`.
+Netlify serves production (DNS points there; `server: Netlify`), deployed via
+the CLI recipe in the netlify-deploy memory. Pushing to `main` runs
+`.github/workflows/deploy.yml`, which builds with Vite and publishes `dist/` to
+GitHub Pages as a mirror, not the live site. Merging to main does not ship until
+the Netlify deploy runs. The custom domain is set by `public/CNAME`.
 
 ```bash
 # manual build (CI does this for you)
