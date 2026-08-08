@@ -112,7 +112,7 @@ export default function About() {
         sameAs: [
           'https://www.linkedin.com/in/isaacrubinstein/',
           'https://substack.com/@isaacrubinstein',
-          'https://www.youtube.com/@risaac09',
+          'https://www.youtube.com/@rubinsteinproductions',
         ],
       }} />
 
