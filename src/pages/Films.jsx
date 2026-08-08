@@ -8,7 +8,7 @@ import StructuredData from '../components/StructuredData.jsx'
 import { featured, verticals } from '../data/films.js'
 import './Films.css'
 
-const CHANNEL = 'https://www.youtube.com/@risaac09'
+const CHANNEL = 'https://www.youtube.com/@rubinsteinproductions'
 
 // Click-to-load: show the YouTube thumbnail until the user opts in, then swap in
 // the iframe. Keeps the page fast (no third-party iframe on first paint) and
