@@ -271,6 +271,33 @@ export default function Home() {
               Someone listens. Something loosens. What's true gets simpler.
             </p>
           </div>
+
+          {/* THE METABOLIZER: FREE VAULT DOWNLOAD */}
+          <div className="metabolize-product">
+            <p className="small-caps" style={{ color: 'var(--amber)' }}>
+              Free download
+            </p>
+            <h3 className="metabolize-product-title">The Metabolizer</h3>
+            <p>
+              The liver has a take-home form. The Metabolizer is an Obsidian
+              vault built on the same premise: a finite intake, a five minute
+              daily practice, built-in decay, and a weekly threshold check.
+              Information you never touch gets surfaced for a decision, digest
+              or release.
+            </p>
+            <p>
+              The vault is free and complete. Download the zip, open the folder
+              in Obsidian, and read START HERE.
+            </p>
+            <a
+              href="/downloads/the-metabolizer.zip"
+              className="cta-link"
+              style={{ color: 'var(--bone)', borderColor: 'var(--blood)' }}
+              download
+            >
+              Download the vault
+            </a>
+          </div>
         </div>
       </section>
 
