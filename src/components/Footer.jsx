@@ -32,7 +32,7 @@ export default function Footer() {
           <span className="dot-sep" aria-hidden="true" />
           <a href="https://substack.com/@isaacrubinstein" target="_blank" rel="noopener noreferrer">Substack</a>
           <span className="dot-sep" aria-hidden="true" />
-          <a href="https://www.youtube.com/@risaac09" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://www.youtube.com/@rubinsteinproductions" target="_blank" rel="noopener noreferrer">YouTube</a>
         </div>
 
         <p className="footer-copy">© {new Date().getFullYear()} Rubinstein Productions. All rights reserved.</p>
