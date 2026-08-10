@@ -210,7 +210,7 @@ export default function Home() {
         url: 'https://rubinsteinproductions.com',
         founder: { '@id': 'https://rubinsteinproductions.com/#isaac' },
         priceRange: '$500 – $12,000',
-        serviceType: ['Facilitation', 'Documentary Film', 'Program Evaluation'],
+        serviceType: ['Facilitation', 'Documentary Film'],
         sameAs: [
           'https://www.linkedin.com/in/isaacrubinstein/',
         ],
