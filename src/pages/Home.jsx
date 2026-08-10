@@ -332,6 +332,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* THE METABOLIZER */}
+      <section id="metabolizer" className="metabolizer-section bg-bone section-pad scroll-reveal">
+        <div className="content-narrow">
+          <p className="small-caps">The Metabolizer</p>
+          <h2 className="metabolizer-headline">
+            The liver, as a vault you can keep.
+          </h2>
+          <div className="metabolizer-body">
+            <p>
+              The Metabolizer is this idea built into an Obsidian vault. New notes
+              enter a finite intake: seven items, then you process before you add
+              more. Notes you stop touching decay, and after seven days the vault
+              surfaces them for one decision: metabolize or release.
+            </p>
+            <p>
+              It is <span style={{ color: 'var(--blood)' }}>free</span>. Download
+              the zip and open the folder in Obsidian. A seven day onboarding is
+              inside, one short note per day.
+            </p>
+          </div>
+          <a href="/downloads/the-metabolizer.zip" className="btn-primary" download>
+            Download the vault
+          </a>
+          <p className="metabolizer-meta">Obsidian vault template · 36 KB zip · no email required</p>
+        </div>
+      </section>
+
       {/* THE OFFERING */}
       <section className="offering-section bg-marrow">
         <div className="offering-inner content-narrow scroll-reveal">
