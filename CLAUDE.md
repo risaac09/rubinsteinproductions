@@ -1,7 +1,7 @@
 # CLAUDE.md
 
 ## What this repo is
-The public site at rubinsteinproductions.com. React + Vite, GSAP. PRODUCTION IS SERVED BY NETLIFY (DNS points there; `server: Netlify`), deployed via the CLI recipe in the netlify-deploy memory; the GitHub Pages deploy on push to `main` is a mirror, not the live site. Merging to main does NOT ship until the Netlify deploy runs. React/Vite is the deliberate exception to the stack's vanilla bias; keep the exception contained to this repo and add no new framework surface.
+The public site at rubinsteinproductions.com. React + Vite, GSAP. PRODUCTION IS SERVED BY NETLIFY (DNS points there; `server: Netlify`), and Netlify builds `main` on push, so merging to main ships. Verified 2026-09-16: PR #30 merged and production served the new asset minutes later with no manual step. Netlify also builds a deploy preview for every PR. The GitHub Pages deploy on push to `main` is a mirror, not the live site. React/Vite is the deliberate exception to the stack's vanilla bias; keep the exception contained to this repo and add no new framework surface.
 
 ## Voice rules, apply to ALL user-facing copy
 This is the credibility test. Failures kill the product. If you change copy, run it past these rules first.
