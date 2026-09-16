@@ -221,6 +221,14 @@ this section as overriding where it conflicts.
    cards. Port the old site's real raster `og-image.png` (1200x630) into `public/`,
    point the meta tags at it, and add `og:image:width`/`height`.
 
+   **Correction, 2026-09-16.** This step was followed literally and it was wrong.
+   The old site's raster is a Brand A card: it reads "Isaac Rubinstein, MPH" and
+   carries isaacrubinstein.com. Porting it made the retired practice card the
+   social preview for every RP route from June to September 2026. What this step
+   should have said: render RP's own `og-image.svg` to a raster. The card now
+   lives at `public/og-card.svg`, rendered by `scripts/render-og-card.mjs`. Never
+   carry a Brand A asset across the firewall to fill a Brand B slot.
+
 4. **Reconcile three Person schemas into one, not two.** RP already ships two
    competing graphs: a `ProfessionalService` with a `Person` founder in
    `Home.jsx` and a separate top-level `Person` in `About.jsx`, both
