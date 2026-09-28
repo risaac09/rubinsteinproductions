@@ -12,7 +12,7 @@ export default function About() {
 
   usePageMeta({
     title: 'About',
-    description: 'Isaac Rubinstein is a facilitator and filmmaker. MPH. Based between Seattle and Oslo. Grounded in relational ontology: clarity is something that happens between people.',
+    description: 'Isaac Rubinstein is a facilitator and filmmaker. MPH. Grounded in relational ontology: clarity is something that happens between people.',
     path: '/about',
   })
 
@@ -150,9 +150,6 @@ export default function About() {
             He left to build a practice at the intersection of facilitation, film,
             and the philosophy of information: what happens when people metabolize
             what they know into what they can say.
-          </p>
-          <p>
-            Based between Seattle and Oslo.
           </p>
         </div>
       </section>

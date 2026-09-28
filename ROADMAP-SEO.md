@@ -239,7 +239,7 @@ import usePageMeta from '../hooks/usePageMeta.js'
 // ...
 usePageMeta({
   title: 'About',
-  description: 'Isaac Rubinstein is a facilitator, filmmaker, and voice liberation specialist. Based between Seattle and Oslo. Grounded in relational ontology.',
+  description: 'Isaac Rubinstein is a facilitator, filmmaker, and voice liberation specialist. Grounded in relational ontology.',
   path: '/about',
 })
 ```
@@ -411,7 +411,6 @@ import StructuredData from '../components/StructuredData.jsx'
   },
   areaServed: [
     { '@type': 'City', name: 'Seattle' },
-    { '@type': 'City', name: 'Oslo' },
   ],
   priceRange: '$500 - $12,000',
   serviceType: ['Video Production', 'Facilitation', 'Brand Strategy', 'Voice Liberation'],
