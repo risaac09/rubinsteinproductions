@@ -139,7 +139,7 @@ export default function Films() {
         <div className="content-narrow films-reveal" style={{ textAlign: 'center' }}>
           <p className="small-caps">Make one</p>
           <h2 className="films-cta-headline">Want a film that says it?</h2>
-          <p style={{ color: 'var(--ash)', maxWidth: '34rem', margin: '0 auto 2rem' }}>
+          <p style={{ color: 'var(--text-muted)', maxWidth: '34rem', margin: '0 auto 2rem' }}>
             The Founder Story starts with a conversation and a camera at your door.
           </p>
           <Link to="/services" className="btn-primary">See how it works</Link>

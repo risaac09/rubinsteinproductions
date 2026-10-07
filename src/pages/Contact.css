@@ -7,7 +7,7 @@
 
 .contact-sub {
   font-size: 1.05rem;
-  color: var(--ash);
+  color: var(--text-muted);
   max-width: 480px;
   line-height: 1.7;
 }
@@ -43,7 +43,7 @@
 }
 
 .form-field label span {
-  color: var(--ash);
+  color: var(--text-muted);
   text-transform: none;
   letter-spacing: 0;
   font-weight: 300;
@@ -75,7 +75,7 @@
 
 .form-field input::placeholder,
 .form-field textarea::placeholder {
-  color: var(--ash);
+  color: var(--text-muted);
 }
 
 .form-field textarea {
@@ -84,7 +84,7 @@
 }
 
 .form-error {
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   color: var(--blood);
   line-height: 1.5;
 }
@@ -105,13 +105,13 @@
 
 .sidebar-block p {
   font-size: 0.9rem;
-  color: var(--ash);
+  color: var(--text-muted);
   line-height: 1.6;
 }
 
 .sidebar-link {
   font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--marrow);
   text-decoration: none;
   border-bottom: 1px solid var(--ash);
@@ -136,7 +136,7 @@
 }
 
 .contact-success p {
-  color: var(--ash);
+  color: var(--text-muted);
 }
 
 /* RESPONSIVE */

@@ -165,16 +165,16 @@ export default function About() {
           <p>
             Most communication consulting treats clarity as a product to be manufactured.
             Better words, better slides, better delivery. That model assumes the problem
-            is technical. It isn't.
+            is technical.
           </p>
           <p>
             The problem is structural: the systems you operate inside reward performance
-            over honesty, precision over directness, polish over truth. The fix isn't
-            better packaging. It's a different relationship with your own voice.
+            over honesty, precision over directness, polish over truth. The fix is a
+            different relationship with your own voice.
           </p>
           <p>
-            That's what facilitation does. Not coaching you toward a script.
-            Listening until what's true becomes speakable.
+            That's what facilitation does: listening until what's true becomes
+            speakable.
           </p>
         </div>
       </section>
@@ -202,7 +202,7 @@ export default function About() {
             The "Say Why" methodology emerged from that collision:
             what happens when you stop optimizing your message and start
             metabolizing it instead.{' '}
-            <Link to="/services">See the three ways to work together.</Link>
+            <Link to="/services">See the two ways to work together.</Link>
           </p>
         </div>
       </section>
@@ -218,7 +218,7 @@ export default function About() {
           <div className="voice-grid">
             {[
               { label: 'Direct', desc: 'No hedging. No throat-clearing. The thing, then the reason.' },
-              { label: 'Warm', desc: "Not cheerful. Present. There's a difference." },
+              { label: 'Warm', desc: 'Present in the room, and paying attention to you.' },
               { label: 'Clear', desc: 'Simple sentences. One idea at a time. White space is not weakness.' },
               { label: 'Honest', desc: 'Including about limits. Especially about limits.' },
             ].map(({ label, desc }) => (
@@ -236,7 +236,7 @@ export default function About() {
         <div className="content-narrow about-block scroll-reveal" style={{ textAlign: 'center' }}>
           <p className="small-caps">Work together</p>
           <h2 className="about-section-headline">Ready to say the thing?</h2>
-          <p style={{ color: 'var(--ash)', marginBottom: '2.5rem' }}>
+          <p style={{ color: 'var(--text-muted)', marginBottom: '2.5rem' }}>
             Start with a conversation. No pitch. No pressure.
           </p>
           <Link to="/contact" className="btn-primary">Get in touch</Link>

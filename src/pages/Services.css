@@ -25,7 +25,7 @@
 
 .services-hero-sub {
   font-size: 1.05rem;
-  color: var(--ash);
+  color: var(--text-muted);
   max-width: 520px;
   line-height: 1.7;
 }
@@ -43,9 +43,16 @@
 
 .tier-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* One column per offer. The width cap sits on the grid, not the card, so the ash
+     hairline background never shows beside a single offer. */
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: 1px;
   background: var(--ash);
+}
+
+/* A single offer has no hairline to draw; without this the ash shows round the card while it scales in. */
+.tier-grid:has(> :only-child) {
+  background: none;
 }
 
 .tier-card {
@@ -81,14 +88,14 @@
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.1em;
-  color: var(--amber);
+  color: var(--amber-ink);
   text-transform: uppercase;
   margin-bottom: 1.2rem;
 }
 
 .tier-desc {
   font-size: 0.9rem;
-  color: var(--ash);
+  color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 1.5rem;
   flex: 1;
@@ -100,7 +107,7 @@
 }
 
 .tier-list li {
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   color: var(--marrow);
   padding: 0.45rem 0 0.45rem 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
@@ -169,7 +176,7 @@
 
 .methodology-desc {
   font-size: 0.9rem;
-  color: var(--ash);
+  color: var(--text-muted);
   line-height: 1.6;
   max-width: 560px;
 }

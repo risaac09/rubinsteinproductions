@@ -45,7 +45,7 @@
 
 .hero-sub {
   font-size: 1.1rem;
-  color: var(--ash);
+  color: var(--text-muted);
   max-width: 500px;
   margin-bottom: 3rem;
   line-height: 1.7;
@@ -81,7 +81,7 @@
 }
 
 .metabolize-body p {
-  color: var(--ash);
+  color: var(--text-muted);
   margin-bottom: 1.5rem;
   max-width: 640px;
 }
@@ -109,11 +109,11 @@
 
 .time-cell-label {
   font-family: 'Inter', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ash);
+  color: var(--text-muted);
   margin-bottom: 1rem;
 }
 
@@ -152,7 +152,7 @@
 }
 
 .filter-col--release h3 {
-  color: var(--ash);
+  color: var(--text-muted);
 }
 
 .filter-col--keep h3 {
@@ -170,7 +170,7 @@
 }
 
 .filter-col--release ul li {
-  color: var(--ash);
+  color: var(--text-muted);
   text-decoration: line-through;
   text-decoration-color: rgba(168, 158, 147, 0.4);
 }
@@ -194,7 +194,7 @@
 .metabolizer-meta {
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
-  color: var(--ash);
+  color: var(--text-muted);
   margin-top: 1.25rem;
 }
 
@@ -211,7 +211,7 @@
 }
 
 .offering-inner p {
-  color: var(--ash);
+  color: var(--text-muted);
   margin-bottom: 1.5rem;
   max-width: 640px;
 }
@@ -248,7 +248,7 @@
 
 .method-step-name {
   font-family: 'Inter', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -257,8 +257,8 @@
 }
 
 .method-step-text {
-  font-size: 0.8rem;
-  color: var(--ash);
+  font-size: 0.9rem;
+  color: var(--text-muted);
   line-height: 1.5;
 }
 
@@ -278,7 +278,6 @@
 .persona-card {
   padding: 2rem 1.5rem;
   background: var(--white);
-  border-top: 2px solid var(--blood);
 }
 
 .persona-card h3 {
@@ -288,8 +287,8 @@
 }
 
 .persona-card p {
-  font-size: 0.85rem;
-  color: var(--ash);
+  font-size: 0.9rem;
+  color: var(--text-muted);
   line-height: 1.6;
 }
 
@@ -300,7 +299,7 @@
 }
 
 .home-cta-sub {
-  color: var(--ash);
+  color: var(--text-muted);
   margin-bottom: 2.5rem;
 }
 
