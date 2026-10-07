@@ -13,6 +13,14 @@
   --blood-bright: #c24631;
   --amber-bright: #e0a94a;
 
+  /* Light-surface text grades. Ash and amber read 2.2 to 2.6:1 as text on white and bone,
+     under the 4.5:1 floor; these keep their hue at a readable value. */
+  --ash-ink: #6b6259;
+  --amber-ink: #7a5a14;
+
+  /* Muted text follows its surface: ash-ink on light, ash on marrow. */
+  --text-muted: var(--ash-ink);
+
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 2rem;
@@ -57,7 +65,7 @@ h1, h2, h3, h4, .serif {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ash);
+  color: var(--text-muted);
 }
 
 /* LAYOUT */
@@ -86,6 +94,13 @@ h1, h2, h3, h4, .serif {
   color: var(--bone);
 }
 
+/* Dark surfaces keep ash as their muted text (6.9:1 on marrow). */
+.bg-marrow,
+.footer,
+.time-cell--dark {
+  --text-muted: var(--ash);
+}
+
 /* DIVIDER */
 .divider {
   width: 40px;
@@ -98,7 +113,7 @@ h1, h2, h3, h4, .serif {
   width: 40px;
   height: 1px;
   background: var(--ash);
-  margin: var(--space-md) 0;
+  margin: 0.75rem 0 1.25rem;
 }
 
 /* BUTTONS */

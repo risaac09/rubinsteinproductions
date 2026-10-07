@@ -23,7 +23,7 @@
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 1.2rem;
   line-height: 1.5;
-  color: var(--ash);
+  color: var(--text-muted);
   max-width: 40rem;
 }
 
@@ -58,7 +58,7 @@
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ash);
+  color: var(--text-muted);
 }
 
 .essay-card-dot { opacity: 0.6; }
@@ -74,7 +74,7 @@
 .essay-card-dek {
   font-size: 1.05rem;
   line-height: 1.55;
-  color: var(--ash);
+  color: var(--text-muted);
   max-width: 42rem;
   margin: 0 0 0.9rem;
 }
@@ -93,7 +93,7 @@
 }
 
 .essay-back {
-  color: var(--ash);
+  color: var(--text-muted);
   text-decoration: none;
 }
 .essay-back:hover { color: var(--blood); }
@@ -112,7 +112,7 @@
   font-style: italic;
   font-size: 1.25rem;
   line-height: 1.5;
-  color: var(--ash);
+  color: var(--text-muted);
   max-width: 40rem;
   margin: 0 0 1.25rem;
 }
@@ -174,7 +174,7 @@
 
 .essay-plain-note {
   font-style: italic;
-  color: var(--ash);
+  color: var(--text-muted);
 }
 
 .essay-foot {
@@ -192,7 +192,7 @@
   font-size: 0.8rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--ash);
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.25s;
 }

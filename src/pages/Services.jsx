@@ -220,9 +220,9 @@ export default function Services() {
             <h2 className="tiers-headline">Founder Story</h2>
           </div>
 
-          <div className="tier-grid">
-            <div className="tier-card tier-card--featured scroll-reveal" style={{ maxWidth: '38rem', margin: '0 auto' }}>
-              <p className="tier-tag small-caps" style={{ color: 'var(--amber)' }}>The offering</p>
+          <div className="tier-grid" style={{ maxWidth: '38rem', margin: '0 auto' }}>
+            <div className="tier-card tier-card--featured scroll-reveal">
+              <p className="tier-tag small-caps" style={{ color: 'var(--amber-ink)' }}>The offering</p>
               <h3 className="tier-name">Say what you've become.</h3>
               <p className="tier-price">$1,500 – $2,500</p>
               <p className="tier-desc">
@@ -272,18 +272,18 @@ export default function Services() {
                 loading="lazy"
               />
             </div>
-            <p style={{ color: 'var(--ash)', marginBottom: '1rem' }}>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>
               The Genesis Design Challenge brought eight people together to
               build something from nothing. I embedded as facilitator and
               documentarian: conducting wayfinding interviews, tracking
               individual learning arcs, and producing a compilation film.
             </p>
-            <p style={{ color: 'var(--ash)', marginBottom: '1rem' }}>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>
               The result: a 15-minute film, an impact evaluation report with
               longitudinal data across five pulse surveys, and individual
               narrative artifacts for each participant.
             </p>
-            <p style={{ color: 'var(--ash)', marginBottom: '1.5rem' }}>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
               This is what happens when facilitation and film go deeper:
               embedded in a program, documenting what emerges, and producing
               evaluation data that proves it happened.
@@ -307,12 +307,12 @@ export default function Services() {
       </section>
 
       {/* METHODOLOGY */}
-      <section className="bg-bone section-pad">
+      <section className="section-pad">
         <div className="content-narrow">
           <div className="scroll-reveal">
             <p className="small-caps">How it works</p>
             <h2 className="methodology-headline">Four phases. One honest conversation.</h2>
-            <p style={{ color: 'var(--ash)', marginTop: '0.5rem' }}>
+            <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>
               <Link to="/about">Learn more about the facilitation approach.</Link>
             </p>
           </div>
@@ -327,7 +327,7 @@ export default function Services() {
               {
                 num: 'II',
                 name: 'Talk',
-                desc: "We have facilitated conversations. Not interviews. Not coaching sessions with homework. Conversations where what's honest surfaces and what's noise falls away. The synthesis document comes from this.",
+                desc: "We have facilitated conversations, the kind where what's honest surfaces and what's noise falls away. The synthesis document comes from this.",
               },
               {
                 num: 'III',
@@ -356,12 +356,12 @@ export default function Services() {
       </section>
 
       {/* DIAGNOSTIC */}
-      <section className="section-pad">
+      <section className="bg-bone section-pad">
         <div className="content-narrow">
           <div className="scroll-reveal" style={{ marginBottom: '2rem' }}>
             <p className="small-caps">Not sure where to start?</p>
             <h2 style={{ marginBottom: '0.75rem' }}>Take the diagnostic.</h2>
-            <p style={{ color: 'var(--ash)' }}>
+            <p style={{ color: 'var(--text-muted)' }}>
               Twelve questions about how information moves through your system.
               Four minutes. The report tells you which service tier fits, or whether
               you need something else entirely.
@@ -381,7 +381,7 @@ export default function Services() {
         <div className="content-narrow scroll-reveal" style={{ textAlign: 'center' }}>
           <p className="small-caps">Start</p>
           <h2 className="services-cta-headline">It starts with a conversation.</h2>
-          <p style={{ color: 'var(--ash)', marginBottom: '2.5rem' }}>
+          <p style={{ color: 'var(--text-muted)', marginBottom: '2.5rem' }}>
             Tell me what you're building, where you are in the process,
             and what you need to show for it. We'll figure out the rest together.
           </p>
