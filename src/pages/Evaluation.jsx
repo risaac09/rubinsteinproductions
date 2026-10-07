@@ -9,31 +9,26 @@ import './Evaluation.css'
 
 const services = [
   {
-    n: 'i.',
     name: 'Program Evaluation',
     desc: 'Formative, process, and outcome evaluations for state and federally funded programs. Logic models, theory of change, evaluation plan design.',
     keys: 'Logic models · Theory of change · CDC Framework',
   },
   {
-    n: 'ii.',
     name: 'Data Collection & Analysis',
     desc: 'Surveys, interviews, focus groups, and administrative data review. Quantitative and qualitative analysis and reporting.',
     keys: 'Survey design · Qualitative coding · Admin data',
   },
   {
-    n: 'iii.',
     name: 'Stakeholder Reporting',
     desc: 'Evaluation briefs, dashboards, and presentations for funders, leadership, and program staff. Formatted for the decisions each audience faces.',
     keys: 'Federal reporting · Briefs · Dashboards',
   },
   {
-    n: 'iv.',
     name: 'Health Equity & Place-Based Evaluation',
     desc: 'Evaluation design for Health Equity Zone initiatives, community health assessments, and place-based programs addressing social determinants of health.',
     keys: 'HEZ · SDOH · Community health · Place-based',
   },
   {
-    n: 'v.',
     name: 'Capacity Building & Advisory',
     desc: 'Readiness assessments, data infrastructure guidance, and technical assistance for organizations building evaluation capacity.',
     keys: 'Readiness · TA · Evaluation culture',
@@ -186,8 +181,7 @@ export default function Evaluation() {
           <div className="divider-short" />
           <div className="eval-services">
             {services.map(s => (
-              <div key={s.n} className="eval-service-card scroll-reveal">
-                <span className="eval-svc-num">{s.n}</span>
+              <div key={s.name} className="eval-service-card scroll-reveal">
                 <h3>{s.name}</h3>
                 <p>{s.desc}</p>
                 <span className="eval-svc-keys">{s.keys}</span>
@@ -245,7 +239,7 @@ export default function Evaluation() {
           <p className="small-caps">Writing</p>
           <div className="divider-short" />
           <h2 className="eval-section-headline">The parts that don’t make it into the report.</h2>
-          <p style={{ color: 'var(--ash)', marginBottom: '1.5rem' }}>
+          <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
             Short essays on evaluation practice: naming the question before the
             methods, and the facilitation layer that turns a delivered dashboard
             into a used one.
@@ -259,7 +253,7 @@ export default function Evaluation() {
         <div className="content-narrow eval-block scroll-reveal" style={{ textAlign: 'center' }}>
           <p className="small-caps">Work together</p>
           <h2 className="eval-section-headline">Best fit, named plainly.</h2>
-          <p style={{ color: 'var(--ash)', maxWidth: '38rem', margin: '0 auto 2rem' }}>
+          <p style={{ color: 'var(--text-muted)', maxWidth: '38rem', margin: '0 auto 2rem' }}>
             Federally or state-funded evaluation contracts, place-based or
             multi-stakeholder programs, engagements where a named decision-maker
             can describe what the report needs to change. Available for

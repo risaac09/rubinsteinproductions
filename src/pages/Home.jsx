@@ -209,7 +209,7 @@ export default function Home() {
         description: 'Facilitation and film for mission-driven professionals',
         url: 'https://rubinsteinproductions.com',
         founder: { '@id': 'https://rubinsteinproductions.com/#isaac' },
-        priceRange: '$500 – $12,000',
+        priceRange: '$1,500 – $8,000',
         serviceType: ['Facilitation', 'Documentary Film'],
         sameAs: [
           'https://www.linkedin.com/in/isaacrubinstein/',
@@ -247,24 +247,23 @@ export default function Home() {
             <ellipse cx="42" cy="42" rx="20" ry="18" fill="none" stroke="var(--blood)" strokeWidth="2" />
             <circle cx="42" cy="42" r="3" fill="var(--amber)" />
           </svg>
-          <p className="small-caps metabolize-label scroll-reveal" style={{ color: 'var(--ash)' }}>
+          <p className="small-caps metabolize-label scroll-reveal" style={{ color: 'var(--text-muted)' }}>
             The Digital Liver
           </p>
           <h2
             className="metabolize-headline"
             aria-label="The Say Why facilitation approach: metabolizing your message"
           >
-            Your message doesn't need more polish.<br />
-            It needs <span style={{ color: 'var(--amber)' }}>metabolizing.</span>
+            Give your message<br />
+            time to <span style={{ color: 'var(--amber)' }}>metabolize.</span>
           </h2>
           <div className="metabolize-body">
             <p>
               The feeling of saying something honest and clear. You know it. It's
-              fleeting. Not because you lack courage, but because the systems you
-              operate inside are designed to extract, optimize, and package
-              everything you say. Jargon, hedging, over-explaining, silence: these
-              aren't personal failures. They're rational responses to an irrational
-              environment.
+              fleeting, and courage has little to do with it: the systems you
+              operate inside are built to extract, optimize, and package
+              everything you say. Jargon, hedging, over-explaining, silence: each
+              one is a rational response to an irrational environment.
             </p>
             <p>
               Clarity is relational. It happens between people, not inside them.
@@ -364,7 +363,7 @@ export default function Home() {
         <div className="offering-inner content-narrow scroll-reveal">
           <p className="small-caps" style={{ color: 'var(--amber)' }}>The offering</p>
           <h2 className="offering-headline">I send you a camera and a lens.</h2>
-          <p style={{ color: 'var(--ash)' }}>
+          <p style={{ color: 'var(--text-muted)' }}>
             We talk. You film yourself. You learn the technology.
             You hold the means of production in your own hands.
             When you're done, you send the camera back.
