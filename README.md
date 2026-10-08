@@ -29,11 +29,18 @@ npm run dev
 
 ## Deploy
 
-Netlify serves production (DNS points there; `server: Netlify`), deployed via
-the CLI recipe in the netlify-deploy memory. Pushing to `main` runs
-`.github/workflows/deploy.yml`, which builds with Vite and publishes `dist/` to
-GitHub Pages as a mirror, not the live site. Merging to main does not ship until
-the Netlify deploy runs. The custom domain is set by `public/CNAME`.
+Netlify serves production (DNS points there; `server: Netlify`) and builds
+`main` on push, so merging to main ships. It also builds a deploy preview for
+every pull request, which is the place to check a change before it lands.
+
+Pushing to `main` additionally runs `.github/workflows/deploy.yml`, which builds
+with Vite and publishes `dist/` to GitHub Pages as a mirror, not the live site.
+The custom domain is set by `public/CNAME`.
+
+A manual `netlify deploy --prod --dir=dist` stays available for the case where
+automatic builds are paused, and it is not part of the normal path. Verified
+2026-09-16: PR #30 merged and production served the new asset minutes later,
+on a machine with no Netlify CLI installed.
 
 ```bash
 # manual build (CI does this for you)
