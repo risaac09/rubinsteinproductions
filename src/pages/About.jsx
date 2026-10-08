@@ -86,7 +86,7 @@ export default function About() {
         '@id': 'https://rubinsteinproductions.com/#isaac',
         name: 'Isaac Rubinstein',
         honorificSuffix: 'MPH',
-        jobTitle: 'Facilitator, Filmmaker & Program Evaluator',
+        jobTitle: 'Facilitator and Filmmaker',
         url: 'https://rubinsteinproductions.com/about',
         worksFor: {
           '@type': 'Organization',
