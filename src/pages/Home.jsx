@@ -209,7 +209,6 @@ export default function Home() {
         description: 'Facilitation and film for mission-driven professionals',
         url: 'https://rubinsteinproductions.com',
         founder: { '@id': 'https://rubinsteinproductions.com/#isaac' },
-        priceRange: '$1,500 – $8,000',
         serviceType: ['Facilitation', 'Documentary Film'],
         sameAs: [
           'https://www.linkedin.com/in/isaacrubinstein/',
