@@ -24,8 +24,8 @@ export default function Services() {
   }, [])
 
   usePageMeta({
-    title: 'Services & Pricing',
-    description: 'Founder Story: facilitated conversation + short film from $1,500. Program engagement for cohorts and workshops. Facilitation, film, and evaluation grounded in real methodology.',
+    title: 'Services',
+    description: 'Founder Story: facilitated conversation + short film. Program engagement for cohorts and workshops. Facilitation, film, and evaluation grounded in real methodology.',
     path: '/services',
   })
 
@@ -172,23 +172,11 @@ export default function Services() {
             '@type': 'Offer',
             name: 'Founder Story: Facilitated Conversation + Short Film',
             description: "One or two facilitated conversations and a 2–3 minute produced film that says what you've become.",
-            priceSpecification: {
-              '@type': 'PriceSpecification',
-              minPrice: '1500',
-              maxPrice: '2500',
-              priceCurrency: 'USD',
-            },
           },
           {
             '@type': 'Offer',
             name: 'Program Engagement: Embedded Documentation + Evaluation',
             description: 'Facilitation, documentation, and evaluation embedded in your program, workshop, or cohort.',
-            priceSpecification: {
-              '@type': 'PriceSpecification',
-              minPrice: '3000',
-              maxPrice: '8000',
-              priceCurrency: 'USD',
-            },
           },
         ],
       }} />
@@ -224,7 +212,6 @@ export default function Services() {
             <div className="tier-card tier-card--featured scroll-reveal">
               <p className="tier-tag small-caps" style={{ color: 'var(--amber-ink)' }}>The offering</p>
               <h3 className="tier-name">Say what you've become.</h3>
-              <p className="tier-price">$1,500 – $2,500</p>
               <p className="tier-desc">
                 A facilitated conversation and a short film. You talk.
                 I listen. We make something you can point to.
@@ -293,7 +280,6 @@ export default function Services() {
             <div className="tier-card" style={{ flex: '1', minWidth: '14rem' }}>
               <p className="tier-tag small-caps">Program engagement</p>
               <h3 className="tier-name" style={{ fontSize: '1.1rem' }}>For cohorts, workshops, and containers</h3>
-              <p className="tier-price">$3,000 – $8,000</p>
               <ul className="tier-list">
                 <li>Embedded facilitation across the program arc</li>
                 <li>Individual participant interviews</li>
