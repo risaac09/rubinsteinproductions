@@ -167,8 +167,8 @@ export default function Contact() {
                 <label htmlFor="tier">What are you looking for? <span>(optional)</span></label>
                 <select id="tier" name="tier" value={form.tier} onChange={handleChange}>
                   <option value="">Not sure yet</option>
-                  <option value="founder-story">Founder Story ($1,500–$2,500)</option>
-                  <option value="program-engagement">Program Engagement ($3K–$8K)</option>
+                  <option value="founder-story">Founder Story</option>
+                  <option value="program-engagement">Program Engagement</option>
                   <option value="conversation">Just want to talk</option>
                 </select>
               </div>
