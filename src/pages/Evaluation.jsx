@@ -177,7 +177,7 @@ export default function Evaluation() {
       {/* ——— SERVICES ——— */}
       <section className="bg-bone section-pad">
         <div className="content-wide eval-block scroll-reveal">
-          <p className="small-caps">Services</p>
+          <p className="small-caps" role="heading" aria-level="2">Services</p>
           <div className="divider-short" />
           <div className="eval-services">
             {services.map(s => (
@@ -194,7 +194,7 @@ export default function Evaluation() {
       {/* ——— SELECTED PROJECTS ——— */}
       <section className="section-pad">
         <div className="content-narrow eval-block scroll-reveal">
-          <p className="small-caps">Selected projects</p>
+          <p className="small-caps" role="heading" aria-level="2">Selected projects</p>
           <div className="divider-short" />
 
           <article className="eval-project">
