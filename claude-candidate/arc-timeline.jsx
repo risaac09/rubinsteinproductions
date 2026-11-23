@@ -13,7 +13,6 @@ function ArcTimeline({ compact = false }) {
     { m: "sep 26" }, { m: "oct 26" }, { m: "nov 26" },
     { m: "dec 26", label: "midpoint", milestone: true },
     { m: "jan 27" }, { m: "feb 27" }, { m: "mar 27" },
-    { m: "apr 27", label: "year one sober", milestone: true },
     { m: "may 27" }, { m: "jun 27" }, { m: "jul 27" },
     { m: "aug 27" },
     { m: "sep 27", label: "sept 25 · close", milestone: true, end: true },

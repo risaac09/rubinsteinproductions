@@ -103,7 +103,7 @@ const PLATE_DETAILS = [
   },
   {
     n: "10", file: "10-september-25.png",
-    title: "September 25", sub: "one year sober",
+    title: "September 25", sub: "close",
     motto: "the arc ends where it began.",
     anatomy: [
       ["motif", "calendar numeric · large gold 25"],

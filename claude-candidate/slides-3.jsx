@@ -11,7 +11,7 @@ const PLATES = [
   { n: "07", file: "07-relational.png",     title: "Relational Ontology", sub: "information is not an object · it is an event", notes: { motif: "constellation", color: "gold faint", motto: "nodes are secondary. the connections are primary." } },
   { n: "08", file: "08-say-the-thing.png",  title: "Say the Thing",     sub: "expression as practice · not performance", notes: { motif: "type only", color: "gold", motto: "the inside version · made public" } },
   { n: "09", file: "09-loop.png",           title: "Complete Loop",     sub: "entered at the bedside · returned at the systems level", notes: { motif: "split column", color: "blue · gold", motto: "children's hospital · cna → change management" } },
-  { n: "10", file: "10-september-25.png",   title: "September 25",      sub: "one year sober",                  notes: { motif: "calendar numeric", color: "gold", motto: "the arc ends where it began" } },
+  { n: "10", file: "10-september-25.png",   title: "September 25",      sub: "close",                  notes: { motif: "calendar numeric", color: "gold", motto: "the arc ends where it began" } },
 ];
 
 // ============================================================

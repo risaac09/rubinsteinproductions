@@ -202,7 +202,7 @@ function BioCard() {
       <div style={{ marginBottom: 24, paddingBottom: 16, borderBottom: "1px solid var(--rp-rule)" }}>
         <div className="rp-mono" style={{ fontSize: 11, color: "var(--rp-mute)", marginBottom: 8 }}>150 words</div>
         <div style={{ color: "var(--rp-fg-dim)" }}>
-          Isaac Rubinstein entered medicine at the bedside and returned at the systems level. He works as a practitioner and change agent across public health, institutions, and the framework. Rubinstein Productions is the publishing arm of his ongoing inquiry — a personal knowledge metabolism system rendered as ten design plates and a year of writing. The project frames information not as object but as event: signal, integration, flow, threshold. Each plate carries one diagram. Each diagram carries one argument. The arc begins April 15, 2026 and closes September 25, 2026 — one year sober, one essay published, one voice located.
+          Isaac Rubinstein entered medicine at the bedside and returned at the systems level. He works as a practitioner and change agent across public health, institutions, and the framework. Rubinstein Productions is the publishing arm of his ongoing inquiry — a personal knowledge metabolism system rendered as ten design plates and a year of writing. The project frames information not as object but as event: signal, integration, flow, threshold. Each plate carries one diagram. Each diagram carries one argument. The arc begins April 15, 2026 and closes September 25, 2026 — one essay published, one voice located.
         </div>
       </div>
       <div>
@@ -314,7 +314,7 @@ function App() {
           <SocialSquare n="08" plate="08-say-the-thing.png" title="Say the Thing" sub="expression as practice" />
         </DCArtboard>
         <DCArtboard id="sq-10" label="10 · september 25" width={600} height={600}>
-          <SocialSquare n="10" plate="10-september-25.png" title="September 25" sub="one year sober" />
+          <SocialSquare n="10" plate="10-september-25.png" title="September 25" sub="close" />
         </DCArtboard>
       </DCSection>
 
