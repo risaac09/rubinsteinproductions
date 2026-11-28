@@ -17,7 +17,5 @@ This is the credibility test. Failures kill the product. If you change copy, run
 - No staccato. Vary sentence length. Long, long, longer, short.
 
 ## Routing
-- Tier: 2, a public view. Phase-zero triggers, session close, and research routing come from the deployed `.claude/` kit (source: `rubinstein-productions-toolkit/phase-zero/`).
-
-## Model routing
-The routing check is injected at session start by the phase-zero kit (`.claude/model-routing.md`). Canonical source: `rubinstein-productions-toolkit/phase-zero/model-routing.md`; edit it there and redeploy. Local note: most site copy and component work lands at the Sonnet tier.
+- Tier: 2, a public view.
+- Model routing: most site copy and component work lands at the Sonnet tier.
