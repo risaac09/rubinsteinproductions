@@ -53,7 +53,7 @@ The live funnel: the Services page hosts the diagnostic iframe, whose embed-funn
 
 ## Where it goes (strategic)
 
-Tier 2, a public view over the stack; routing, tier, and session protocol live in `CLAUDE.md`, with the identity frame in `.claude/phase-zero.md` (deployed from the toolkit, never edited in place). Open decisions Isaac has not yet ruled on:
+Tier 2, a public view over the stack; routing and tier live in `CLAUDE.md`. Open decisions Isaac has not yet ruled on:
 
 - Resolved: the Services iframe now points at alchemy's consolidated `embed.html` (`https://alchemy.rubinsteinproductions.com/embed.html`), so the alchemy-diagnostic repo can archive without breaking the page.
 - Close out and record the consolidation credential steps, then archive `CONSOLIDATION-PROMPT.md` as done.
@@ -68,7 +68,6 @@ Gap: whether the outreach cadence in `outreach-system.md` (March 2026, in rp-int
 Automated:
 
 - `.github/workflows/deploy.yml`: on push to `main` and on `workflow_dispatch`. Node 20, `npm ci`, Vite build, publish `dist/` to GitHub Pages with the custom domain from `public/CNAME`. The Pages deploy is a mirror; Netlify serves production and ships via the CLI recipe, not this workflow. No named secrets beyond the default workflow token.
-- `.claude/settings.json` UserPromptSubmit hook, `.claude/hooks/phase-zero-trigger.sh`: the six phase-zero trigger phrases load the global-awareness kit. Kit files are deployed from `rubinstein-productions-toolkit/phase-zero/`; edit the kit source and redeploy, never the deployed copy.
 
 Manual:
 
@@ -76,7 +75,6 @@ Manual:
 - **Content updates:** essays in `src/data/essays.js` plus a sitemap entry, films in `src/data/films.js`, tracker in `public/hr1-tracker/index.html`. Good looks like the new page rendering locally with correct meta from `usePageMeta.js` and the sitemap listing the URL.
 - **Consolidation closeout:** Isaac runs the remaining steps from `CONSOLIDATION-PROMPT.md` on the M2 Pro (redirect stubs, GSC change of address, mailbox forward, cv.pdf re-export). The dig/curl proof and Netlify-disconnect step is superseded as of 2026-07-28: Netlify is the production host and stays connected. Good looks like each remaining step dated done in that file.
 - **Outreach cadence** per `outreach-system.md` (in rp-intranet): daily LinkedIn engagement, at most 3 Mirror emails per week, invitations as earned, twice-weekly LinkedIn posts from the brand-card series. Content status above notes this doc predates the current offerings.
-- **Session close:** "log learnings" runs `.claude/retrospective.md`, logging via stack-data's `scripts/sd-retro`.
 - **Legacy only:** `_legacy-vanilla-homepage/serve.sh` and `make-og.sh` serve the retired static bundle; historical, do not extend.
 
 ## Known drift
